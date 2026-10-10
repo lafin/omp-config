@@ -736,6 +736,12 @@ def effective_config(args: argparse.Namespace) -> dict[str, Any]:
     if not isinstance(parsed, dict):
         raise ValueError(f"cannot read effective OMP profile configuration: {stderr.strip()}")
     custom_directories = (parsed.get("skills.customDirectories") or {}).get("value")
+    # omp 18.8.7 `config list` omits --config overlays, but the runtime applies them (last wins).
+    for path in args.config:
+        overlay = yaml.safe_load(Path(path).read_text(encoding="utf-8")) or {}
+        directories = (overlay.get("skills") or {}).get("customDirectories")
+        if directories is not None:
+            custom_directories = directories
     if not isinstance(custom_directories, list):
         raise ValueError(
             f"profile {args.profile!r} must configure skills.customDirectories as an array"
