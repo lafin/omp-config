@@ -209,11 +209,11 @@ Use the commands, locked configuration, and gates in [the evaluation guide](../e
 
 These items change policy or legal framing. Do not apply them without an explicit decision.
 
-| ID | Question | Recommendation |
+| ID | Question | Decision (2026-10-10) |
 |---|---|---|
-| LC-5 | `leancode` metadata says `adaptation: inspired` and that the copying direction is unverified. The review found that §1 and most of §3–§4 match upstream `CLAUDE.md` almost word for word, and that the upstream snapshot is six months older. Change to `adaptation: derived`? | Owner decision. `ATTRIBUTION.md` deliberately avoids inferring direction. If you change it, update `ATTRIBUTION.md` in the same commit. |
-| HE-5 | `harness-engineering/SKILL.md:82-84,206` forbid merge or push without human approval. OpenAI documents agents that merge their own changes when rollback is cheap. Add a standing-grant exception? | Keep the default. Add the exception only if a user workflow needs it. |
-| RP-6 | Send fixes upstream? | Yes for `LDC-1`, `EV-1`, and `AE-3`; these are small and unambiguous. |
+| LC-5 | `leancode` metadata says `adaptation: inspired` and that the copying direction is unverified. The review found that §1 and most of §3–§4 match upstream `CLAUDE.md` almost word for word, and that the upstream snapshot is six months older. Change to `adaptation: derived`? | **Keep `inspired`.** Copying direction stays unverified; `ATTRIBUTION.md` unchanged. |
+| HE-5 | `harness-engineering/SKILL.md:82-84,206` forbid merge or push without human approval. OpenAI documents agents that merge their own changes when rollback is cheap. Add a standing-grant exception? | **No exception.** Approval per merge/push stays. |
+| RP-6 | Send fixes upstream? | **Draft only.** Issue drafts in [upstream/](upstream/); the owner files them. |
 
 ## 12. Rejected
 
@@ -225,7 +225,7 @@ Closed: see [Content Refresh: Rejected Proposals](decisions/0011-content-refresh
 - [x] Every Wave 2 item is merged or rejected with a reason, and its smoke check passed.
 - [ ] Every Wave 3 item has a development behavior result, and every merged item has a holdout result under skill set plan §18.2.
 - [ ] Every Wave 4 item ran inside the description-density experiment.
-- [ ] Every Section 11 decision is recorded.
+- [x] Every Section 11 decision is recorded.
 - [x] `ATTRIBUTION.md` and the skill metadata match the synced upstream commits.
 
 ## 14. Implementation Status (2026-10-06)
@@ -234,4 +234,4 @@ Closed: see [Content Refresh: Rejected Proposals](decisions/0011-content-refresh
 - **Proposed evaluation cases:** `evals/cases/refresh-behavior-development.jsonl` (36 behavior cases, one per **G** treatment group) and `evals/cases/refresh-routing-development.jsonl` (12 routing cases covering both directions of every **R** pair). Both are registered as canonical development suites `refresh-behavior` and `refresh-routing`. Holdout files for these suites do not exist yet; write them after the development runs, without tuning against them.
 - **HK-2:** fallback branch applied. `LEGACY_REMINDERS` is now derived from `leancodeReminder()`. `evals/mode_smoke.py` asserts that no prior reminder reaches `context` (probe: `evals/leancode_context_probe.ts`), but its only run (`evals/results/content-refresh/mode-smoke-hk2.json`) failed before any model turn, so the filter stays until the assertion passes.
 - **Blocked:** every live gate (Section 10.4, `HK-1` Candidate 3 rerun, `HK-2` smoke). The pinned evaluation profile `skill-eval-isolated` has no valid `openai-codex` credential (`No API key found for openai-codex`; refresh token rejected). Unblock: run `omp --profile skill-eval-isolated` and `/login`, then run `refresh-behavior` and `refresh-routing` baseline and treatment per `evals/README.md`.
-- **Open owner decisions:** `LC-5`, `HE-5`, `RP-6`.
+- **Owner decisions:** recorded in Section 11 (2026-10-10).
