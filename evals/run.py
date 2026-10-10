@@ -740,7 +740,7 @@ def effective_config(args: argparse.Namespace) -> dict[str, Any]:
         raise ValueError(
             f"profile {args.profile!r} must configure skills.customDirectories as an array"
         )
-    catalog_root = getattr(args, "catalog_root", skill_root(args.cwd))
+    catalog_root = Path(getattr(args, "catalog_root", skill_root(args.cwd))).resolve()
     configured_roots = [
         str(Path(path).resolve())
         for path in custom_directories or []
