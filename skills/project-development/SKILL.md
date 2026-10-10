@@ -62,6 +62,8 @@ Evaluate task-model fit before writing any code, because building automation on 
 | Sequential dependencies | Each step depends heavily on the previous result, compounding errors |
 | Deterministic output requirements | Same input must produce identical output, which LLMs cannot guarantee |
 
+For a mixed workload, split by record: deterministic records (fixed formats, exact lookups, validation) stay in code and never pass through the model; send only the records that need interpretation to the LLM. Do not route every record through the model "for consistency".
+
 ### The Manual Prototype Step
 
 Always validate task-model fit with a manual test before investing in automation. Copy one representative input into the model interface, evaluate the output quality, and use the result to answer these questions:
