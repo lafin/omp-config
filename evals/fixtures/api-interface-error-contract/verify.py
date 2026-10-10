@@ -28,9 +28,9 @@ def add(checks, name, probe):
     try:
         probe()
     except Exception as exc:
-        checks.append({"name": name, "dimension": "interface_contract", "critical": True, "passed": False, "detail": f"{type(exc).__name__}: {exc}"})
+        checks.append({"name": name, "dimension": "correctness", "critical": True, "passed": False, "detail": f"{type(exc).__name__}: {exc}"})
     else:
-        checks.append({"name": name, "dimension": "interface_contract", "critical": True, "passed": True, "detail": "observable contract satisfied"})
+        checks.append({"name": name, "dimension": "correctness", "critical": True, "passed": True, "detail": "observable contract satisfied"})
 
 
 def equal(actual, expected):
