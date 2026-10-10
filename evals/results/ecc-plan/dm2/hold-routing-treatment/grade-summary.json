@@ -1,0 +1,31 @@
+{
+  "all_passed": true,
+  "artifacts": 12,
+  "condition": "treatment",
+  "critical_passed": 12,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-deprecation-and-migration-routing-holdout-leancode-direct/1.json": "3352bf797cfbef62c7ab6c0ebba65936185cd52233f6c602a4bd7962922abed5",
+      "artifacts/pilot-deprecation-and-migration-routing-holdout-leancode-direct/2.json": "aeb9536243d3f249fa8cd2e49e5b609fcdea2322fdcd690bfb958e1716bb273f",
+      "artifacts/pilot-deprecation-and-migration-routing-holdout-leancode-direct/3.json": "1503284d107044db1c3a56b1d9390c87e60d3a1bd395ea0ee1c5e4372b30d102",
+      "artifacts/pilot-deprecation-and-migration-routing-holdout-leancode-migration/1.json": "a48e39bc12a8c57a65dd36c7cb69286595718c69fab1270f30c85b9c176729d2",
+      "artifacts/pilot-deprecation-and-migration-routing-holdout-leancode-migration/2.json": "ebef12c674090981dc7ca751d4c97df7c40b2cddfa2b4514aa50c081c762851f",
+      "artifacts/pilot-deprecation-and-migration-routing-holdout-leancode-migration/3.json": "35be1f06bc9e96672085001d72e0454b36965756a50a59cdc6a5be91aa02b15f",
+      "artifacts/pilot-deprecation-and-migration-routing-holdout-project-architecture/1.json": "2199227edf779079513c2216eb931a4419772e422f5dc4b364f5aa12745ca390",
+      "artifacts/pilot-deprecation-and-migration-routing-holdout-project-architecture/2.json": "3ec605e299dacb01e84fdfa0fee2a395cff2071ce3690840bdcb0630bde891cf",
+      "artifacts/pilot-deprecation-and-migration-routing-holdout-project-architecture/3.json": "376cfe37480aba1fca266d5a1e183328b16cd9561cd35412778cf914bae8609e",
+      "artifacts/pilot-deprecation-and-migration-routing-holdout-project-transition/1.json": "4fe5c6b7bfce490122cb62e4281c7304dfe4d70e4f8e29ef10b70380bc36d25b",
+      "artifacts/pilot-deprecation-and-migration-routing-holdout-project-transition/2.json": "d0365738ba3d460a95d00a8634ea1700ff139b43e8170ab6b01be9e89fc2149d",
+      "artifacts/pilot-deprecation-and-migration-routing-holdout-project-transition/3.json": "912e935c59db253def8d6a402de579318aee8054e22d1f912df8e03ed9f891c2"
+    },
+    "case_snapshot_sha256": "feb5ae498381eca77b0dd63322742b0fa7416df7c50fe81eb0d1d7076662758b",
+    "grader_sha256": "49b310ddde90221b1fbad5b6b81bd8b6df947414229dbfbb4781cb494e16ecbc",
+    "manifest_sha256": "5cb22ecff2d96dbac70f0f946f02f6f9c0ecaf9caf3a19daf599c123782db506"
+  },
+  "passed": 12,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-routing-treatment",
+  "schema_version": 5
+}

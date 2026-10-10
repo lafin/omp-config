@@ -369,13 +369,19 @@ Decisions: D1 adopted (Δ_min 0.15, consistency 3/18 → 0/18, ≥18 holdout att
 | H | `docs/backlog.md` (154 rows), `docs/decisions/0001–0017`, five plans compressed | — |
 | §10.4 | `tests/dir_context.test.ts` in CI; EV-1 already fixed; CF-1 finished in remaining files | — |
 
-Every live run is blocked on credentials: profile `skill-eval-isolated` reports `No API key found for openai-codex`. After `/login` in that profile, run with `MODEL=openai-codex/gpt-5.6-sol PROFILE=skill-eval-isolated`:
+## 17. Live Results (2026-10-10, `openai-codex/gpt-5.6-sol`, profile `skill-eval-isolated`, 3 attempts)
 
-```sh
-python3 evals/agent_eval.py evals/cases/agent-deep-verifier-behavior-development.jsonl agents/deep-verifier.md --revision HEAD --model "$MODEL" --profile "$PROFILE" --attempts 3 --output evals/results/ecc-plan/deep-verifier-baseline
-python3 evals/agent_eval.py evals/cases/agent-deep-verifier-behavior-development.jsonl agents/deep-verifier.md --working-tree --model "$MODEL" --profile "$PROFILE" --attempts 3 --output evals/results/ecc-plan/deep-verifier-treatment
-python3 evals/run.py --suite leancode-merge-routing --condition treatment --model "$MODEL" --profile "$PROFILE" --attempts 3 --tools '' --output evals/results/ecc-plan/leancode-merge-routing-treatment
-python3 evals/run.py --proposal-baseline evals/cases/pilot-security-review-behavior-development.jsonl --condition baseline --model "$MODEL" --profile "$PROFILE" --attempts 3 --tools '' --output evals/results/ecc-plan/security-review-dev-baseline
-```
+Results are under `evals/results/ecc-plan/`. Proposal admissions were run as temporary candidate commits and reverted; all three proposals remain in `proposals/`.
 
-Proposal treatments (D, E) then follow §12.4: commit, pin `treatment_catalog_revision`, run guarded holdouts, and gate with `python3 evals/grade.py gate --admission-path procedural-value`.
+| Item | Baseline | Treatment | Gate |
+|---|---|---|---|
+| A `deep-verifier` (dev, `evals/agent_eval.py`) | 3/9 critical failures, all `real-high` (snippet omits the `DELETE`) | 0/9 | dev only; no holdout; agent run outside the task tool |
+| F `leancode-review` routing (repo scope) | — | 6/6 | description lock updated with this evidence |
+| F `leancode-review` behavior | pre-merge `leancode-audit`: catalog case 0/3 | catalog case 0/3 (fewer failed checks), LA-1 case 3/3 | not worse than pre-merge |
+| D `deprecation-and-migration` | behavior dev 0/3, holdout 0/3; coverage 0.63 / 0.58 | behavior 0/3, 0/3; coverage 0.71 / 0.70; tokens ×5–7 | fail both paths: coverage gain 0.12 < 0.15, critical failures remain |
+| D `source-driven-development` | behavior dev 3/6, holdout 0/6 | dev 0/6, holdout 0/6 | fail: dev critical regression |
+| E `security-review` | behavior dev 9/9, holdout 11/18; routing holdout 15/18 | dev 9/9, holdout 10/18; routing 18/18 | fail: holdout regression (`authorization` severity 3/3) |
+
+Harness defects fixed during the runs: catalog-root symlink resolution and `--config` overlay handling in `evals/run.py`; grading of routing cases whose proposal root is absent from the baseline catalog, and catalog-location fields excluded from the pairing signature in `evals/grade.py`.
+
+Next, per §8.4: one development iteration per proposal against the failing checks above, then a rerun; a proposal that still fails is moved to historical. The proposal behavior case files hold 1–3 cases, below the 18-attempt minimum of the procedural path; the consistency criterion cannot pass without more frozen cases.
