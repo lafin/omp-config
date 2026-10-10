@@ -87,6 +87,7 @@ framework, artifact contract, and reproduction commands.
 
 ## Reviews
 
+- `api-and-interface-design` — admission candidate.
 - `source-driven-development` — implement against the pinned version of an external package or API using version-matched primary sources.
 - `security-review` — find and fix exploitable defects at application trust boundaries.
 - `ml-system-design-review` — review ML/AI system designs and implementation evidence.
