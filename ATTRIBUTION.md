@@ -101,15 +101,14 @@ without asserting ownership of third-party wording.
 No substantive external match was found for `leancode-review`,
 `leancode-audit` (merged into `leancode-review`), or `leancode-debt`.
 
-## Staged Addy Osmani Pilot Adaptations
+## Addy Osmani Agent Skills Adaptations
 
-The non-active proposals in `proposals/source-driven-development`,
-`proposals/api-and-interface-design`, and `proposals/deprecation-and-migration`
+`skills/source-driven-development` (admitted) and the non-active proposals
+`proposals/api-and-interface-design` and `proposals/deprecation-and-migration`
 adapt the matching `skills/<name>/SKILL.md` files from
 https://github.com/addyosmani/agent-skills at commit
-`be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39`. They are modified evaluation
-candidates, not enabled root skills. The upstream MIT notice is preserved in
-[LICENSE-addy-agent-skills](LICENSE-addy-agent-skills).
+`be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39`. The upstream MIT notice is
+preserved in [LICENSE-addy-agent-skills](LICENSE-addy-agent-skills).
 
 ## ECC Adaptations
 
@@ -124,8 +123,8 @@ that commit. The upstream MIT notice is preserved in [LICENSE-ecc](LICENSE-ecc).
 - `proposals/deprecation-and-migration/references/database-migrations.md`
   (non-active): modified from
   https://github.com/affaan-m/ECC/blob/4eb71d92a39cab44ad40ac9d8a6a5ccb4029d6c2/skills/database-migrations/SKILL.md.
-- `proposals/source-driven-development/SKILL.md` step 0 and the
-  adopt / extend / build decision (non-active): inspired by
+- `skills/source-driven-development/SKILL.md` step 0 and the
+  adopt / extend / build decision (admitted): inspired by
   https://github.com/affaan-m/ECC/blob/4eb71d92a39cab44ad40ac9d8a6a5ccb4029d6c2/skills/search-first/SKILL.md.
 
 ## Simplified Engineering English

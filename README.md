@@ -87,7 +87,7 @@ framework, artifact contract, and reproduction commands.
 
 ## Reviews
 
-- `source-driven-development` — admission candidate.
+- `source-driven-development` — implement against the pinned version of an external package or API using version-matched primary sources.
 - `security-review` — find and fix exploitable defects at application trust boundaries.
 - `ml-system-design-review` — review ML/AI system designs and implementation evidence.
 - `ai-stage-gate` — make evidence-based Go / Conditional / Kill decisions for AI initiatives.
@@ -103,9 +103,9 @@ framework, artifact contract, and reproduction commands.
 
 ## Staged evaluation proposals
 
-`source-driven-development`, `api-and-interface-design`, and
-`deprecation-and-migration` are non-active candidates under `proposals/`.
-They are excluded from `skills/` discovery until their frozen routing and
-behavior admission gates pass. See [ATTRIBUTION.md](ATTRIBUTION.md) and
+`api-and-interface-design` and `deprecation-and-migration` are non-active
+candidates under `proposals/`. They are excluded from `skills/` discovery until
+their frozen routing and behavior admission gates pass. See
+[ATTRIBUTION.md](ATTRIBUTION.md) and
 [LICENSE-addy-agent-skills](LICENSE-addy-agent-skills) for their pinned source
 and license.

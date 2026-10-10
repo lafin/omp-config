@@ -95,6 +95,10 @@
     "sha256": "65ae0b29d7230ba608b11602f8ae344e04b4ad92ed94f0c9c85df46da07d0a67",
     "routing_evidence": "evals/results/catalog-routing-home-v1"
   },
+  "source-driven-development": {
+    "sha256": "1d14a8133f57c1db4ff77660f50b79277790783508b445246dda678f89c8d971",
+    "routing_evidence": "evals/results/ecc-plan/v5/source-driven-development/hold-routing-treatment"
+  },
   "tool-design": {
     "sha256": "761813ed2396942392428ad3878620d50af7208afb70f0d6ffe4d7c883bc438a",
     "routing_evidence": "evals/results/catalog-routing-home-v1"
