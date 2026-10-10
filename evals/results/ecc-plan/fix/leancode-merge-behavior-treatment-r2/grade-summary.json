@@ -1,0 +1,25 @@
+{
+  "all_passed": false,
+  "artifacts": 6,
+  "condition": "treatment",
+  "critical_passed": 3,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/merge-catalog-behavior-development-leancode-review/1.json": "ccf7f9b9be6c0cde50c50f16aac908dd7f1d6582018cd8f5c571c9af90a35b5c",
+      "artifacts/merge-catalog-behavior-development-leancode-review/2.json": "a783985738c4ca3ccaf68ae64dd9e46fea833b259d836a62a27298d54f2faf33",
+      "artifacts/merge-catalog-behavior-development-leancode-review/3.json": "b9f8b82e993cbba8e79c7b9020d46403fc77c4245cb6856d5aa8994c0d4b9e1d",
+      "artifacts/merge-refresh-LA-1-evidence-not-size/1.json": "d6f7891a12b469dbd2faab097b8cfc872d257c3bf7ea2a4c7d553db24f06815a",
+      "artifacts/merge-refresh-LA-1-evidence-not-size/2.json": "16301ae5647787e91fd3301529c4be8b65d8cf2c798b0e97a80798951d7e9f70",
+      "artifacts/merge-refresh-LA-1-evidence-not-size/3.json": "a21f1a29f6416965cfed9eae37012829a5ee991fcd11399d202f087e7c2c79fa"
+    },
+    "case_snapshot_sha256": "2aacfa0739f202cda304dbedbe8673996c3987e3e0fdb457ccb5414fe3697dca",
+    "grader_sha256": "49b310ddde90221b1fbad5b6b81bd8b6df947414229dbfbb4781cb494e16ecbc",
+    "manifest_sha256": "14fba607962336e01c20f576547c8a1eb4b741f0ee63857e1d26accc45e127e6"
+  },
+  "passed": 3,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "leancode-merge-behavior-treatment-r2",
+  "schema_version": 5
+}
