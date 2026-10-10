@@ -81,6 +81,13 @@ describe("leancode hook state", () => {
     expect(leancodeReminder("off")).toContain("Do not apply leancode instructions");
   });
 
+  test("active reminders let an explicitly requested report or format win; off does not", () => {
+    for (const mode of ["lite", "full", "ultra"] as const) {
+      expect(leancodeReminder(mode)).toContain("an explicitly requested report or format wins");
+    }
+    expect(leancodeReminder("off")).not.toContain("report or format wins");
+  });
+
   test("all modes update context, status, and notification", async () => {
     const hook = loadHook();
     await hook.start();
