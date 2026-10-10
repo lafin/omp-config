@@ -111,7 +111,9 @@ Format per `references/output-templates.md`: three artifacts, always.
    standalone `.md`.
 3. **Scorecard** — a screenshot-friendly, shareable `.md` block: the attribution line,
    the reduction verdict (e.g. `Tightened −51% · lossless ✓ · 3 flags`), before/after
-   word count and percent, the fidelity confirmation, the flag count, the top structural
+   word count and percent, the fidelity confirmation (write `lossless ✓` only after
+   confirming every number, identifier, and code span survived byte-exact, and say so),
+   the flag count, the top structural
    suggestion, and a one-line reusable takeaway.
 
 Name the saved file paths at the end of the run. Per-run outputs are not committed to any

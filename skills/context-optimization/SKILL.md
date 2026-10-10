@@ -50,7 +50,7 @@ The governing principle: context quality matters more than quantity. Every optim
 
 Trigger compaction at the workload's `measured_safe_limit`, before context pressure causes missed instructions or truncation. Apply masking first, then compact whichever measured category consumes the most tokens rather than assuming tool outputs always dominate. Never compress the system prompt. Set token-reduction and quality-loss targets from a measured task baseline.
 
-What a summary must preserve, how to structure it, and how to probe it belong to `context-compression`.
+What a summary must preserve, how to structure it, and how to probe it belong to `context-compression`. When a request also asks for summary sections or probe questions, give only the trigger and budget policy, and name `context-compression` as the owner of the rest.
 
 ### Observation Masking
 

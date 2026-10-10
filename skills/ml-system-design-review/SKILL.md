@@ -65,6 +65,8 @@ When running unattended (no user can answer — a scheduled or CI review), never
 - Load `references/praise-patterns.md` before writing praise or author-facing feedback.
 - Load `references/output-templates.md` when formatting the final report.
 
+For a user-facing agent, require pass^k (all k repeated runs succeed) as a finding whenever the design reports only a single-run pass rate.
+
 ## Default Output
 
 Format per `references/output-templates.md`: one template for every review, in two parts.
