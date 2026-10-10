@@ -85,6 +85,10 @@ framework, artifact contract, and reproduction commands.
 - `simplified-engineering-english` — write and review consequential software-engineering prose while preserving technical meaning and reducing ambiguity; adapts selected ASD-STE100 mechanisms.
 - `lossless-doc-compress` — compress and de-slop design docs, PRDs, and RFCs without losing facts, numbers, decisions, or caveats.
 
+## Migration
+
+- `deprecation-and-migration` — move consumers off an old public, distributed, or persisted contract safely.
+
 ## Reviews
 
 - `ml-system-design-review` — review ML/AI system designs and implementation evidence.
