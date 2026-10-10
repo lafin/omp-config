@@ -87,6 +87,7 @@ framework, artifact contract, and reproduction commands.
 
 ## Reviews
 
+- `source-driven-development` — admission candidate.
 - `security-review` — find and fix exploitable defects at application trust boundaries.
 - `ml-system-design-review` — review ML/AI system designs and implementation evidence.
 - `ai-stage-gate` — make evidence-based Go / Conditional / Kill decisions for AI initiatives.
