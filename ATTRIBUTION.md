@@ -111,20 +111,22 @@ https://github.com/addyosmani/agent-skills at commit
 candidates, not enabled root skills. The upstream MIT notice is preserved in
 [LICENSE-addy-agent-skills](LICENSE-addy-agent-skills).
 
-## Staged ECC Adaptations
+## ECC Adaptations
 
-Material in the non-active proposals below is adapted from
-https://github.com/affaan-m/ECC at commit
+Material below is adapted from https://github.com/affaan-m/ECC at commit
 `4eb71d92a39cab44ad40ac9d8a6a5ccb4029d6c2`. Each adapted reference file names
-its source path in a provenance header. The upstream MIT notice is preserved in
-[LICENSE-ecc](LICENSE-ecc).
+its source path in a provenance header. Upstream paths are given as URLs at
+that commit. The upstream MIT notice is preserved in [LICENSE-ecc](LICENSE-ecc).
 
-- `proposals/deprecation-and-migration/references/database-migrations.md`:
-  modified from `skills/database-migrations/SKILL.md`.
+- `skills/security-review/` (admitted): modified from
+  https://github.com/affaan-m/ECC/blob/4eb71d92a39cab44ad40ac9d8a6a5ccb4029d6c2/skills/security-review/SKILL.md
+  and https://github.com/affaan-m/ECC/blob/4eb71d92a39cab44ad40ac9d8a6a5ccb4029d6c2/skills/security-review/cloud-infrastructure-security.md.
+- `proposals/deprecation-and-migration/references/database-migrations.md`
+  (non-active): modified from
+  https://github.com/affaan-m/ECC/blob/4eb71d92a39cab44ad40ac9d8a6a5ccb4029d6c2/skills/database-migrations/SKILL.md.
 - `proposals/source-driven-development/SKILL.md` step 0 and the
-  adopt / extend / build decision: inspired by `skills/search-first/SKILL.md`.
-- `proposals/security-review/`: modified from `skills/security-review/SKILL.md`
-  and `skills/security-review/cloud-infrastructure-security.md`.
+  adopt / extend / build decision (non-active): inspired by
+  https://github.com/affaan-m/ECC/blob/4eb71d92a39cab44ad40ac9d8a6a5ccb4029d6c2/skills/search-first/SKILL.md.
 
 ## Simplified Engineering English
 

@@ -83,6 +83,10 @@
     "sha256": "6b42cc6c8d0fe5aa9c6cd7377a2a9d8da57901bfb029e2ec4e5e181eb171554b",
     "routing_evidence": "evals/results/catalog-routing-home-v1"
   },
+  "security-review": {
+    "sha256": "3018fec216537d2c24028ca6fe4b90055cece95343668a54caefa6b0e9b821ca",
+    "routing_evidence": "evals/results/ecc-plan/v3/security-review/hold-routing-treatment"
+  },
   "self-improvement-loops": {
     "sha256": "05d946c8bc64c488bccb239c1bf7c7834ff39f8c42dc22e9937e4cf2de750835",
     "routing_evidence": "evals/results/catalog-routing-home-v1"

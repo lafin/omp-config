@@ -1,0 +1,28 @@
+{
+  "all_passed": true,
+  "artifacts": 9,
+  "condition": "treatment",
+  "critical_passed": 9,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-security-review-behavior-development-command-injection/1.json": "a77cfe0e825b2b0755ec1405e9267c1267018d3e2a465a5f5966c4adc79efd0b",
+      "artifacts/pilot-security-review-behavior-development-command-injection/2.json": "e4e659e87dc837b278e91fb6a249f69fb6090127af32384e44338b880421cf6c",
+      "artifacts/pilot-security-review-behavior-development-command-injection/3.json": "bf82804525076ce62414e4177a24dd987ef915b5b19f43352213e03e4df37f83",
+      "artifacts/pilot-security-review-behavior-development-guarded-clean/1.json": "9d8da9e380f13ff31b0559bc09e2ec126af48676b09bac9cde0dbb089f15ddbb",
+      "artifacts/pilot-security-review-behavior-development-guarded-clean/2.json": "cebdc278a1d3aab0c64e77510f11f9a6b4773fdd164f02d56c3eec931771b7fe",
+      "artifacts/pilot-security-review-behavior-development-guarded-clean/3.json": "80c7edb3c563e5d30c95e1e919bd97ca313097b938eebc252e8d1b77b0d91f3d",
+      "artifacts/pilot-security-review-behavior-development-ssrf/1.json": "7a4349edbb4fccec1ed71192d2b93e711573826cd56dd2406d31c4f3b455a101",
+      "artifacts/pilot-security-review-behavior-development-ssrf/2.json": "7b8696294b869c3ecf312a747aa04551e232d53761999a600c8df95afb73b041",
+      "artifacts/pilot-security-review-behavior-development-ssrf/3.json": "dd4bd1b971fa9d2a48174d475ffc64d352f34bc2b4114905c3b77ba18e5f03d1"
+    },
+    "case_snapshot_sha256": "62a492249b1564281e83995fe835246002d0e3c9460b892c4d45d38021c689b0",
+    "grader_sha256": "49b310ddde90221b1fbad5b6b81bd8b6df947414229dbfbb4781cb494e16ecbc",
+    "manifest_sha256": "24d6e0b5aad00a77e0c7f959e781e2c10bb4d300649c0dbfdc0d0a3aad757f56"
+  },
+  "passed": 9,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-behavior-treatment",
+  "schema_version": 5
+}
