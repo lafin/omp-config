@@ -166,11 +166,13 @@ Pattern: `[code] → skipped: [X], add when [Y].`
 | **full** | Apply the four reflexes. Prefer reuse, stdlib, and native features; use the shortest working diff and explanation; leave one runnable check. Default. |
 | **ultra** | Apply the four reflexes as a YAGNI extremist: delete before adding, ship the smallest working solution, and challenge excess requirements. |
 
-Example: "Add a cache for these API responses."
+Example: "Add a cache for this tax-rate lookup" (pure function of a small, fixed set of region codes).
 
 - lite: "Done, cache added. FYI: `functools.lru_cache` covers this in one line if you'd rather not own a cache class."
-- full: "`@lru_cache(maxsize=1000)` on the fetch function. Skipped custom cache class, add when lru_cache measurably falls short."
-- ultra: "No cache until a profiler says so. When it does: `@lru_cache`. A hand-rolled TTL cache class is a bug farm with a hit rate."
+- full: "`@lru_cache(maxsize=None)` on the pure lookup; the input domain is bounded. Skipped custom cache class, add when lru_cache measurably falls short."
+- ultra: "No cache until a profiler says so. When it does: `@lru_cache`. A hand-rolled cache class is a bug farm with a hit rate."
+
+Caching network or per-user results needs more than a decorator: a complete key (including tenant), a freshness bound, invalidation, and bounded storage. Never put `@lru_cache` on an `async def`; it caches the coroutine object, which fails on the second await.
 
 ## When NOT to be lazy
 
