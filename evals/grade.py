@@ -1005,6 +1005,11 @@ def validate_artifact(
         }
         for name in case["available_skills"]:
             observed = observed_descriptions.get(f"skill:{name}")
+            if name not in descriptions:
+                # A proposal root is absent from its pre-treatment baseline catalog.
+                if observed is not None:
+                    raise ValueError(f"{path}: runtime exposes {name}, which the evaluated catalog lacks")
+                continue
             if not isinstance(observed, str) or observed.strip() != descriptions[name].strip():
                 raise ValueError(f"{path}: runtime skill description differs for {name}")
     if artifact.get("events") != events or artifact.get("event_parse_errors") != parse_errors:
