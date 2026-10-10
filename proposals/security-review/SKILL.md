@@ -76,10 +76,14 @@ buckets, or backups.
 
 ## Severity
 
-- `HIGH`: reachable by an unauthenticated or low-privilege caller and causes
-  data exposure, account or tenant takeover, code execution, or money loss.
-- `MEDIUM`: reachable with a precondition (authenticated, specific config) or
-  bounded impact.
+- `HIGH`: reachable by an unauthenticated caller or by any ordinary account
+  (including a self-registered one), and causes exposure of another user's or
+  tenant's data, unauthorized modification or deletion, account or tenant
+  takeover, code execution, leaked credentials or card data, or money loss.
+  Requiring a normal login is not a precondition that lowers severity.
+- `MEDIUM`: needs a real precondition (an elevated role, a specific
+  non-default configuration, or a victim action), or the impact is bounded
+  (availability, rate abuse, information about the caller's own data).
 - `LOW`: hardening with no demonstrated exploit path.
 
 ## Failure Modes
