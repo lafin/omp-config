@@ -1368,7 +1368,14 @@ def comparable_configuration(manifest: dict[str, Any]) -> dict[str, Any]:
             return {key: normalize(item) for key, item in value.items()}
         return value
 
-    return normalize(config)
+    result = normalize(config)
+    # Catalog location differs per run (temporary roots, working tree vs materialized);
+    # catalog identity is compared through skill_files in paired_runs.
+    result["config_files"] = [item for item in result.get("config_files", []) if item.get("path") != "<catalog-config>"]
+    effective = result.get("effective_omp_config") or {}
+    effective.pop("command", None)
+    (effective.get("value") or {}).pop("skills.customDirectories", None)
+    return result
 
 
 def comparison_signature(manifest: dict[str, Any]) -> dict[str, Any]:
