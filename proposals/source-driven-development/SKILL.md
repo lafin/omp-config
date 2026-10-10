@@ -29,6 +29,10 @@ Do not skip evidence because the user prefers speed. Do not ask the user for a v
 
 ## Workflow
 
+### 0. Preflight evidence channels
+
+Before relying on a channel, check that it is available: repository search, installed package metadata, the package manager or registry, network fetch, and any local documentation snapshot. Name every skipped or unavailable channel in the result. Never imply a complete search over a channel that was not checked.
+
 ### 1. Identify the version-sensitive decision
 
 State the concrete behavior that needs external evidence. Do not research unrelated framework conventions.
@@ -71,6 +75,8 @@ Before editing, check that:
 - existing code constraints do not contradict the documented pattern.
 
 When sources conflict, prefer version-matched primary evidence and report the discrepancy. When an executable local package or generated declaration contradicts its documentation, do not silently choose: establish whether the repository is patched, vendored, or stale, then surface any unresolved conflict.
+
+When the decision is whether to write code at all, choose from the evidence: **adopt** an existing installed or standard capability that covers the behavior exactly; **extend** it with a thin local wrapper when it covers most of the behavior; **build** only when no available option fits, and state which options were rejected and why. A new dependency requires the user's request or an explicit justification of its license, maintenance, and size.
 
 ### 5. Implement and verify observable behavior
 

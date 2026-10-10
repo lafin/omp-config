@@ -17,16 +17,20 @@ from pathlib import Path
 class ScratchPadManager:
     """Manages temporary file storage for agent context offloading."""
     
-    def __init__(self, base_path: str = "scratch", token_threshold: int = 2000):
+    def __init__(self, base_path: str = "scratch", token_threshold: int = 2000, count_tokens=None):
         self.base_path = Path(base_path)
         self.base_path.mkdir(parents=True, exist_ok=True)
         self.token_threshold = token_threshold
+        self.count_tokens = count_tokens  # Provider tokenizer or token-counting API
         self.manifest = {}
     
     def should_offload(self, content: str) -> bool:
         """Determine if content exceeds threshold for offloading."""
-        # Rough token estimate: 1 token ≈ 4 characters
-        estimated_tokens = len(content) // 4
+        if self.count_tokens is not None:
+            estimated_tokens = self.count_tokens(content)
+        else:
+            # Labeled fallback: chars/token depends on the tokenizer; 4 undercounts on current ones
+            estimated_tokens = len(content) // 4
         return estimated_tokens > self.token_threshold
     
     def offload(self, content: str, source: str, summary: str = None) -> dict:

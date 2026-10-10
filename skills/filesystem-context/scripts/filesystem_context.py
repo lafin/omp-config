@@ -2,8 +2,10 @@
 Filesystem Context Manager -- composable utilities for filesystem-based context engineering.
 
 Status: Example
-Boundary: Token counts use a character-ratio approximation. The demo writes
-only local sample files and does not call external services.
+Boundary: Token counts use a caller-supplied `count_tokens` function, or a
+labeled 4-characters-per-token fallback whose accuracy depends on the
+tokenizer. The demo writes only local sample files and does not call
+external services.
 
 Provides three core patterns for managing agent context through the filesystem:
 1. ScratchPadManager -- offload large tool outputs to files, return compact references
@@ -35,7 +37,7 @@ import shutil
 from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Callable, Dict, List, Optional
 
 __all__: list[str] = [
     "ScratchPadManager",
@@ -58,17 +60,28 @@ class ScratchPadManager:
     compact reference the agent can include in context instead.
     """
 
-    def __init__(self, base_path: str = "scratch", token_threshold: int = 2000) -> None:
+    def __init__(
+        self,
+        base_path: str = "scratch",
+        token_threshold: int = 2000,
+        count_tokens: Optional[Callable[[str], int]] = None,
+    ) -> None:
         self.base_path: Path = Path(base_path)
         self.base_path.mkdir(parents=True, exist_ok=True)
         self.token_threshold: int = token_threshold
+        self.count_tokens: Optional[Callable[[str], int]] = count_tokens
 
     def estimate_tokens(self, content: str) -> int:
-        """Return a rough token estimate (~4 characters per token).
+        """Return the token count for *content*.
 
         Use when: deciding whether content should be offloaded before
-        writing it to disk.
+        writing it to disk. Uses ``count_tokens`` (provider tokenizer or
+        token-counting API) when supplied. Otherwise falls back to
+        ``len(content) // 4``; the ratio depends on the tokenizer and
+        undercounts by about 35-40% on Anthropic's current tokenizer.
         """
+        if self.count_tokens is not None:
+            return self.count_tokens(content)
         return len(content) // 4  # Labeled fallback; real ratio depends on the tokenizer.
 
     def should_offload(self, content: str) -> bool:

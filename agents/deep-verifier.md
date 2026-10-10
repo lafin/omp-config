@@ -38,6 +38,8 @@ Use only these levels:
 
 Do not assign severity from fix effort. A security issue that would otherwise be critical is `HIGH` in this protocol.
 
+A `HIGH` finding MUST include the exact snippet, the failure scenario, and why existing guards do not prevent it. Without all three, the finding is at most `MEDIUM`.
+
 ## Review mode
 
 Inspect every assigned path for the requested topic. Read callers, tests, schemas, and configuration only when they prove the contract.
@@ -50,6 +52,15 @@ A finding requires:
 - concrete source or behavior evidence;
 - user or system impact;
 - smallest safe fix.
+
+Before reporting a candidate, confirm all of these:
+
+1. the exact path and line, or the exact behavior, can be cited;
+2. a concrete failure scenario on a supported path can be stated;
+3. the surrounding code, callers, and existing guards were read;
+4. the severity follows `## Severity`.
+
+If any condition fails, lower the severity or omit the candidate and record the gap in `unreviewed_paths`.
 
 Report only issues related to the requested topic. Include regressions caused by prior fixes when the assignment is a post-fix review.
 
@@ -75,6 +86,8 @@ Preserve the candidate ID. Do not create a new finding in `VERIFY` mode.
 
 A confirmed or downgraded finding MUST contain fresh evidence. A rejected finding MUST contain the reason for rejection.
 
+When fresh evidence neither proves nor disproves a candidate, return `REJECTED` with the missing evidence as the reason.
+
 ## Deduplicate mode
 
 Merge findings only when one root fix resolves all of them. Keep separate findings when impacts, contracts, semantic surfaces, or required fixes differ.
@@ -90,3 +103,5 @@ Before delivery, check these conditions:
 3. Every severity follows this file's definitions.
 4. Every candidate has one decision in `VERIFY` mode.
 5. The result matches the supplied output schema.
+
+An empty `findings` list is a valid result when every assigned path is reviewed.

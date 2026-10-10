@@ -69,8 +69,7 @@ framework, artifact contract, and reproduction commands.
 ## Leancode
 
 - `leancode` — implement the smallest verified solution.
-- `leancode-review` — review a diff for unnecessary complexity.
-- `leancode-audit` — audit a repository for removable complexity.
+- `leancode-review` — review a diff or a whole repository for unnecessary complexity.
 - `leancode-debt` — list deferred `lean-debt:` shortcuts and their revisit triggers.
 
 ## Context engineering

@@ -118,6 +118,10 @@ Never rename or drop a live column in the same deploy that introduces code
 requiring the new shape. Old and new application versions overlap, and data
 outlives either version.
 
+Read [database migration patterns](references/database-migrations.md) when the
+change alters a persisted schema or backfills data. It covers lock-safe DDL,
+the expand-contract rename sequence, and batched backfills.
+
 ### Expand
 
 Add the new nullable column, table, index, or representation without removing

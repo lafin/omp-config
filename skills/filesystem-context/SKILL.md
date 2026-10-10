@@ -63,9 +63,14 @@ Write the output to a scratch file, extract a compact summary, and return a file
 ```python
 from pathlib import Path
 from time import time_ns
+from typing import Callable, Optional
 
-def handle_tool_output(tool_name: str, output: str, threshold: int = 2000) -> str:
-    estimated_tokens = max(1, (len(output) + 3) // 4)
+def handle_tool_output(
+    tool_name: str, output: str, threshold: int = 2000,
+    count_tokens: Optional[Callable[[str], int]] = None,
+) -> str:
+    # Pass the provider's token counter; chars/4 is a labeled fallback that varies by tokenizer.
+    estimated_tokens = count_tokens(output) if count_tokens else max(1, (len(output) + 3) // 4)
     if estimated_tokens <= threshold:
         return output
 
@@ -293,7 +298,7 @@ Runnable script:
 ### `filesystem_context.py`
 
 - **Status:** Example.
-- **Boundary:** Approximates token counts, writes only local sample files, and calls no external service. It does not provide durable storage, concurrency control, semantic memory, or a complete plan-state machine; callers must define any status beyond `pending`, `in_progress`, `completed`, and `blocked`.
+- **Boundary:** Counts tokens with a caller-supplied `count_tokens` function, or a labeled 4-characters-per-token fallback whose accuracy depends on the tokenizer. Writes only local sample files and calls no external service. It does not provide durable storage, concurrency control, semantic memory, or a complete plan-state machine; callers must define any status beyond `pending`, `in_progress`, `completed`, and `blocked`.
 - **Run:** From the repository root, run `python skills/filesystem-context/scripts/filesystem_context.py`. The demo accepts no arguments or credentials; it creates a disposable `demo_scratch/` directory relative to the current working directory and removes it after a successful run.
 - **Output:** Writes human-readable offload decisions, file references, token savings, plan state, tool-output handling, and cleanup status to standard output. The transient sample scratch and plan files are removed before successful exit. Library callers receive strings, dictionaries, or `AgentPlan` objects.
 - **Failure:** The demo exits non-zero on an uncaught Python, filesystem-permission, or malformed-plan error. Repair the path permissions or JSON/input named by the exception, remove any incomplete demo file, and retry.

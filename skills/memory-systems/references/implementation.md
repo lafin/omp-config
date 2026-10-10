@@ -366,9 +366,11 @@ class MemoryConsolidator:
 
 ```python
 class MemoryContextIntegrator:
-    def __init__(self, memory_system, context_limit=100000):
+    def __init__(self, memory_system, context_limit=100000, count_tokens=None):
         self.memory_system = memory_system
         self.context_limit = context_limit
+        # Pass the provider's tokenizer or token-counting API; chars/token depends on the tokenizer.
+        self.count_tokens = count_tokens
     
     def build_context(self, task: str, current_context: str = "") -> str:
         """Build context including relevant memories."""
@@ -415,8 +417,10 @@ class MemoryContextIntegrator:
         return "\n".join(sections)
     
     def _token_count(self, text: str) -> int:
-        """Estimate token count."""
-        return len(text) // 4  # Rough approximation
+        """Count tokens with count_tokens; len // 4 is a labeled fallback that undercounts on current tokenizers."""
+        if self.count_tokens is not None:
+            return self.count_tokens(text)
+        return len(text) // 4  # Labeled fallback; real ratio depends on the tokenizer.
     
     def _truncate_context(self, context: str, limit: int) -> str:
         """Truncate context to fit limit."""
