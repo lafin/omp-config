@@ -1,0 +1,31 @@
+{
+  "all_passed": true,
+  "artifacts": 12,
+  "condition": "treatment",
+  "critical_passed": 12,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-api-and-interface-design-routing-development-api--project-a/1.json": "a2b405c05bd4171726c7fb41d7f04ad1faab217d5a19c0f023b438ae4d8f710c",
+      "artifacts/pilot-api-and-interface-design-routing-development-api--project-a/2.json": "28c0823379de09fc6c2da31fce29f0201b18807ef1e31b17f58aeecffb7edac8",
+      "artifacts/pilot-api-and-interface-design-routing-development-api--project-a/3.json": "a7995c3bd83bf66d41e0d04c44a0b632d6d6e3c5bf522423a559b8e83ae1f655",
+      "artifacts/pilot-api-and-interface-design-routing-development-api--project-b/1.json": "033430ea5c54cf4ff9db3436ec85b9cfe4e9f84a6307c6fa334a243afe6d8d06",
+      "artifacts/pilot-api-and-interface-design-routing-development-api--project-b/2.json": "2d3b3042b04591820c8dda753aae8a64e034b667bb8e4f06368e39b466165058",
+      "artifacts/pilot-api-and-interface-design-routing-development-api--project-b/3.json": "fe8d764836a656e8dab9e06b0a3a5642de00ea4cb4e1c5bf3df66ce1ff546d62",
+      "artifacts/pilot-api-and-interface-design-routing-development-api--tool-a/1.json": "3c7789e5484dda1293c62b377592ab568b55ac8aa95b68a9de81cd9cec2b4e94",
+      "artifacts/pilot-api-and-interface-design-routing-development-api--tool-a/2.json": "7d13b03e6661fcbe55d915d46f0527f1600e2bfdd67a72ee0245c3273776ee35",
+      "artifacts/pilot-api-and-interface-design-routing-development-api--tool-a/3.json": "3240b049b50448b64753ea0ad418a6481bb3c7eea41e73f791dda515928841ca",
+      "artifacts/pilot-api-and-interface-design-routing-development-api--tool-b/1.json": "3de78b83ac11f90e83978daf3bb8d4cefc7f144484cba25584641d09cc83883b",
+      "artifacts/pilot-api-and-interface-design-routing-development-api--tool-b/2.json": "28e138c2296d8844b9befc4fbd450a4a4ad2ecf7196be855417fddfe5c4c22d8",
+      "artifacts/pilot-api-and-interface-design-routing-development-api--tool-b/3.json": "fa93462fcd74da86bc7fd4cd52e5165ce1f4aadc0ba76a2b963d5a9800ac2c9a"
+    },
+    "case_snapshot_sha256": "f2731446d8cc360c53ba6bd062f9f5c361a8cc57c02da8cc4752c3906a65acfb",
+    "grader_sha256": "49b310ddde90221b1fbad5b6b81bd8b6df947414229dbfbb4781cb494e16ecbc",
+    "manifest_sha256": "d5f55f8c52055ad71969d1194a919879b40a88d063b401ab86dc5fa3dcde6b91"
+  },
+  "passed": 12,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-routing-treatment",
+  "schema_version": 5
+}

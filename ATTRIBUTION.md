@@ -103,11 +103,12 @@ No substantive external match was found for `leancode-review`,
 
 ## Addy Osmani Agent Skills Adaptations
 
-`skills/source-driven-development` (admitted) and the non-active proposals
-`proposals/api-and-interface-design` and `proposals/deprecation-and-migration`
-adapt the matching `skills/<name>/SKILL.md` files from
+`skills/source-driven-development` and `skills/api-and-interface-design`
+(admitted) adapt the matching `skills/<name>/SKILL.md` files from
 https://github.com/addyosmani/agent-skills at commit
-`be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39`. The upstream MIT notice is
+`be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39`. The rejected
+`deprecation-and-migration` proposal is retained at git tag
+`admit/deprecation-and-migration-treatment`. The upstream MIT notice is
 preserved in [LICENSE-addy-agent-skills](LICENSE-addy-agent-skills).
 
 ## ECC Adaptations
@@ -120,8 +121,8 @@ that commit. The upstream MIT notice is preserved in [LICENSE-ecc](LICENSE-ecc).
 - `skills/security-review/` (admitted): modified from
   https://github.com/affaan-m/ECC/blob/4eb71d92a39cab44ad40ac9d8a6a5ccb4029d6c2/skills/security-review/SKILL.md
   and https://github.com/affaan-m/ECC/blob/4eb71d92a39cab44ad40ac9d8a6a5ccb4029d6c2/skills/security-review/cloud-infrastructure-security.md.
-- `proposals/deprecation-and-migration/references/database-migrations.md`
-  (non-active): modified from
+- `deprecation-and-migration/references/database-migrations.md` (rejected
+  proposal, git tag `admit/deprecation-and-migration-treatment`): modified from
   https://github.com/affaan-m/ECC/blob/4eb71d92a39cab44ad40ac9d8a6a5ccb4029d6c2/skills/database-migrations/SKILL.md.
 - `skills/source-driven-development/SKILL.md` step 0 and the
   adopt / extend / build decision (admitted): inspired by

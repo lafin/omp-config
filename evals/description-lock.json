@@ -7,6 +7,10 @@
     "sha256": "d15d0d66aeb2460f1d37038751f049bdee8136bfed37017bccdd6541a8c0064b",
     "routing_evidence": "evals/results/catalog-routing-home-v1"
   },
+  "api-and-interface-design": {
+    "sha256": "413dda57257aad6513d84be965576a5bdfc040d5c0cbc4b5f4b17beb3f27d47f",
+    "routing_evidence": "evals/results/ecc-plan/v8/api-and-interface-design/hold-routing-treatment"
+  },
   "bdi-mental-states": {
     "sha256": "85e28e0a497ea6ca28fbe59ad3f964bb322b131df2a63620adb2fa57aacb53f6",
     "routing_evidence": "evals/results/catalog-routing-home-v1"

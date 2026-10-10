@@ -87,7 +87,7 @@ framework, artifact contract, and reproduction commands.
 
 ## Reviews
 
-- `api-and-interface-design` — admission candidate.
+- `api-and-interface-design` — design public interfaces: REST/GraphQL/module contracts, errors, idempotency, and compatible evolution.
 - `source-driven-development` — implement against the pinned version of an external package or API using version-matched primary sources.
 - `security-review` — find and fix exploitable defects at application trust boundaries.
 - `ml-system-design-review` — review ML/AI system designs and implementation evidence.
@@ -101,12 +101,3 @@ framework, artifact contract, and reproduction commands.
 - `lossless-doc-compress`, `ml-system-design-review`, and `ai-stage-gate` contain imported or adapted material from [MLSystemDesign](https://github.com/ML-SystemDesign/MLSystemDesign). See [ATTRIBUTION.md](ATTRIBUTION.md) for exact commits and scopes and [LICENSE-ml-system-design](LICENSE-ml-system-design) for the required notice.
 - The `leancode` lineage is recorded against the observed external comparison commit without inferring copying direction. See [ATTRIBUTION.md](ATTRIBUTION.md).
 - The root [LICENSE](LICENSE) covers repository-original material only; upstream notices continue to apply to imported material.
-
-## Staged evaluation proposals
-
-`api-and-interface-design` and `deprecation-and-migration` are non-active
-candidates under `proposals/`. They are excluded from `skills/` discovery until
-their frozen routing and behavior admission gates pass. See
-[ATTRIBUTION.md](ATTRIBUTION.md) and
-[LICENSE-addy-agent-skills](LICENSE-addy-agent-skills) for their pinned source
-and license.

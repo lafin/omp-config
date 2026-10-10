@@ -385,3 +385,17 @@ Results are under `evals/results/ecc-plan/`. Proposal admissions were run as tem
 Harness defects fixed during the runs: catalog-root symlink resolution and `--config` overlay handling in `evals/run.py`; grading of routing cases whose proposal root is absent from the baseline catalog, and catalog-location fields excluded from the pairing signature in `evals/grade.py`.
 
 Next, per §8.4: one development iteration per proposal against the failing checks above, then a rerun; a proposal that still fails is moved to historical. The proposal behavior case files hold 1–3 cases, below the 18-attempt minimum of the procedural path; the consistency criterion cannot pass without more frozen cases.
+
+## 18. Final Results (2026-10-10)
+
+After order-free check rewrites (both conditions regraded from the same frozen files) and 6-case v2 holdouts:
+
+| Skill | Dev crit. passes base → treat | Holdout base → treat | Gate | Outcome |
+|---|---|---|---|---|
+| `security-review` | 9/9 → 9/9 | 15/18 → 18/18; routing 15/18 → 18/18 | procedural-value (consistency) | admitted |
+| `source-driven-development` | 3/6 → 6/6 | 17/18 → 18/18 | improvement | admitted |
+| `api-and-interface-design` | 2/6 → 6/6 | 2/6 → 6/6; repository 6/6 → 6/6 | improvement | admitted |
+| `deprecation-and-migration` | 3/3 → 3/3 | 18/18 → 18/18 | none: baseline already passes | rejected; kept at tag `admit/deprecation-and-migration-treatment` |
+| `deep-verifier` | 3/9 → 0/9 crit. failures | 0/18 → 0/18 | dev-only gain | kept |
+
+Token cost rises 5–7× per behavior attempt for admitted skills; each gate records the `--correctness-benefit`. Evidence: `evals/results/ecc-plan/{v3,v5,v8}`.

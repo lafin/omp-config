@@ -1,0 +1,25 @@
+{
+  "all_passed": true,
+  "artifacts": 6,
+  "condition": "treatment",
+  "critical_passed": 6,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-api-and-interface-design-repository-development-error-contract/1.json": "e3c62f0007800cd606b4cb4ef695c05a659e4f78b0f3b4654ae5ab972c65e725",
+      "artifacts/pilot-api-and-interface-design-repository-development-error-contract/2.json": "743aed44e6259b0760cc1d54e6ce8a7102ef108e74c41004f5d71fc20483bfaa",
+      "artifacts/pilot-api-and-interface-design-repository-development-error-contract/3.json": "71565d66106040cc4d1cfedf5a6a10d08df95aa0522172bd1a7c0fc635541c6f",
+      "artifacts/pilot-api-and-interface-design-repository-development-idempotency/1.json": "f8dadca9fa9cd80ab7091a0f885dfe50f4f5b3015de42ee65648a16177119834",
+      "artifacts/pilot-api-and-interface-design-repository-development-idempotency/2.json": "b5e75c6b1f2a5074d4d631d3d4de7edd50b48243cdb7011d2e6475dc67cb4928",
+      "artifacts/pilot-api-and-interface-design-repository-development-idempotency/3.json": "9d3b61e06c7fc14d99d689d8bbcc0758863b495b4b4f9b570d0eadd37bcfb622"
+    },
+    "case_snapshot_sha256": "22ace231242c6547da0be41a6310ed6650a570b2edacb3c059e9de7453de56b0",
+    "grader_sha256": "49b310ddde90221b1fbad5b6b81bd8b6df947414229dbfbb4781cb494e16ecbc",
+    "manifest_sha256": "d193fb8103a6eb7fc02b370e163cbb304b783bf6b4937cf7c74a54d410767649"
+  },
+  "passed": 6,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-repository-treatment",
+  "schema_version": 5
+}
