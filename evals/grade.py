@@ -805,7 +805,7 @@ def case_prompt(case: dict[str, Any], descriptions: dict[str, str]) -> str:
     if case["kind"] != "routing":
         return case["prompt"]
     candidates = "\n".join(
-        f"- {name}: {descriptions[name]}" for name in case["available_skills"]
+        f"- {name}: {descriptions.get(name, '')}" for name in case["available_skills"]
     )
     return f"{case['prompt']}\nCandidate skills:\n{candidates}\nUse one exact candidate name."
 

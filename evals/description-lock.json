@@ -56,8 +56,8 @@
     "routing_evidence": "evals/results/catalog-routing-home-v1"
   },
   "leancode-review": {
-    "sha256": "a5fee513805a7a383a8d7ebf6a8f076c05b0ffdf1351e046d6839deeda70a9bb",
-    "routing_evidence": "evals/results/catalog-routing-home-v1"
+    "sha256": "84b15a84198ed9c799ebf1d2654aafae34fbd7deca027c5e3b999f564a6b343f",
+    "routing_evidence": "evals/results/ecc-plan/leancode-merge-routing-treatment"
   },
   "long-horizon-prompting": {
     "sha256": "dc316bf2df60f7e7776a054ea1832a388614d61ebf9ddfb198dc2a3bbb8ca362",
