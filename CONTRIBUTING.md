@@ -79,7 +79,7 @@ Examples and templates must identify mocks, heuristics, replacement points, and 
 
 ## Evaluation process
 
-Deterministic checks run before model judges. Description changes require routing evaluation. New or materially changed skills require development behavior cases and separately frozen holdout behavior cases. Use repository fixtures when the claimed result is a file or code change, and define observable success, prohibited outcomes, pressure conditions, and critical failures.
+Deterministic checks run before model judges. Description changes require routing evaluation; `scripts/validate_skills.py` fails until `python3 scripts/validate_skills.py --update-description-lock <skill> --evidence <routing-result-dir>` records the new description in `evals/description-lock.json`. New or materially changed skills require development behavior cases and separately frozen holdout behavior cases. Use repository fixtures when the claimed result is a file or code change, and define observable success, prohibited outcomes, pressure conditions, and critical failures.
 
 Freeze evaluator or rubric changes in a separate pre-treatment change. Baseline and treatment comparisons must use the same model, profile, tools, attempt count, and effective timeouts. Use at least three attempts when output varies materially. Do not inspect or tune against holdout prompts; execute them only through the guarded holdout path against recorded immutable baseline and treatment revisions.
 

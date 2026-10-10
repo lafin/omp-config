@@ -35,6 +35,15 @@ class ValidateSkillsTest(unittest.TestCase):
             "See [evidence](skill://alpha/references/evidence.md#supported-claim).\n",
             encoding="utf-8",
         )
+        (self.root / "evals" / "results" / "routing").mkdir(parents=True)
+        self.relock()
+
+    def relock(self, name: str = "alpha") -> None:
+        subprocess.run(
+            [sys.executable, str(VALIDATOR), "--root", str(self.root), "--update-description-lock", name, "--evidence", "evals/results/routing"],
+            check=True,
+            stdout=subprocess.DEVNULL,
+        )
 
     def tearDown(self) -> None:
         self.temporary_directory.cleanup()
@@ -51,6 +60,56 @@ class ValidateSkillsTest(unittest.TestCase):
     def rewrite_skill(self, old: str, new: str) -> None:
         path = self.root / "skills" / "alpha" / "SKILL.md"
         path.write_text(path.read_text(encoding="utf-8").replace(old, new), encoding="utf-8")
+        self.relock()
+
+    def write_agent(self, frontmatter: str) -> None:
+        (self.root / "agents").mkdir(exist_ok=True)
+        (self.root / "agents" / "helper.md").write_text(f"---\n{frontmatter}---\n\n# Helper\n", encoding="utf-8")
+
+    def test_rejects_description_change_without_lock_update(self) -> None:
+        path = self.root / "skills" / "alpha" / "SKILL.md"
+        path.write_text(path.read_text(encoding="utf-8").replace("Fixture skill.", "Changed skill."), encoding="utf-8")
+        result = self.run_validator()
+        self.assertEqual(1, result.returncode)
+        self.assertIn("[description-lock] observed='alpha: description changed'", result.stdout)
+
+    def test_rejects_lock_with_missing_evidence(self) -> None:
+        (self.root / "evals" / "results" / "routing").rmdir()
+        result = self.run_validator()
+        self.assertEqual(1, result.returncode)
+        self.assertIn("[description-lock-evidence]", result.stdout)
+
+    def test_warns_for_description_over_600_characters(self) -> None:
+        self.rewrite_skill("Fixture skill.", "x" * 601)
+        result = self.run_validator()
+        self.assertEqual(0, result.returncode, result.stdout)
+        self.assertIn("warning: skills/alpha/SKILL.md:3: [description-length]", result.stdout)
+
+    def test_rejects_agent_name_mismatch_and_unknown_tool(self) -> None:
+        self.write_agent("name: other\ndescription: Fixture.\ntools: read, teleport\n")
+        result = self.run_validator()
+        self.assertEqual(1, result.returncode)
+        self.assertIn("[agent-name] observed='other'", result.stdout)
+        self.assertIn("[agent-tool] observed='teleport'", result.stdout)
+
+    def test_rejects_duplicate_agent_key(self) -> None:
+        self.write_agent("name: helper\nname: helper\ndescription: Fixture.\ntools: read\n")
+        result = self.run_validator()
+        self.assertEqual(1, result.returncode)
+        self.assertIn("duplicate key 'name'", result.stdout)
+
+    def test_command_routes_resolve_to_local_or_bundled_agents(self) -> None:
+        self.write_agent("name: helper\ndescription: Fixture.\ntools: read, grep\n")
+        (self.root / "commands").mkdir()
+        (self.root / "commands" / "run.md").write_text(
+            "# Run\n\n## Agent routing\n\n- `helper`: local;\n- `scout`: bundled;\n- `designer`: missing.\n\n## Other\n\n- `ghost`: not a route.\n",
+            encoding="utf-8",
+        )
+        result = self.run_validator()
+        self.assertEqual(1, result.returncode)
+        self.assertIn("commands/run.md:7: [command-agent] observed='designer'", result.stdout)
+        self.assertNotIn("helper", result.stdout)
+        self.assertNotIn("ghost", result.stdout)
 
     def test_valid_fixture_exits_zero(self) -> None:
         result = self.run_validator()
@@ -133,6 +192,7 @@ class ValidateSkillsTest(unittest.TestCase):
             ),
             encoding="utf-8",
         )
+        self.relock("beta")
         self.rewrite_skill(
             "# Alpha",
             "# Alpha\n\n"

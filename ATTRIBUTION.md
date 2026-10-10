@@ -99,7 +99,7 @@ repository licenses its local Leancode material under the root MIT license
 without asserting ownership of third-party wording.
 
 No substantive external match was found for `leancode-review`,
-`leancode-audit`, or `leancode-debt`.
+`leancode-audit` (merged into `leancode-review`), or `leancode-debt`.
 
 ## Staged Addy Osmani Pilot Adaptations
 
@@ -110,6 +110,21 @@ https://github.com/addyosmani/agent-skills at commit
 `be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39`. They are modified evaluation
 candidates, not enabled root skills. The upstream MIT notice is preserved in
 [LICENSE-addy-agent-skills](LICENSE-addy-agent-skills).
+
+## Staged ECC Adaptations
+
+Material in the non-active proposals below is adapted from
+https://github.com/affaan-m/ECC at commit
+`4eb71d92a39cab44ad40ac9d8a6a5ccb4029d6c2`. Each adapted reference file names
+its source path in a provenance header. The upstream MIT notice is preserved in
+[LICENSE-ecc](LICENSE-ecc).
+
+- `proposals/deprecation-and-migration/references/database-migrations.md`:
+  modified from `skills/database-migrations/SKILL.md`.
+- `proposals/source-driven-development/SKILL.md` step 0 and the
+  adopt / extend / build decision: inspired by `skills/search-first/SKILL.md`.
+- `proposals/security-review/`: modified from `skills/security-review/SKILL.md`
+  and `skills/security-review/cloud-infrastructure-security.md`.
 
 ## Simplified Engineering English
 

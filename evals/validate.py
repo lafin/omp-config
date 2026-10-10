@@ -575,6 +575,20 @@ def select_case_files(
     }
 
 
+def validate_external_artifacts(root: Path) -> int:
+    path = root / "evals/results/external-artifacts.json"
+    if not path.is_file():
+        return 0
+    index = json.loads(path.read_text(encoding="utf-8"))
+    for rel, record in index.items():
+        location = f"{path}:{rel}"
+        _require(isinstance(record, dict) and bool(HEX64.fullmatch(str(record.get("sha256")))), location, "sha256", "must be a SHA-256 hash", "record the moved file's hash")
+        local = root / rel
+        if local.is_file():
+            _require(sha256_file(local) == record["sha256"], location, "sha256", "local copy differs from recorded hash", "restore the original artifact; results are immutable")
+    return len(index)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
@@ -582,10 +596,11 @@ def main() -> int:
     args = parser.parse_args()
     try:
         result = validate_repository(args.root, args.manifest)
+        external = validate_external_artifacts(args.root.resolve())
     except (OSError, ValueError) as error:
         print(f"evaluation validation failed: {error}", file=sys.stderr)
         return 1
-    print(f"validated {len(result['entries'])} case files; canonical coverage is derived from canonical rows only")
+    print(f"validated {len(result['entries'])} case files and {external} external artifact hashes; canonical coverage is derived from canonical rows only")
     return 0
 
 

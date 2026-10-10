@@ -1421,6 +1421,48 @@ class EvaluationHarnessTest(unittest.TestCase):
         self.assertFalse(report["criteria"]["development_improved"])
         self.assertFalse(report["criteria"]["holdout_preserved"])
 
+    def test_procedural_value_gate_boundaries(self) -> None:
+        def counts(base_fail: int, treat_fail: int, base_cov: float, treat_cov: float, total: int = 18) -> dict:
+            return {
+                "baseline_passed": total - base_fail,
+                "treatment_passed": total - treat_fail,
+                "total": total,
+                "baseline_critical_failures": base_fail,
+                "treatment_critical_failures": treat_fail,
+                "baseline_check_coverage": base_cov,
+                "treatment_check_coverage": treat_cov,
+                "critical_regressions": [],
+                "regressions": [],
+                "baseline_metrics": {"tokens": 10, "tool_events": 0, "questions": 0},
+                "treatment_metrics": {"tokens": 10, "tool_events": 0, "questions": 0},
+            }
+
+        routing = counts(0, 0, 1.0, 1.0, 6)
+        scenarios = {
+            "consistency": (counts(0, 0, 1.0, 1.0), counts(3, 0, 0.9, 0.9), "pass"),
+            "below-consistency": (counts(0, 0, 1.0, 1.0), counts(2, 0, 0.9, 0.9), "fail"),
+            "completeness": (counts(0, 0, 0.5, 0.65), counts(0, 0, 0.5, 0.65), "pass"),
+            "below-completeness": (counts(0, 0, 0.5, 0.64), counts(0, 0, 0.5, 0.64), "fail"),
+            "treatment-critical": (counts(0, 0, 1.0, 1.0), counts(6, 1, 0.5, 0.9), "fail"),
+            "too-few-attempts": (counts(0, 0, 1.0, 1.0), counts(3, 0, 0.5, 0.9, 9), "fail"),
+        }
+        for name, (development, holdout, decision) in scenarios.items():
+            with self.subTest(name), tempfile.TemporaryDirectory() as directory:
+                args = argparse.Namespace(
+                    case_kind="behavior",
+                    admission_path="procedural-value",
+                    development_baseline=Path("db"),
+                    development_treatment=Path("dt"),
+                    holdout_baseline=Path("hb"),
+                    holdout_treatment=Path("ht"),
+                    routing_holdout_baseline=Path("rb"),
+                    routing_holdout_treatment=Path("rt"),
+                    correctness_benefit=None,
+                    output=Path(directory) / "gate.json",
+                )
+                with mock.patch.object(GRADE, "paired_grade_counts", side_effect=[development, holdout, routing]):
+                    self.assertEqual(decision, GRADE.merge_gate(args)["decision"])
+
 
 if __name__ == "__main__":
     unittest.main()

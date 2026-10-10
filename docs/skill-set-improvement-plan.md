@@ -144,7 +144,7 @@ The target repository has these properties:
 
 ### 6.1 Problem
 
-The [evaluation guide](../evals/README.md) describes nine canonical suites, but `evals/cases/` contains 25 JSONL files. Versioned, independent, final, and release files are not machine-classified. A contributor can accidentally omit a file, run historical data as active data, duplicate an ID, or report incomplete coverage.
+Closed: see [Evaluation suite manifest, structural validator, and safe suite selection](decisions/0001-eval-suite-manifest-and-validator.md).
 
 ### 6.2 Decision
 
@@ -189,89 +189,26 @@ Do not add a manually maintained evaluated-skill list. Derive it from case rows.
 
 ### 6.3 Validator requirements
 
-`evals/validate.py` must fail when:
-
-1. a JSONL file under `evals/cases/` is absent from the manifest or listed more than once;
-2. a manifest path does not exist, escapes the repository, or is not under `evals/cases/`;
-3. a row is invalid JSON or lacks the fields required by its `kind`;
-4. a manifest `kind` or `split` disagrees with a row;
-5. case IDs are duplicated within the global active-ID scope;
-6. an active-validation row references a `target_skill`, `available_skills`, or `evaluated_skills` entry that is not a current root skill directory;
-7. a historical row references a missing skill that is not declared exactly once in `retired_skills`;
-8. an active-validation file references a `retired_skills` identity;
-9. a canonical routing case omits its target from `available_skills` or `evaluated_skills`;
-10. an active-validation routing case lacks a critical exact-route check;
-11. an A/B routing pair lacks its reverse case without an explicit, reviewed exception;
-12. any enabled skill other than the manifest's sole `admission_candidate` lacks canonical development and holdout coverage as both a target and an evaluated skill, or the candidate lacks canonical development coverage in both roles;
-13. a new enabled skill, defined as a current enabled root absent from the catalog at `base_catalog_revision`, lacks the canonical behavior cases required by its admission phase;
-14. a file is selected outside the lifecycle matrix, including a historical file without `--allow-historical`, a proposal development file outside proposal-baseline mode, or any `split: holdout` file outside guarded holdout execution;
-15. a routing or behavior suite selectable by an execution mode lacks a complete pre-registered comparison contract, or a holdout comparison lacks recorded immutable `baseline_catalog_revision` and `treatment_catalog_revision` values;
-16. a proposal file references more than one root absent from the current catalog, or its rows do not consistently use the same single proposed root;
-17. independent-holdout or release selection can execute a holdout without satisfying the guarded holdout preconditions;
-18. `admission_candidate` is non-null but does not name exactly one current root absent at `base_catalog_revision`, its immutable treatment revision is missing or unresolvable, its current root differs from the root at that revision, or any of its proposal holdout entries is unfrozen or pins a different treatment revision;
-19. `admission_candidate` is cleared without full canonical development and holdout coverage for that root, or release selection is attempted while it remains non-null;
-20. a historical entry has lost all retained immutable evaluated-catalog revision pins, or a retained pin is unresolvable.
-
-Historical duplicate IDs may remain only when all duplicates are outside the global active-ID scope and the manifest explains their status.
+Closed: see [Evaluation suite manifest, structural validator, and safe suite selection](decisions/0001-eval-suite-manifest-and-validator.md).
 
 Store each pilot's development and holdout cases in pilot-specific files. Add and freeze them with their fixtures and evaluator logic under `proposal` status before the skill treatment. Freezing permits development proposal-baseline execution only; every proposal holdout attempt outside guarded holdout mode is invalid. During treatment, canonicalize only the development files. Once the treatment root is frozen, set `admission_candidate` to that root and revision; the validator then permits its canonical development coverage and matching frozen proposal holdout files while admission is pending. After the guarded pair passes, canonicalize the holdout files and clear `admission_candidate` in one transition, after which ordinary full-coverage validation applies. If admission fails, clear the state, remove the root, keep every pilot file byte-for-byte unchanged, reclassify the development and holdout files as `historical`, retain their immutable evaluated-catalog revision pins, add the retired identity, and remove the files from active suites. Do not put proposal cases into shared frozen files that would require row deletion during rollback.
 Each proposal case-file entry records immutable `baseline_catalog_revision` and, before holdout execution, `treatment_catalog_revision` values for that pilot's actual pre-treatment and frozen treatment catalogs. It may use `base_catalog_revision` only when that revision is the pilot's pre-treatment catalog; later pilots must pin their own revision so previously admitted skills remain present. Proposal pilots may reuse these manifest pins in guarded holdout mode. When an entry becomes historical, preserve both pins when both exist and preserve whichever evaluated-catalog pin exists otherwise; never replace either with the working tree or retirement revision. Every other treatment must pre-register equivalent immutable revisions with its locked comparison configuration.
 
-The validator must not call a model, infer semantic trigger quality, or declare a behavior correct from source text.
-
 ### 6.4 Runner changes
 
-Extend `evals/run.py` with a suite-oriented entry point:
-
-- normal `--suite <name>` selects only `split: development` files with `canonical` status and rejects any request that would expose a holdout;
-- `--mode holdout` is the sole guarded holdout executor. Direct `--suite <name> --mode holdout` or `--cases <path> --mode holdout` entry verifies the locked comparison-contract hash and recorded immutable `baseline_catalog_revision` and `treatment_catalog_revision`, resolves both revisions to isolated catalog roots, runs the selected frozen cases only against those two roots, and never evaluates the working tree;
-- `--suite <name> --mode independent-holdout` selects only `independent-holdout` files, and `--mode release` selects the eligible `canonical`, `independent-holdout`, and `release-only` files required by that suite. Both modes must dispatch every `split: holdout` selection to the same guarded holdout executor and fail if its preconditions are unmet;
-- existing `--cases <path>` remains an explicit low-level development mode subject to the same lifecycle matrix. It rejects every `split: holdout` file unless combined with `--mode holdout`. A historical development file additionally requires `--allow-historical --historical-catalog baseline|treatment`; the runner selects the requested retained `baseline_catalog_revision` or `treatment_catalog_revision`, fails if that pin is absent or unresolvable, resolves it to an isolated catalog root, and never evaluates the working tree. When both pins exist, the explicit selector permits reproduction of either side;
-- `--proposal-baseline <path>` is the only development execution path for a `proposal` file: it requires the manifest entry and frozen file hash, resolves that entry's `baseline_catalog_revision` to an isolated catalog root, and runs only its development cases against that pre-treatment catalog without activating the file, adding coverage, or making the proposed root available. Proposal holdout runs only through guarded holdout mode and may reuse the manifest-pinned baseline and treatment revisions;
-- every result manifest records suite and mode, case-file paths and hashes, manifest schema version and hash, case-source revision, comparison-contract path and hash, model, profile, tool configuration, attempt count, effective per-attempt and overall timeout seconds, and each evaluated catalog revision and resolved root. A final holdout manifest always records both immutable baseline and treatment revisions and roots; changing either root or the locked configuration invalidates the pair.
-
-Keep explicit case paths for forensic reproduction. The manifest is an inventory and safe default, not an abstraction that hides evidence.
+Closed: see [Evaluation suite manifest, structural validator, and safe suite selection](decisions/0001-eval-suite-manifest-and-validator.md).
 
 ### 6.5 Repository integration
 
-- document statuses, fields, and commands in the [evaluation guide](../evals/README.md);
-- add focused validator tests, preferably in a new `tests/test_eval_validation.py` rather than expanding the already large evaluation-harness test module;
-- add runner-option tests to `tests/test_evaluation_harness.py` only where they exercise runner behavior;
-- run `evals/validate.py` in `.github/workflows/validate-skills.yml` after skill validation;
-- keep errors actionable: file, row, field, violated invariant, and repair direction.
+Closed: see [Evaluation suite manifest, structural validator, and safe suite selection](decisions/0001-eval-suite-manifest-and-validator.md).
 
 ### 6.6 Acceptance criteria
 
-- all 25 current JSONL files appear exactly once in the manifest;
-- status- and split-aware selection follows the lifecycle matrix: normal suites are development-only, and neither `--suite` nor low-level `--cases` can expose a holdout outside guarded holdout mode;
-- the immutable base catalog and each proposal's actual pre-treatment catalog resolve from their pinned revisions; proposal files remain outside active coverage, proposal development runs only through proposal-baseline mode, and proposal holdout runs only through the guard after the treatment revision and configuration are frozen;
-- coverage numbers are generated only from canonical rows; the sole pending `admission_candidate` validates with canonical development coverage and frozen proposal holdout entries pinned to its immutable treatment revision, but clearing the state and release both require full canonical development and holdout coverage;
-- historical development execution requires an explicit retained baseline or treatment pin, resolves only that revision to an isolated root, and fails rather than using the working tree when the selected pin is missing or unresolvable;
-- missing files, duplicate IDs in the active-ID scope, unknown or undeclared retired skills, active-validation references to retired skills, split mismatches, absent exact-route checks, invalid lifecycle selection or proposal baseline revision, holdout selection outside the guard, missing or mutable holdout revisions, invalid proposal identity, invalid or multiple admission candidates, candidate pin/root mismatch, candidate-state clearing without full canonical coverage, release with a pending candidate, missing or unresolvable historical pins, and incomplete comparison contracts each have a regression test. Runner regressions must cover early holdout rejection through both `--suite` and `--cases`, guarded delegation from independent-holdout and release modes, and baseline and treatment reproduction for a historical development case without working-tree fallback;
-- validation performs no network or model calls.
+Closed: see [Evaluation suite manifest, structural validator, and safe suite selection](decisions/0001-eval-suite-manifest-and-validator.md).
 
 ## 7. Workstream B: Close the Four Canonical Routing Gaps
 
-Add at least one distinct development pair and one frozen holdout pair for each missing skill. A pair contains the positive owner case and the nearest-neighbor negative case. Prompts must use user language rather than copied skill-description phrases.
-
-| Target skill | Primary competitor | Positive boundary | Negative boundary |
-|---|---|---|---|
-| `bdi-mental-states` | `memory-systems` | beliefs, desires, intentions, rational traces, or RDF-to-belief transformation | persistence, retrieval, temporal memory, or entity consolidation without an agency-state model |
-| `latent-briefing` | `context-optimization` | representation-level cross-agent compression with real KV/activation access | prompt, retrieval, partitioning, or token-budget optimization through ordinary APIs |
-| `long-horizon-prompting` | `harness-engineering` | launch brief for an autonomous or parallel attack: exact success predicate, non-counting outcomes, persistence, stop/return contract, and adversarial audit | runtime loop controls, locked surfaces, logs, rollback, approvals, or execution governance |
-| `lossless-doc-compress` | `simplified-engineering-english` | remove only provable redundancy while preserving every fact, qualifier, number, and caveat, with a removal log | rewrite engineering prose for actionability and lower ambiguity without a lossless-compression deliverable |
-
-Each case must:
-
-- name both competitors in `available_skills` and `evaluated_skills`;
-- contain a critical exact-route check;
-- contain a critical check against selecting the competitor where the boundary is exclusive;
-- define observable success and prohibited outcomes;
-- avoid vocabulary that makes the answer a string match;
-- differ materially between development and holdout prompts;
-- use the repository's existing routing schema rather than importing upstream-only fields.
-
-Acceptance: generated canonical development-and-holdout routing coverage is 25 of 25, with no critical regression in existing routing cases.
+Closed: see [Close the four canonical routing gaps](decisions/0002-routing-gap-closure.md).
 
 ## 8. Workstream C: Behavior Evidence for the Catalog
 
@@ -401,7 +338,7 @@ Every comparison report must identify:
 
 ### 10.1 Add contributor documentation
 
-Add `CONTRIBUTING.md` and `docs/skill-anatomy.md`, then link both from the [README](../README.md).
+Closed: see [Skill anatomy guides, cross-skill asset migration, objective validation, and catalog audit](decisions/0003-anatomy-portability-objective-validation.md).
 
 The anatomy is a content contract, not a mandatory heading template. Every skill must make these concepts easy to find:
 
@@ -440,11 +377,7 @@ Description changes require routing evaluation. Character count is an objective 
 
 ### 10.4 Cross-skill asset migration
 
-Status (2026-10-06): complete. No `skill://project-development/references/...` link remains in `evaluation`, `multi-agent-patterns`, or `tool-design`, and the validator rejects cross-skill asset URIs (`cross-skill-asset`). The original requirement was: six asset links made three skills depend on `project-development/references/case-studies.md`: `evaluation` had one, `multi-agent-patterns` three, and `tool-design` two. A standalone install of any of those skills lost cited evidence.
-
-For each link, copy only the needed evidence into an owning skill-local reference, including the original source URL and date, or remove the claim. Do not create a root-shared evidence file. Bare references to another skill owner may remain, but a path such as `skill://other-skill/references/file.md` may not.
-
-Extend the validator to reject cross-skill asset URIs while allowing `skill://<current-skill>/...` and bare owner references such as `skill://other-skill`. Inventory and remove all existing violations before making the rule a release gate.
+Closed: see [Skill anatomy guides, cross-skill asset migration, objective validation, and catalog audit](decisions/0003-anatomy-portability-objective-validation.md).
 
 ### 10.5 Script convention
 
@@ -460,15 +393,7 @@ Do not add empty `scripts/`, `references/`, or `assets/` directories.
 
 ### 10.6 Extend `scripts/validate_skills.py`
 
-Add hard errors only for objective rules:
-
-- directory and frontmatter `name` use lower-case kebab case;
-- directory and frontmatter names match;
-- description length is at most 1,024 characters;
-- asset URIs may not traverse from one skill into another skill's files;
-- existing provenance, revision, license, link, fragment, Python syntax, dependency, and README inventory checks continue to pass.
-
-Add a warning, not an error, when `SKILL.md` exceeds 500 lines.
+Closed: see [Skill anatomy guides, cross-skill asset migration, objective validation, and catalog audit](decisions/0003-anatomy-portability-objective-validation.md).
 
 Do not add static checks that pretend to prove:
 
@@ -482,20 +407,11 @@ Those belong to contributor review and live evaluation.
 
 ### 10.7 Catalog-wide manual conformance audit
 
-Record a manual audit of all 25 existing skills against the eight anatomy concepts in Section 10.1 and of every script-owning skill against the five operational fields in Section 10.5. The audit must identify the reviewer, skill, concept or field, evidence location, and disposition. Remediate every gap without imposing cosmetic headings. The audit is complete only when every in-scope skill and script-owning skill has a recorded review and no anatomy or script-convention gap remains open.
+Closed: see [Skill anatomy guides, cross-skill asset migration, objective validation, and catalog audit](decisions/0003-anatomy-portability-objective-validation.md).
 
 ### 10.8 Tests
 
-Extend `tests/test_validate_skills.py` with focused cases for:
-
-- invalid directory name;
-- invalid frontmatter name;
-- description over 1,024 characters;
-- a body over 500 lines producing a warning without failure;
-- a valid boundary case at exactly 1,024 characters.
-- a cross-skill asset URI failing while an owning-skill asset URI and a bare adjacent-owner reference pass.
-
-Keep the tests fixture-based and deterministic.
+Closed: see [Skill anatomy guides, cross-skill asset migration, objective validation, and catalog audit](decisions/0003-anatomy-portability-objective-validation.md).
 
 ## 11. Workstream F: Description-Density Experiment
 
@@ -646,7 +562,22 @@ Every required baseline attempt must be complete and reproducible. A missing or 
 
 Use the upstream material as adapted source, not as authority over this repository's runtime contract.
 
+### 12.5 Procedural-value admission path
+
+Decision D1 in `docs/ecc-comparison-improvement-plan.md` adds a second admission path for skills whose value is consistency or checklist completeness, not a capability the baseline lacks. Run it with `python3 evals/grade.py gate --admission-path procedural-value`. Admission requires all of:
+
+1. zero treatment critical failures in development and holdout;
+2. no holdout regression and an all-pass routing holdout (unchanged);
+3. at least 18 holdout case-attempts (6 cases × 3 attempts) and one of:
+   - **completeness:** mean per-attempt check coverage rises by at least 0.15 (`PROCEDURAL_COVERAGE_DELTA`);
+   - **consistency:** the baseline has at least 3 critical failures (`PROCEDURAL_BASELINE_CRITICAL_FAILURES`);
+4. recorded token and tool cost, justified with `--correctness-benefit` when it rises.
+
+The thresholds are constants in `evals/grade.py`. Changing them is an evaluator change and freezes before any treatment (invariant 9).
+
 ## 13. Workstream H: Conditional Gap Investigations
+
+Current decisions, all DEFER with the thresholds below still open: [Conditional skill decisions](conditional-skill-decisions.md). Closed: see [Conditional gap decisions recorded](decisions/0004-conditional-gap-decisions-recorded.md).
 
 ### 13.1 Agent security boundaries
 
@@ -726,7 +657,7 @@ Do not add an always-on `using-agent-skills` skill or session hook. Upstream iss
 
 Keep references local to each skill. Upstream issue [#361](https://github.com/addyosmani/agent-skills/issues/361) demonstrates that root-shared references break independent skill installation. Duplication is acceptable when it preserves an install boundary; shared source should exist only when packaging materializes each complete skill.
 
-The six cross-skill asset links from `evaluation`, `multi-agent-patterns`, and `tool-design` into `project-development/references/case-studies.md` were migrated under Workstream E (complete as of 2026-10-06), and validation fails future cross-skill asset URIs. Preserve each evidence claim's original source and date. Bare references that route a reader to an adjacent skill remain valid.
+Preserve each evidence claim's original source and date. Bare references that route a reader to an adjacent skill remain valid. Closed: see [Skill anatomy guides, cross-skill asset migration, objective validation, and catalog audit](decisions/0003-anatomy-portability-objective-validation.md).
 
 ### 15.3 Multi-host packaging
 
@@ -759,47 +690,19 @@ Keep evaluator changes separate from measured skill changes so the target cannot
 
 ### Change 1: Evaluation manifest and validator
 
-- add `evals/suites.json`;
-- register the complete comparison contract for each execution-selectable routing and behavior suite, including immutable baseline and treatment catalog revisions for every holdout comparison;
-- record the immutable `base_catalog_revision`, the nullable single-root `admission_candidate`, and each proposal's actual pre-treatment `baseline_catalog_revision` and later frozen `treatment_catalog_revision`;
-- require a candidate's canonical development coverage and matching revision-pinned proposal holdout entries, then full canonical coverage when the state is cleared or release is selected;
-- retain immutable evaluated-catalog pins when entries become historical;
-- classify all 25 JSONL files;
-- add `evals/validate.py` and focused tests;
-- update CI and the evaluation guide.
-
-**Exit:** every case file is classified exactly once, pinned catalog revisions resolve deterministically, a valid frozen admission candidate passes without adding proposal holdout to active coverage, historical entries retain their evaluated roots, and existing active-validation data validates.
+Closed: see [Evaluation suite manifest, structural validator, and safe suite selection](decisions/0001-eval-suite-manifest-and-validator.md).
 
 ### Change 2: Safe suite selection
 
-- add lifecycle- and split-aware `--suite`, `--mode`, `--allow-historical`, `--historical-catalog`, `--proposal-baseline`, and guarded holdout behavior to the runner;
-- make normal `--suite` and low-level `--cases` development-only, rejecting every holdout outside `--mode holdout`;
-- make the holdout guard verify locked comparison configuration and immutable baseline/treatment revisions, evaluate only their isolated roots, and serve proposal, canonical, independent-holdout, release-only, and permitted historical selections;
-- make historical development execution require an explicit retained baseline or treatment pin, resolve it to an isolated root, and fail on a missing or unresolvable pin instead of using the working tree;
-- route independent-holdout and release holdout selection through that guard rather than around it;
-- record every evaluated revision and root, manifest and case hashes, comparison metadata, and effective timeouts in result metadata;
-- add runner regressions for early canonical-holdout rejection through both `--suite` and `--cases`, guarded success, independent-holdout/release delegation, and historical baseline/treatment root selection without working-tree fallback.
-
-**Exit:** normal and low-level runs cannot expose holdout data; every holdout execution uses the locked contract and recorded immutable baseline and treatment roots; frozen proposal development data runs only as a pinned, non-covering baseline; historical development runs only against the explicitly selected retained archived root.
+Closed: see [Evaluation suite manifest, structural validator, and safe suite selection](decisions/0001-eval-suite-manifest-and-validator.md).
 
 ### Change 3: Four routing gaps
 
-- add development and holdout pairs for the four missing skills;
-- run canonical routing baseline and treatment comparisons.
-
-**Exit:** canonical development-and-holdout routing coverage is 25 of 25.
+Closed: see [Close the four canonical routing gaps](decisions/0002-routing-gap-closure.md).
 
 ### Change 4: Anatomy, portability, and objective validation
 
-- add contributor and anatomy guides;
-- audit all 25 existing skills against the anatomy contract and every script-owning skill against the script convention;
-- remediate every recorded semantic gap;
-- migrate the six cross-skill asset links into owning skill-local evidence;
-- update README links;
-- add kebab-case, 1,024-character, cross-skill asset, and 500-line warning checks;
-- add focused validator tests.
-
-**Exit:** objective rules pass, every audit row has a disposition, no anatomy or script-convention gap remains open, each current skill is independently installable, and semantic rules remain explicitly review-based.
+Closed: see [Skill anatomy guides, cross-skill asset migration, objective validation, and catalog audit](decisions/0003-anatomy-portability-objective-validation.md).
 
 ### Changes 5–7: Behavior waves
 
@@ -837,40 +740,23 @@ For each pilot, change `a` freezes the non-active development and holdout evalua
 
 ### Change 13: Conditional decisions
 
-- run security audit and debugging baseline;
-- review observability and performance demand evidence;
-- record an explicit add, defer, or reject decision for each.
-
-**Exit:** no conditional skill is added on intuition alone.
+Closed: see [Conditional gap decisions recorded](decisions/0004-conditional-gap-decisions-recorded.md).
 
 ## 17. File Change Map
 
 | Path | Action | Required content | Verification |
 |---|---|---|---|
-| `evals/suites.json` | Add | exhaustive case-file lifecycle manifest, nullable single-root admission candidate, immutable baseline and treatment catalog revisions retained for historical reproduction, and suite-specific locked comparison contracts including timeout policy | evaluation validator tests |
 | `evals/catalog_probe.py` | Add | OMP-native catalog capture, token attribution, and paired latency measurement | focused probe tests and a baseline run |
-| `evals/validate.py` | Add | deterministic schema, path, ID-scope, skill, admission-candidate, historical-pin, proposal-revision, pairing, comparison-contract, split-aware selection, holdout-revision, and coverage checks | direct run and focused unit tests |
-| `evals/run.py` | Update | development-only normal selectors, one guarded paired holdout executor over immutable roots, independent/release delegation, explicit retained-root historical development, pinned proposal-baseline execution, and complete result metadata | evaluation harness tests |
-| `evals/README.md` | Update | statuses, admission-candidate and archived-pin fields, lifecycle matrix, development-only selectors, guarded holdout sequencing, explicit historical root selection, baseline critical semantics, and evidence policy | link and command review |
-| `.github/workflows/validate-skills.yml` | Update | run skill and evaluation validators | workflow syntax and local commands |
-| `tests/test_eval_validation.py` | Add | failure cases for all structural invariants, including invalid candidate state, candidate clearing or release without full coverage, absent historical or holdout revisions, and guard bypasses | unit-test discovery |
-| `tests/test_evaluation_harness.py` | Update narrowly | normal `--suite` and low-level `--cases` early-holdout rejection, guarded paired execution, independent/release delegation, historical baseline/treatment root selection and failures, proposal development baseline behavior, and result metadata including immutable roots and timeouts | focused unit tests |
-| `evals/cases/routing-development.jsonl` | Update | four development routing pairs | eval validator and live run |
-| `evals/cases/routing-holdout.jsonl` | Update | four independent holdout pairs | eval validator and guarded frozen run |
 | behavior case files | Update or add through manifest | wave-based development and holdout cases; all holdouts execute only through the guard after treatment freeze | deterministic checks and guarded live comparison |
-| `CONTRIBUTING.md` | Add | authoring, provenance, evaluation, and review process | link validation |
-| `docs/skill-anatomy.md` | Add | flexible anatomy and progressive disclosure | contributor review |
-| all 25 existing skill directories | Audit; update only recorded gaps | anatomy conformance and script convention where applicable | recorded catalog-wide manual review |
 | `README.md` | Update | contributor links, inventory, generated evidence status | skill validator |
-| `evaluation/SKILL.md`, `multi-agent-patterns/SKILL.md`, `tool-design/SKILL.md` | Done (2026-10-06) | remove six cross-skill asset dependencies without losing cited evidence | skill validator and standalone-install review |
-| `scripts/validate_skills.py` | Update | objective name, description, body-size, and cross-skill asset rules | validator tests |
-| `tests/test_validate_skills.py` | Update | new hard-error, portability, and warning boundaries | focused unit tests |
 | release reports and result manifests | Update | durable artifact links; immutable result manifests with evaluated baseline and treatment revisions and resolved roots, comparison-contract hashes, effective timeouts and equality, and completed gate inputs; release-report eligibility and rollback-invalidation dispositions | reproducibility review |
 | each new skill directory | Add separately from its frozen evaluation proposal | complete skill, local references, metadata | admission gate |
 | `ATTRIBUTION.md` | Update per pilot | pinned source path and revision | skill validator |
 | upstream license file | Add only if needed | exact applicable license text | license review |
 
 Do not create all future paths in one scaffold change. Add a path only when its implementation change is ready.
+
+Closed rows (`evals/suites.json`, `evals/validate.py`, `evals/run.py`, `evals/README.md`, `.github/workflows/validate-skills.yml`, `tests/test_eval_validation.py`, `tests/test_evaluation_harness.py`): see [Evaluation suite manifest, structural validator, and safe suite selection](decisions/0001-eval-suite-manifest-and-validator.md). Closed rows (`evals/cases/routing-development.jsonl`, `evals/cases/routing-holdout.jsonl`): see [Close the four canonical routing gaps](decisions/0002-routing-gap-closure.md). Closed rows (`CONTRIBUTING.md`, `docs/skill-anatomy.md`, all 25 existing skill directories, `evaluation/SKILL.md`/`multi-agent-patterns/SKILL.md`/`tool-design/SKILL.md`, `scripts/validate_skills.py`, `tests/test_validate_skills.py`): see [Skill anatomy guides, cross-skill asset migration, objective validation, and catalog audit](decisions/0003-anatomy-portability-objective-validation.md).
 
 ## 18. Verification and Release Gates
 

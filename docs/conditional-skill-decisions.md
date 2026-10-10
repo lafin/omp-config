@@ -70,6 +70,8 @@ Keep the decision at **DEFER** until all six cases have three complete treatment
 
 A passing audit, isolated stochastic failure, or failure that an existing owner can express blocks a new security skill. It does not reject future investigation if new evidence appears.
 
+General application security is a separate candidate under the procedural-value path (`docs/skill-set-improvement-plan.md` §12.5; decisions D1 and D3 in `docs/ecc-comparison-improvement-plan.md`). It is staged as `proposals/security-review` and does not change this agent-boundary decision.
+
 ## Debugging
 
 **Decision: DEFER admission; the baseline passes and the proposal threshold is not met.**
@@ -119,6 +121,8 @@ A debugging skill can be proposed only if the same critical failure occurs in at
 
 If no case reaches the two-of-three baseline threshold, keep debugging as harness-level engineering behavior.
 
+The procedural-value path (`docs/skill-set-improvement-plan.md` §12.5) also applies to debugging. The 18/18 baseline has zero critical failures, so a debugging candidate qualifies only through the completeness criterion.
+
 ## Observability
 
 **Decision: DEFER because the demand gate is unmet.**
@@ -164,4 +168,4 @@ Reconsider when a target host exposes model-editable context, or when an indepen
 
 ## Evidence status
 
-Repository-backed case definitions and complete home-profile captures now exist for the security audit and debugging baseline. The canonical routing development baseline and treatment completed with `102/102` critical passes each in `evals/results/catalog-routing-home-v1`; the security current-owner audit passed `18/18` in `evals/results/conditional-security/home-v4-treatment`; and the skills-disabled debugging baseline passed `18/18` in `evals/results/conditional-debugging/home-v13-baseline`. Security remains deferred because the current owners cover the audited boundaries, and debugging remains deferred because its proposal threshold is not met. No incident demand log, immutable external publication, or holdout-grade treatment evidence is claimed.
+Repository-backed case definitions and complete home-profile captures now exist for the security audit and debugging baseline. The canonical routing development baseline and treatment completed with `102/102` critical passes each in `evals/results/catalog-routing-home-v1`; the security current-owner audit passed `18/18` in `evals/results/conditional-security/home-v4-treatment`; and the skills-disabled debugging baseline passed `18/18` in `evals/results/conditional-debugging/home-v13-baseline`. No incident demand log, immutable external publication, or holdout-grade treatment evidence is claimed.

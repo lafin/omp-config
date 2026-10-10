@@ -16,6 +16,10 @@ SCHEMA_VERSION = 5
 SUPPORTED_SCHEMA_VERSIONS = {4, SCHEMA_VERSION}
 HASH = re.compile(r"[0-9a-f]{64}")
 POLICY_FLAGS = {"extensions": "disabled", "rules": "disabled", "sessions": "disabled"}
+# Procedural-value admission thresholds (decision D1, docs/skill-set-improvement-plan.md §12.5).
+PROCEDURAL_COVERAGE_DELTA = 0.15
+PROCEDURAL_MIN_ATTEMPTS = 18
+PROCEDURAL_BASELINE_CRITICAL_FAILURES = 3
 SENSITIVE_CONFIG_KEY = re.compile(
     r"(?:auth(?:orization)?|bearer|cookie|token|secret|password|api.?key|access.?key|private.?key|credential)",
     re.IGNORECASE,
@@ -1672,10 +1676,20 @@ def paired_grade_counts(
         for (case_id, attempt), grade in base.items()
         if grade["passed"] and not treat[(case_id, attempt)]["passed"]
     ]
+    def coverage(grades: dict[tuple[str, int], dict[str, Any]]) -> float:
+        return sum(
+            sum(check["passed"] for check in grade["checks"]) / len(grade["checks"])
+            for grade in grades.values()
+        ) / len(grades)
+
     return {
         "baseline_passed": sum(grade["passed"] for grade in base.values()),
         "treatment_passed": sum(grade["passed"] for grade in treat.values()),
         "total": len(base),
+        "baseline_critical_failures": sum(not grade["critical_passed"] for grade in base.values()),
+        "treatment_critical_failures": sum(not grade["critical_passed"] for grade in treat.values()),
+        "baseline_check_coverage": coverage(base),
+        "treatment_check_coverage": coverage(treat),
         "critical_regressions": critical_regressions,
         "regressions": regressions,
         "baseline_metrics": {
@@ -1689,6 +1703,7 @@ def paired_grade_counts(
 
 def merge_gate(args: argparse.Namespace) -> dict[str, Any]:
     case_kind = getattr(args, "case_kind", "repository")
+    args.admission_path = getattr(args, "admission_path", "improvement")
     development = paired_grade_counts(
         args.development_baseline,
         args.development_treatment,
@@ -1712,18 +1727,36 @@ def merge_gate(args: argparse.Namespace) -> dict[str, Any]:
         *holdout["critical_regressions"],
         *routing_holdout["critical_regressions"],
     ]
-    development_improved = (
-        development["treatment_passed"] > development["baseline_passed"]
-        and (
-            case_kind != "behavior"
-            or development["treatment_passed"] == development["total"]
+    if args.admission_path == "procedural-value":
+        # Registered in docs/skill-set-improvement-plan.md §12.5.
+        completeness = (
+            holdout["total"] >= PROCEDURAL_MIN_ATTEMPTS
+            and holdout["treatment_check_coverage"] - holdout["baseline_check_coverage"]
+            >= PROCEDURAL_COVERAGE_DELTA
         )
-    )
+        consistency = (
+            holdout["total"] >= PROCEDURAL_MIN_ATTEMPTS
+            and holdout["baseline_critical_failures"] >= PROCEDURAL_BASELINE_CRITICAL_FAILURES
+        )
+        development_improved = (
+            holdout["treatment_critical_failures"] == 0
+            and development["treatment_critical_failures"] == 0
+            and (completeness or consistency)
+        )
+    else:
+        development_improved = (
+            development["treatment_passed"] > development["baseline_passed"]
+            and (
+                case_kind != "behavior"
+                or development["treatment_passed"] == development["total"]
+            )
+        )
     holdout_preserved = (
         not holdout["regressions"]
         and holdout["treatment_passed"] >= holdout["baseline_passed"]
         and (
             case_kind != "behavior"
+            or args.admission_path == "procedural-value"
             or holdout["treatment_passed"] == holdout["total"]
         )
     )
@@ -1760,6 +1793,7 @@ def merge_gate(args: argparse.Namespace) -> dict[str, Any]:
         "decision": "pass" if passed else "fail",
         "paired_evidence": True,
         "case_kind": case_kind,
+        "admission_path": args.admission_path,
         "development": development,
         "holdout": holdout,
         "routing_holdout": routing_holdout,
@@ -1811,6 +1845,12 @@ def main() -> int:
         choices=("repository", "behavior"),
         default="repository",
         help="Kind required for development and holdout pairs",
+    )
+    gate_parser.add_argument(
+        "--admission-path",
+        choices=("improvement", "procedural-value"),
+        default="improvement",
+        help="improvement: development pass count rises; procedural-value: zero treatment critical failures plus holdout coverage or consistency gain",
     )
     gate_parser.add_argument("--development-baseline", type=Path, required=True)
     gate_parser.add_argument("--development-treatment", type=Path, required=True)

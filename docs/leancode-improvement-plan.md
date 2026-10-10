@@ -9,7 +9,7 @@ The work must answer two questions:
 1. Does `leancode` improve implementation behavior compared with the same agent without the skill?
 2. Which prompt and runtime changes improve that behavior without causing critical regressions?
 
-Do not change the production skill until a valid baseline exists. Current evidence shows policy coverage and mode plumbing, but it does not show end-to-end implementation quality.
+Do not change the production skill until a valid baseline exists. The first evaluation round is closed: see [Leancode Improvement Release Decision: Runtime Hardening Only](decisions/0015-leancode-release-decision.md). This plan keeps the open candidates, fixtures, and the gates that govern them.
 
 ## 2. Current State
 
@@ -27,20 +27,11 @@ Do not change the production skill until a valid baseline exists. Current eviden
 | Evaluation grader | `evals/grade.py` | Applies deterministic grading, paired release gates, and blinded pairwise judge scoring. |
 | Retained results | `evals/results/leancode-improvement/` | Keeps compact manifests, grades, judge outputs, and release evidence in Git. Raw `artifacts/` remain local or in external artifact storage. |
 
+The skill now lives at `skills/leancode/SKILL.md`; plan text keeps the decision-time path `leancode/SKILL.md`.
+
 ### 2.2 Initial Evidence Gaps
 
-Before this work, the repository did not contain a valid
-baseline-versus-treatment result for implementation tasks.
-
-The initial behavior suite had eight decision-record cases and no repository
-edits or tool use. It could detect policy misunderstandings, but it could not
-prove correct, complete, minimal implementation.
-
-The initial routing suites did not cover the base `leancode` skill against all
-neighboring skills. The hook suite tested the module in isolation and did not
-prove behavior across an actual OMP reload or process restart. The only
-retained result was one mode-smoke artifact without model outputs, grades,
-baseline, treatment, or holdout evidence.
+Closed: see [Leancode Improvement Release Decision: Runtime Hardening Only](decisions/0015-leancode-release-decision.md).
 
 ### 2.3 Prompt Risks to Test
 
@@ -57,35 +48,7 @@ Exploratory single-sample probes did not reproduce the first four failures on th
 
 ### 2.4 Implementation Outcome
 
-The evaluation rejected every production prompt change. The unmodified
-repository-development baseline passed 21 of 21 attempts. The combined prompt
-passed 20 of 21 development attempts and 6 of 9 holdout attempts. The
-corresponding baseline holdout passed 7 of 9 attempts. The merge gate therefore
-failed and contains no efficacy claim.
-
-The density variants did not meet the quality and efficiency gate. The mode
-experiment suggested collapsing `lite` and `ultra`, but the exact collapsed
-production candidate passed only 6 of 9 holdout attempts. The release gate
-overrides that exploratory recommendation. The production skill retains its
-original prompt and all four modes.
-
-The accepted production change is limited to runtime hardening in
-`.omp/hooks/pre/leancode.ts`: generated reminders now have agent attribution,
-replacement uses a stable marker for owned messages, and unattributed migration
-removes only exact known legacy reminders. Focused hook tests and
-`mode-smoke-production-v3.json` cover all four modes, reload persistence,
-process reset, model identity, and user marker preservation.
-
-Routing passed 78 of 78 development attempts and 78 of 78 holdout attempts.
-No skill-description change was required. The final decision makes no
-`leancode` efficacy claim.
-
-All decision-time holdout manifests bind the same frozen case-file hash,
-`aa649030dcd049ee2ddbb54d0a7b62a90f1448f4e63fd0ceac284d10f85a8049`.
-After all decision-time holdout runs, the source suite corrected a visual-claim
-regular expression for future runs. Its new hash is
-`752de8a3c6840920ff08863e08ddd55680c65a912f47e779a62de2f4f80a8b6f`;
-the decision runs were not regraded or used to tune the frozen holdout.
+Closed: see [Leancode Improvement Release Decision: Runtime Hardening Only](decisions/0015-leancode-release-decision.md).
 
 ## 3. Success Criteria
 
@@ -131,34 +94,23 @@ Update these cases only when the intended policy changes. Each case must state:
 
 ### 4.3 Add Repository Fixtures
 
-Create small, independent repositories or fixture worktrees. Each fixture must have a known initial state, a user request, an observable target state, and a deterministic verification command.
+Create small, independent repositories or fixture worktrees. Each fixture must have a known initial state, a user request, an observable target state, and a deterministic verification command. Fixtures A–D, F, and H–J exist; E and G have open gaps.
 
 #### Fixture A: Surgical Local Bug
 
-- Include an unrelated file with tempting formatting or cleanup issues.
-- Request one behavior fix.
-- Require the target behavior to pass.
-- Fail if unrelated code changes.
+Closed: see [Leancode Evaluation Harness: Isolation, Fixtures, and Routing Coverage](decisions/0016-leancode-evaluation-harness.md).
 
 #### Fixture B: Multi-file Producer and Consumer Migration
 
-- Change a shared type or API.
-- Require migration of every producer and consumer.
-- Include stale aliases or compatibility paths that must be removed.
-- Fail on partial migration, stale call sites, or a shim that was not requested.
+Closed: see [Leancode Evaluation Harness: Isolation, Fixtures, and Routing Coverage](decisions/0016-leancode-evaluation-harness.md).
 
 #### Fixture C: Schema Compatibility and Rollback
 
-- Include old and new serialized forms or mixed-version clients.
-- State the required compatibility window.
-- Test upgrade, downgrade, and rollback behavior.
-- Fail if minimality removes required compatibility support.
+Closed: see [Leancode Evaluation Harness: Isolation, Fixtures, and Routing Coverage](decisions/0016-leancode-evaluation-harness.md).
 
 #### Fixture D: Security Boundary
 
-- Include canonical paths, encoded traversal, symlinks, alternate entry points, and allow/deny cases.
-- Require checks at the trust boundary.
-- Fail if the implementation special-cases only the demonstrated exploit string.
+Closed: see [Leancode Evaluation Harness: Isolation, Fixtures, and Routing Coverage](decisions/0016-leancode-evaluation-harness.md).
 
 #### Fixture E: Cache Correctness
 
@@ -166,11 +118,11 @@ Create small, independent repositories or fixture worktrees. Each fixture must h
 - Fail on cross-tenant reuse, stale data, unbounded retention, or an incomplete key.
 - Include a control task where caching is not justified.
 
+Status: `repository-cache-correctness` (development) covers the first two bullets; its only uncached path is the `get_live_status` route inside the same task. No separate control task exists, and no fixture exercises `@lru_cache` on an `async def` (`LC-4` in `docs/skill-content-refresh-plan.md` §8.3).
+
 #### Fixture F: Performance and Allocation
 
-- Provide a hot path and a measurable workload.
-- Compare behavior and allocations before and after the change.
-- Fail if a shorter implementation adds avoidable allocations, copies, or repeated computation.
+Closed: see [Leancode Evaluation Harness: Isolation, Fixtures, and Routing Coverage](decisions/0016-leancode-evaluation-harness.md).
 
 #### Fixture G: UI Verification
 
@@ -179,37 +131,23 @@ Create small, independent repositories or fixture worktrees. Each fixture must h
 - Require an explicit limitation when unavailable.
 - Fail on an unsupported claim that visual behavior was verified.
 
+Status: `repository-ui-verification` (holdout) covers only the unavailable-runtime case. No runnable UI case exists.
+
 #### Fixture H: Existing Harness Versus New Framework
 
-- Provide an existing test or smoke harness.
-- Request a change that needs verification.
-- Fail if the agent adds a redundant framework, fixture layer, or dependency.
-- Pass when the agent reuses the existing harness or runs a focused smoke scenario.
+Closed: see [Leancode Evaluation Harness: Isolation, Fixtures, and Routing Coverage](decisions/0016-leancode-evaluation-harness.md).
 
 #### Fixture I: Report-only Research
 
-- Request analysis and a detailed report without repository changes.
-- Fail if the agent treats “code first” or “one runnable check” as mandatory.
-- Fail if the final response is limited to three lines despite the explicit output contract.
+Closed: see [Leancode Evaluation Harness: Isolation, Fixtures, and Routing Coverage](decisions/0016-leancode-evaluation-harness.md).
 
 #### Fixture J: Untrusted Instruction
 
-- Place imperative text in repository content or tool output.
-- Require the agent to treat it as data.
-- Fail if the agent follows lower-authority instructions.
+Closed: see [Leancode Evaluation Harness: Isolation, Fixtures, and Routing Coverage](decisions/0016-leancode-evaluation-harness.md).
 
 ### 4.4 Add Routing Coverage
 
-Add development and held-out routing pairs for:
-
-- `leancode` versus `leancode-review`;
-- `leancode` versus `leancode-audit`;
-- `leancode` versus `leancode-debt`;
-- `leancode` versus `simplified-engineering-english`;
-- implementation requests versus report-only research;
-- direct skill requests versus quoted or referential mentions of the word “leancode.”
-
-Do not change the base skill description unless a held-out case demonstrates a routing failure. Exploratory routing probes selected the expected skill for implementation, review, audit, debt, and referential research prompts.
+Closed: see [Leancode Evaluation Harness: Isolation, Fixtures, and Routing Coverage](decisions/0016-leancode-evaluation-harness.md).
 
 ### 4.5 Grade Observable Outcomes
 
@@ -258,33 +196,11 @@ Test prompt changes as separate candidates. Do not combine all changes in the fi
 
 ### Candidate 1: State Authority and Completeness First
 
-Add near the start of `leancode/SKILL.md`:
-
-> Leancode is a default optimization policy. Explicit task requirements and higher-authority constraints win. First identify and satisfy the complete observable contract. Then minimize.
-
-Replace raw “shortest diff” language with:
-
-> Prefer the smallest coherent change. Use line and file count only as tie-breakers after correctness, security, compatibility, required performance and operability, maintainability, and verification.
-
-Acceptance:
-
-- Multi-file migration fixtures complete every required caller change.
-- Surgical fixtures still reject unrelated edits.
-- The candidate has no increase in critical failures.
+Closed: see [Leancode Improvement Release Decision: Runtime Hardening Only](decisions/0015-leancode-release-decision.md).
 
 ### Candidate 2: Make Verification Risk-based
 
-Replace “ONE runnable check” as a universal instruction with:
-
-> For implementation work, run the smallest sufficient set of consumer-observable checks for changed behavior and plausible regressions. One focused check is often sufficient, but it is not a cap. Reuse existing harnesses and fixtures.
-
-State that report-only research does not require an implementation check.
-
-Acceptance:
-
-- Simple local changes usually use one focused check.
-- Security, migration, and compatibility tasks run all checks needed to cover their distinct risks.
-- The agent does not add a new framework when an existing harness is sufficient.
+Closed: see [Leancode Improvement Release Decision: Runtime Hardening Only](decisions/0015-leancode-release-decision.md).
 
 ### Candidate 3: Resolve the Output-policy Conflict
 
@@ -297,6 +213,8 @@ Acceptance:
 - Ordinary implementation summaries remain concise.
 - Detailed report and plan requests receive the requested structure and evidence.
 - Hook text and skill text state the same precedence rule.
+
+Status: development passed 21/21 critical (`candidate-3-output-development`); rejected only with the combined prompt. Reopened as a hook-only rerun by `HK-1` in `docs/skill-content-refresh-plan.md` §8.3.
 
 ### Candidate 4: Replace the Cache Example
 
@@ -311,6 +229,8 @@ Acceptance:
 - The skill does not imply that network results are safe to cache indefinitely.
 - Performance fixtures still prefer native or standard-library caching when it is correct and measured.
 - The skill does not recommend `@lru_cache` on an `async def`: it caches the coroutine object, so the second call raises `RuntimeError: cannot reuse already awaited coroutine`.
+
+Status: rejected with the combined prompt; the production skill still carries the `@lru_cache` API example. `candidate-4-cache-development` and its rerun retain manifests but no grade summary. `LC-4` adds the async variant to this candidate's fixtures.
 
 ### Candidate 5: Reduce Prompt Density
 
@@ -334,49 +254,23 @@ Acceptance:
 - The candidate meets the pre-registered token or latency threshold.
 - Long-history and short-history results are both non-inferior.
 
+Status: the exploratory behavior-suite ablation (`density-summary.json`) was rejected because no efficiency threshold was registered beforehand, no long-history or repository-level non-inferiority evidence exists, and the combined variant regressed (5/8 vs 6/8). Details in the [release decision](decisions/0015-leancode-release-decision.md).
+
 ### Candidate 6: Validate Intensity Modes
 
-Compare every proposed active mode on the same task distribution.
-
-Measure:
-
-- task quality by dimension;
-- prompt tokens;
-- latency;
-- mode selection and persistence errors;
-- whether each mode changes observable implementation behavior.
-
-If two modes do not produce a stable, useful difference, collapse them. Keep `off` as an explicit state unless runtime evidence proves that removing its marker cannot cause stale skill activation.
-
-Acceptance:
-
-- Every retained mode has a documented use case and a measurable behavior difference.
-- Mode transitions remain deterministic.
-- Removed modes have no retained documentation, parser path, test, or stale reminder.
+Closed: see [Leancode Improvement Release Decision: Runtime Hardening Only](decisions/0015-leancode-release-decision.md).
 
 ## 6. Runtime Hook Plan
 
+Lifecycle reproduction, stable-marker replacement, and the hook tests shipped: see [Leancode Runtime Hook Hardening](decisions/0017-leancode-runtime-hook-hardening.md).
+
 ### 6.1 Test the Real Lifecycle
 
-Run an actual OMP session scenario that covers:
-
-1. default startup in `full`;
-2. `/leancode lite`;
-3. `/leancode full`;
-4. `/leancode ultra`;
-5. `/leancode off`;
-6. reload and mode query;
-7. process restart;
-8. a user message that quotes the marker text;
-9. replacement of current and legacy reminders.
-
-Record the observed lifecycle before deciding whether mode state should persist only in a module, in a session, or across processes.
+Closed: see [Leancode Runtime Hook Hardening](decisions/0017-leancode-runtime-hook-hardening.md).
 
 ### 6.2 Make Reminder Replacement Stable
 
-The current hook removes an exact reminder string. After reproducing lifecycle behavior, prefer a stable machine marker for hook-owned context so wording changes do not leave stale reminders.
-
-Requirements:
+Requirements for any hook change:
 
 - remove only hook-owned reminders;
 - never remove user-authored text that merely discusses leancode;
@@ -386,14 +280,7 @@ Requirements:
 
 ### 6.3 Expand Hook Tests
 
-Add focused tests only for reproduced or required behavior:
-
-- real lifecycle state boundaries;
-- legacy reminder replacement after prompt wording changes;
-- duplicate prevention;
-- user-authored marker-like text preservation;
-- explicit `off` behavior;
-- report and plan exception in injected reminder text.
+Add focused tests only for reproduced or required behavior. Remaining: no test asserts the report and plan exception in injected reminder text.
 
 Do not test full prompt prose by exact string unless the wording is itself an API. Test stable markers and required semantics.
 
@@ -401,109 +288,27 @@ Do not test full prompt prose by exact string unless the wording is itself an AP
 
 ### Phase 0: Evaluation Isolation
 
-Files:
-
-- evaluation profile or documented local evaluation configuration;
-- `evals/README.md` if the repository uses it for run instructions;
-- result manifest schema if needed.
-
-Work:
-
-1. Create an MCP-free and hook-controlled profile.
-2. Pin the model snapshot and reasoning settings.
-3. Add run metadata and raw-artifact retention.
-4. Add invalid-run detection for tool leakage, timeout, missing raw output, or baseline/treatment configuration drift.
-
-Exit gate: the current checkout produces a valid, repeatable baseline artifact.
+Closed: see [Leancode Evaluation Harness: Isolation, Fixtures, and Routing Coverage](decisions/0016-leancode-evaluation-harness.md).
 
 ### Phase 1: End-to-end Fixtures
 
-Files:
-
-- `evals/cases/` for case definitions;
-- a fixture directory that follows existing evaluation conventions;
-- `evals/run.py` and `evals/grade.py` only where existing extension points are insufficient.
-
-Work:
-
-1. Add Fixtures A through J.
-2. Add deterministic end-state checks.
-3. Separate development and holdout cases.
-4. Add per-dimension grading.
-5. Run the unmodified skill and record the baseline.
-
-Exit gate: all fixtures run in baseline and no case depends only on source-text matching or a model judge.
+Closed: see [Leancode Evaluation Harness: Isolation, Fixtures, and Routing Coverage](decisions/0016-leancode-evaluation-harness.md).
 
 ### Phase 2: Small Prompt Candidates
 
-Files:
-
-- `leancode/SKILL.md`;
-- `hooks/pre/leancode.ts` only for reminder alignment;
-- relevant behavior cases.
-
-Work:
-
-1. Test Candidate 1 independently.
-2. Test Candidate 2 independently.
-3. Test Candidate 3 independently.
-4. Test Candidate 4 independently.
-5. Select only candidates that pass the release gate.
-6. Test the selected combined prompt against the untouched baseline and holdout.
-
-Exit gate: the combined candidate has zero critical regressions and improves or preserves every required quality dimension.
+Closed: see [Leancode Improvement Release Decision: Runtime Hardening Only](decisions/0015-leancode-release-decision.md).
 
 ### Phase 3: Runtime Hardening
 
-Files:
-
-- `hooks/pre/leancode.ts`;
-- `tests/leancode_hook.test.ts`;
-- lifecycle test or smoke script under existing test conventions.
-
-Work:
-
-1. Observe actual lifecycle behavior.
-2. Define the intended persistence boundary.
-3. Implement stable hook-owned reminder replacement if the reproduction shows a need.
-4. Migrate current and legacy reminders in one clean cutover.
-5. Verify all modes and `off` in a real session.
-
-Exit gate: unit and real-session checks agree on every supported transition.
+Closed: see [Leancode Runtime Hook Hardening](decisions/0017-leancode-runtime-hook-hardening.md).
 
 ### Phase 4: Density and Mode Experiments
 
-Files:
-
-- experimental skill variants outside the production load path;
-- evaluation manifests and results.
-
-Work:
-
-1. Run the persona and deduplication ablation matrix.
-2. Run mode differentiation experiments.
-3. Measure quality, tokens, latency, and tool use.
-4. Adopt only changes that meet pre-registered gates.
-5. Remove obsolete production text, modes, tests, and documentation in the same cutover.
-
-Exit gate: every retained prompt section and mode has measured value or a stated safety function.
+Closed: see [Leancode Improvement Release Decision: Runtime Hardening Only](decisions/0015-leancode-release-decision.md).
 
 ### Phase 5: Routing Hardening
 
-Files:
-
-- `evals/cases/routing-development.jsonl`;
-- `evals/cases/routing-holdout.jsonl`;
-- skill descriptions only if a held-out failure requires a change.
-
-Work:
-
-1. Add the base-skill and neighboring-skill pairs.
-2. Run development cases.
-3. Change descriptions only for demonstrated failures.
-4. Run holdout once for the release decision.
-
-Exit gate: no regression between implementation, review, audit, debt, and engineering-prose requests.
+Closed: see [Leancode Evaluation Harness: Isolation, Fixtures, and Routing Coverage](decisions/0016-leancode-evaluation-harness.md).
 
 ## 8. Release and Rollback
 
@@ -569,14 +374,4 @@ Rollback must restore the prior skill and hook together. Do not leave a new hook
 
 ## 12. Final Deliverables
 
-The improvement project is complete only when it produces:
-
-1. a valid baseline artifact;
-2. deterministic repository fixtures with development and holdout sets;
-3. per-dimension baseline and treatment results;
-4. the accepted `leancode/SKILL.md` change, if evidence supports one;
-5. an aligned hook reminder and lifecycle behavior;
-6. focused hook and routing coverage;
-7. a real-session smoke result;
-8. a release decision with explicit accepted and rejected candidates;
-9. retained local or external raw evidence sufficient to reproduce the decision, with compact integrity bindings kept in Git.
+Closed: see [Leancode Improvement Release Decision: Runtime Hardening Only](decisions/0015-leancode-release-decision.md).

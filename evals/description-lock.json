@@ -1,0 +1,98 @@
+{
+  "advanced-evaluation": {
+    "sha256": "e6233df7efc63d9eefee2f1ca1f60e8d5b29e51b415252eec4430399c5a1e5d8",
+    "routing_evidence": "evals/results/catalog-routing-home-v1"
+  },
+  "ai-stage-gate": {
+    "sha256": "d15d0d66aeb2460f1d37038751f049bdee8136bfed37017bccdd6541a8c0064b",
+    "routing_evidence": "evals/results/catalog-routing-home-v1"
+  },
+  "bdi-mental-states": {
+    "sha256": "85e28e0a497ea6ca28fbe59ad3f964bb322b131df2a63620adb2fa57aacb53f6",
+    "routing_evidence": "evals/results/catalog-routing-home-v1"
+  },
+  "context-compression": {
+    "sha256": "83608d7cd6469906b16d2b1ce6852153104e33fc17aa2bcb794437d0a42eb0d8",
+    "routing_evidence": "evals/results/catalog-routing-home-v1"
+  },
+  "context-degradation": {
+    "sha256": "ce2e7a8a276f60eb7419d309dcb924f42deeeb30f2c1f732c66dfd821c89da75",
+    "routing_evidence": "evals/results/catalog-routing-home-v1"
+  },
+  "context-fundamentals": {
+    "sha256": "efef9ea409e3a3f03f7df17c5064d4fe893f61581cfb248dc3637eafb32f5682",
+    "routing_evidence": "evals/results/catalog-routing-home-v1"
+  },
+  "context-optimization": {
+    "sha256": "0ef3a2aa929315060f43a2baf06d7651e289db77553424c917db3d6debf47446",
+    "routing_evidence": "evals/results/catalog-routing-home-v1"
+  },
+  "evaluation": {
+    "sha256": "3dea15c90f1b31f4e43429025a706c2537678e7f52fcbb1dc3728bc7cf6f1eca",
+    "routing_evidence": "evals/results/catalog-routing-home-v1"
+  },
+  "filesystem-context": {
+    "sha256": "d031d16b93779d16ebb0f4986f9209038df7b2f3a60d4026e8f94c26e2df4b06",
+    "routing_evidence": "evals/results/catalog-routing-home-v1"
+  },
+  "harness-engineering": {
+    "sha256": "8249ac9d4fc74f72a1d7779b3f12bf376e8fdd79634493693fd0cb87685be26f",
+    "routing_evidence": "evals/results/catalog-routing-home-v1"
+  },
+  "hosted-agents": {
+    "sha256": "00da760d05b0112564f8823479cc33a2b5774086d1be36fd620abb9d9df582c6",
+    "routing_evidence": "evals/results/catalog-routing-home-v1"
+  },
+  "latent-briefing": {
+    "sha256": "866ecb60b040cddec25c5a006d9bd5440105ae77fc27f9b5ef40163acb279ebd",
+    "routing_evidence": "evals/results/catalog-routing-home-v1"
+  },
+  "leancode": {
+    "sha256": "35e6fec97781d756f1c854cf04ef456df9c714748d64784263c10256f0ab8568",
+    "routing_evidence": "evals/results/catalog-routing-home-v1"
+  },
+  "leancode-debt": {
+    "sha256": "66d7070dc6b2190498ade087f6622170ff939eb1955c0158c43994e134c924b0",
+    "routing_evidence": "evals/results/catalog-routing-home-v1"
+  },
+  "leancode-review": {
+    "sha256": "a5fee513805a7a383a8d7ebf6a8f076c05b0ffdf1351e046d6839deeda70a9bb",
+    "routing_evidence": "evals/results/catalog-routing-home-v1"
+  },
+  "long-horizon-prompting": {
+    "sha256": "dc316bf2df60f7e7776a054ea1832a388614d61ebf9ddfb198dc2a3bbb8ca362",
+    "routing_evidence": "evals/results/catalog-routing-home-v1"
+  },
+  "lossless-doc-compress": {
+    "sha256": "699c8652df1f0257a8fae57809df4d7e7cce7752b6001d431a7211e8c489771b",
+    "routing_evidence": "evals/results/catalog-routing-home-v1"
+  },
+  "memory-systems": {
+    "sha256": "9e9f4c4b7be6213f74688274e45d93fd7f8db5dd841bc6e701ac3e20ed817ba6",
+    "routing_evidence": "evals/results/catalog-routing-home-v1"
+  },
+  "ml-system-design-review": {
+    "sha256": "0b4bb011f0331be3606931c216071681ad2480ffa0f2ae5a3b0120e3844697c7",
+    "routing_evidence": "evals/results/catalog-routing-home-v1"
+  },
+  "multi-agent-patterns": {
+    "sha256": "244ae4797032c37d586c0874f13d82976f9d9944e1d3f37f39ae8abf84050b4c",
+    "routing_evidence": "evals/results/catalog-routing-home-v1"
+  },
+  "project-development": {
+    "sha256": "6b42cc6c8d0fe5aa9c6cd7377a2a9d8da57901bfb029e2ec4e5e181eb171554b",
+    "routing_evidence": "evals/results/catalog-routing-home-v1"
+  },
+  "self-improvement-loops": {
+    "sha256": "05d946c8bc64c488bccb239c1bf7c7834ff39f8c42dc22e9937e4cf2de750835",
+    "routing_evidence": "evals/results/catalog-routing-home-v1"
+  },
+  "simplified-engineering-english": {
+    "sha256": "65ae0b29d7230ba608b11602f8ae344e04b4ad92ed94f0c9c85df46da07d0a67",
+    "routing_evidence": "evals/results/catalog-routing-home-v1"
+  },
+  "tool-design": {
+    "sha256": "761813ed2396942392428ad3878620d50af7208afb70f0d6ffe4d7c883bc438a",
+    "routing_evidence": "evals/results/catalog-routing-home-v1"
+  }
+}

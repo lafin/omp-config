@@ -61,10 +61,8 @@ Use OMP agents. Do not simulate subagents with repeated local reads.
 Use these built-in agents first:
 
 - `scout`: scope discovery and shard planning for a large review;
-- `reviewer`: correctness, reliability, performance, architecture, tests, and general topics;
+- `reviewer`: correctness, reliability, performance, architecture, tests, UI, UX, accessibility, external API contracts, and general topics;
 - `security-reviewer`: security, authentication, authorization, privacy, and secret-handling topics;
-- `designer`: UI, UX, accessibility, interaction, and visual topics;
-- `librarian`: external library, framework, protocol, and API-contract questions;
 - `deep-verifier`: independent evidence checks, severity checks, and cross-shard deduplication;
 - `fixer`: implementation of confirmed findings.
 

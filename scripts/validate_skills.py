@@ -8,7 +8,9 @@ from __future__ import annotations
 
 import argparse
 import ast
+import hashlib
 import importlib.metadata
+import json
 import pkgutil
 import re
 import sys
@@ -31,6 +33,22 @@ SKILL_NAME_RE = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
 MAX_DESCRIPTION_LENGTH = 1_024
 MAX_SKILL_LINES = 500
 ALLOWED_FRONTMATTER_KEYS = frozenset({"name", "description", "license", "compatibility", "metadata", "allowed-tools"})
+DESCRIPTION_WARNING_LENGTH = 600
+DESCRIPTION_LOCK = Path("evals/description-lock.json")
+# Tools listed by `omp --help` (omp 18.8.7).
+OMP_TOOLS = frozenset({"read", "bash", "edit", "write", "grep", "glob", "lsp", "python", "notebook", "browser", "computer", "task", "todo", "web_search", "ask"})
+# Agents bundled with omp (`omp agents unpack`, omp 18.8.7).
+BUILTIN_AGENTS = frozenset({"reviewer", "scout", "security-reviewer", "sonic", "task"})
+ROUTED_AGENT_RE = re.compile(r"(?m)^- `([a-z0-9-]+)`:")
+
+
+class UniqueKeyLoader(yaml.SafeLoader):
+    def construct_mapping(self, node: yaml.MappingNode, deep: bool = False) -> dict[object, object]:
+        keys = [self.construct_object(key, deep=deep) for key, _ in node.value]
+        duplicate = next((key for key in keys if keys.count(key) > 1), None)
+        if duplicate is not None:
+            raise yaml.constructor.ConstructorError(None, None, f"duplicate key {duplicate!r}", node.start_mark)
+        return super().construct_mapping(node, deep)
 
 
 @dataclass(frozen=True, order=True)
@@ -102,7 +120,7 @@ def parse_frontmatter(path: Path, root: Path, issues: list[Issue]) -> tuple[dict
         return None, text
     source = "\n".join(lines[1:end])
     try:
-        value = yaml.safe_load(source)
+        value = yaml.load(source, Loader=UniqueKeyLoader)
     except yaml.YAMLError as error:
         mark = getattr(error, "problem_mark", None)
         error_line = mark.line + 2 if mark is not None else 1
@@ -391,6 +409,94 @@ def validate_python(root: Path, issues: list[Issue]) -> None:
                 add(issues, root, path, line, "python-dependency", module, f"Declare the distribution providing {module} in a root requirements file." )
 
 
+def normalized_description_hash(description: str) -> str:
+    return hashlib.sha256(" ".join(description.split()).encode()).hexdigest()
+
+
+def skill_description(path: Path, root: Path) -> str | None:
+    metadata, _ = parse_frontmatter(path, root, [])
+    description = metadata.get("description") if metadata else None
+    return description if isinstance(description, str) else None
+
+
+def validate_descriptions(root: Path, skill_files: list[Path], issues: list[Issue]) -> None:
+    lock_path = root / DESCRIPTION_LOCK
+    try:
+        lock = json.loads(lock_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as error:
+        add(issues, root, lock_path, 1, "description-lock", error, "Create the lock with --update-description-lock <skill> --evidence <path>.")
+        return
+    for path in skill_files:
+        name = path.parent.name
+        description = skill_description(path, root)
+        if description is None:
+            continue
+        if len(description) > DESCRIPTION_WARNING_LENGTH:
+            add(issues, root, path, 3, "description-length", f"{len(description)} characters", "Shorten only through the description-density experiment; keep routing exclusions.", warning=True)
+        entry = lock.get(name)
+        if not isinstance(entry, dict):
+            add(issues, root, lock_path, 1, "description-lock", f"{name}: missing", f"Run routing evaluation, then --update-description-lock {name} --evidence <result-dir>.")
+            continue
+        if entry.get("sha256") != normalized_description_hash(description):
+            add(issues, root, path, 3, "description-lock", f"{name}: description changed", f"Run routing evaluation, then --update-description-lock {name} --evidence <result-dir>.")
+        evidence = entry.get("routing_evidence")
+        if not isinstance(evidence, str) or not (root / evidence).exists():
+            add(issues, root, lock_path, 1, "description-lock-evidence", f"{name}: {evidence}", "Point routing_evidence at an existing evals/results directory.")
+    for name in sorted(set(lock) - {path.parent.name for path in skill_files}):
+        add(issues, root, lock_path, 1, "description-lock", f"{name}: no active skill", "Remove the entry for a retired skill.")
+
+
+def update_description_lock(root: Path, name: str, evidence: str) -> int:
+    path = root / "skills" / name / "SKILL.md"
+    description = skill_description(path, root) if path.is_file() else None
+    if description is None:
+        print(f"{relative(path, root)}:1: [description-lock] observed='missing skill or description'; correction=Name an active skill.", file=sys.stderr)
+        return EXIT_USAGE
+    if not (root / evidence).exists():
+        print(f"{evidence}:1: [description-lock-evidence] observed='missing path'; correction=Pass an existing routing result directory.", file=sys.stderr)
+        return EXIT_USAGE
+    lock_path = root / DESCRIPTION_LOCK
+    lock = json.loads(lock_path.read_text(encoding="utf-8")) if lock_path.is_file() else {}
+    lock[name] = {"sha256": normalized_description_hash(description), "routing_evidence": evidence}
+    lock_path.parent.mkdir(parents=True, exist_ok=True)
+    lock_path.write_text(json.dumps(dict(sorted(lock.items())), indent=2) + "\n", encoding="utf-8")
+    print(f"updated {relative(lock_path, root)}: {name}")
+    return EXIT_OK
+
+
+def validate_agents(root: Path, issues: list[Issue]) -> set[str]:
+    names: set[str] = set()
+    for path in sorted(root.glob("agents/*.md")):
+        metadata, text = parse_frontmatter(path, root, issues)
+        if metadata is None:
+            continue
+        names.add(path.stem)
+        if metadata.get("name") != path.stem:
+            add(issues, root, path, key_line(text, "name"), "agent-name", metadata.get("name"), f"Set name: {path.stem} to match the file name.")
+        if not isinstance(metadata.get("description"), str) or not metadata["description"].strip():
+            add(issues, root, path, key_line(text, "description"), "agent-description", metadata.get("description"), "Add a non-empty description.")
+        tools = metadata.get("tools")
+        if not isinstance(tools, str) or not tools.strip():
+            add(issues, root, path, key_line(text, "tools"), "agent-tools", tools, "List tools as a comma-separated scalar.")
+            continue
+        for tool in (item.strip() for item in tools.split(",")):
+            if tool not in OMP_TOOLS:
+                add(issues, root, path, key_line(text, "tools"), "agent-tool", tool, f"Use OMP tool names: {', '.join(sorted(OMP_TOOLS))}.")
+    return names
+
+
+def validate_commands(root: Path, agent_names: set[str], issues: list[Issue]) -> None:
+    known = agent_names | BUILTIN_AGENTS
+    for path in sorted(root.glob("commands/*.md")):
+        text = path.read_text(encoding="utf-8")
+        section = re.search(r"(?ms)^## Agent routing\n(.*?)(?=^## |\Z)", text)
+        if section is None:
+            continue
+        for match in ROUTED_AGENT_RE.finditer(section.group(1)):
+            if match.group(1) not in known:
+                add(issues, root, path, line_number(text, section.start(1) + match.start()), "command-agent", match.group(1), "Add agents/<name>.md, use a bundled OMP agent, or remove the route.")
+
+
 def validate(root: Path) -> list[Issue]:
     root = root.resolve()
     issues: list[Issue] = []
@@ -403,6 +509,8 @@ def validate(root: Path) -> list[Issue]:
             add(issues, root, path, 1, "skill-directory-name", directory_name, "Rename the skill directory using lower-case kebab case." )
         validate_metadata(path, root, issues)
     validate_references(root, skill_files, skill_names, issues)
+    validate_descriptions(root, skill_files, issues)
+    validate_commands(root, validate_agents(root, issues), issues)
     validate_python(root, issues)
     return sorted(set(issues))
 
@@ -410,10 +518,16 @@ def validate(root: Path) -> list[Issue]:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1], help="repository root (default: parent of this script)")
+    parser.add_argument("--update-description-lock", metavar="SKILL", help="record the current description of SKILL with routing evidence")
+    parser.add_argument("--evidence", help="existing routing result path, relative to the root")
     args = parser.parse_args(argv)
     if not args.root.is_dir():
         print(f"{args.root}:1: [root] observed='missing directory'; correction=Pass --root with an existing repository directory.", file=sys.stderr)
         return EXIT_USAGE
+    if args.update_description_lock:
+        if not args.evidence:
+            parser.error("--update-description-lock requires --evidence")
+        return update_description_lock(args.root.resolve(), args.update_description_lock, args.evidence)
     issues = validate(args.root)
     for issue in issues:
         print(issue.render())
