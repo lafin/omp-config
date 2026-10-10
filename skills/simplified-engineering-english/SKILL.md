@@ -87,7 +87,7 @@ If the source reports an observation but no failure, do not add an unknown-cause
 
 ## Conflicts and Ambiguity
 
-Do not invent an actor to remove passive voice. Do not invent a threshold to make a requirement measurable. Do not invent a cause or recovery to make an error actionable. Do not delete a condition, exception, negative prohibition, uncertainty marker, mean measurement, or required qualification to shorten a sentence.
+Do not invent an actor to remove passive voice. Do not invent a threshold to make a requirement measurable. Do not invent a cause or recovery to make an error actionable. Do not delete a condition, exception, negative prohibition, uncertainty marker, mean measurement, or required qualification to shorten a sentence. When you expand a contraction (`don't`, `can't`, `won't`), keep its negation: "Don't remove X until Y" becomes "Do not remove X until Y", never "After Y, remove X".
 
 An ambiguity is consequential only when the source supports materially different actions, obligations, technical interpretations, verification verdicts, or security outcomes. Treat a reference as resolved when it has one grammatically and technically compatible antecedent; do not hypothesize an unmentioned alternative. Do not report a merely possible refinement as an ambiguity. Report each unresolved vague claim explicitly; retaining its words does not resolve it.
 
