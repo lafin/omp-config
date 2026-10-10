@@ -24,36 +24,8 @@ export function leancodeReminder(level: Level): string {
   return `${STATE_PREFIX}${instruction}${STATE_SUFFIX}`;
 }
 
-// Unattributed reminders written by hook versions before attribution and the report-precedence clause.
-const LEGACY_REMINDERS: Record<string, true> = Object.fromEntries(
-  (Object.keys(LEVELS) as Level[]).map(mode => [leancodeReminder(mode).replace(REPORT_PRECEDENCE, "."), true]),
-);
-
 function isLevel(value: string): value is Level {
   return Object.hasOwn(LEVELS, value);
-}
-
-function isLeancodeStateMessage(message: unknown): boolean {
-  if (!message || typeof message !== "object" || !("role" in message) || message.role !== "user") return false;
-  if (!("content" in message) || !Array.isArray(message.content) || message.content.length !== 1) return false;
-  const [part] = message.content;
-  if (
-    !part ||
-    typeof part !== "object" ||
-    !("type" in part) ||
-    part.type !== "text" ||
-    !("text" in part) ||
-    typeof part.text !== "string"
-  ) {
-    return false;
-  }
-  const attribution = "attribution" in message ? message.attribution : undefined;
-  return (
-    (attribution === "agent" &&
-      part.text.startsWith(STATE_PREFIX) &&
-      part.text.endsWith(STATE_SUFFIX)) ||
-    (attribution === undefined && Object.hasOwn(LEGACY_REMINDERS, part.text))
-  );
 }
 
 export default function leancode(pi: ExtensionAPI): void {
@@ -63,7 +35,7 @@ export default function leancode(pi: ExtensionAPI): void {
 
   pi.on("context", async (event) => ({
     messages: [
-      ...event.messages.filter(message => !isLeancodeStateMessage(message)),
+      ...event.messages,
       {
         role: "user",
         attribution: "agent",

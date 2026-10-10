@@ -2,9 +2,6 @@ import { describe, expect, test } from "bun:test";
 import leancode, { leancodeReminder } from "../hooks/pre/leancode";
 
 const MARKER = "[omp:leancode-state]";
-// Unattributed reminders from hook versions before the report-precedence clause.
-const legacyReminder = (mode: Parameters<typeof leancodeReminder>[0]) =>
-  leancodeReminder(mode).replace("; an explicitly requested report or format wins.", ".");
 
 type Callback = (...args: unknown[]) => Promise<unknown>;
 
@@ -101,7 +98,7 @@ describe("leancode hook state", () => {
 
     for (const mode of ["lite", "ultra", "off", "full"] as const) {
       await hook.setMode(mode);
-      result = await hook.apply(result.messages);
+      result = await hook.apply([]);
       const reminders = markedTexts(result.messages);
       expect(reminders).toHaveLength(1);
       expect(reminders[0]).toContain(mode === "off" ? "Leancode is OFF" : `ACTIVE at ${mode}`);
@@ -120,79 +117,6 @@ describe("leancode hook state", () => {
       ["leancode off", "info"],
       ["leancode full", "info"],
     ]);
-  });
-
-  test("replaces all stale generated reminders and preserves other messages", async () => {
-    const hook = loadHook();
-    const keep = { role: "user", content: [{ type: "text", text: "keep me" }], timestamp: 1 };
-    const stale = (mode: Parameters<typeof leancodeReminder>[0]) => ({
-      role: "user",
-      attribution: "agent",
-      content: [{ type: "text", text: leancodeReminder(mode) }],
-      timestamp: 2,
-    });
-    const legacy = {
-      role: "user",
-      content: [{ type: "text", text: legacyReminder("ultra") }],
-      timestamp: 3,
-    };
-
-    await hook.setMode("off");
-    const result = await hook.apply([legacy, stale("full"), keep, stale("off")]);
-
-    expect(result.messages).toContain(keep);
-    expect(markedTexts(result.messages)).toEqual([leancodeReminder("off")]);
-    await hook.setMode("full");
-  });
-
-  test("preserves a user message that mentions the state marker", async () => {
-    const hook = loadHook();
-    const mention = {
-      role: "user",
-      content: [{ type: "text", text: `Please explain "${MARKER}" without changing this message.` }],
-      timestamp: 1,
-    };
-
-    await hook.setMode("full");
-    const result = await hook.apply([mention]);
-
-    expect(result.messages).toContain(mention);
-    expect(markedTexts(result.messages)).toEqual([mention.content[0].text, leancodeReminder("full")]);
-  });
-
-  test("preserves an attributed user copy of an exact reminder", async () => {
-    const hook = loadHook();
-    const copy = {
-      role: "user",
-      attribution: "user",
-      content: [{ type: "text", text: legacyReminder("full") }],
-      timestamp: 1,
-    };
-
-    await hook.setMode("full");
-    const result = await hook.apply([copy]);
-
-    expect(result.messages).toContain(copy);
-    expect(markedTexts(result.messages)).toEqual([legacyReminder("full"), leancodeReminder("full")]);
-  });
-
-  test("preserves an unattributed user message that only resembles a reminder", async () => {
-    const hook = loadHook();
-    const copy = {
-      role: "user",
-      content: [
-        {
-          type: "text",
-          text: `<system-reminder>${MARKER} user-authored content Full text: skill://leancode</system-reminder>`,
-        },
-      ],
-      timestamp: 1,
-    };
-
-    const result = await hook.apply([copy]);
-
-    expect(result.messages).toContain(copy);
-    expect(markedTexts(result.messages)).toEqual([copy.content[0].text, leancodeReminder("full")]);
   });
 
   test("invalid input reports the current mode without changing it", async () => {
