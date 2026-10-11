@@ -34,7 +34,8 @@ DEFAULT_PROMPTS = (
         "prompt": "Choose the single best available skill for reducing context token cost without lowering answer quality. Respond only with the skill name.",
     },
 )
-INPUT_TOKEN_KEYS = ("inputTokens", "promptTokens", "input_tokens", "prompt_tokens")
+# OMP reports prompt tokens split into uncached `input` plus cache reads/writes.
+PROMPT_TOKEN_PARTS = ("input", "cacheRead", "cacheWrite")
 
 
 def canonical_json(value: Any) -> str:
@@ -92,26 +93,14 @@ def request_payload_hash(
     return sha256_text(canonical_json(payload))
 
 
-def matched_payload_hash(full_hash: str, control_hash: str) -> str:
-    if full_hash != control_hash:
-        raise ValueError(
-            "matched control: non-catalog request payload differs; use the same prompt, model, profile, tools, configs, thinking, max-time, and system prompt"
-        )
-    return full_hash
-
-
 def input_tokens(usage: Any) -> int | None:
-    if not isinstance(usage, dict):
+    if not isinstance(usage, dict) or not isinstance(usage.get("input"), int):
         return None
-    for key in INPUT_TOKEN_KEYS:
-        value = usage.get(key)
-        if isinstance(value, int) and not isinstance(value, bool):
-            return value
-    for value in usage.values():
-        found = input_tokens(value)
-        if found is not None:
-            return found
-    return None
+    return sum(usage.get(key) or 0 for key in PROMPT_TOKEN_PARTS)
+
+
+def command_without_skills(command: list[str]) -> str:
+    return sha256_text(canonical_json([part for part in command if not part.startswith(("--skills=", "--no-skills"))]))
 
 
 def token_attribution(full_usage: Any, control_usage: Any, payloads_match: bool) -> dict[str, Any]:
@@ -233,6 +222,7 @@ def capture_once(
     return {
         "elapsed_ms": elapsed_ms,
         "usage": summary["usage"],
+        "non_catalog_command_sha256": command_without_skills(build_command(args, root, skills)),
         "catalog": catalog,
         "serialized_catalog": serialized,
         "catalog_sha256": sha256_text(serialized),
@@ -296,8 +286,8 @@ def compare(args: argparse.Namespace) -> dict[str, Any]:
                 for arm in (("baseline", "treatment") if order == "AB" else ("treatment", "baseline")):
                     full = capture_once(args, roots[arm], prompt, inventories[arm])
                     control = capture_once(args, roots[arm], prompt, None)
-                    matched = matched_payload_hash(payload_hashes[prompt["id"]], payload_hashes[prompt["id"]])
-                    attribution = token_attribution(full["usage"], control["usage"], matched == payload_hashes[prompt["id"]])
+                    matched = full["non_catalog_command_sha256"] == control["non_catalog_command_sha256"]
+                    attribution = token_attribution(full["usage"], control["usage"], matched)
                     catalog_record = {
                         key: full[key]
                         for key in ("catalog", "serialized_catalog", "catalog_sha256", "catalog_bytes")

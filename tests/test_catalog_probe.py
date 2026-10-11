@@ -52,9 +52,16 @@ class CatalogProbeTest(unittest.TestCase):
         self.assertEqual([{"name": "skill:alpha", "description": "Alpha\n"}], catalog)
         self.assertEqual('[{"description":"Alpha\\n","name":"skill:alpha"}]', serialized)
 
-    def test_matched_control_rejects_non_catalog_payload_difference(self) -> None:
-        with self.assertRaisesRegex(ValueError, "non-catalog request payload differs"):
-            PROBE.matched_payload_hash("full", "control")
+    def test_matched_control_differs_only_by_skills_flag(self) -> None:
+        base = ["omp", "--model=m", "--no-tools"]
+        self.assertEqual(
+            PROBE.command_without_skills([*base, "--skills=a,b"]),
+            PROBE.command_without_skills([*base, "--no-skills"]),
+        )
+        self.assertNotEqual(
+            PROBE.command_without_skills([*base, "--skills=a"]),
+            PROBE.command_without_skills(["omp", "--model=other", "--no-tools", "--no-skills"]),
+        )
 
     def test_usage_unavailable_refuses_token_claim(self) -> None:
         result = PROBE.token_attribution({"totalTokens": 50}, {"totalTokens": 20}, True)
@@ -63,10 +70,10 @@ class CatalogProbeTest(unittest.TestCase):
         self.assertFalse(result["claim_eligible"])
         self.assertIn("did not report", result["reason"])
 
-    def test_usage_derives_only_matched_reported_input_tokens(self) -> None:
+    def test_usage_derives_catalog_tokens_from_uncached_plus_cached_input(self) -> None:
         result = PROBE.token_attribution(
-            {"inputTokens": 130, "outputTokens": 10},
-            {"inputTokens": 90, "outputTokens": 10},
+            {"input": 30, "cacheRead": 90, "cacheWrite": 10, "output": 10},
+            {"input": 20, "cacheRead": 70, "cacheWrite": 0, "output": 10},
             True,
         )
         self.assertEqual(40, result["catalog_input_tokens"])
