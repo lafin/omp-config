@@ -317,7 +317,7 @@ Every comparison report must identify:
 - case manifest and content hashes;
 - comparison-contract path and content hash;
 - model, profile, tools, attempts, baseline and treatment effective per-attempt and overall timeouts, and an explicit timeout-equality result;
-- baseline and treatment artifact URIs and hashes;
+- baseline and treatment artifact URIs and hashes (owner decision 2026-10-10: a repository-relative local path plus SHA-256 satisfies this; no external durable store is required);
 - deterministic failures;
 - judge configuration and ordering strategy;
 - holdout status;
