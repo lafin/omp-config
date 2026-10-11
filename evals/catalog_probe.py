@@ -221,7 +221,8 @@ def capture_once(
             )
     return {
         "elapsed_ms": elapsed_ms,
-        "usage": summary["usage"],
+        # Only the first turn's prompt is comparable; later turns depend on tool use.
+        "usage": (summary["turn_usages"] or [None])[0],
         "non_catalog_command_sha256": command_without_skills(build_command(args, root, skills)),
         "catalog": catalog,
         "serialized_catalog": serialized,
