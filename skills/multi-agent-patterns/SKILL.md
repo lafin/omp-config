@@ -156,6 +156,8 @@ Choose based on task complexity, coordination needs, and acceptable latency. Def
 **Baseline: Independent Samples Plus a Weighted Vote**
 Start with independent sampling: each agent answers alone, without seeing the others, then aggregate with a vote weighted by confidence or by a verifier's check. Majority voting accounts for most of the gains attributed to multi-agent debate ([Choi et al., 2025](https://arxiv.org/abs/2508.17536)), and more discussion rounds before voting reduce accuracy ([Kaesberg et al., 2025](https://arxiv.org/abs/2502.19130)). Weight votes so an unchecked guess does not count the same as a verified answer.
 
+Votes aggregate independent answers to the same question. They do not settle conflicting factual claims: when agents disagree about a fact, resolve it by checking the evidence each cites, and mark it unresolved when no evidence decides it. A majority of reviewers agreeing is not evidence.
+
 **Debate Protocols**
 Use debate only when it shows a measured gain over the vote baseline on the target task. Keep rounds few and stop at convergence. Guard against sycophantic convergence where agents agree to be agreeable rather than correct.
 

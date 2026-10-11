@@ -66,7 +66,8 @@ A clarifying question before implementation is cheaper than a rewrite after it.
 The exception is the lazy default: when one interpretation is obviously lazier
 and correct, ship it and name what you assumed in one line rather than stalling
 (see Output). Ask when the interpretations genuinely diverge; default when they
-don't.
+don't. Missing source is not ambiguity: when the change is a named one-liner,
+write the patch against the named function and state the assumption.
 
 ## 2. Simplicity First
 

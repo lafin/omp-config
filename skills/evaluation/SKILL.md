@@ -60,7 +60,7 @@ Agent outputs vary between runs, so one run per task does not measure reliabilit
 - Keep two suites. A capability suite starts at a low pass rate and measures progress. A regression suite should pass at nearly 100% and blocks changes that break existing behavior. Move saturated capability tasks into the regression suite.
 - Write a reference solution for each task that passes every grader. It proves that the task is solvable and that the graders are configured correctly.
 - Read transcripts of failed and passed trials before trusting a score. A failure must show what the agent did wrong, not a grader that rejected a valid solution.
-- Treat 0% pass@100 as a broken task or grader until a transcript shows otherwise.
+- Treat 0% pass@100 as a broken task or grader until a transcript shows otherwise: say "broken", fix the task or grader first, and do not report it as an agent capability result.
 
 ### Evaluation Challenges
 

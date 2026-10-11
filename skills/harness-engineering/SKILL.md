@@ -60,7 +60,7 @@ Make locked surfaces mechanical, not just stated in the prompt ([Anthropic, Nov 
 
 - **Pass-flag feature list**: a structured file of required features where the agent may only flip each `passes` field; removing or editing entries is forbidden.
 - **`init.sh` smoke test**: one script that starts the environment and runs a basic end-to-end check at the start of every session, before new work.
-- **Initializer/coder split**: a first-session initializer prompt builds the feature list, progress file, `init.sh`, and git baseline; every later session runs an incremental coder prompt that picks one unfinished item.
+- **Initializer/coder split** (required whenever work spans sessions; name it in any multi-session design): a first-session initializer prompt builds the feature list, progress file, `init.sh`, and git baseline; every later session runs an incremental coder prompt that picks one unfinished item.
 - **Remediating linters**: custom lints and structural tests whose error messages state the fix, so a violation injects the repair instruction into the agent's context.
 
 ### Durable State
