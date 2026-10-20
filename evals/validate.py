@@ -491,9 +491,11 @@ def validate_repository(root: Path, manifest_path: Path | None = None) -> dict[s
                 continue
             for role in ("target", "evaluated"):
                 _require(bool(coverage[(split, role, skill)]), str(manifest_path), "canonical coverage", f"enabled skill {skill!r} lacks canonical {split} routing coverage as {role}", "add a canonical routing case in that split")
-    for skill in sorted(waivers):
-        _require(not (coverage[("holdout", "target", skill)] and coverage[("holdout", "evaluated", skill)]), str(manifest_path), "holdout_coverage_waivers", f"waiver for {skill!r} is stale: canonical holdout routing coverage exists", "remove the waiver")
     new_skills = skills - base_skills
+    for skill in sorted(waivers):
+        routing_covered = coverage[("holdout", "target", skill)] and coverage[("holdout", "evaluated", skill)]
+        behavior_covered = skill not in new_skills or behavior_coverage[("holdout", skill)]
+        _require(not (routing_covered and behavior_covered), str(manifest_path), "holdout_coverage_waivers", f"waiver for {skill!r} is stale: canonical holdout coverage exists", "remove the waiver")
     for skill in sorted(new_skills):
         required_splits = ("development",) if skill == candidate_name else ("development", "holdout")
         for split in required_splits:

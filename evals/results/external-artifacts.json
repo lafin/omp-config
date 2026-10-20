@@ -986,5 +986,61 @@
  "evals/results/see-improvement/routing-holdout-v2-treatment/grades.jsonl": {
   "sha256": "ac0769cac0e2dadfe6ceb4f16c07362e8712c5df986812498f119492c27a56ac",
   "bytes": 30833
+ },
+ "evals/results/autoresearch-admission/dev-repository-baseline-g61/grades.jsonl": {
+  "sha256": "eb91b498feef0326cbfc4fef1a4ffcfd1147aa86d16f3d19d125f491d4f21b76",
+  "bytes": 17498
+ },
+ "evals/results/autoresearch-admission/dev-repository-treatment-g61/grades.jsonl": {
+  "sha256": "33a02a31da31e230c49101ac0e2be1d36e5c7ce7a47d7e64d03449cece7df431",
+  "bytes": 18776
+ },
+ "evals/results/autoresearch-admission/dev-repository-treatment-g61b/grades.jsonl": {
+  "sha256": "bbf676293847fa5ae457dd46262992637fd148ef1ceb7665f3f1b1eacfd238b3",
+  "bytes": 16550
+ },
+ "evals/results/autoresearch-admission/dev-routing-baseline-g61/grades.jsonl": {
+  "sha256": "083c7652ce1504c087da481fd3bd7b49bb0b2f1df7e2ecef6ff5d242a4980a61",
+  "bytes": 38696
+ },
+ "evals/results/autoresearch-admission/dev-routing-treatment-g61/grades.jsonl": {
+  "sha256": "00862396567113b1cada135008248875d8355957327dcda76a3e732908049ad6",
+  "bytes": 38729
+ },
+ "evals/results/autoresearch-admission/dev-routing-treatment-g61b/grades.jsonl": {
+  "sha256": "e37b7e3cfab53874f7a84cfd3e9c67df5bb0f4bd7a6a0fbb3a447ce7398423db",
+  "bytes": 38722
+ },
+ "evals/results/autoresearch-admission/hold-repository-baseline-g61/grades.jsonl": {
+  "sha256": "47b250ef2fc53cc9e633917a7c4b4f8b889f5438c459115352ed83b3c923d76d",
+  "bytes": 17432
+ },
+ "evals/results/autoresearch-admission/hold-repository-baseline-g61b/grades.jsonl": {
+  "sha256": "fa849added416d05ee8f025a2f3d8f0ecb9b3509c3ec792e6a9c0884e11c4bd9",
+  "bytes": 17431
+ },
+ "evals/results/autoresearch-admission/hold-repository-treatment-g61/grades.jsonl": {
+  "sha256": "e2e88ae8880f82cd08963c9be61dbfd45011a85d72f2379f8c9ca84e74ce9327",
+  "bytes": 18751
+ },
+ "evals/results/autoresearch-admission/hold-repository-treatment-g61b/grades.jsonl": {
+  "sha256": "1624f70ed8ef592c4b01d048c22183e85f6c1ed4946a700fa904139d4db26729",
+  "bytes": 16485
+ },
+ "evals/results/autoresearch-admission/hold-routing-baseline-g61/grades.jsonl": {
+  "sha256": "d0c5d82682131349816911c77c7d18b3c1a4ceaf313f0f2bc2c831ad814743e9",
+  "bytes": 38331
+ },
+ "evals/results/autoresearch-admission/hold-routing-baseline-g61b/grades.jsonl": {
+  "sha256": "3ab304a507f2307d9c80d999001b3813d6903e0bc989dd95451d761861c4954a",
+  "bytes": 38338
+ },
+ "evals/results/autoresearch-admission/hold-routing-treatment-g61/grades.jsonl": {
+  "sha256": "e74e288eca2445f9d1a9bed78827562be660945ddb5f0b11dd1917820c4774f5",
+  "bytes": 38366
+ },
+ "evals/results/autoresearch-admission/hold-routing-treatment-g61b/grades.jsonl": {
+  "sha256": "3ab5cdc030868053179002940e98ffe91e813229af8674c14be40db903770a56",
+  "bytes": 38365
  }
 }

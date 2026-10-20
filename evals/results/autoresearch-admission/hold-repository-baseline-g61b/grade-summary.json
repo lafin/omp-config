@@ -1,0 +1,25 @@
+{
+  "all_passed": false,
+  "artifacts": 6,
+  "condition": "baseline",
+  "critical_passed": 6,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/autoresearch-repository-holdout-fix-loop/1.json": "945a84fddcb2a3dee3322319afd69147afa0ac76f7349c1e9db7bc2cccb61991",
+      "artifacts/autoresearch-repository-holdout-fix-loop/2.json": "974709b937b2806ed1fcb153054de6bf42872070e875a07debe7e6be07a3ed56",
+      "artifacts/autoresearch-repository-holdout-fix-loop/3.json": "25cc1114a1ac59e0662ed4a43b7bdbac1f2e9d702ad37657dc0795b029cf9e0c",
+      "artifacts/autoresearch-repository-holdout-metric-loop/1.json": "94d4182ce347423ae3a5179d0587b96cf7528f6d4c9c37ecb6e484c28a1e7a72",
+      "artifacts/autoresearch-repository-holdout-metric-loop/2.json": "a9dee121160e708bd7eb64dce2136650bfeb8468a93f254f32d281633edbbb0c",
+      "artifacts/autoresearch-repository-holdout-metric-loop/3.json": "d54fd1e46a9548e22ff6b644eb4cf37cce2c3cb6b550cf0df8b8c6fb9dea9aa1"
+    },
+    "case_snapshot_sha256": "edc2c9d0a8eff48f773a86e11fb10dc80d55a13121e3a95592ed31056ee7bd0a",
+    "grader_sha256": "da87d8b9567a0f1b576957751d92522f2cd0df34a591859cc77abffc183baa3d",
+    "manifest_sha256": "efa8086f69cdbdfe2bca9bc9aefda585ef97f39ac3073dc8dec1daf710eb630d"
+  },
+  "passed": 0,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-repository-baseline-g61b",
+  "schema_version": 5
+}

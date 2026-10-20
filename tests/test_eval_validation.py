@@ -286,6 +286,13 @@ class EvaluationValidationTest(unittest.TestCase):
         holdout["status"], holdout["historical_reason"] = "canonical", None
         self.assert_invalid("waiver for 'alpha' is stale")
 
+    def test_waiver_stays_valid_while_new_skill_lacks_behavior_holdout(self) -> None:
+        with mock.patch.object(VALIDATE, "revision_skills", return_value={"beta"}):
+            self.fixture.manifest["holdout_coverage_waivers"] = [{"skill": "alpha", "reason": "behavior holdout lost"}]
+            self.fixture.manifest["comparison_contracts"]["behavior"] = contract()
+            self.fixture.add_file("behavior-development.jsonl", "behavior", "development", "canonical", "behavior", [behavior("alpha-dev", "development", "alpha")])
+            self.validate()
+
     def test_incomplete_comparison_contract_fails(self) -> None:
         del self.fixture.manifest["comparison_contracts"]["routing"]["ties"]
         self.assert_invalid("comparison_contracts.routing:fields")

@@ -1,0 +1,25 @@
+{
+  "all_passed": false,
+  "artifacts": 6,
+  "condition": "treatment",
+  "critical_passed": 0,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/autoresearch-repository-development-fix-loop/1.json": "fdf1affb81f52f2787efa19d8dff8e2e17973e538d40ee98c7aa1d1fc005b1ff",
+      "artifacts/autoresearch-repository-development-fix-loop/2.json": "1fdd52a8d39c2acfc43bd281a3645aeb64f98c2d52a86a7b7a862a102e96cce9",
+      "artifacts/autoresearch-repository-development-fix-loop/3.json": "0227b4c5b9e49c386d8c877027d9d6dec66418c09f51ecbecbb3ef9277ccab99",
+      "artifacts/autoresearch-repository-development-metric-loop/1.json": "8bde2f603341a602e9cdfc2c4b884cbd19cec903f5da806427dfe3e4763611db",
+      "artifacts/autoresearch-repository-development-metric-loop/2.json": "6b9ba3702bd9a42edf5028101cd065803fca99576f4eb14a79c9199f1f750707",
+      "artifacts/autoresearch-repository-development-metric-loop/3.json": "331203083b7dbd79dc09af25da7de362cd88ea209dd828d37dcbbae5c6404633"
+    },
+    "case_snapshot_sha256": "ffe70a5377c4db2ed96fbd8f469c73b2bad4495014a6414148400e24e4a40143",
+    "grader_sha256": "da87d8b9567a0f1b576957751d92522f2cd0df34a591859cc77abffc183baa3d",
+    "manifest_sha256": "25c4466f9c5085dfe7bc966911caf1f52ddbe3c75cc1861ca7b21c43037d8a56"
+  },
+  "passed": 0,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-repository-treatment-g61",
+  "schema_version": 5
+}
