@@ -1,0 +1,22 @@
+{
+  "all_passed": true,
+  "artifacts": 3,
+  "condition": "baseline",
+  "critical_passed": 3,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-source-driven-development-repository-holdout-versioned-query-parser/1.json": "a67bd23ba40fddafcb97d87b13aeaa1462a159ef51c5faa5dfa41ddad31126b8",
+      "artifacts/pilot-source-driven-development-repository-holdout-versioned-query-parser/2.json": "db018bbca3f17cea8d4b1aef41da1fea96e9ef9360b748e6c815245f7d495af8",
+      "artifacts/pilot-source-driven-development-repository-holdout-versioned-query-parser/3.json": "3871f34ca45f7b590eb519760199cf4b0c6c79364065c2d43e7b597cc0ed08be"
+    },
+    "case_snapshot_sha256": "b87492850c8c349705b49e994ddf6b21836e982ecc36ebcb54d41d1e59b6f1a6",
+    "grader_sha256": "da87d8b9567a0f1b576957751d92522f2cd0df34a591859cc77abffc183baa3d",
+    "manifest_sha256": "ff8d03070f3eed685192110ce65704a83b24a8815a79fa85f59c1c4b57d289ba"
+  },
+  "passed": 3,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "pilot-source-driven-development-repository-baseline",
+  "schema_version": 5
+}

@@ -242,7 +242,7 @@ def _validate_revision(root: Path, value: Any, location: str, field: str, nullab
     _require(isinstance(value, str) and bool(HEX40.fullmatch(value)), location, field, "must be a full immutable 40-character commit", "pin a full commit hash")
     if value in lost:
         return
-    _require(revision_resolves(root, value), location, field, f"commit {value!r} is not resolvable", "retain or fetch the immutable commit before validation")
+    _require(revision_resolves(root, value), location, field, f"commit {value!r} is not resolvable", "run git fetch origin 'refs/eval-pins/*:refs/eval-pins/*', or retain the immutable commit")
 
 
 def validate_contracts(root: Path, manifest: dict[str, Any], manifest_path: Path) -> None:

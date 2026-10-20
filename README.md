@@ -50,6 +50,7 @@ it with `--extension <path>/hooks/pre/leancode.ts`.
 ## Validation
 
 ```sh
+git fetch origin 'refs/eval-pins/*:refs/eval-pins/*'
 python3 -m venv .venv && . .venv/bin/activate
 python -m pip install -r requirements-validation.txt -r requirements-examples.txt
 python3 scripts/validate_skills.py
