@@ -1098,5 +1098,21 @@
  "evals/results/autoresearch-security/hold-treatment/grades.jsonl": {
   "sha256": "0e84b676c979d3dbb14b75d8d560fb4d8f9e531384ed3b8dbe429b7201546b38",
   "bytes": 9089
+ },
+ "evals/results/autoresearch-security-hard/dev-baseline/grades.jsonl": {
+  "sha256": "82c28b900578c644c51a846f357de074cf50c4bc91e8a7b80c8b074a813deb06",
+  "bytes": 11178
+ },
+ "evals/results/autoresearch-security-hard/dev-treatment/grades.jsonl": {
+  "sha256": "8ab1faf43f8b73f56d60d93b0e78941a9ffd04bfce7e45667dd516a918ea5678",
+  "bytes": 11553
+ },
+ "evals/results/autoresearch-security-hard/hold-baseline/grades.jsonl": {
+  "sha256": "a520957323b744dec2ed3e70a32ba47b84b6bafdb43c8af0dbb3498dbafcd700",
+  "bytes": 11110
+ },
+ "evals/results/autoresearch-security-hard/hold-treatment/grades.jsonl": {
+  "sha256": "674bbec7ad873fc85df2662967f0732fdde6e4686533c61e62b1c726ed73ff82",
+  "bytes": 11531
  }
 }
