@@ -1,0 +1,22 @@
+{
+  "all_passed": true,
+  "artifacts": 3,
+  "condition": "treatment",
+  "critical_passed": 3,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/autoresearch-security-repository-development-audit/1.json": "f2103d0c7587dec5f79ed600a5e3ebf22b1daaf3a53eef8f4a5954229be49e96",
+      "artifacts/autoresearch-security-repository-development-audit/2.json": "857b721ce8920dae0a335ddebda2ecd60b5f9b7f62b58e7488a0d8fcf6c716bf",
+      "artifacts/autoresearch-security-repository-development-audit/3.json": "3da4ae79e866b2337538e7498219d3935a9added577ba2447b71f4b9aa2199e2"
+    },
+    "case_snapshot_sha256": "02ca9f40c246193835f374550a25c8ffeac0a8b85ac099df31a64f1229e52334",
+    "grader_sha256": "da87d8b9567a0f1b576957751d92522f2cd0df34a591859cc77abffc183baa3d",
+    "manifest_sha256": "ef16bb72e02ea320086bf639af3e73eb0228dc8e4e5d0fafebd28b2d210f3724"
+  },
+  "passed": 3,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment",
+  "schema_version": 5
+}

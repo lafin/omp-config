@@ -1082,5 +1082,21 @@
  "evals/results/holdout-recapture-g61/pilot-source-driven-development-routing-treatment/grades.jsonl": {
   "sha256": "d9dbe45b94b644a78ac15be27dbea9b184264c92c90101f8d7bbe2d086b6f527",
   "bytes": 23758
+ },
+ "evals/results/autoresearch-security/dev-baseline/grades.jsonl": {
+  "sha256": "31d554307b95788631378eaa472a326268358ef01b56c1ccdea05a526c516275",
+  "bytes": 8725
+ },
+ "evals/results/autoresearch-security/dev-treatment/grades.jsonl": {
+  "sha256": "83d84601ffc67d75ca73a632f429c0b53d626afa6836ab91fe37e46366c9c239",
+  "bytes": 9072
+ },
+ "evals/results/autoresearch-security/hold-baseline/grades.jsonl": {
+  "sha256": "48e4df67c5fefb457d0ade940e58e1d26b644398638e65da287a6616c948b348",
+  "bytes": 8696
+ },
+ "evals/results/autoresearch-security/hold-treatment/grades.jsonl": {
+  "sha256": "0e84b676c979d3dbb14b75d8d560fb4d8f9e531384ed3b8dbe429b7201546b38",
+  "bytes": 9089
  }
 }

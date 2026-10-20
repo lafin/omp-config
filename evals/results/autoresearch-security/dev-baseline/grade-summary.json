@@ -1,0 +1,22 @@
+{
+  "all_passed": false,
+  "artifacts": 3,
+  "condition": "baseline",
+  "critical_passed": 3,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/autoresearch-security-repository-development-audit/1.json": "3d7e4fc690f6d6ecf1d9d058fc4285b9f0968293df735e8f389064fbba00a591",
+      "artifacts/autoresearch-security-repository-development-audit/2.json": "a1b629c528fe8b2ad0a2ee0d4736b394e4e206283611f0d0bf4812e3ed8b785e",
+      "artifacts/autoresearch-security-repository-development-audit/3.json": "415de863d7b5744ec7e99de193510956f9b1af4b54cbc2336ae0b03fe26801ae"
+    },
+    "case_snapshot_sha256": "02ca9f40c246193835f374550a25c8ffeac0a8b85ac099df31a64f1229e52334",
+    "grader_sha256": "da87d8b9567a0f1b576957751d92522f2cd0df34a591859cc77abffc183baa3d",
+    "manifest_sha256": "9fdc43cc6ced580b5688ce484f42e39b4dca37dfd9ccfd89eed297798bbf8e00"
+  },
+  "passed": 0,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-baseline",
+  "schema_version": 5
+}
