@@ -1,0 +1,31 @@
+{
+  "all_passed": true,
+  "artifacts": 12,
+  "condition": "baseline",
+  "critical_passed": 12,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-deprecation-and-migration-routing-development-leancode-direct/1.json": "3747f8a337dca75022f8454b1062cd5bb30840ae9961702b9048288c7dca0e20",
+      "artifacts/pilot-deprecation-and-migration-routing-development-leancode-direct/2.json": "75d184903378ea39602c7a13e3573787a1911a2c5c2db08dcbcaf0d7fb1be882",
+      "artifacts/pilot-deprecation-and-migration-routing-development-leancode-direct/3.json": "5d1357f1076289494502063a97cc1f225640d93e2ca9bc3eff5c260869a6ef89",
+      "artifacts/pilot-deprecation-and-migration-routing-development-leancode-migration/1.json": "342a48efc63529e84f08e837e82a90399bd8b29fcd4270efb75047cbecaa59ca",
+      "artifacts/pilot-deprecation-and-migration-routing-development-leancode-migration/2.json": "48fa2fe7c1921d55d8c8a6e8eed3fda9c0d5bc4183489220fed02032ac878c27",
+      "artifacts/pilot-deprecation-and-migration-routing-development-leancode-migration/3.json": "aa200234e471b2937eec1523b05a9f45653cf32c1d8dde5fe15478933130a9cc",
+      "artifacts/pilot-deprecation-and-migration-routing-development-project-architecture/1.json": "77ff3063c67758abc5a1036bc605fc2cd699663ca727db513405e1c711b83ef6",
+      "artifacts/pilot-deprecation-and-migration-routing-development-project-architecture/2.json": "1633c5334e92177e3abc7b63ef7ba8054ac58b7f61467ee73f8c14fbf23f902a",
+      "artifacts/pilot-deprecation-and-migration-routing-development-project-architecture/3.json": "6a05548be51b34b324b696a4429d8ebeb782b42736c2f3e1a1e05be2c0b638fd",
+      "artifacts/pilot-deprecation-and-migration-routing-development-project-transition/1.json": "c6ff1266b4da25dfb97638ae5337abd4658439e0c6fdd5e2d688d1c1ff6bf355",
+      "artifacts/pilot-deprecation-and-migration-routing-development-project-transition/2.json": "a97dff8f8c5c17976383fb139a6ed55eacdcf52c523552661b67548c7fa7a379",
+      "artifacts/pilot-deprecation-and-migration-routing-development-project-transition/3.json": "a1f1d6ce43df25d364cc3141e3adaf746613f140940a7214b176d928c22bd6d1"
+    },
+    "case_snapshot_sha256": "389da4d447fb9997f6e06dce0d281a186950089f49542ed1b800e3f63ecf9a3c",
+    "grader_sha256": "fc1e6fbc9c8c78632fee520a729f13040a2a80142b27e2f54b3895022445f66b",
+    "manifest_sha256": "f65fb69316324c709bcfdd366622a51c6aedb527a42a7e1829307ce37c3c27e6"
+  },
+  "passed": 12,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-routing-baseline",
+  "schema_version": 5
+}

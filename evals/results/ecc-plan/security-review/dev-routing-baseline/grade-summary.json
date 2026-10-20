@@ -1,0 +1,37 @@
+{
+  "all_passed": true,
+  "artifacts": 18,
+  "condition": "baseline",
+  "critical_passed": 18,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-security-review-routing-development-harness-engineering-a/1.json": "07f1c20d74d1e8e4dd234fb23d3a3a3e05c372544d61cce6a482e53a52a03cb2",
+      "artifacts/pilot-security-review-routing-development-harness-engineering-a/2.json": "2665504800613232dcb5498d9ffca85063ec056f719c56610cbab5d5f8b19d13",
+      "artifacts/pilot-security-review-routing-development-harness-engineering-a/3.json": "b6a26eed74cd80ace87c13cb9907a78abd02e0836d1a36600220a5feec7981c1",
+      "artifacts/pilot-security-review-routing-development-harness-engineering-b/1.json": "d7cb9f78d1cf19c5911326d5c058157b3baa44298e703d9d6b77fe73da0145d5",
+      "artifacts/pilot-security-review-routing-development-harness-engineering-b/2.json": "722bbc5d3ca81f39725b014a8c00d4e6334fe8a9c01e28ee53824c271395c946",
+      "artifacts/pilot-security-review-routing-development-harness-engineering-b/3.json": "a86b3f94e97e710bd091a6a4d4259c8de853b6f95fd945ddab75259f736f1cdc",
+      "artifacts/pilot-security-review-routing-development-hosted-agents-a/1.json": "53564c1bb9a477eb0fbd057c07dab6609798885f196b909b6262b3fa8af4df80",
+      "artifacts/pilot-security-review-routing-development-hosted-agents-a/2.json": "d9a692947d7f1de214cec0adcfaffdec19ced27ee3c59d26a9a4652e16b23a92",
+      "artifacts/pilot-security-review-routing-development-hosted-agents-a/3.json": "46846c7b8587efed0eb47ff80e12ac0cf538930ac71e55be7f9de1627253118b",
+      "artifacts/pilot-security-review-routing-development-hosted-agents-b/1.json": "9381d2d7fba8e051d3d9905a66fd8186ba6688ad72812518d34e15e594756344",
+      "artifacts/pilot-security-review-routing-development-hosted-agents-b/2.json": "0a3918799372f300f1f19179274495828c08359447ed1435cd4c71b78d229951",
+      "artifacts/pilot-security-review-routing-development-hosted-agents-b/3.json": "3406001be8a68f3f6267359b859f5a18ca023a00db37251217bb36ffed337f32",
+      "artifacts/pilot-security-review-routing-development-tool-design-a/1.json": "e0948a470158e8ca324b9c8e66f8f7567e0497d4fd5e1ff1dff5a85cc5c403eb",
+      "artifacts/pilot-security-review-routing-development-tool-design-a/2.json": "20cc89a2bb10bdb9b0b413ba0aef12478cf0a0319025842203133498ff1113f2",
+      "artifacts/pilot-security-review-routing-development-tool-design-a/3.json": "6f9cc409c131ff43091b452e9b608dcfdfb7f4dc13df3a067863ebf774e61141",
+      "artifacts/pilot-security-review-routing-development-tool-design-b/1.json": "b1f583bea6e97e350eb8d6fd774534eac5b55d16158dc22ff24e720a5b6345d4",
+      "artifacts/pilot-security-review-routing-development-tool-design-b/2.json": "97fc91a57c67e3005b247281724118b264d711dd0abd6eda717071cdc16c87f8",
+      "artifacts/pilot-security-review-routing-development-tool-design-b/3.json": "1a744c92fce2075687757944ec07589f8bf5ab1aa44e8b7f98783622efd796db"
+    },
+    "case_snapshot_sha256": "c1c61045391262a5a22ecc36cb169936b74c4421d6c158250549af7b23f9992b",
+    "grader_sha256": "49b310ddde90221b1fbad5b6b81bd8b6df947414229dbfbb4781cb494e16ecbc",
+    "manifest_sha256": "d54cf6b1ed0e02c2ca8a676bec815517fb21952cf57e4680012384e455c5458e"
+  },
+  "passed": 18,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-routing-baseline",
+  "schema_version": 5
+}

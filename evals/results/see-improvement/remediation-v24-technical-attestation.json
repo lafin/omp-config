@@ -1,0 +1,27 @@
+{
+  "schema_version": 2,
+  "status": "awaiting_named_qualified_technical_authority",
+  "required_authority": {
+    "name": null,
+    "qualification_basis": null
+  },
+  "reviewer": {
+    "name": null,
+    "organization": null,
+    "qualification_basis": null,
+    "role": null
+  },
+  "assessments": {
+    "completeness": null,
+    "correctness": null,
+    "operational_validity": null,
+    "product_terminology": null,
+    "safety": null,
+    "security": null
+  },
+  "critical_findings": null,
+  "evidence": null,
+  "decision": null,
+  "signature": null,
+  "signed_at": null
+}

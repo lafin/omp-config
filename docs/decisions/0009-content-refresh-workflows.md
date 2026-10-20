@@ -1,0 +1,69 @@
+# Content Refresh Wave 2: Workflow Defects
+
+- **Status:** Completed
+- **Date:** 2026-10-06
+- **Source:** [Skill Content Refresh Plan §7.4 Workflows](../skill-content-refresh-plan.md#74-workflows)
+
+## Decision
+
+Applied as Class D (gate: deterministic checks plus the item's smoke check; no live evaluation). Wave 2 grouped commits by skill family, one commit per family, to keep review small and revert easy. Paths and line numbers below are the review baseline `7529a16`; skill directories now live under `skills/`.
+
+- **MAP-1** · `multi-agent-patterns/SKILL.md:167,254,272-274`, `references/frameworks.md:91-249` — AutoGen is in maintenance mode, the GroupChat snippet uses undefined names, and the "CrewAI-style" section is plain Python. **Change:** point to Microsoft Agent Framework, add OpenAI Agents SDK handoffs and Claude Agent SDK subagents, and label the CrewAI section as a generic sketch. Sources: <https://github.com/microsoft/autogen>, <https://openai.github.io/openai-agents-python/handoffs/>, <https://code.claude.com/docs/en/agent-sdk/subagents>.
+- **MAP-2** · `multi-agent-patterns/references/frameworks.md:70-88,147-192` — The LangGraph supervisor example has no `END` and loops. The swarm example uses static edges and an undefined `State`. `langgraph-supervisor` is unmaintained. **Change:** rewrite against `Command(goto=..., graph=Command.PARENT)`, or reduce both to labeled pseudocode with links. Source: <https://docs.langchain.com/oss/python/migrate/langgraph-supervisor>.
+- **MAP-5** · `multi-agent-patterns/SKILL.md:86-106` — "eliminate translation errors entirely" is unsupported. **Change:** attribute it to LangChain's τ-bench study, where swarm narrowly beat supervisor and both trailed a single agent. Lead with passing artifacts by reference. Sources: <https://www.langchain.com/blog/benchmarking-multi-agent-architectures>, <https://www.anthropic.com/engineering/multi-agent-research-system>.
+- **MAP-6** · `multi-agent-patterns/scripts/coordination.py:179,374-387,399,444,483-485` — `consensus_strength` divides by the vote count instead of the total weight (the demo prints 0.57; the correct value is 0.74). No expertise factor exists despite the docstring. `transfer_with_state` drains the whole inbox and never receives an ack. Subtask IDs are never set. **Change:** normalize by total weight, correct the docstrings, filter for acks, and assign IDs. Check: run the script and confirm 0.74.
+- **MAP-7** · `multi-agent-patterns/references/frameworks.md:292-318` — The file lock checks and then opens (a race), never creates `locks/`, and lacks imports. **Change:** use `os.open(path, os.O_CREAT | os.O_EXCL)`, or link `filesystem-context`.
+- **MAP-8** · `multi-agent-patterns/SKILL.md:275`, `references/multi-agent-research-evidence.md:5,11` — arXiv 2308.00352 is MetaGPT, not multi-agent theory or evaluation. The Anthropic URL redirects. **Change:** cite MAST (<https://arxiv.org/abs/2503.13657>) and <https://arxiv.org/abs/2512.08296>, and use the canonical Anthropic URL.
+- **HA-1** · `hosted-agents/references/infrastructure-patterns.md:3,11-61,91-122,181-194,312-334` — The Modal snippets use APIs that do not exist. Snapshots use `snapshot_filesystem()` and restore through `Sandbox.create(image=...)`, `exec` takes argv, Modal 1.0 dropped `__init__` on `@app.cls`, and OpenCode installs from npm as `opencode-ai`. **Change:** replace them with one short example against the current SDK, and delete the "production systems at scale" claim. Sources: <https://modal.com/docs/guide/sandbox-snapshots>, <https://modal.com/docs/guide/modal-1-0-migration>, <https://opencode.ai/docs/>.
+- **HA-2** · `hosted-agents/scripts/sandbox_manager.py:416-423` — `if warm:` is checked before `elif snapshot_id:`. A follow-up prompt therefore gets a warm sandbox and loses the session's work. **Change:** prefer `snapshot_id`. Check: a throwaway script that creates a session, snapshots it, warms the pool, and sends a follow-up.
+- **HA-3** · `hosted-agents/scripts/sandbox_manager.py:479-484,530-550`, `references/infrastructure-patterns.md:51-52,532-537` — Every waiter flushes the queued writes again, so a stale write can overwrite a newer one. The git display name is interpolated into a shell string (injection). **Change:** wait for the sync event and write once. Pass git identity as argv.
+- **HA-5** · `hosted-agents/references/infrastructure-patterns.md:205-305` — The Durable Object example uses `server.accept()`, which prevents hibernation, keeps state in a `Map` that hibernation loses, passes an array to `sql.exec`, and calls an undefined `forwardToSandbox`. **Change:** use `ctx.acceptWebSocket()` and spread bindings, or reduce the example to a schema plus a link. Sources: <https://developers.cloudflare.com/durable-objects/best-practices/websockets/>, <https://developers.cloudflare.com/durable-objects/api/sqlite-storage-api/>.
+- **HA-7** · `hosted-agents/references/infrastructure-patterns.md:341-384,699`, `SKILL.md:308,310`, `scripts/sandbox_manager.py` — The Slack bot defines async handlers on a sync `App`, hard-codes `gpt-4o-mini`, links to redirecting URLs, and calls `datetime.utcnow()` (deprecated since Python 3.12). **Change:** use `AsyncApp`, a model placeholder, current links, and `datetime.now(timezone.utc)`.
+- **HE-4** · `harness-engineering/SKILL.md:221-227` — The references have no URLs or dates. That contradicts the skill's own Gotcha 8. **Change:** add both.
+- **LH-1** · `long-horizon-prompting/references/cdc-prompt-annotated.md:5,10`, `SKILL.md:103` — The CDC proof now has a kernel-checked Lean formalization and arXiv expositions. **Change:** update the provenance. Keep the "prompt contribution not ablated" caveat. Sources: <https://github.com/openai/cdc-lean>, <https://arxiv.org/abs/2607.15399>, <https://arxiv.org/abs/2607.16356>.
+- **LH-3** · `long-horizon-prompting/references/research-evidence.md:9` — PushBench reports retrieval controllers at 69–78% and backlog controllers at 25–50%, not "backlog 69–78%". The stuck-loop claim is not in the abstract. **Change:** report the two controllers separately, and verify or delete the stuck-loop sentence. Source: <https://arxiv.org/abs/2605.23574>.
+- **LH-4a** · `long-horizon-prompting/references/vendor-guidance.md:32,36-56,99-109` — The OpenAI URLs moved. **Change:** pin <https://developers.openai.com/api/docs/guides/latest-model/gpt-5.6.md> and <https://developers.openai.com/api/docs/guides/responses-multi-agent>.
+- **LH-5** · `long-horizon-prompting/SKILL.md:68,232`, `references/vendor-guidance.md:65` — **Change:** cite the GPT-5.6 system card directly for "cheating is more pronounced with system prompts that emphasize sustained persistence". Source: <https://deploymentsafety.openai.com/gpt-5-6/metagaming-in-training>.
+- **LH-6** · `long-horizon-prompting/references/research-evidence.md:11,17,36` — **Change:** correct the METR quote ("combined with better logical reasoning"), correct the paper title to "Evaluating…" (<https://arxiv.org/abs/2602.18998>), add Time Horizon 1.1 and its >16 h reliability caveat (<https://metr.org/blog/2026-1-29-time-horizon-1-1/>, <https://metr.org/time-horizons/>), and narrow the "nothing in training supplies stopping" claim to its single survey source (<https://arxiv.org/abs/2605.02801>).
+- **PD-1** · `project-development/references/pipeline-patterns.md:342,374-375,436` — `gpt-4` and `gpt-4-turbo` shut down on 2026-10-23. The $3/$15 rates are labeled "GPT-4 Turbo" but are Sonnet 4.5/4.6 prices (GPT-4 Turbo is $10/$30). **Change:** remove the model defaults and vendor labels, and make pricing a required input. Sources: <https://developers.openai.com/api/docs/deprecations>, <https://platform.claude.com/docs/en/about-claude/pricing>.
+- **PD-2** · `project-development/references/pipeline-patterns.md:340-349`, `scripts/pipeline_template.py:699-705` — `cl100k` and chars/4 undercount on current tokenizers. **Change:** calibrate from prototype usage or a provider token-counting endpoint. Same pattern as `CF-1`.
+- **PD-4** · `project-development/references/pipeline-patterns.md:559-609` — The stage tests fail. The indented fixture defeats the header regex, missing sections never add to `parse_errors`, and `stage_acquire(test_dir, [item])` does not match the template signature `stage_acquire(batch_id, limit)`. **Change:** dedent the fixture, record missing-section errors, and align the signatures.
+- **PD-5** · `project-development/references/case-studies.md:229,269-301`, `SKILL.md:182,312` — The Manus blog says four refactors, not five. The "five" and the sub-agent details come from Lance Martin's notes, which also say Manus dropped `todo.md`. **Change:** attribute each claim to its source, and state that `todo.md` was superseded. Sources: <https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus>, <http://rlancemartin.github.io/2025/10/15/manus>.
+- **PD-7** · `project-development/references/case-studies.md:237-243` — **Change:** date the cached-price example (July 2025) and say "10× or more, depending on model".
+- **PD-8** · `project-development/scripts/pipeline_template.py:701,722`, `SKILL.md:142,214`, `references/pipeline-patterns.md:369`, `references/case-studies.md:128` — The retry buffer is fixed at 20–30%, contradicting "derive from observed failure rates". Output tokens are 500 in one place and 1000 in another. The "5-minute test" has no source. **Change:** make both values inputs, and delete "5-minute".
+- **SIL-1** · `self-improvement-loops/SKILL.md:65,210`, `references/loop-design-evidence.md:75` — In DGM, the checker was hidden, and hacking still occurred; a lineage audit caught it. The fabricated "tests passed" log was the base-model behavior DGM was asked to fix. **Change:** "hiding the checker reduces hacking but does not prevent it". Source: <https://arxiv.org/html/2505.22954v3>.
+- **SIL-2** · `self-improvement-loops/SKILL.md:76,216`, `references/loop-design-evidence.md:21,27` — Self-Harness v3 adds SWE-bench Verified and AppWorld (9/9 pairs improve). The metric is mean single-attempt success over 2 repeats. **Change:** update the scope and the metric wording. Source: <https://arxiv.org/html/2606.09498v3>.
+- **SIL-3** · `self-improvement-loops/SKILL.md:215`, `references/loop-design-evidence.md:28` — In Self-Harness, promotion is a deterministic held-out gate, and no agent approves. **Change:** state that.
+- **SIL-4** · `self-improvement-loops/SKILL.md:108-109`, `references/loop-design-evidence.md:98` — The AFlow paper reports strong transferability and attributes the ADAS gap to linear search. **Change:** correct both claims. Source: <https://arxiv.org/html/2410.10762v4>.
+- **SIL-9** · `self-improvement-loops/references/loop-design-evidence.md:21-133`, `SKILL.md:47,241-250` — 22 "[Evidence context]" self-links carry no information. GEPA appears only in a table. **Change:** delete the self-links, add a GEPA entry (<https://dspy.ai/current/api/optimizers/GEPA/overview/>), and cite METR under Guideline 1 (<https://metr.org/blog/2025-06-05-recent-reward-hacking/>).
+
+## Evidence
+
+- `MAP-1`: `skills/multi-agent-patterns/SKILL.md:272-273`; `references/frameworks.md:43,103`
+- `MAP-2`: `skills/multi-agent-patterns/references/frameworks.md:9,47-72,155`
+- `MAP-5`: `skills/multi-agent-patterns/SKILL.md:111`
+- `MAP-6`: `skills/multi-agent-patterns/scripts/coordination.py:168,366-394,487-495`; demo prints `Consensus result: A (strength: 0.74)` (run 2026-10-10)
+- `MAP-7`: `skills/multi-agent-patterns/references/frameworks.md:276`
+- `MAP-8`: `skills/multi-agent-patterns/SKILL.md:276-277`; `references/multi-agent-research-evidence.md:13`
+- `HA-1`: `skills/hosted-agents/references/infrastructure-patterns.md:24,42`
+- `HA-2`: `skills/hosted-agents/scripts/sandbox_manager.py:413-416` (`if snapshot_id:` before warm pool)
+- `HA-3`: `skills/hosted-agents/scripts/sandbox_manager.py:476` (git identity as argv), `:527-534` (wait for sync event, write once)
+- `HA-5`: `skills/hosted-agents/references/infrastructure-patterns.md:161,212` (`ctx.acceptWebSocket`)
+- `HA-7`: `skills/hosted-agents/references/infrastructure-patterns.md:120,271-282` (`AsyncApp`, `datetime.now(timezone.utc)`); `skills/hosted-agents/scripts/sandbox_manager.py:164,217`
+- `HE-4`: `skills/harness-engineering/SKILL.md:235-240`
+- `LH-1`: `skills/long-horizon-prompting/references/cdc-prompt-annotated.md:10`
+- `LH-3`: `skills/long-horizon-prompting/references/research-evidence.md:9` (retrieval 69-78%, backlog 25-50%)
+- `LH-4a`: `skills/long-horizon-prompting/references/vendor-guidance.md:39,51`
+- `LH-5`: `skills/long-horizon-prompting/references/vendor-guidance.md:65`; `SKILL.md:68`
+- `LH-6`: `skills/long-horizon-prompting/references/research-evidence.md:11,17,36`
+- `PD-1`: `skills/project-development/references/pipeline-patterns.md:360-365` (pricing as required inputs)
+- `PD-2`: `skills/project-development/references/pipeline-patterns.md:344-354` (calibrated counter)
+- `PD-4`: `skills/project-development/references/pipeline-patterns.md:265,587,601` (`stage_acquire(batch_id, limit=1)`)
+- `PD-5`: `skills/project-development/references/case-studies.md:229,273,301`; `SKILL.md:305`
+- `PD-7`: `skills/project-development/references/case-studies.md:239-241`
+- `PD-8`: `skills/project-development/references/pipeline-patterns.md:359,377`; `scripts/pipeline_template.py:685`; no "5-minute" left under `skills/`
+- `SIL-1`: `skills/self-improvement-loops/SKILL.md:67`
+- `SIL-2`: `skills/self-improvement-loops/references/loop-design-evidence.md:18-27`; `SKILL.md:78,249`
+- `SIL-3`: `skills/self-improvement-loops/SKILL.md:222`
+- `SIL-4`: `skills/self-improvement-loops/SKILL.md:115`; `references/loop-design-evidence.md:98`
+- `SIL-9`: `skills/self-improvement-loops/references/loop-design-evidence.md:128-148`; `SKILL.md:258`; no "[Evidence context]" left

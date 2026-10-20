@@ -1,0 +1,103 @@
+# omp-config
+
+Canonical [OMP](https://github.com/oh-my-pi) configuration: skills, task agents,
+slash commands, hooks, extensions, and model presets. The repository is an OMP
+extension package; files here are the source of truth.
+
+| Path | Contents |
+|---|---|
+| `skills/<name>/SKILL.md` | Skills, loaded on demand via `skill://<name>` |
+| `agents/*.md` | Task agents (`deep-verifier`, `fixer`) |
+| `commands/*.md` | Slash commands (`/review-and-fix`) |
+| `hooks/pre/*.ts` | Hooks (`leancode`) |
+| `extensions/*.ts` | Extensions listed in `package.json#omp.extensions` (`dir-context`) |
+| `presets/*.yml` | `--config` overlays (`claude-only`, `codex-only`) |
+
+## OMP
+
+Load the package from each profile's `config.yml`
+(`~/.omp/profiles/<profile>/agent/config.yml` or `~/.omp/agent/config.yml`):
+
+```yaml
+extensions:
+  - /<path>/omp-config
+skills:
+  enableSkillCommands: true
+```
+
+OMP discovers `skills/`, `agents/`, `commands/`, and `hooks/pre/` next to
+`package.json`, and imports the extensions it lists. Restart omp after changing
+the configuration or any file. With `enableSkillCommands`, each skill is also
+invocable as `/skill:<name>`.
+
+For skills only (for example, an isolated evaluation profile), register the
+directory instead of the package:
+
+```yaml
+skills:
+  customDirectories:
+    - /<path>/omp-config/skills
+```
+
+Presets overlay a package-loading profile:
+`omp --profile home --config /<path>/omp-config/presets/claude-only.yml`.
+
+`hooks/pre/leancode.ts` keeps leancode active every turn and registers
+`/leancode lite|full|ultra|off`. The selected mode persists for the current OMP
+process; a new process starts in `full`. Outside a package-loading profile, pass
+it with `--extension <path>/hooks/pre/leancode.ts`.
+
+## Validation
+
+```sh
+python3 -m pip install -r requirements-validation.txt -r requirements-examples.txt
+python3 scripts/validate_skills.py
+python3 evals/validate.py
+python3 -m unittest discover -s tests
+python3 -m unittest discover -s skills/context-compression/tests
+bun test tests/leancode_hook.test.ts
+```
+
+The validators check skill metadata, provenance, links, license notices, Python
+dependencies, and evaluation-suite structure. The focused tests exercise
+validator defects, script contracts, stable example output, and the evaluation
+harness. See [CONTRIBUTING.md](CONTRIBUTING.md) for the contribution process,
+[Skill anatomy](docs/skill-anatomy.md) for the flexible content contract, and
+[evals/README.md](evals/README.md) for the OMP behavior and routing evaluation
+framework, artifact contract, and reproduction commands.
+
+## Leancode
+
+- `leancode` — implement the smallest verified solution.
+- `leancode-review` — review a diff or a whole repository for unnecessary complexity.
+- `leancode-debt` — list deferred `lean-debt:` shortcuts and their revisit triggers.
+
+## Context engineering
+
+- **Foundations:** `context-fundamentals`, `context-degradation`, `context-compression`, `context-optimization`
+- **Systems:** `memory-systems`, `filesystem-context`, `tool-design`
+- **Workflows:** `multi-agent-patterns`, `hosted-agents`, `harness-engineering`, `long-horizon-prompting`, `project-development`
+- **Evaluation:** `evaluation`, `advanced-evaluation`
+- **Specialized:** `latent-briefing`, `self-improvement-loops`, `bdi-mental-states`
+
+## Writing
+
+- `simplified-engineering-english` — write and review consequential software-engineering prose while preserving technical meaning and reducing ambiguity; adapts selected ASD-STE100 mechanisms.
+- `lossless-doc-compress` — compress and de-slop design docs, PRDs, and RFCs without losing facts, numbers, decisions, or caveats.
+
+## Reviews
+
+- `api-and-interface-design` — design public interfaces: REST/GraphQL/module contracts, errors, idempotency, and compatible evolution.
+- `source-driven-development` — implement against the pinned version of an external package or API using version-matched primary sources.
+- `security-review` — find and fix exploitable defects at application trust boundaries.
+- `ml-system-design-review` — review ML/AI system designs and implementation evidence.
+- `ai-stage-gate` — make evidence-based Go / Conditional / Kill decisions for AI initiatives.
+
+
+## Credentials
+
+- The Context Engineering skills are derived from [Agent Skills for Context Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering) at commit `58b55a8921758d13453b440704fb1b5b208c0b0e`, © 2025 Context Engineering Agent Skills Contributors, under the MIT License. See [ATTRIBUTION.md](ATTRIBUTION.md) and [LICENSE-context-engineering](LICENSE-context-engineering).
+- `latent-briefing` also draws on work from Ramp Labs.
+- `lossless-doc-compress`, `ml-system-design-review`, and `ai-stage-gate` contain imported or adapted material from [MLSystemDesign](https://github.com/ML-SystemDesign/MLSystemDesign). See [ATTRIBUTION.md](ATTRIBUTION.md) for exact commits and scopes and [LICENSE-ml-system-design](LICENSE-ml-system-design) for the required notice.
+- The `leancode` lineage is recorded against the observed external comparison commit without inferring copying direction. See [ATTRIBUTION.md](ATTRIBUTION.md).
+- The root [LICENSE](LICENSE) covers repository-original material only; upstream notices continue to apply to imported material.

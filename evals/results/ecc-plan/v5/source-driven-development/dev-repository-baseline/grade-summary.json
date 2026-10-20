@@ -1,0 +1,22 @@
+{
+  "all_passed": true,
+  "artifacts": 3,
+  "condition": "baseline",
+  "critical_passed": 3,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-source-driven-development-repository-development-versioned-header-codec/1.json": "dcc9059bb150d8d5249b989b79f1e5ff98165c0fe8d8b2a5c89ca93aee785b19",
+      "artifacts/pilot-source-driven-development-repository-development-versioned-header-codec/2.json": "cce2c5169a9f9eddeeea672c5e5af9fcd7bdc9928d80e2fc6df38870ddc5f003",
+      "artifacts/pilot-source-driven-development-repository-development-versioned-header-codec/3.json": "f794a4a31eb71f8e496473664f2f8839449332178c5e997fc767cb09d41c3b11"
+    },
+    "case_snapshot_sha256": "2065a540f8f1fc0569aabed38eef8f2047227d0e3306cfb76baa061f84e34176",
+    "grader_sha256": "49b310ddde90221b1fbad5b6b81bd8b6df947414229dbfbb4781cb494e16ecbc",
+    "manifest_sha256": "f0605d4e5f007262758b1458c1edb86d75ead2c0909acbc3993dd4e448e8d6ae"
+  },
+  "passed": 3,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-repository-baseline",
+  "schema_version": 5
+}

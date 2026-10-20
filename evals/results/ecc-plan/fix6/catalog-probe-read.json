@@ -1,0 +1,1068 @@
+{
+  "schema_version": 1,
+  "probe": {
+    "path": "evals/catalog_probe.py",
+    "sha256": "348d5139c1d26c343e8bf669af3ec3a8834668af84c2e7bcef35ed278444286a",
+    "repository_revision": "f331f901bd20b1606887f1fd5aeaf5ef58f28e32"
+  },
+  "catalogs": {
+    "baseline": {
+      "root": "/private/tmp/base-catalog/skills",
+      "repository_revision": "a21e15f6f2760d6d81d2cb59109e8897652e859e",
+      "inventory": [
+        "advanced-evaluation",
+        "ai-stage-gate",
+        "bdi-mental-states",
+        "context-compression",
+        "context-degradation",
+        "context-fundamentals",
+        "context-optimization",
+        "evaluation",
+        "filesystem-context",
+        "harness-engineering",
+        "hosted-agents",
+        "latent-briefing",
+        "leancode",
+        "leancode-debt",
+        "leancode-review",
+        "long-horizon-prompting",
+        "lossless-doc-compress",
+        "memory-systems",
+        "ml-system-design-review",
+        "multi-agent-patterns",
+        "project-development",
+        "self-improvement-loops",
+        "simplified-engineering-english",
+        "tool-design"
+      ],
+      "catalog": [
+        {
+          "name": "skill:advanced-evaluation",
+          "description": "This skill should be used for advanced LLM evaluation: LLM-as-judge systems, direct scoring, pairwise comparison, rubric calibration, evaluator bias mitigation, confidence scoring, and automated quality assessment.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:ai-stage-gate",
+          "description": "Use when running a stage-gate or gate review for an AI product, deciding Go/Kill/Pivot at a gate, judging whether an AI initiative is ready to advance to the next stage, triaging a portfolio of AI ideas, or choosing between a full and a fast-track path. Applies a Stage-Gate process built for AI products — incremental investment, dual value-and-technical validation, alignment/ethics/data checks at every gate — to reach an evidence-based gate decision.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:bdi-mental-states",
+          "description": "This skill should be used when modeling agent mental states with BDI concepts: beliefs, desires, intentions, RDF-to-belief transformations, rational agency traces, cognitive agents, BDI ontologies, and neuro-symbolic AI integration.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:context-compression",
+          "description": "This skill should be used when long-running agent sessions need context compression, structured summarization, compaction, token-per-task optimization, or durable handoff summaries that preserve decisions, files, risks, and next actions.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:context-degradation",
+          "description": "This skill should be used for diagnosing and mitigating context degradation: lost-in-middle failures, context poisoning, context clash, context confusion, attention-pattern issues, and agent performance degradation caused by accumulated or conflicting context.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:context-fundamentals",
+          "description": "This skill should be used to explain or reason about the foundational concepts of context engineering: what context is, the anatomy of a context window, how attention mechanics work, position sensitivity and context rot, why context quality matters more than quantity, and the mental models needed to interpret every other context-engineering decision. Use this for conceptual explanation, onboarding, and background reading. Route operational work to the specialized skills: debugging attention failures goes to context-degradation, token-efficiency work goes to context-optimization, conversation summarization goes to context-compression, and project-shape decisions go to project-development.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:context-optimization",
+          "description": "This skill should be used for improving context efficiency: context budgeting, observation masking, prefix or KV-cache strategy, partitioning, token-cost reduction, retrieval scoping, and extending effective context capacity without lowering answer quality.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:evaluation",
+          "description": "This skill should be used when building agent evaluation systems: deterministic checks, regression suites, multi-dimensional rubrics, quality gates, production monitoring, baseline comparison, and outcome measurement for agent pipelines.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:filesystem-context",
+          "description": "This skill should be used when agent work needs file-backed context: durable scratchpads, tool-output offloading, just-in-time discovery, cross-agent handoff files, filesystem memory, or cleanup policies for context stored outside the prompt.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:harness-engineering",
+          "description": "This skill should be used when designing autonomous agent harnesses: research loops, evaluation scaffolds, locked and editable surfaces, durable logs, novelty gates, pruning, rollback, PR preparation, and human approval boundaries.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:hosted-agents",
+          "description": "This skill should be used when designing hosted or background agent infrastructure: sandboxed execution, remote coding environments, warm pools, session persistence, multiplayer collaboration, self-spawning agents, or Modal-style sandboxes.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:latent-briefing",
+          "description": "This skill should be used when the user asks to \"share memory between agents\", \"KV cache compaction for multi-agent\", \"orchestrator worker context\", \"latent briefing\", \"reduce worker tokens\", \"cross-agent memory without summarization\", or discusses Attention Matching compaction, recursive language models with workers, or token explosion in hierarchical agents.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:leancode",
+          "description": "Forces the leanest solution that actually works: simplest, shortest, most minimal, and verified. Channels a senior dev who has seen every over-engineered codebase and been paged at 3am for one. Four reflexes before any code: think before coding (trace the flow, infer conventions before asking), simplicity first (YAGNI, reuse, stdlib and native before custom, one line before fifty), surgical changes (touch only what the request demands), and goal-driven execution (define verifiable success, leave a runnable check). Supports intensity levels: lite, full (default), ultra, and off. Use whenever the user says \"leancode\", \"be lazy\", \"lazy mode\", \"lean mode\", \"simplest solution\", \"minimal solution\", \"yagni\", \"do less\", \"shortest path\", or \"surgical\". \"Stop leancode\" and \"normal mode\" select off. Also use when users complain about over-engineering, bloat, boilerplate, scope creep, drive-by refactoring, or unnecessary dependencies.\n",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:leancode-debt",
+          "description": "Harvest debt-bearing `lean-debt:` comments into a ledger, so deliberate shortcuts and deferrals get tracked instead of rotting into \"later means never\". Use when the user says \"leancode debt\", \"/skill:leancode-debt\", \"what did leancode defer\", \"list the shortcuts\", \"leancode ledger\", or \"what did we mark to do later\". One-shot report, changes no source.\n",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:leancode-review",
+          "description": "Code review focused exclusively on over-engineering, for a diff or a whole repository. Finds what to delete: reinvented standard library, unneeded dependencies, speculative abstractions, dead flexibility, drive-by refactoring. One line per finding: location, what to cut, what replaces it. Use when the user says \"review for over-engineering\", \"what can we delete\", \"is this over-engineered\", \"simplify review\", \"audit this codebase for bloat\", \"find bloat\", or invokes /skill:leancode-review. Complements correctness-focused review, this one only hunts complexity.\n",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:long-horizon-prompting",
+          "description": "This skill should be used when writing, enhancing, or evaluating the launch prompt for a long-running autonomous agent or a parallel multi-agent orchestration attacking a hard problem: pseudo-formal task briefs that define terms and an exact success predicate linguistically, enumerate non-counting outcomes, set persistence rules with explicit stop and return conditions and effort floors, manage a diverse portfolio of parallel approaches with an approach registry and blocked-route bookkeeping, and gate the return on adversarial audit. Route agent topology and coordination protocols to multi-agent-patterns, runtime control surfaces and loop governance to harness-engineering, evaluator and quality-gate construction to evaluation, judge design to advanced-evaluation, and compaction or memory mechanics to context-compression and memory-systems.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:lossless-doc-compress",
+          "description": "Use when asked to compress, tighten, shorten, condense, or de-slop a design doc, PRD, RFC, architecture note, or similar prose \"without losing information\". Removes only provable redundancy — filler, hedging, LLM-slop, restated content — never a fact, number, decision, or caveat, and flags every judgment call for the author. Returns a compressed document, a categorized removal log, and a shareable scorecard.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:memory-systems",
+          "description": "This skill should be used for persistent semantic memory in agent systems: cross-session knowledge retention, entity tracking, temporal validity, graph or vector retrieval, memory consolidation, and memory benchmark selection. Route file-backed scratchpads to filesystem-context, handoff summaries to context-compression, and token-efficiency tactics to context-optimization.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:ml-system-design-review",
+          "description": "Use when reviewing ML system design docs, ML/AI project repos, design-doc PRs, RAG/LLM/foundation-model architectures, agentic AI workflows, or production ML readiness. Applies the ML System Design framework by Kravchenko and Babushkin to grade designs, compare docs with code, find critical gaps and low-hanging fruit, and give specific non-cringy praise.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:multi-agent-patterns",
+          "description": "This skill should be used when designing multi-agent systems that need context isolation, supervisor or swarm coordination, explicit handoffs, parallel execution, or a decision on whether multiple agents are justified.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:project-development",
+          "description": "This skill should be used for project-level decisions about LLM-powered systems: whether an LLM is the right primitive for the task at hand, the shape of a multi-stage batch or agent pipeline, token and cost estimation, structured output design for downstream parsing, and structuring agent-assisted iteration. Use this when the unit of work is a whole project or a multi-stage pipeline. Route individual tool design to tool-design, individual skill-loading or context-budget tactics to context-optimization, and the single-versus-multi-agent decision and agent topology to multi-agent-patterns.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:self-improvement-loops",
+          "description": "This skill should be used when the harness, scaffold, workflow, or optimizer itself is the optimization target: recursive self-improvement (RSI) loops, meta-harnesses, self-improving harnesses that mine their own failures and propose bounded edits, evolutionary or population-based search over agent scaffolds, acceptance gates for self-modifying systems, and agentic context evolution where the mechanism that produces context is versioned and evolved. Route governance of a single autonomous loop (locked surfaces, durable logs, rollback, novelty gates, approval boundaries) to harness-engineering, measurement and quality-gate design to evaluation, judge design to advanced-evaluation, and remote sandbox infrastructure to hosted-agents.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:simplified-engineering-english",
+          "description": "Use this skill when writing or reviewing software-engineering prose that people or agents must act on: procedures, runbooks, requirements, contracts, API reference, design documents, ADRs, PRs, issues, comments, error messages, incident records, and diagnostics. It preserves facts, conditions, qualifiers, numbers, units, versions, identifiers, commands, quotations, obligation force, uncertainty, and causal claims while reducing ambiguity. Route document compression, session summaries, evaluation design, tool and project architecture, implementation minimality, ML architecture review, and source-code review to their dedicated skills; SEE governs prose only.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:tool-design",
+          "description": "This skill should be used for the tool-interface layer of an agent system specifically: writing tool descriptions agents can route on, designing tool schemas and response formats, naming conventions, actionable error recovery messages, MCP server design, tool-set consolidation, and deciding when to add or remove an individual tool. Use this when the unit of work is a single tool or a set of tools. Route project-shape, pipeline architecture, and task-model-fit decisions to project-development; route deciding whether to introduce sub-agents to multi-agent-patterns.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        }
+      ],
+      "serialized_catalog": "[{\"description\":\"This skill should be used for advanced LLM evaluation: LLM-as-judge systems, direct scoring, pairwise comparison, rubric calibration, evaluator bias mitigation, confidence scoring, and automated quality assessment.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:advanced-evaluation\",\"source\":\"skill\"},{\"description\":\"Use when running a stage-gate or gate review for an AI product, deciding Go/Kill/Pivot at a gate, judging whether an AI initiative is ready to advance to the next stage, triaging a portfolio of AI ideas, or choosing between a full and a fast-track path. Applies a Stage-Gate process built for AI products — incremental investment, dual value-and-technical validation, alignment/ethics/data checks at every gate — to reach an evidence-based gate decision.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:ai-stage-gate\",\"source\":\"skill\"},{\"description\":\"This skill should be used when modeling agent mental states with BDI concepts: beliefs, desires, intentions, RDF-to-belief transformations, rational agency traces, cognitive agents, BDI ontologies, and neuro-symbolic AI integration.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:bdi-mental-states\",\"source\":\"skill\"},{\"description\":\"This skill should be used when long-running agent sessions need context compression, structured summarization, compaction, token-per-task optimization, or durable handoff summaries that preserve decisions, files, risks, and next actions.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:context-compression\",\"source\":\"skill\"},{\"description\":\"This skill should be used for diagnosing and mitigating context degradation: lost-in-middle failures, context poisoning, context clash, context confusion, attention-pattern issues, and agent performance degradation caused by accumulated or conflicting context.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:context-degradation\",\"source\":\"skill\"},{\"description\":\"This skill should be used to explain or reason about the foundational concepts of context engineering: what context is, the anatomy of a context window, how attention mechanics work, position sensitivity and context rot, why context quality matters more than quantity, and the mental models needed to interpret every other context-engineering decision. Use this for conceptual explanation, onboarding, and background reading. Route operational work to the specialized skills: debugging attention failures goes to context-degradation, token-efficiency work goes to context-optimization, conversation summarization goes to context-compression, and project-shape decisions go to project-development.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:context-fundamentals\",\"source\":\"skill\"},{\"description\":\"This skill should be used for improving context efficiency: context budgeting, observation masking, prefix or KV-cache strategy, partitioning, token-cost reduction, retrieval scoping, and extending effective context capacity without lowering answer quality.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:context-optimization\",\"source\":\"skill\"},{\"description\":\"This skill should be used when building agent evaluation systems: deterministic checks, regression suites, multi-dimensional rubrics, quality gates, production monitoring, baseline comparison, and outcome measurement for agent pipelines.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:evaluation\",\"source\":\"skill\"},{\"description\":\"This skill should be used when agent work needs file-backed context: durable scratchpads, tool-output offloading, just-in-time discovery, cross-agent handoff files, filesystem memory, or cleanup policies for context stored outside the prompt.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:filesystem-context\",\"source\":\"skill\"},{\"description\":\"This skill should be used when designing autonomous agent harnesses: research loops, evaluation scaffolds, locked and editable surfaces, durable logs, novelty gates, pruning, rollback, PR preparation, and human approval boundaries.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:harness-engineering\",\"source\":\"skill\"},{\"description\":\"This skill should be used when designing hosted or background agent infrastructure: sandboxed execution, remote coding environments, warm pools, session persistence, multiplayer collaboration, self-spawning agents, or Modal-style sandboxes.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:hosted-agents\",\"source\":\"skill\"},{\"description\":\"This skill should be used when the user asks to \\\"share memory between agents\\\", \\\"KV cache compaction for multi-agent\\\", \\\"orchestrator worker context\\\", \\\"latent briefing\\\", \\\"reduce worker tokens\\\", \\\"cross-agent memory without summarization\\\", or discusses Attention Matching compaction, recursive language models with workers, or token explosion in hierarchical agents.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:latent-briefing\",\"source\":\"skill\"},{\"description\":\"Forces the leanest solution that actually works: simplest, shortest, most minimal, and verified. Channels a senior dev who has seen every over-engineered codebase and been paged at 3am for one. Four reflexes before any code: think before coding (trace the flow, infer conventions before asking), simplicity first (YAGNI, reuse, stdlib and native before custom, one line before fifty), surgical changes (touch only what the request demands), and goal-driven execution (define verifiable success, leave a runnable check). Supports intensity levels: lite, full (default), ultra, and off. Use whenever the user says \\\"leancode\\\", \\\"be lazy\\\", \\\"lazy mode\\\", \\\"lean mode\\\", \\\"simplest solution\\\", \\\"minimal solution\\\", \\\"yagni\\\", \\\"do less\\\", \\\"shortest path\\\", or \\\"surgical\\\". \\\"Stop leancode\\\" and \\\"normal mode\\\" select off. Also use when users complain about over-engineering, bloat, boilerplate, scope creep, drive-by refactoring, or unnecessary dependencies.\\n\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:leancode\",\"source\":\"skill\"},{\"description\":\"Harvest debt-bearing `lean-debt:` comments into a ledger, so deliberate shortcuts and deferrals get tracked instead of rotting into \\\"later means never\\\". Use when the user says \\\"leancode debt\\\", \\\"/skill:leancode-debt\\\", \\\"what did leancode defer\\\", \\\"list the shortcuts\\\", \\\"leancode ledger\\\", or \\\"what did we mark to do later\\\". One-shot report, changes no source.\\n\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:leancode-debt\",\"source\":\"skill\"},{\"description\":\"Code review focused exclusively on over-engineering, for a diff or a whole repository. Finds what to delete: reinvented standard library, unneeded dependencies, speculative abstractions, dead flexibility, drive-by refactoring. One line per finding: location, what to cut, what replaces it. Use when the user says \\\"review for over-engineering\\\", \\\"what can we delete\\\", \\\"is this over-engineered\\\", \\\"simplify review\\\", \\\"audit this codebase for bloat\\\", \\\"find bloat\\\", or invokes /skill:leancode-review. Complements correctness-focused review, this one only hunts complexity.\\n\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:leancode-review\",\"source\":\"skill\"},{\"description\":\"This skill should be used when writing, enhancing, or evaluating the launch prompt for a long-running autonomous agent or a parallel multi-agent orchestration attacking a hard problem: pseudo-formal task briefs that define terms and an exact success predicate linguistically, enumerate non-counting outcomes, set persistence rules with explicit stop and return conditions and effort floors, manage a diverse portfolio of parallel approaches with an approach registry and blocked-route bookkeeping, and gate the return on adversarial audit. Route agent topology and coordination protocols to multi-agent-patterns, runtime control surfaces and loop governance to harness-engineering, evaluator and quality-gate construction to evaluation, judge design to advanced-evaluation, and compaction or memory mechanics to context-compression and memory-systems.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:long-horizon-prompting\",\"source\":\"skill\"},{\"description\":\"Use when asked to compress, tighten, shorten, condense, or de-slop a design doc, PRD, RFC, architecture note, or similar prose \\\"without losing information\\\". Removes only provable redundancy — filler, hedging, LLM-slop, restated content — never a fact, number, decision, or caveat, and flags every judgment call for the author. Returns a compressed document, a categorized removal log, and a shareable scorecard.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:lossless-doc-compress\",\"source\":\"skill\"},{\"description\":\"This skill should be used for persistent semantic memory in agent systems: cross-session knowledge retention, entity tracking, temporal validity, graph or vector retrieval, memory consolidation, and memory benchmark selection. Route file-backed scratchpads to filesystem-context, handoff summaries to context-compression, and token-efficiency tactics to context-optimization.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:memory-systems\",\"source\":\"skill\"},{\"description\":\"Use when reviewing ML system design docs, ML/AI project repos, design-doc PRs, RAG/LLM/foundation-model architectures, agentic AI workflows, or production ML readiness. Applies the ML System Design framework by Kravchenko and Babushkin to grade designs, compare docs with code, find critical gaps and low-hanging fruit, and give specific non-cringy praise.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:ml-system-design-review\",\"source\":\"skill\"},{\"description\":\"This skill should be used when designing multi-agent systems that need context isolation, supervisor or swarm coordination, explicit handoffs, parallel execution, or a decision on whether multiple agents are justified.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:multi-agent-patterns\",\"source\":\"skill\"},{\"description\":\"This skill should be used for project-level decisions about LLM-powered systems: whether an LLM is the right primitive for the task at hand, the shape of a multi-stage batch or agent pipeline, token and cost estimation, structured output design for downstream parsing, and structuring agent-assisted iteration. Use this when the unit of work is a whole project or a multi-stage pipeline. Route individual tool design to tool-design, individual skill-loading or context-budget tactics to context-optimization, and the single-versus-multi-agent decision and agent topology to multi-agent-patterns.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:project-development\",\"source\":\"skill\"},{\"description\":\"This skill should be used when the harness, scaffold, workflow, or optimizer itself is the optimization target: recursive self-improvement (RSI) loops, meta-harnesses, self-improving harnesses that mine their own failures and propose bounded edits, evolutionary or population-based search over agent scaffolds, acceptance gates for self-modifying systems, and agentic context evolution where the mechanism that produces context is versioned and evolved. Route governance of a single autonomous loop (locked surfaces, durable logs, rollback, novelty gates, approval boundaries) to harness-engineering, measurement and quality-gate design to evaluation, judge design to advanced-evaluation, and remote sandbox infrastructure to hosted-agents.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:self-improvement-loops\",\"source\":\"skill\"},{\"description\":\"Use this skill when writing or reviewing software-engineering prose that people or agents must act on: procedures, runbooks, requirements, contracts, API reference, design documents, ADRs, PRs, issues, comments, error messages, incident records, and diagnostics. It preserves facts, conditions, qualifiers, numbers, units, versions, identifiers, commands, quotations, obligation force, uncertainty, and causal claims while reducing ambiguity. Route document compression, session summaries, evaluation design, tool and project architecture, implementation minimality, ML architecture review, and source-code review to their dedicated skills; SEE governs prose only.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:simplified-engineering-english\",\"source\":\"skill\"},{\"description\":\"This skill should be used for the tool-interface layer of an agent system specifically: writing tool descriptions agents can route on, designing tool schemas and response formats, naming conventions, actionable error recovery messages, MCP server design, tool-set consolidation, and deciding when to add or remove an individual tool. Use this when the unit of work is a single tool or a set of tools. Route project-shape, pipeline architecture, and task-model-fit decisions to project-development; route deciding whether to introduce sub-agents to multi-agent-patterns.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:tool-design\",\"source\":\"skill\"}]",
+      "catalog_sha256": "4e382ee157a648ee8198df2d535bcaaf68191be63193cca6123a48e3f05d2ddf",
+      "catalog_bytes": 12740
+    },
+    "treatment": {
+      "root": "/Users/sergei/pets/omp-config/skills",
+      "repository_revision": "f331f901bd20b1606887f1fd5aeaf5ef58f28e32",
+      "inventory": [
+        "advanced-evaluation",
+        "ai-stage-gate",
+        "api-and-interface-design",
+        "bdi-mental-states",
+        "context-compression",
+        "context-degradation",
+        "context-fundamentals",
+        "context-optimization",
+        "evaluation",
+        "filesystem-context",
+        "harness-engineering",
+        "hosted-agents",
+        "latent-briefing",
+        "leancode",
+        "leancode-debt",
+        "leancode-review",
+        "long-horizon-prompting",
+        "lossless-doc-compress",
+        "memory-systems",
+        "ml-system-design-review",
+        "multi-agent-patterns",
+        "project-development",
+        "security-review",
+        "self-improvement-loops",
+        "simplified-engineering-english",
+        "source-driven-development",
+        "tool-design"
+      ],
+      "catalog": [
+        {
+          "name": "skill:advanced-evaluation",
+          "description": "This skill should be used for advanced LLM evaluation: LLM-as-judge systems, direct scoring, pairwise comparison, rubric calibration, evaluator bias mitigation, confidence scoring, and automated quality assessment.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:ai-stage-gate",
+          "description": "Use when running a stage-gate or gate review for an AI product, deciding Go/Kill/Pivot at a gate, judging whether an AI initiative is ready to advance to the next stage, triaging a portfolio of AI ideas, or choosing between a full and a fast-track path. Applies a Stage-Gate process built for AI products — incremental investment, dual value-and-technical validation, alignment/ethics/data checks at every gate — to reach an evidence-based gate decision.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:api-and-interface-design",
+          "description": "Design public application interfaces: REST and GraphQL APIs, module and library boundaries, type and schema contracts, structured errors, validation, idempotency, and compatibility. Use when consumers need a stable callable or wire contract. Route agent or MCP tool schemas to tool-design, whole-project pipeline shape to project-development, and rollout of an already deprecated contract to deprecation-and-migration.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:bdi-mental-states",
+          "description": "This skill should be used when modeling agent mental states with BDI concepts: beliefs, desires, intentions, RDF-to-belief transformations, rational agency traces, cognitive agents, BDI ontologies, and neuro-symbolic AI integration.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:context-compression",
+          "description": "This skill should be used when long-running agent sessions need context compression, structured summarization, compaction, token-per-task optimization, or durable handoff summaries that preserve decisions, files, risks, and next actions.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:context-degradation",
+          "description": "This skill should be used for diagnosing and mitigating context degradation: lost-in-middle failures, context poisoning, context clash, context confusion, attention-pattern issues, and agent performance degradation caused by accumulated or conflicting context.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:context-fundamentals",
+          "description": "This skill should be used to explain or reason about the foundational concepts of context engineering: what context is, the anatomy of a context window, how attention mechanics work, position sensitivity and context rot, why context quality matters more than quantity, and the mental models needed to interpret every other context-engineering decision. Use this for conceptual explanation, onboarding, and background reading. Route operational work to the specialized skills: debugging attention failures goes to context-degradation, token-efficiency work goes to context-optimization, conversation summarization goes to context-compression, and project-shape decisions go to project-development.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:context-optimization",
+          "description": "This skill should be used for improving context efficiency: context budgeting, observation masking, prefix or KV-cache strategy, partitioning, token-cost reduction, retrieval scoping, and extending effective context capacity without lowering answer quality.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:evaluation",
+          "description": "This skill should be used when building agent evaluation systems: deterministic checks, regression suites, multi-dimensional rubrics, quality gates, production monitoring, baseline comparison, and outcome measurement for agent pipelines.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:filesystem-context",
+          "description": "This skill should be used when agent work needs file-backed context: durable scratchpads, tool-output offloading, just-in-time discovery, cross-agent handoff files, filesystem memory, or cleanup policies for context stored outside the prompt.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:harness-engineering",
+          "description": "This skill should be used when designing autonomous agent harnesses: research loops, evaluation scaffolds, locked and editable surfaces, durable logs, novelty gates, pruning, rollback, PR preparation, and human approval boundaries.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:hosted-agents",
+          "description": "This skill should be used when designing hosted or background agent infrastructure: sandboxed execution, remote coding environments, warm pools, session persistence, multiplayer collaboration, self-spawning agents, or Modal-style sandboxes.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:latent-briefing",
+          "description": "This skill should be used when the user asks to \"share memory between agents\", \"KV cache compaction for multi-agent\", \"orchestrator worker context\", \"latent briefing\", \"reduce worker tokens\", \"cross-agent memory without summarization\", or discusses Attention Matching compaction, recursive language models with workers, or token explosion in hierarchical agents.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:leancode",
+          "description": "Forces the leanest solution that actually works: simplest, shortest, most minimal, and verified. Channels a senior dev who has seen every over-engineered codebase and been paged at 3am for one. Four reflexes before any code: think before coding (trace the flow, infer conventions before asking), simplicity first (YAGNI, reuse, stdlib and native before custom, one line before fifty), surgical changes (touch only what the request demands), and goal-driven execution (define verifiable success, leave a runnable check). Supports intensity levels: lite, full (default), ultra, and off. Use whenever the user says \"leancode\", \"be lazy\", \"lazy mode\", \"lean mode\", \"simplest solution\", \"minimal solution\", \"yagni\", \"do less\", \"shortest path\", or \"surgical\". \"Stop leancode\" and \"normal mode\" select off. Also use when users complain about over-engineering, bloat, boilerplate, scope creep, drive-by refactoring, or unnecessary dependencies.\n",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:leancode-debt",
+          "description": "Harvest debt-bearing `lean-debt:` comments into a ledger, so deliberate shortcuts and deferrals get tracked instead of rotting into \"later means never\". Use when the user says \"leancode debt\", \"/skill:leancode-debt\", \"what did leancode defer\", \"list the shortcuts\", \"leancode ledger\", or \"what did we mark to do later\". One-shot report, changes no source.\n",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:leancode-review",
+          "description": "Code review focused exclusively on over-engineering, for a diff or a whole repository. Finds what to delete: reinvented standard library, unneeded dependencies, speculative abstractions, dead flexibility, drive-by refactoring. One line per finding: location, what to cut, what replaces it. Use when the user says \"review for over-engineering\", \"what can we delete\", \"is this over-engineered\", \"simplify review\", \"audit this codebase for bloat\", \"find bloat\", or invokes /skill:leancode-review. Complements correctness-focused review, this one only hunts complexity.\n",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:long-horizon-prompting",
+          "description": "This skill should be used when writing, enhancing, or evaluating the launch prompt for a long-running autonomous agent or a parallel multi-agent orchestration attacking a hard problem: pseudo-formal task briefs that define terms and an exact success predicate linguistically, enumerate non-counting outcomes, set persistence rules with explicit stop and return conditions and effort floors, manage a diverse portfolio of parallel approaches with an approach registry and blocked-route bookkeeping, and gate the return on adversarial audit. Route agent topology and coordination protocols to multi-agent-patterns, runtime control surfaces and loop governance to harness-engineering, evaluator and quality-gate construction to evaluation, judge design to advanced-evaluation, and compaction or memory mechanics to context-compression and memory-systems.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:lossless-doc-compress",
+          "description": "Use when asked to compress, tighten, shorten, condense, or de-slop a design doc, PRD, RFC, architecture note, or similar prose \"without losing information\". Removes only provable redundancy — filler, hedging, LLM-slop, restated content — never a fact, number, decision, or caveat, and flags every judgment call for the author. Returns a compressed document, a categorized removal log, and a shareable scorecard.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:memory-systems",
+          "description": "This skill should be used for persistent semantic memory in agent systems: cross-session knowledge retention, entity tracking, temporal validity, graph or vector retrieval, memory consolidation, and memory benchmark selection. Route file-backed scratchpads to filesystem-context, handoff summaries to context-compression, and token-efficiency tactics to context-optimization.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:ml-system-design-review",
+          "description": "Use when reviewing ML system design docs, ML/AI project repos, design-doc PRs, RAG/LLM/foundation-model architectures, agentic AI workflows, or production ML readiness. Applies the ML System Design framework by Kravchenko and Babushkin to grade designs, compare docs with code, find critical gaps and low-hanging fruit, and give specific non-cringy praise.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:multi-agent-patterns",
+          "description": "This skill should be used when designing multi-agent systems that need context isolation, supervisor or swarm coordination, explicit handoffs, parallel execution, or a decision on whether multiple agents are justified.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:project-development",
+          "description": "This skill should be used for project-level decisions about LLM-powered systems: whether an LLM is the right primitive for the task at hand, the shape of a multi-stage batch or agent pipeline, token and cost estimation, structured output design for downstream parsing, and structuring agent-assisted iteration. Use this when the unit of work is a whole project or a multi-stage pipeline. Route individual tool design to tool-design, individual skill-loading or context-budget tactics to context-optimization, and the single-versus-multi-agent decision and agent topology to multi-agent-patterns.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:security-review",
+          "description": "Use when writing or reviewing application code at a trust boundary: authentication, authorization, user input reaching queries, commands, files, templates, or deserializers, secrets and sensitive data in logs or errors, payments, uploads, and abuse limits on endpoints. Returns evidence-backed findings with exploit path and fix. Route agent prompt-injection, tool permissions, and sandbox boundaries to hosted-agents, harness-engineering, or tool-design, and multi-topic repository review loops to /review-and-fix.\n",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:self-improvement-loops",
+          "description": "This skill should be used when the harness, scaffold, workflow, or optimizer itself is the optimization target: recursive self-improvement (RSI) loops, meta-harnesses, self-improving harnesses that mine their own failures and propose bounded edits, evolutionary or population-based search over agent scaffolds, acceptance gates for self-modifying systems, and agentic context evolution where the mechanism that produces context is versioned and evolved. Route governance of a single autonomous loop (locked surfaces, durable logs, rollback, novelty gates, approval boundaries) to harness-engineering, measurement and quality-gate design to evaluation, judge design to advanced-evaluation, and remote sandbox infrastructure to hosted-agents.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:simplified-engineering-english",
+          "description": "Use this skill when writing or reviewing software-engineering prose that people or agents must act on: procedures, runbooks, requirements, contracts, API reference, design documents, ADRs, PRs, issues, comments, error messages, incident records, and diagnostics. It preserves facts, conditions, qualifiers, numbers, units, versions, identifiers, commands, quotations, obligation force, uncertainty, and causal claims while reducing ambiguity. Route document compression, session summaries, evaluation design, tool and project architecture, implementation minimality, ML architecture review, and source-code review to their dedicated skills; SEE governs prose only.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:source-driven-development",
+          "description": "Use when implementing or reviewing code whose correctness depends on a pinned external package, API, framework, runtime, or standard: detect the effective version from repository evidence, reconcile narrow primary documentation, cite non-obvious behavior, and mark evidence gaps unverified. Excludes project shaping (project-development), agent tool schemas (tool-design), and generic context budgeting (context-optimization).",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        },
+        {
+          "name": "skill:tool-design",
+          "description": "This skill should be used for the tool-interface layer of an agent system specifically: writing tool descriptions agents can route on, designing tool schemas and response formats, naming conventions, actionable error recovery messages, MCP server design, tool-set consolidation, and deciding when to add or remove an individual tool. Use this when the unit of work is a single tool or a set of tools. Route project-shape, pipeline architecture, and task-model-fit decisions to project-development; route deciding whether to introduce sub-agents to multi-agent-patterns.",
+          "input": {
+            "hint": "arguments"
+          },
+          "source": "skill"
+        }
+      ],
+      "serialized_catalog": "[{\"description\":\"This skill should be used for advanced LLM evaluation: LLM-as-judge systems, direct scoring, pairwise comparison, rubric calibration, evaluator bias mitigation, confidence scoring, and automated quality assessment.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:advanced-evaluation\",\"source\":\"skill\"},{\"description\":\"Use when running a stage-gate or gate review for an AI product, deciding Go/Kill/Pivot at a gate, judging whether an AI initiative is ready to advance to the next stage, triaging a portfolio of AI ideas, or choosing between a full and a fast-track path. Applies a Stage-Gate process built for AI products — incremental investment, dual value-and-technical validation, alignment/ethics/data checks at every gate — to reach an evidence-based gate decision.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:ai-stage-gate\",\"source\":\"skill\"},{\"description\":\"Design public application interfaces: REST and GraphQL APIs, module and library boundaries, type and schema contracts, structured errors, validation, idempotency, and compatibility. Use when consumers need a stable callable or wire contract. Route agent or MCP tool schemas to tool-design, whole-project pipeline shape to project-development, and rollout of an already deprecated contract to deprecation-and-migration.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:api-and-interface-design\",\"source\":\"skill\"},{\"description\":\"This skill should be used when modeling agent mental states with BDI concepts: beliefs, desires, intentions, RDF-to-belief transformations, rational agency traces, cognitive agents, BDI ontologies, and neuro-symbolic AI integration.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:bdi-mental-states\",\"source\":\"skill\"},{\"description\":\"This skill should be used when long-running agent sessions need context compression, structured summarization, compaction, token-per-task optimization, or durable handoff summaries that preserve decisions, files, risks, and next actions.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:context-compression\",\"source\":\"skill\"},{\"description\":\"This skill should be used for diagnosing and mitigating context degradation: lost-in-middle failures, context poisoning, context clash, context confusion, attention-pattern issues, and agent performance degradation caused by accumulated or conflicting context.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:context-degradation\",\"source\":\"skill\"},{\"description\":\"This skill should be used to explain or reason about the foundational concepts of context engineering: what context is, the anatomy of a context window, how attention mechanics work, position sensitivity and context rot, why context quality matters more than quantity, and the mental models needed to interpret every other context-engineering decision. Use this for conceptual explanation, onboarding, and background reading. Route operational work to the specialized skills: debugging attention failures goes to context-degradation, token-efficiency work goes to context-optimization, conversation summarization goes to context-compression, and project-shape decisions go to project-development.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:context-fundamentals\",\"source\":\"skill\"},{\"description\":\"This skill should be used for improving context efficiency: context budgeting, observation masking, prefix or KV-cache strategy, partitioning, token-cost reduction, retrieval scoping, and extending effective context capacity without lowering answer quality.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:context-optimization\",\"source\":\"skill\"},{\"description\":\"This skill should be used when building agent evaluation systems: deterministic checks, regression suites, multi-dimensional rubrics, quality gates, production monitoring, baseline comparison, and outcome measurement for agent pipelines.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:evaluation\",\"source\":\"skill\"},{\"description\":\"This skill should be used when agent work needs file-backed context: durable scratchpads, tool-output offloading, just-in-time discovery, cross-agent handoff files, filesystem memory, or cleanup policies for context stored outside the prompt.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:filesystem-context\",\"source\":\"skill\"},{\"description\":\"This skill should be used when designing autonomous agent harnesses: research loops, evaluation scaffolds, locked and editable surfaces, durable logs, novelty gates, pruning, rollback, PR preparation, and human approval boundaries.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:harness-engineering\",\"source\":\"skill\"},{\"description\":\"This skill should be used when designing hosted or background agent infrastructure: sandboxed execution, remote coding environments, warm pools, session persistence, multiplayer collaboration, self-spawning agents, or Modal-style sandboxes.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:hosted-agents\",\"source\":\"skill\"},{\"description\":\"This skill should be used when the user asks to \\\"share memory between agents\\\", \\\"KV cache compaction for multi-agent\\\", \\\"orchestrator worker context\\\", \\\"latent briefing\\\", \\\"reduce worker tokens\\\", \\\"cross-agent memory without summarization\\\", or discusses Attention Matching compaction, recursive language models with workers, or token explosion in hierarchical agents.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:latent-briefing\",\"source\":\"skill\"},{\"description\":\"Forces the leanest solution that actually works: simplest, shortest, most minimal, and verified. Channels a senior dev who has seen every over-engineered codebase and been paged at 3am for one. Four reflexes before any code: think before coding (trace the flow, infer conventions before asking), simplicity first (YAGNI, reuse, stdlib and native before custom, one line before fifty), surgical changes (touch only what the request demands), and goal-driven execution (define verifiable success, leave a runnable check). Supports intensity levels: lite, full (default), ultra, and off. Use whenever the user says \\\"leancode\\\", \\\"be lazy\\\", \\\"lazy mode\\\", \\\"lean mode\\\", \\\"simplest solution\\\", \\\"minimal solution\\\", \\\"yagni\\\", \\\"do less\\\", \\\"shortest path\\\", or \\\"surgical\\\". \\\"Stop leancode\\\" and \\\"normal mode\\\" select off. Also use when users complain about over-engineering, bloat, boilerplate, scope creep, drive-by refactoring, or unnecessary dependencies.\\n\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:leancode\",\"source\":\"skill\"},{\"description\":\"Harvest debt-bearing `lean-debt:` comments into a ledger, so deliberate shortcuts and deferrals get tracked instead of rotting into \\\"later means never\\\". Use when the user says \\\"leancode debt\\\", \\\"/skill:leancode-debt\\\", \\\"what did leancode defer\\\", \\\"list the shortcuts\\\", \\\"leancode ledger\\\", or \\\"what did we mark to do later\\\". One-shot report, changes no source.\\n\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:leancode-debt\",\"source\":\"skill\"},{\"description\":\"Code review focused exclusively on over-engineering, for a diff or a whole repository. Finds what to delete: reinvented standard library, unneeded dependencies, speculative abstractions, dead flexibility, drive-by refactoring. One line per finding: location, what to cut, what replaces it. Use when the user says \\\"review for over-engineering\\\", \\\"what can we delete\\\", \\\"is this over-engineered\\\", \\\"simplify review\\\", \\\"audit this codebase for bloat\\\", \\\"find bloat\\\", or invokes /skill:leancode-review. Complements correctness-focused review, this one only hunts complexity.\\n\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:leancode-review\",\"source\":\"skill\"},{\"description\":\"This skill should be used when writing, enhancing, or evaluating the launch prompt for a long-running autonomous agent or a parallel multi-agent orchestration attacking a hard problem: pseudo-formal task briefs that define terms and an exact success predicate linguistically, enumerate non-counting outcomes, set persistence rules with explicit stop and return conditions and effort floors, manage a diverse portfolio of parallel approaches with an approach registry and blocked-route bookkeeping, and gate the return on adversarial audit. Route agent topology and coordination protocols to multi-agent-patterns, runtime control surfaces and loop governance to harness-engineering, evaluator and quality-gate construction to evaluation, judge design to advanced-evaluation, and compaction or memory mechanics to context-compression and memory-systems.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:long-horizon-prompting\",\"source\":\"skill\"},{\"description\":\"Use when asked to compress, tighten, shorten, condense, or de-slop a design doc, PRD, RFC, architecture note, or similar prose \\\"without losing information\\\". Removes only provable redundancy — filler, hedging, LLM-slop, restated content — never a fact, number, decision, or caveat, and flags every judgment call for the author. Returns a compressed document, a categorized removal log, and a shareable scorecard.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:lossless-doc-compress\",\"source\":\"skill\"},{\"description\":\"This skill should be used for persistent semantic memory in agent systems: cross-session knowledge retention, entity tracking, temporal validity, graph or vector retrieval, memory consolidation, and memory benchmark selection. Route file-backed scratchpads to filesystem-context, handoff summaries to context-compression, and token-efficiency tactics to context-optimization.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:memory-systems\",\"source\":\"skill\"},{\"description\":\"Use when reviewing ML system design docs, ML/AI project repos, design-doc PRs, RAG/LLM/foundation-model architectures, agentic AI workflows, or production ML readiness. Applies the ML System Design framework by Kravchenko and Babushkin to grade designs, compare docs with code, find critical gaps and low-hanging fruit, and give specific non-cringy praise.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:ml-system-design-review\",\"source\":\"skill\"},{\"description\":\"This skill should be used when designing multi-agent systems that need context isolation, supervisor or swarm coordination, explicit handoffs, parallel execution, or a decision on whether multiple agents are justified.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:multi-agent-patterns\",\"source\":\"skill\"},{\"description\":\"This skill should be used for project-level decisions about LLM-powered systems: whether an LLM is the right primitive for the task at hand, the shape of a multi-stage batch or agent pipeline, token and cost estimation, structured output design for downstream parsing, and structuring agent-assisted iteration. Use this when the unit of work is a whole project or a multi-stage pipeline. Route individual tool design to tool-design, individual skill-loading or context-budget tactics to context-optimization, and the single-versus-multi-agent decision and agent topology to multi-agent-patterns.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:project-development\",\"source\":\"skill\"},{\"description\":\"Use when writing or reviewing application code at a trust boundary: authentication, authorization, user input reaching queries, commands, files, templates, or deserializers, secrets and sensitive data in logs or errors, payments, uploads, and abuse limits on endpoints. Returns evidence-backed findings with exploit path and fix. Route agent prompt-injection, tool permissions, and sandbox boundaries to hosted-agents, harness-engineering, or tool-design, and multi-topic repository review loops to /review-and-fix.\\n\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:security-review\",\"source\":\"skill\"},{\"description\":\"This skill should be used when the harness, scaffold, workflow, or optimizer itself is the optimization target: recursive self-improvement (RSI) loops, meta-harnesses, self-improving harnesses that mine their own failures and propose bounded edits, evolutionary or population-based search over agent scaffolds, acceptance gates for self-modifying systems, and agentic context evolution where the mechanism that produces context is versioned and evolved. Route governance of a single autonomous loop (locked surfaces, durable logs, rollback, novelty gates, approval boundaries) to harness-engineering, measurement and quality-gate design to evaluation, judge design to advanced-evaluation, and remote sandbox infrastructure to hosted-agents.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:self-improvement-loops\",\"source\":\"skill\"},{\"description\":\"Use this skill when writing or reviewing software-engineering prose that people or agents must act on: procedures, runbooks, requirements, contracts, API reference, design documents, ADRs, PRs, issues, comments, error messages, incident records, and diagnostics. It preserves facts, conditions, qualifiers, numbers, units, versions, identifiers, commands, quotations, obligation force, uncertainty, and causal claims while reducing ambiguity. Route document compression, session summaries, evaluation design, tool and project architecture, implementation minimality, ML architecture review, and source-code review to their dedicated skills; SEE governs prose only.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:simplified-engineering-english\",\"source\":\"skill\"},{\"description\":\"Use when implementing or reviewing code whose correctness depends on a pinned external package, API, framework, runtime, or standard: detect the effective version from repository evidence, reconcile narrow primary documentation, cite non-obvious behavior, and mark evidence gaps unverified. Excludes project shaping (project-development), agent tool schemas (tool-design), and generic context budgeting (context-optimization).\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:source-driven-development\",\"source\":\"skill\"},{\"description\":\"This skill should be used for the tool-interface layer of an agent system specifically: writing tool descriptions agents can route on, designing tool schemas and response formats, naming conventions, actionable error recovery messages, MCP server design, tool-set consolidation, and deciding when to add or remove an individual tool. Use this when the unit of work is a single tool or a set of tools. Route project-shape, pipeline architecture, and task-model-fit decisions to project-development; route deciding whether to introduce sub-agents to multi-agent-patterns.\",\"input\":{\"hint\":\"arguments\"},\"name\":\"skill:tool-design\",\"source\":\"skill\"}]",
+      "catalog_sha256": "7c469845d9d87ecb59e32817d39baf90a5a32a77327c5e02dd7f81ffee8d8007",
+      "catalog_bytes": 14408
+    }
+  },
+  "configuration": {
+    "model": "openai-codex/gpt-5.6-sol",
+    "profile": "skill-eval-isolated",
+    "tools": [
+      "read"
+    ],
+    "thinking": "off",
+    "max_time": "10m",
+    "configs": [],
+    "warmups": 3,
+    "samples": 15
+  },
+  "prompts": [
+    {
+      "id": "catalog-routing-boundary",
+      "prompt": "Choose the single best available skill for reducing context token cost without lowering answer quality. Respond only with the skill name.",
+      "request_payload_sha256": "754daab3c9be8e40cfb685cb03194e6138d30412a0c387e76232247dd697fa5f",
+      "warmups": [
+        {
+          "pair": 1,
+          "order": "AB",
+          "arms": {
+            "baseline": {
+              "elapsed_ms": 2756.573458958883,
+              "control_elapsed_ms": 3431.2177920364775,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1563,
+                "control_input_tokens": 2712,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            },
+            "treatment": {
+              "elapsed_ms": 2212.099959026091,
+              "control_elapsed_ms": 3587.77345798444,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1660,
+                "control_input_tokens": 2806,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            }
+          }
+        },
+        {
+          "pair": 2,
+          "order": "BA",
+          "arms": {
+            "treatment": {
+              "elapsed_ms": 2036.2969170091674,
+              "control_elapsed_ms": 7984.510083042551,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1660,
+                "control_input_tokens": 7069,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            },
+            "baseline": {
+              "elapsed_ms": 2381.470000022091,
+              "control_elapsed_ms": 10684.848667006008,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1570,
+                "control_input_tokens": 7193,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            }
+          }
+        },
+        {
+          "pair": 3,
+          "order": "AB",
+          "arms": {
+            "baseline": {
+              "elapsed_ms": 2514.763541985303,
+              "control_elapsed_ms": 8286.428833962418,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1570,
+                "control_input_tokens": 7017,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            },
+            "treatment": {
+              "elapsed_ms": 1722.274792031385,
+              "control_elapsed_ms": 7399.351291009225,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1660,
+                "control_input_tokens": 7232,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            }
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "pair": 1,
+          "order": "AB",
+          "arms": {
+            "baseline": {
+              "elapsed_ms": 1719.2889159778133,
+              "control_elapsed_ms": 5813.402416999452,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1570,
+                "control_input_tokens": 9895,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            },
+            "treatment": {
+              "elapsed_ms": 2105.6291249697097,
+              "control_elapsed_ms": 4922.675165988039,
+              "usage": {
+                "status": "available",
+                "reason": null,
+                "full_input_tokens": 1660,
+                "control_input_tokens": 805,
+                "catalog_input_tokens": 855,
+                "claim_eligible": true
+              }
+            }
+          }
+        },
+        {
+          "pair": 2,
+          "order": "BA",
+          "arms": {
+            "treatment": {
+              "elapsed_ms": 1766.5166669758037,
+              "control_elapsed_ms": 3772.6015420048498,
+              "usage": {
+                "status": "available",
+                "reason": null,
+                "full_input_tokens": 1660,
+                "control_input_tokens": 805,
+                "catalog_input_tokens": 855,
+                "claim_eligible": true
+              }
+            },
+            "baseline": {
+              "elapsed_ms": 2787.979583023116,
+              "control_elapsed_ms": 6216.712875000667,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1570,
+                "control_input_tokens": 2743,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            }
+          }
+        },
+        {
+          "pair": 3,
+          "order": "AB",
+          "arms": {
+            "baseline": {
+              "elapsed_ms": 2663.367415952962,
+              "control_elapsed_ms": 4108.658125041984,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1573,
+                "control_input_tokens": 2726,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            },
+            "treatment": {
+              "elapsed_ms": 2009.389957995154,
+              "control_elapsed_ms": 6154.981500003487,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1663,
+                "control_input_tokens": 2888,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            }
+          }
+        },
+        {
+          "pair": 4,
+          "order": "BA",
+          "arms": {
+            "treatment": {
+              "elapsed_ms": 2590.083124989178,
+              "control_elapsed_ms": 7447.760500013828,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1663,
+                "control_input_tokens": 6407,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            },
+            "baseline": {
+              "elapsed_ms": 2294.2664159927517,
+              "control_elapsed_ms": 7420.067458995618,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1573,
+                "control_input_tokens": 7023,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            }
+          }
+        },
+        {
+          "pair": 5,
+          "order": "AB",
+          "arms": {
+            "baseline": {
+              "elapsed_ms": 2729.067209002096,
+              "control_elapsed_ms": 11102.34920802759,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1573,
+                "control_input_tokens": 7938,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            },
+            "treatment": {
+              "elapsed_ms": 1717.8526669740677,
+              "control_elapsed_ms": 7601.301875023637,
+              "usage": {
+                "status": "available",
+                "reason": null,
+                "full_input_tokens": 1663,
+                "control_input_tokens": 805,
+                "catalog_input_tokens": 858,
+                "claim_eligible": true
+              }
+            }
+          }
+        },
+        {
+          "pair": 6,
+          "order": "BA",
+          "arms": {
+            "treatment": {
+              "elapsed_ms": 2132.2446250123903,
+              "control_elapsed_ms": 6405.278582999017,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1663,
+                "control_input_tokens": 6379,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            },
+            "baseline": {
+              "elapsed_ms": 2221.8786670127884,
+              "control_elapsed_ms": 6200.012582994532,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1573,
+                "control_input_tokens": 6847,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            }
+          }
+        },
+        {
+          "pair": 7,
+          "order": "AB",
+          "arms": {
+            "baseline": {
+              "elapsed_ms": 2383.246333047282,
+              "control_elapsed_ms": 10811.91312498413,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1573,
+                "control_input_tokens": 7638,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            },
+            "treatment": {
+              "elapsed_ms": 2097.923625027761,
+              "control_elapsed_ms": 7629.2162500321865,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1663,
+                "control_input_tokens": 8465,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            }
+          }
+        },
+        {
+          "pair": 8,
+          "order": "BA",
+          "arms": {
+            "treatment": {
+              "elapsed_ms": 2388.4799579973333,
+              "control_elapsed_ms": 3861.4740829798393,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1663,
+                "control_input_tokens": 2829,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            },
+            "baseline": {
+              "elapsed_ms": 1799.1480840137228,
+              "control_elapsed_ms": 6268.101708963513,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1573,
+                "control_input_tokens": 6825,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            }
+          }
+        },
+        {
+          "pair": 9,
+          "order": "AB",
+          "arms": {
+            "baseline": {
+              "elapsed_ms": 2609.746875008568,
+              "control_elapsed_ms": 3461.209209053777,
+              "usage": {
+                "status": "available",
+                "reason": null,
+                "full_input_tokens": 1573,
+                "control_input_tokens": 799,
+                "catalog_input_tokens": 774,
+                "claim_eligible": true
+              }
+            },
+            "treatment": {
+              "elapsed_ms": 2507.184458023403,
+              "control_elapsed_ms": 4577.229166985489,
+              "usage": {
+                "status": "available",
+                "reason": null,
+                "full_input_tokens": 1663,
+                "control_input_tokens": 805,
+                "catalog_input_tokens": 858,
+                "claim_eligible": true
+              }
+            }
+          }
+        },
+        {
+          "pair": 10,
+          "order": "BA",
+          "arms": {
+            "treatment": {
+              "elapsed_ms": 1984.57624996081,
+              "control_elapsed_ms": 5371.238208957948,
+              "usage": {
+                "status": "available",
+                "reason": null,
+                "full_input_tokens": 1663,
+                "control_input_tokens": 805,
+                "catalog_input_tokens": 858,
+                "claim_eligible": true
+              }
+            },
+            "baseline": {
+              "elapsed_ms": 1787.2817919705994,
+              "control_elapsed_ms": 7317.049457982648,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1573,
+                "control_input_tokens": 6885,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            }
+          }
+        },
+        {
+          "pair": 11,
+          "order": "AB",
+          "arms": {
+            "baseline": {
+              "elapsed_ms": 2428.448666993063,
+              "control_elapsed_ms": 7813.652082986664,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1573,
+                "control_input_tokens": 6457,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            },
+            "treatment": {
+              "elapsed_ms": 2037.2927919961512,
+              "control_elapsed_ms": 4244.813916971907,
+              "usage": {
+                "status": "available",
+                "reason": null,
+                "full_input_tokens": 1663,
+                "control_input_tokens": 805,
+                "catalog_input_tokens": 858,
+                "claim_eligible": true
+              }
+            }
+          }
+        },
+        {
+          "pair": 12,
+          "order": "BA",
+          "arms": {
+            "treatment": {
+              "elapsed_ms": 1898.4994589700364,
+              "control_elapsed_ms": 8531.811915978324,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1663,
+                "control_input_tokens": 6707,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            },
+            "baseline": {
+              "elapsed_ms": 1842.233000032138,
+              "control_elapsed_ms": 3760.716833989136,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1573,
+                "control_input_tokens": 2690,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            }
+          }
+        },
+        {
+          "pair": 13,
+          "order": "AB",
+          "arms": {
+            "baseline": {
+              "elapsed_ms": 2165.5131250154227,
+              "control_elapsed_ms": 6834.347416996025,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1573,
+                "control_input_tokens": 6883,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            },
+            "treatment": {
+              "elapsed_ms": 1772.3041250137612,
+              "control_elapsed_ms": 5095.680582977366,
+              "usage": {
+                "status": "available",
+                "reason": null,
+                "full_input_tokens": 1663,
+                "control_input_tokens": 805,
+                "catalog_input_tokens": 858,
+                "claim_eligible": true
+              }
+            }
+          }
+        },
+        {
+          "pair": 14,
+          "order": "BA",
+          "arms": {
+            "treatment": {
+              "elapsed_ms": 2115.012666035909,
+              "control_elapsed_ms": 12930.456708010752,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1663,
+                "control_input_tokens": 6395,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            },
+            "baseline": {
+              "elapsed_ms": 1921.8990419758484,
+              "control_elapsed_ms": 8049.897125049029,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1573,
+                "control_input_tokens": 6757,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            }
+          }
+        },
+        {
+          "pair": 15,
+          "order": "AB",
+          "arms": {
+            "baseline": {
+              "elapsed_ms": 2249.209166970104,
+              "control_elapsed_ms": 7163.88783295406,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1573,
+                "control_input_tokens": 6121,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            },
+            "treatment": {
+              "elapsed_ms": 2262.980166997295,
+              "control_elapsed_ms": 10587.943041988183,
+              "usage": {
+                "status": "unavailable",
+                "reason": "reported full-request input tokens are smaller than the matched control",
+                "full_input_tokens": 1663,
+                "control_input_tokens": 6717,
+                "catalog_input_tokens": null,
+                "claim_eligible": false
+              }
+            }
+          }
+        }
+      ],
+      "statistics": {
+        "sample_count": 15,
+        "paired_latency_delta_ms": "treatment_minus_baseline",
+        "paired_median_latency_delta_ms": -89.63404200039804,
+        "bootstrap_seed": 1729,
+        "bootstrap_resamples": 10000,
+        "bootstrap_95_percent_ci_ms": [
+          -391.15587499691173,
+          193.11362406006083
+        ],
+        "latency_claim": "unavailable",
+        "token_claim_eligible": false,
+        "token_claim_refusal_reason": "attribution unavailable for one or more matched requests"
+      }
+    }
+  ]
+}

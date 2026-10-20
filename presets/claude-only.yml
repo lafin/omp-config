@@ -1,0 +1,32 @@
+# Overlay: claude-only. Launch with: omp --profile home --config <omp-config>/presets/claude-only.yml
+# Requires a profile that loads the omp-config package via `extensions:` (deep-verifier, fixer, review-and-fix); `--config` alone cannot run this pipeline.
+# opus-5-5 = driver, sonnet-5-5 = strong worker, haiku-5-5 = cheap worker.
+# Haiku bills 5x above 100K-token prompts ($0.50/$2.50) but stays 4x cheaper than Sonnet; Anthropic positions it for subagent/summarization work.
+# Restates every modelRoles key + agentModelOverrides to avoid profile leakage
+# (map layers merge key-wise; arrays replace).
+enabledModels:
+  - anthropic/claude-opus-5-5
+  - anthropic/claude-sonnet-5-5
+  - anthropic/claude-haiku-5-5
+modelRoles:
+  default: anthropic/claude-opus-5-5:high
+  slow: anthropic/claude-opus-5-5:max
+  plan: anthropic/claude-opus-5-5:high
+  vision: anthropic/claude-opus-5-5:high
+  task: anthropic/claude-sonnet-5-5:high
+  smol: anthropic/claude-haiku-5-5:high
+  tiny: anthropic/claude-haiku-5-5:low
+  commit: anthropic/claude-haiku-5-5:low
+  designer: anthropic/claude-opus-5-5:high
+  advisor: anthropic/claude-sonnet-5-5:medium
+task:
+  agentModelOverrides:
+    scout: anthropic/claude-haiku-5-5:high
+    sonic: anthropic/claude-haiku-5-5:low
+    librarian: anthropic/claude-haiku-5-5:high
+    reviewer: anthropic/claude-opus-5-5:high
+    security-reviewer: anthropic/claude-sonnet-5-5:high
+    designer: anthropic/claude-opus-5-5:high
+    deep-verifier: anthropic/claude-opus-5-5:high
+    fixer: anthropic/claude-sonnet-5-5:high
+    regression-reviewer: anthropic/claude-opus-5-5:high
