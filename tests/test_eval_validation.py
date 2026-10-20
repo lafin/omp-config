@@ -300,6 +300,17 @@ class EvaluationValidationTest(unittest.TestCase):
         self.fixture.add_file("proposal.jsonl", "routing", "development", "proposal", "proposal", rows)
         self.assert_invalid("proposal rows do not consistently reference one root")
 
+    def test_proposal_uses_its_own_baseline_pin_for_absent_root(self) -> None:
+        later = "c" * 40
+        catalogs = {REV: {"alpha", "beta"}, later: {"alpha", "beta", "delta"}}
+        with mock.patch.object(VALIDATE, "revision_skills", side_effect=lambda _root, rev: catalogs[rev]):
+            self.fixture.manifest["comparison_contracts"]["proposal"] = contract()
+            rows = [route("proposal-a", "development", "gamma", "delta"), route("proposal-b", "development", "delta", "gamma")]
+            entry = self.fixture.add_file("proposal.jsonl", "routing", "development", "proposal", "proposal", rows)
+            self.assert_invalid("found \\['delta', 'gamma'\\]")
+            entry["baseline_catalog_revision"] = later
+            self.validate()
+
     def test_candidate_must_be_new_at_base_and_match_frozen_root(self) -> None:
         self.fixture.manifest["admission_candidate"] = {"root": "alpha", "treatment_catalog_revision": REV}
         self.assert_invalid("already present at base_catalog_revision")

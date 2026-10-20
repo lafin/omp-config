@@ -408,7 +408,8 @@ def validate_repository(root: Path, manifest_path: Path | None = None) -> dict[s
                 _require(not undeclared, row_location, "skill identities", f"historical row references undeclared missing roots {sorted(undeclared)}", "declare each missing identity exactly once in retired_skills")
                 historical_ids[row["id"]].append(rel)
             else:
-                absent_base = identities - base_skills
+                pin = _entry_revision(entry, contract, "baseline_catalog_revision")
+                absent_base = identities - (revision_skills(root, pin) if pin else base_skills)
                 _require(len(absent_base) == 1, row_location, "skill identities", f"proposal must reference one root absent at base_catalog_revision, found {sorted(absent_base)}", "use the same single proposed root in every proposal row")
                 proposal_roots.update(absent_base)
                 file_proposal_roots.update(absent_base)
