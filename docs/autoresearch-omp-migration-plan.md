@@ -102,7 +102,7 @@ skills/autoresearch/
     loop.md                              # core loop + orchestrator (from autoresearch.md + orchestrator-routing.md)
     plan.md debug.md fix.md security.md ship.md scenario.md predict.md
     learn.md reason.md probe.md evals.md improve.md regression.md
-    predict-personas.md reason-judge-protocol.md security-checklist.md
+    predict-personas.md reason-judge-protocol.md
   scripts/
     orchestrate.py
     score_regression.py
@@ -187,9 +187,14 @@ Per `CONTRIBUTING.md#evaluation-process`, a new skill needs routing evidence plu
 3. Freeze cases in `evals/suites.json`; run baseline (skill absent) and treatment on the same model/profile, ≥ 3 attempts; record `evals/description-lock.json` via `validate_skills.py --update-description-lock autoresearch --evidence <routing-result-dir>`.
 - Check: `python3 evals/validate.py`; `python3 evals/grade.py gate` passes for the new suites with zero critical regressions.
 
-## 6. Open Decision
+## 6. Overlap Decision (resolved)
 
-Four subcommands overlap existing catalog owners: `security` (`security-review`), `evals` (`evaluation`), `improve` (web research, `source-driven-development`), `learn` (doc generation). Default in this plan: port all 13 faithfully so no behavior is silently dropped; Phase 5 routing evidence decides whether each overlapping subcommand stays, or becomes a loop wrapper that routes to the catalog skill via bare `skill://<owner>`. Removing a subcommand requires explicit approval.
+Reviewed each of the four candidates against the catalog owner's description, body, and the work it owns.
+
+- `security`: real conflict. Upstream maximized `(OWASP/10)*50 + (STRIDE/6)*30 + min(findings, 20)`, which rewards category coverage and finding count: the "checklist dumping" and "manufactured findings" failure modes `security-review` forbids. Its checklist also used OWASP Top 10:2021 (superseded by Top 10:2025) and a five-level severity scale that disagrees with `security-review`'s. Resolved as the loop wrapper: each iteration runs the bare `skill://security-review` procedure on one trust boundary; metric = boundaries checked; `security-checklist.md` deleted.
+- `evals`: no overlap. It parses this skill's own results TSV; `evaluation` and `advanced-evaluation` design agent evaluation systems and judges. Kept.
+- `improve`: no overlap. ICP research, ranking, and PRDs have no catalog owner; `source-driven-development` pins external APIs for implementation. Kept.
+- `learn`: no owner. No catalog skill generates codebase docs or wikis; `lossless-doc-compress` and `simplified-engineering-english` edit existing prose. Kept.
 
 ## 7. Risks
 

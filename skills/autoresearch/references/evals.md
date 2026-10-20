@@ -32,7 +32,7 @@ Activate analysis based on the columns present in the header:
 | `delta` | Per-iteration efficiency, cumulative improvement, effort-to-gain ratio |
 | `status` | Keep and discard rate, crash frequency, success streaks, failure clusters, longest winning streak |
 | `guard` and `guard_metric` | Guard failure rate, metric-improved-but-guard-failed analysis |
-| `severity` | Severity distribution (critical, high, medium, low, info), critical discovery rate per iteration |
+| `severity` | Severity distribution (`security`: HIGH, MEDIUM, LOW; `scenario`: critical, high, medium, low), high-severity discovery rate per iteration |
 | `hypothesis` and `status` | Confirmation rate, investigation efficiency, most productive techniques |
 | `commit` | File hotspot analysis (cross-reference `git diff` for kept commits), change size correlation |
 | `technique` | Technique effectiveness ranking |

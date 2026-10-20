@@ -56,7 +56,7 @@ Always read `skill://autoresearch/references/contracts.md` before starting a run
 | `plan` | Convert a goal into validated Scope, Metric, Verify, Guard | n/a | The metric or command is not yet known: [plan](references/plan.md) |
 | `debug` | Hypothesize, test, falsify bugs | 15 | Hunting an unknown defect: [debug](references/debug.md) |
 | `fix` | Reduce errors one by one to zero | 20 | A command shows failures to clear: [fix](references/fix.md) |
-| `security` | STRIDE and OWASP audit with red-team personas | 15 | Iterative audit with coverage tracking: [security](references/security.md); checklist: [security-checklist](references/security-checklist.md) |
+| `security` | Bounded `security-review` loop over every trust boundary in scope | 15 | Whole-codebase or multi-boundary audit with coverage tracking: [security](references/security.md) |
 | `ship` | Eight-phase ship: checklist, dry-run, approved ship, verify | n/a | Shipping a PR, release, deployment, package, or content: [ship](references/ship.md) |
 | `scenario` | Edge cases across 12 dimensions | 20 | Exploring a feature's failure space: [scenario](references/scenario.md) |
 | `predict` | Persona debate before implementation | n/a | Reviewing a proposed change before building: [predict](references/predict.md); personas: [predict-personas](references/predict-personas.md) |
@@ -67,7 +67,7 @@ Always read `skill://autoresearch/references/contracts.md` before starting a run
 | `evals` | Analyze results TSVs: trends, plateaus, regressions | n/a | After or during a run: [evals](references/evals.md) |
 | `regression` | Baseline vs candidate stability gate: STABLE or UNSTABLE | n/a | Before pushing a change: [regression](references/regression.md) |
 
-Overlap with other skills: for a single code review at a trust boundary use `skill://security-review`, not `security`; for over-engineering review of a diff use `skill://leancode-review`; for designing evaluations or rubrics use `skill://evaluation`.
+Overlap with other skills: `security` loops `skill://security-review` over every boundary in scope; for one diff or a few files use `skill://security-review` directly. For over-engineering review of a diff use `skill://leancode-review`; for designing evaluations or rubrics use `skill://evaluation`.
 
 ## Workflow
 

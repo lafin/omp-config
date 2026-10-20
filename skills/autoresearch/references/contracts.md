@@ -82,7 +82,7 @@ Extension columns follow the common ones. Every command except `regression` has 
 | loop (core) | `guard_metric` | the Verify number | `Direction:` flag |
 | `fix` | `error_type`, `error_fixed` | error count | lower |
 | `debug` | `hypothesis`, `technique`, `evidence`, `file_line` | cumulative confirmed findings | higher |
-| `security` | `finding`, `severity`, `owasp`, `stride`, `evidence`, `file_line` | composite score | higher |
+| `security` | `boundary`, `severity`, `file_line`, `exploit_path` | boundaries checked | higher |
 | `scenario` | `scenario`, `dimension`, `classification`, `severity` | cumulative logged scenarios | none (no direction comment) |
 | `learn` | `file_documented`, `validation_status`, `issues_found`, `issues_fixed` | files with valid documentation (wiki mode: `pages_generated / pages_planned × 100`) | higher |
 | `reason` | `candidate_label`, `judge_verdict` | `convergence_count` | higher |
@@ -182,7 +182,7 @@ A `pipeline_log` record is `{ "cycle": N, "hop": "fix", "outcome": "progressed|n
 | loop | `Metric: {start} → {end} ({delta}) \| Kept: {n}/{total} \| Trend: {up/flat/down}` |
 | `fix` | `Errors: {start} → {end} ({delta}) \| Kept: {n}/{total} \| Trend: {up/flat/down}` |
 | `debug` | `Findings: {confirmed} confirmed \| Trend: {up/flat/down}` |
-| `security` | `Score: {start} → {end} \| New findings: {n} \| Coverage: OWASP {x}/10, STRIDE {y}/6` |
+| `security` | `Boundaries: {checked}/{mapped} \| Findings: HIGH {h}, MEDIUM {m}, LOW {l}` |
 | `scenario` | `New scenarios: {n} \| Dimensions covered: {x}/12 \| Saturation: {status}` |
 | `learn` | `Docs written: {n} \| Validation: {pass}/{total} \| Gaps remaining: {m}` |
 | `reason` | `Incumbent: {label} \| Convergence: {count}/{target} \| Oscillations: {n}` (header says `rounds`) |

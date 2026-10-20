@@ -1,66 +1,50 @@
-# security: STRIDE and OWASP audit loop
+# security: bounded security-review loop
 
-Iterative audit with red-team personas. Default 15 iterations. Read `skill://autoresearch/references/security-checklist.md` for the STRIDE table, OWASP list, personas, severity scale, composite formula, and finding format. Shared blocks: `skill://autoresearch/references/contracts.md`. For a one-shot code review at a trust boundary without a loop, use bare `skill://security-review` instead.
+Repeat the `security-review` procedure one trust boundary per iteration until every mapped boundary in scope is checked. Default 15 iterations. The per-boundary procedure, severity scale, failure modes, and finding format belong to bare `skill://security-review`: read it first and follow it exactly. This file adds only the loop, coverage tracking, and chaining. Shared blocks: `skill://autoresearch/references/contracts.md`. For one diff or a few files, use `skill://security-review` directly without this loop.
+
+The loop never rewards finding count. Coverage of mapped boundaries is the metric; an iteration that checks a boundary and finds nothing is a successful iteration.
 
 ## Arguments
 
 - `Scope:` or `--scope` — file globs to audit.
-- `Focus:` — specific area (auth, API, data handling, and so on).
+- `Focus:` — specific area (auth, API, uploads, payments, and so on).
 - `Depth:` or `--depth` — quick (5 iterations), standard (15), deep (30+).
 - `Iterations:` or `--iterations` — default 15, or `unlimited`.
-- `--diff` — delta mode: only audit files changed since the last audit.
-- `--fix` — after the audit, fix Critical and High findings (chains to `fix`).
-- `--fail-on <severity>` — report non-zero status if findings at or above the threshold exist (CI gate).
+- `--diff` — only boundaries whose files changed since the last audit (`handoff.json` of the previous `security` run).
+- `--fix` — after the audit, fix `HIGH` findings (chains to `fix`).
+- `--fail-on <high|medium>` — report non-zero status if findings at or above the threshold exist (CI gate).
 - `--evals`, `--evals-interval N`, `--chain`, `--<subcommand>`.
 
 ## Setup (if required context is missing)
 
-If Scope is missing and there is no `--diff`:
+If Scope is missing and there is no `--diff`, scan routes, handlers, jobs, CLIs, and message consumers, then ask the user once, batching: scope (detected areas or the whole codebase), depth, and action (report only, report and fix, report and CI gate).
 
-1. Scan the codebase for tech stack, frameworks, and API routes.
-2. Ask the user once, batching:
-   1. Scope: what to audit? Entire codebase, API and middleware, auth, external-facing.
-   2. Depth: quick (5), standard (15), deep (30+), unlimited.
-   3. Action: report only, report and fix, report and CI gate.
+## Boundary map (once, before the loop)
 
-If all are provided, skip setup.
+1. Apply `security-review` step 1 (map trust boundaries) to the whole scope. Record each entry point with the privileged operations it reaches, the caller's identity source, and the data the caller controls.
+2. Order the map: unauthenticated entry points first, then money and irreversible actions, then authorization on object or tenant IDs, then the rest.
+3. Agent prompt injection, tool authority, and sandbox boundaries are out of scope; list them in `boundaries.md` as routed to `hosted-agents`, `harness-engineering`, or `tool-design`.
 
-## Setup phase (once, before the loop)
-
-1. **Reconnaissance.** Scan `package.json` / `requirements.txt` (dependencies), `.env.example` (secrets), Dockerfile (infrastructure), API route files (attack surface), auth and middleware (trust boundaries), DB schemas (data assets), CI/CD configs (supply chain).
-2. **Asset identification.** Catalog data stores, auth systems, external services, user inputs.
-3. **Trust boundary mapping.** Browser↔server, public↔authenticated, user↔admin, CI↔prod.
-4. **STRIDE threat model.** Generate threats per category using the checklist.
-5. **Attack surface map.** Entry points, data flows, abuse paths.
-6. **Baseline.** Count known issues; initialize coverage tracking.
-
-Create `autoresearch/security-<YYMMDD>-<HHMM>/`; write `overview.md`, `threat-model.md`, `attack-surface-map.md`, and the active marker (contracts). TSV: `# metric_direction: higher_is_better`, then the common columns plus `timestamp`, `finding`, `severity`, `owasp`, `stride`, `evidence`, `file_line`. `metric` is the composite score; `status` is the severity; `commit` is `-` (the audit does not commit).
+Create `autoresearch/security-<YYMMDD>-<HHMM>/`; write `boundaries.md` (the ordered map) and the active marker (contracts). TSV: `# metric_direction: higher_is_better`, then the common columns plus `timestamp`, `boundary`, `severity`, `file_line`, `exploit_path`. `metric` is boundaries checked; `status` is the highest severity found at that boundary, or `clean`; `commit` is `-` (the audit does not commit).
 
 ## Iteration loop
 
-1. **Review.** Read the TSV and coverage tracking; identify untested attack vectors from the threat model. Prioritize untested OWASP categories, then untested STRIDE, then depth on existing ones.
-2. **Attack.** Adopt a red-team persona for the vector (rotate Security Adversary, Supply Chain, Insider Threat, Infra Attacker). Dive into the relevant code with an adversarial mindset: code paths, input handling, auth checks, data flows.
-3. **Validate.** Construct proof: `file:line` plus a specific attack scenario. Every finding MUST have code evidence; no theoretical fluff. Classify severity Critical, High, Medium, Low, or Info. Map to OWASP (A01-A10) and STRIDE (S/T/R/I/D/E).
-4. **Log.** Append the finding to the TSV; update coverage tracking. Every 5 iterations print `OWASP: [A01✓ A02✓ A03✗ ...] X/10 | STRIDE: [S✓ T✓ R✗ ...] Y/6 | Score: Z`.
-5. **Eval checkpoint.** Stats line `Score: {start} → {end} | New findings: {n} | Coverage: OWASP {x}/10, STRIDE {y}/6`; early-stop recommendation after 3 or more checkpoints with no new findings.
-6. **Bounded check.** At the bound, exit the loop.
-
-### Composite metric
-
-`score = (owasp_tested/10)*50 + (stride_tested/6)*30 + min(findings, 20)`
+1. **Pick** the next unchecked boundary from the map (with `--diff`, only changed ones). If none remain, exit the loop (SUCCESS).
+2. **Review** it with `security-review` steps 2-6: trace controlled data to sinks, check authorization at the operation, secrets and sensitive output, abuse limits. Read callers and guards before reporting.
+3. **Log** one TSV row per boundary. A boundary with several findings gets one row per finding; a clean boundary gets one row with status `clean`. Every finding carries the `security-review` output fields.
+4. **Eval checkpoint.** Stats line from the contracts.
+5. **Bounded check.** At the bound, exit the loop and list the unchecked boundaries.
 
 ## After the loop
 
-1. Write `findings.md` (severity-ranked).
-2. Write `owasp-coverage.md`.
-3. Write `recommendations.md`.
-4. With `--fix`, chain to `fix` with the Critical and High findings.
-5. With `--fail-on`, compare findings against the threshold and report a non-zero status if exceeded.
+1. Write `findings.md`: findings ranked `HIGH`, `MEDIUM`, `LOW`, each in the `security-review` output format, and the boundaries checked clean.
+2. With `--fix`, chain to `fix` with the `HIGH` findings; each fix adds the regression check `security-review` step 7 requires.
+3. With `--fail-on`, compare findings against the threshold and report a non-zero status if exceeded.
 
 ## Summary
 
-Print: findings by severity, OWASP coverage X/10, STRIDE coverage Y/6, composite score.
+Print: boundaries checked / mapped, findings by severity, unchecked boundaries.
 
 ## Finish
 
-Write `handoff.json`: `source: "security"`, `findings` = all findings with severity, OWASP, STRIDE, `file:line`; `config` = scope, focus, depth. Delete the active marker, then follow `--chain` (contracts).
+Write `handoff.json`: `source: "security"`, `findings` = all findings with severity, `file_line`, exploit path; `config` = scope, focus, depth, boundaries checked and unchecked. Delete the active marker, then follow `--chain` (contracts).

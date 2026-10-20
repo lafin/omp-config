@@ -150,8 +150,12 @@ subcommand commands became `skills/autoresearch/references/*.md` behind one
 `skills/autoresearch/references/contracts.md`; host tool names and paths rewritten to
 model-neutral wording and `skill://` URIs; helpers ported from Bash to Python
 with documented contract fixes; the simplify gate in `ship` became a
-`git diff --numstat` size check routed to `leancode-review`. The run guard is
-a repository hook (`hooks/pre/autoresearch.ts`) instead of the upstream hooks.
+`git diff --numstat` size check routed to `leancode-review`. The `security`
+subcommand became a bounded loop over the repository `security-review`
+procedure (metric: trust boundaries checked); the upstream OWASP 2021 and
+STRIDE composite score and `security-checklist.md` were dropped. The run guard
+is a repository hook (`hooks/pre/autoresearch.ts`) instead of the upstream
+hooks.
 
 Dropped surfaces: other-harness distributions and mirrors (`claude-plugin/`,
 `plugins/`, `.agents/`, `.opencode/`, `.claude-plugin/`), the Claude hook
