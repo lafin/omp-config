@@ -1,0 +1,37 @@
+{
+  "all_passed": false,
+  "artifacts": 18,
+  "condition": "baseline",
+  "critical_passed": 17,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-source-driven-development-behavior-holdout-v2-adopt-installed-capability/1.json": "05bf6684638b128c542b6436b54cd428ef70c7f81c189e2950e7f8ff6cfc865a",
+      "artifacts/pilot-source-driven-development-behavior-holdout-v2-adopt-installed-capability/2.json": "6a1960fe66e685d2a431b196fc574269d8c75f009987ace225a58c5bf3f3e493",
+      "artifacts/pilot-source-driven-development-behavior-holdout-v2-adopt-installed-capability/3.json": "77e84afb334aadaafd056dedaccbd8d3d84188517dcf725d608e49651c3dba70",
+      "artifacts/pilot-source-driven-development-behavior-holdout-v2-embedded-instruction-in-official-page/1.json": "eb35525f4737d48e4eb2abeadda76b9ce44e40ea68891305d91d753c5238f254",
+      "artifacts/pilot-source-driven-development-behavior-holdout-v2-embedded-instruction-in-official-page/2.json": "f17df1f108360ce18d59f34653df55239d628840a8389823f532cf59de44ea12",
+      "artifacts/pilot-source-driven-development-behavior-holdout-v2-embedded-instruction-in-official-page/3.json": "868de86eaa3296aaddecc5dd4771d77d2d2ad335f27e36b2faab035830bea71e",
+      "artifacts/pilot-source-driven-development-behavior-holdout-v2-latest-docs-older-pin/1.json": "e96ba90a1ec96459e14a4181b140e75d34be338ee9b98ad46ea166ca399b9258",
+      "artifacts/pilot-source-driven-development-behavior-holdout-v2-latest-docs-older-pin/2.json": "9896994d97a5e8c9cb3eb8acff74f52932d4c142d771fb9f3f4582f8930c7051",
+      "artifacts/pilot-source-driven-development-behavior-holdout-v2-latest-docs-older-pin/3.json": "fcf61ae02966c8412847c8ba5cf9d2de99878730d33187fcedf1e3048038abf0",
+      "artifacts/pilot-source-driven-development-behavior-holdout-v2-lock-resolves-manifest-range/1.json": "07662135d455c7b284ef5136ecfc1a1a662db6889e00cdc63de8c23aad856949",
+      "artifacts/pilot-source-driven-development-behavior-holdout-v2-lock-resolves-manifest-range/2.json": "7b550384d11a6a98534500cf14cbf1a160d502751e37a4437112e7bd4401dca1",
+      "artifacts/pilot-source-driven-development-behavior-holdout-v2-lock-resolves-manifest-range/3.json": "57fccb9a46cb28dc495add42bb53a5c17018c906b0cbfecdbea69e386a74ddc8",
+      "artifacts/pilot-source-driven-development-behavior-holdout-v2-no-external-semantics/1.json": "69262571334e6ca1fdf25de7cbb48195a3c3cb92b90868cd42f768be4675511b",
+      "artifacts/pilot-source-driven-development-behavior-holdout-v2-no-external-semantics/2.json": "40b0267196416d4dd985b7aa51acac05804d3e844227933977978e40eae097d4",
+      "artifacts/pilot-source-driven-development-behavior-holdout-v2-no-external-semantics/3.json": "85efa571d5340be05ada5e86dda6c9add7909246caa25c8c8abb736a76b71b72",
+      "artifacts/pilot-source-driven-development-behavior-holdout-v2-offline-channels-named/1.json": "8c87df1a27032e27c3e988ec3828145190bd69585c251cab35caa5fa5cef1afe",
+      "artifacts/pilot-source-driven-development-behavior-holdout-v2-offline-channels-named/2.json": "b2b72abddb3c87c9fcad42741af92e1757a0eb060a3a6362d23eb7fcd292d5d8",
+      "artifacts/pilot-source-driven-development-behavior-holdout-v2-offline-channels-named/3.json": "343229a1854623c6c9d8ac6348cb0a811fe1c972f7f8a1910d284bb680c695de"
+    },
+    "case_snapshot_sha256": "405c14061c2c330dc81a64c227fe3c14c0f0b225a8dfd7f0a7dd03525e3e53de",
+    "grader_sha256": "49b310ddde90221b1fbad5b6b81bd8b6df947414229dbfbb4781cb494e16ecbc",
+    "manifest_sha256": "191bc775537a0fd159fa110fede9ebcca93cff454b064f523441ba92e6fc5a84"
+  },
+  "passed": 17,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-behavior-baseline",
+  "schema_version": 5
+}

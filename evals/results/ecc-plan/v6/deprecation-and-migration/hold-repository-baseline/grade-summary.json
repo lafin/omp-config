@@ -1,0 +1,22 @@
+{
+  "all_passed": true,
+  "artifacts": 3,
+  "condition": "baseline",
+  "critical_passed": 3,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-deprecation-and-migration-repository-holdout-rolling-production/1.json": "450cdc1e56ae614084c3d9fbe6303316d4c67a9737ef537da1e47c84fba03aa0",
+      "artifacts/pilot-deprecation-and-migration-repository-holdout-rolling-production/2.json": "0fb609b36fc7e2d823dd8fc24f567b2ab1a49c44c5f84edf45402bbaa5d20d63",
+      "artifacts/pilot-deprecation-and-migration-repository-holdout-rolling-production/3.json": "2012d30ecf6b2843c4942cbd7b5d16a90b203f845db6076162d9e42dcdcf689e"
+    },
+    "case_snapshot_sha256": "7b03c6777eddfa7f831fa3abd8dc9ac154b922210caa7974fa1a5564f7a604e1",
+    "grader_sha256": "49b310ddde90221b1fbad5b6b81bd8b6df947414229dbfbb4781cb494e16ecbc",
+    "manifest_sha256": "09264e397eb3bde2e5cc785c431484e5a093d31c8cbf71118acbeac0e0bb6bd0"
+  },
+  "passed": 3,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-repository-baseline",
+  "schema_version": 5
+}

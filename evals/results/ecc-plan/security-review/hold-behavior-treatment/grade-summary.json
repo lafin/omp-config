@@ -1,0 +1,37 @@
+{
+  "all_passed": false,
+  "artifacts": 18,
+  "condition": "treatment",
+  "critical_passed": 10,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-security-review-behavior-holdout-broken-authorization/1.json": "e5055c58bd249fdfa98aa00f13861a6976add2c24428400a2c843dacba00d333",
+      "artifacts/pilot-security-review-behavior-holdout-broken-authorization/2.json": "d7705265519c57064ba870a768ea2bf253ee82174d3405bb2e3fc515e1c2791e",
+      "artifacts/pilot-security-review-behavior-holdout-broken-authorization/3.json": "2e2add97bdc5c9c3b0b90cd04e63f073cac2ced70ba2f9f34fb15cd6f4e70412",
+      "artifacts/pilot-security-review-behavior-holdout-clean-upload/1.json": "7c254468c51f9598b3b95ada8f121eea5c8451490a105424cab2a922e1f5aff8",
+      "artifacts/pilot-security-review-behavior-holdout-clean-upload/2.json": "bdc1e3d6be3c78934345b5846f4f8da92e09a15d84d24b11950fe9bbd6ea6999",
+      "artifacts/pilot-security-review-behavior-holdout-clean-upload/3.json": "a98906867a7dc0f0ba87ee3d43895173bed4aff722004d1e94921570328d37a2",
+      "artifacts/pilot-security-review-behavior-holdout-login-rate-limit/1.json": "e311ee7c433fe33f454a6d7427e96776b92e181e91aa9e9fa58082681c53974e",
+      "artifacts/pilot-security-review-behavior-holdout-login-rate-limit/2.json": "37f0c678643500e7e5e97d01d7257a285e57a6ceb34f1435ee122c82833cfb18",
+      "artifacts/pilot-security-review-behavior-holdout-login-rate-limit/3.json": "0131fcc13b83a0fbe643050824091d01326fe25647eff2c73c799f2d29242a64",
+      "artifacts/pilot-security-review-behavior-holdout-secret-in-logs/1.json": "fe3b24def3d02d36f7d4cfdf3c629250ffacfb608db35f913a1f86a6eca65519",
+      "artifacts/pilot-security-review-behavior-holdout-secret-in-logs/2.json": "2ecfe1fcd4f74bcb26c1693e4d604da3cc98f42896271d6d9c134087acbb6604",
+      "artifacts/pilot-security-review-behavior-holdout-secret-in-logs/3.json": "1f850db3c1b958e281d03e59fc62e185c0db4877b73135f0cdeeba52f15f9856",
+      "artifacts/pilot-security-review-behavior-holdout-sql-injection/1.json": "7bc1778f3e3b7ab346e4078b74c465873884fc5e98108c73e9d1d06890d6d55f",
+      "artifacts/pilot-security-review-behavior-holdout-sql-injection/2.json": "6be874b6d3d26ca5f4d6e7c58b85e5c5c192b776c8603b4c62be2b20c917ba0d",
+      "artifacts/pilot-security-review-behavior-holdout-sql-injection/3.json": "31812907496b5187d59d09e301eb05c69204f1d1f6bbf19b4ffb4098d802d41b",
+      "artifacts/pilot-security-review-behavior-holdout-unsafe-deserialization/1.json": "5310b396da59c543e19525c5058b67b10eb5504e077d9b2fa6cc466219487341",
+      "artifacts/pilot-security-review-behavior-holdout-unsafe-deserialization/2.json": "e6d62631ea442125416e4b44e5ad9ceb18cbe1e6b5b26ea9e5fc46ea558e24e2",
+      "artifacts/pilot-security-review-behavior-holdout-unsafe-deserialization/3.json": "72769a17c894b742c8b407984547e0d0a50ea0050933e9ec2772fbef009d9ed3"
+    },
+    "case_snapshot_sha256": "fa68c0288ff311834138632edc2b89c5341715a52be3f7be49b21dcc3574b28b",
+    "grader_sha256": "49b310ddde90221b1fbad5b6b81bd8b6df947414229dbfbb4781cb494e16ecbc",
+    "manifest_sha256": "e996d59f9a8953b22181f315cef58e9bb27cb2a47fd9a8d6d05c5c57aa19ab9a"
+  },
+  "passed": 10,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-behavior-treatment",
+  "schema_version": 5
+}

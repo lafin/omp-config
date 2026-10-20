@@ -1,0 +1,28 @@
+{
+  "all_passed": true,
+  "artifacts": 9,
+  "condition": "baseline",
+  "critical_passed": 9,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-security-review-behavior-development-command-injection/1.json": "004f0c9e8cc5bf2ef363ba67bd03e0ab18d9a87f5e7b60a90ecf63060b2de651",
+      "artifacts/pilot-security-review-behavior-development-command-injection/2.json": "525cb601da7a644970769e5a379f314ba1cafcbe9221a55e701f7e84ae775697",
+      "artifacts/pilot-security-review-behavior-development-command-injection/3.json": "113d84e8bbedff613d928324a1e1f10305421ef33cfdbe863c5a2bee47db8c7c",
+      "artifacts/pilot-security-review-behavior-development-guarded-clean/1.json": "bf87b23e129204b48379daa060833fea4bc5c377930fe192b4d6748271f89116",
+      "artifacts/pilot-security-review-behavior-development-guarded-clean/2.json": "e3d58f3ba6bc81047ef32c74a1aea13ef1672be695d9a6f0ff2df8d94c58e10b",
+      "artifacts/pilot-security-review-behavior-development-guarded-clean/3.json": "2ccdf0ac10ff949b43a5790b4a21116e46144bc77e5459cdc9884ad48da88407",
+      "artifacts/pilot-security-review-behavior-development-ssrf/1.json": "c8bbd3612b8139854da23ee9ab26b29ff6eb3af7f4887fb4e80a7f85ee5c88cc",
+      "artifacts/pilot-security-review-behavior-development-ssrf/2.json": "ee3a2126dd57abf0384cdc3a0202ca033819e9e0d9ce48f71abf942e165d4a6e",
+      "artifacts/pilot-security-review-behavior-development-ssrf/3.json": "0af845a0bfef5eef25dd3497d67414cb6351e565abb838959a67deac7fef3fa6"
+    },
+    "case_snapshot_sha256": "62a492249b1564281e83995fe835246002d0e3c9460b892c4d45d38021c689b0",
+    "grader_sha256": "49b310ddde90221b1fbad5b6b81bd8b6df947414229dbfbb4781cb494e16ecbc",
+    "manifest_sha256": "4bc059d0477582cee3ec943d252ddf5e6e8ed30caab3a0205a02621646da6699"
+  },
+  "passed": 9,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-behavior-baseline",
+  "schema_version": 5
+}

@@ -1,0 +1,12 @@
+__pycache__
+
+# Raw evaluation captures are retained locally or in external artifact storage.
+evals/results/**/artifacts/
+# Raw grades, judge payloads, and large captures stay local; hashes in evals/results/external-artifacts.json.
+evals/results/**/*.jsonl
+!evals/results/**/cases.jsonl
+evals/results/content-refresh/mode-smoke-hk2.json
+evals/results/leancode-improvement/mode-experiment-distribution.json
+evals/results/leancode-improvement/mode-experiment.json
+evals/results/leancode-improvement/mode-smoke-final.json
+evals/results/leancode-improvement/mode-smoke-production-v2.json
