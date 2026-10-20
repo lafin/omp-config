@@ -65,6 +65,8 @@ TOP_FIELDS = {
     "retired_skills",
     "comparison_contracts",
     "routing_pair_exceptions",
+    "unrecoverable_revisions",
+    "holdout_coverage_waivers",
     "case_files",
 }
 HEX40 = re.compile(r"[0-9a-f]{40}")
@@ -234,10 +236,12 @@ def load_rows(path: Path, kind: str, split: str) -> list[tuple[int, dict[str, An
     return rows
 
 
-def _validate_revision(root: Path, value: Any, location: str, field: str, nullable: bool = False) -> None:
+def _validate_revision(root: Path, value: Any, location: str, field: str, nullable: bool = False, lost: frozenset[str] = frozenset()) -> None:
     if nullable and value is None:
         return
     _require(isinstance(value, str) and bool(HEX40.fullmatch(value)), location, field, "must be a full immutable 40-character commit", "pin a full commit hash")
+    if value in lost:
+        return
     _require(revision_resolves(root, value), location, field, f"commit {value!r} is not resolvable", "retain or fetch the immutable commit before validation")
 
 
@@ -296,6 +300,26 @@ def validate_repository(root: Path, manifest_path: Path | None = None) -> dict[s
         _require(all(isinstance(item[field], str) and item[field] for field in ("reviewer", "reason")), location, "reviewer/reason", "must be non-empty", "record the reviewer and rationale")
         pair_exceptions.add((item["status"], item["split"], tuple(sorted(item["available_skills"]))))
 
+    lost: set[str] = set()
+    _require(isinstance(manifest["unrecoverable_revisions"], list), str(manifest_path), "unrecoverable_revisions", "must be an array", "use [] when every pin resolves")
+    for index, item in enumerate(manifest["unrecoverable_revisions"]):
+        location = f"{manifest_path}:unrecoverable_revisions[{index}]"
+        _require(isinstance(item, dict) and set(item) == {"revision", "reason"}, location, "fields", "must contain exactly revision and reason", "record the lost commit and why it cannot be restored")
+        _require(isinstance(item["revision"], str) and bool(HEX40.fullmatch(item["revision"])) and item["revision"] not in lost, location, "revision", "must be a unique full 40-character commit", "list each lost commit once")
+        _require(not revision_resolves(root, item["revision"]), location, "revision", "resolves locally", "remove it from unrecoverable_revisions")
+        _require(isinstance(item["reason"], str) and bool(item["reason"]), location, "reason", "must be non-empty", "explain the loss")
+        lost.add(item["revision"])
+    frozen_lost = frozenset(lost)
+
+    waivers: dict[str, str] = {}
+    _require(isinstance(manifest["holdout_coverage_waivers"], list), str(manifest_path), "holdout_coverage_waivers", "must be an array", "use [] when every skill has canonical holdout coverage")
+    for index, item in enumerate(manifest["holdout_coverage_waivers"]):
+        location = f"{manifest_path}:holdout_coverage_waivers[{index}]"
+        _require(isinstance(item, dict) and set(item) == {"skill", "reason"}, location, "fields", "must contain exactly skill and reason", "record the waived skill and why")
+        _require(item["skill"] in skills and item["skill"] not in waivers, location, "skill", "must name a unique enabled skill", "remove duplicate or stale waivers")
+        _require(isinstance(item["reason"], str) and bool(item["reason"]), location, "reason", "must be non-empty", "explain the missing holdout evidence")
+        waivers[item["skill"]] = item["reason"]
+
     retired: dict[str, dict[str, Any]] = {}
     _require(isinstance(manifest["retired_skills"], list), str(manifest_path), "retired_skills", "must be an array", "use [] when no identities are retired")
     for index, item in enumerate(manifest["retired_skills"]):
@@ -303,7 +327,7 @@ def validate_repository(root: Path, manifest_path: Path | None = None) -> dict[s
         _require(isinstance(item, dict) and set(item) == {"name", "source_revision", "retirement_revision", "reason"}, location, "fields", "must contain exactly name, source_revision, retirement_revision, and reason", "record the complete retired identity")
         _require(isinstance(item["name"], str) and item["name"] not in retired, location, "name", "must be a unique non-empty identity", "remove duplicate retirement records")
         _require(item["name"] not in skills, location, "name", "is still an enabled root", "remove the retirement record or the enabled root")
-        _validate_revision(root, item["source_revision"], location, "source_revision")
+        _validate_revision(root, item["source_revision"], location, "source_revision", lost=frozen_lost)
         _validate_revision(root, item["retirement_revision"], location, "retirement_revision")
         _require(isinstance(item["reason"], str) and bool(item["reason"]), location, "reason", "must be non-empty", "explain the retirement")
         retired[item["name"]] = item
@@ -339,8 +363,9 @@ def validate_repository(root: Path, manifest_path: Path | None = None) -> dict[s
         _require(sha256_file(resolved) == entry["frozen_sha256"], location, "frozen_sha256", "does not match file content", "review the change and update the frozen hash in a separate evaluator change")
         _require(entry["comparison_contract"] in manifest["comparison_contracts"], location, "comparison_contract", "does not name a registered contract", "reference an existing frozen suite contract")
         contract = manifest["comparison_contracts"][entry["comparison_contract"]]
-        _validate_revision(root, entry["baseline_catalog_revision"], location, "baseline_catalog_revision", nullable=True)
-        _validate_revision(root, entry["treatment_catalog_revision"], location, "treatment_catalog_revision", nullable=True)
+        entry_lost = frozen_lost if entry["status"] == "historical" else frozenset()
+        _validate_revision(root, entry["baseline_catalog_revision"], location, "baseline_catalog_revision", nullable=True, lost=entry_lost)
+        _validate_revision(root, entry["treatment_catalog_revision"], location, "treatment_catalog_revision", nullable=True, lost=entry_lost)
         if entry["status"] == "independent-holdout":
             _require(entry["split"] == "holdout", location, "split", "independent-holdout must be holdout", "set split to holdout")
         if entry["status"] == "release-only":
@@ -461,12 +486,18 @@ def validate_repository(root: Path, manifest_path: Path | None = None) -> dict[s
     for skill in sorted(skills):
         required_splits = ("development",) if skill == candidate_name else ("development", "holdout")
         for split in required_splits:
+            if split == "holdout" and skill in waivers:
+                continue
             for role in ("target", "evaluated"):
                 _require(bool(coverage[(split, role, skill)]), str(manifest_path), "canonical coverage", f"enabled skill {skill!r} lacks canonical {split} routing coverage as {role}", "add a canonical routing case in that split")
+    for skill in sorted(waivers):
+        _require(not (coverage[("holdout", "target", skill)] and coverage[("holdout", "evaluated", skill)]), str(manifest_path), "holdout_coverage_waivers", f"waiver for {skill!r} is stale: canonical holdout routing coverage exists", "remove the waiver")
     new_skills = skills - base_skills
     for skill in sorted(new_skills):
         required_splits = ("development",) if skill == candidate_name else ("development", "holdout")
         for split in required_splits:
+            if split == "holdout" and skill in waivers:
+                continue
             _require(bool(behavior_coverage[(split, skill)]), str(manifest_path), "canonical behavior coverage", f"new enabled skill {skill!r} lacks canonical {split} behavior evidence", "add canonical behavior cases required by admission")
     if candidate is None:
         _require(not proposal_roots & skills, str(manifest_path), "admission_candidate", f"current proposed roots {sorted(proposal_roots & skills)} require pending candidate state", "set admission_candidate until full canonical holdout coverage is complete")

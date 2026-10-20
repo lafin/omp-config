@@ -114,6 +114,8 @@ class RepositoryFixture:
             "admission_candidate": None,
             "retired_skills": [],
             "routing_pair_exceptions": [],
+            "unrecoverable_revisions": [],
+            "holdout_coverage_waivers": [],
             "comparison_contracts": {"routing": contract()},
             "case_files": [],
         }
@@ -261,6 +263,28 @@ class EvaluationValidationTest(unittest.TestCase):
         holdout = self.fixture.manifest["case_files"][1]
         self.fixture.rewrite(holdout, [route("holdout-alpha", "holdout", "alpha", "beta"), route("holdout-alpha-2", "holdout", "alpha", "beta")])
         self.assert_invalid("holdout A/B pair lacks its reverse target")
+
+    def test_lost_pin_is_accepted_only_on_historical_entries(self) -> None:
+        lost = "b" * 40
+        resolves = lambda _root, value: value != lost
+        with mock.patch.object(VALIDATE, "revision_resolves", side_effect=resolves):
+            self.fixture.manifest["comparison_contracts"]["history"] = contract()
+            entry = self.fixture.add_file("history.jsonl", "routing", "holdout", "historical", "history", [route("old", "holdout", "alpha", "beta")], "pin lost")
+            entry["treatment_catalog_revision"] = lost
+            self.assert_invalid("is not resolvable")
+            self.fixture.manifest["unrecoverable_revisions"] = [{"revision": lost, "reason": "squashed"}]
+            self.validate()
+            entry["status"], entry["historical_reason"] = "canonical", None
+            self.assert_invalid("is not resolvable")
+
+    def test_holdout_waiver_skips_coverage_and_must_not_be_stale(self) -> None:
+        holdout = self.fixture.manifest["case_files"][1]
+        holdout["status"], holdout["historical_reason"], holdout["treatment_catalog_revision"] = "historical", "pin lost", REV
+        self.assert_invalid("lacks canonical holdout routing coverage")
+        self.fixture.manifest["holdout_coverage_waivers"] = [{"skill": "alpha", "reason": "lost"}, {"skill": "beta", "reason": "lost"}]
+        self.validate()
+        holdout["status"], holdout["historical_reason"] = "canonical", None
+        self.assert_invalid("waiver for 'alpha' is stale")
 
     def test_incomplete_comparison_contract_fails(self) -> None:
         del self.fixture.manifest["comparison_contracts"]["routing"]["ties"]

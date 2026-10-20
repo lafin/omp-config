@@ -35,6 +35,16 @@ canonical development coverage while its proposal holdout stays frozen. It is
 not a lifecycle status. Release selection is unavailable until the candidate
 is cleared and full canonical coverage exists.
 
+`unrecoverable_revisions` lists pinned commits that no longer exist locally or
+on the remote, each with a reason. Only `historical` entries and retirement
+source revisions may reference them; any other use fails validation. A listed
+commit that resolves again also fails, so restored pins must be removed from the
+list. `holdout_coverage_waivers` names enabled skills whose canonical holdout
+coverage was lost with those pins; the waiver suspends only the holdout coverage
+rule and fails as stale once canonical holdout routing coverage returns.
+Recovered pins are anchored under `refs/eval-pins/<sha>` on `origin` so remote
+garbage collection cannot drop them.
+
 Normal `--suite` and explicit `--cases` selection are development-only.
 `--mode holdout` is the only direct holdout path. It verifies the frozen case
 hash and comparison contract, resolves both full catalog commits into isolated

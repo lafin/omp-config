@@ -50,12 +50,14 @@ it with `--extension <path>/hooks/pre/leancode.ts`.
 ## Validation
 
 ```sh
-python3 -m pip install -r requirements-validation.txt -r requirements-examples.txt
+python3 -m venv .venv && . .venv/bin/activate
+python -m pip install -r requirements-validation.txt -r requirements-examples.txt
 python3 scripts/validate_skills.py
 python3 evals/validate.py
 python3 -m unittest discover -s tests
 python3 -m unittest discover -s skills/context-compression/tests
-bun test tests/leancode_hook.test.ts
+python3 -m unittest discover -s skills/autoresearch/tests
+bun test tests/leancode_hook.test.ts tests/autoresearch_hook.test.ts
 ```
 
 The validators check skill metadata, provenance, links, license notices, Python
@@ -92,6 +94,10 @@ framework, artifact contract, and reproduction commands.
 - `security-review` — find and fix exploitable defects at application trust boundaries.
 - `ml-system-design-review` — review ML/AI system designs and implementation evidence.
 - `ai-stage-gate` — make evidence-based Go / Conditional / Kill decisions for AI initiatives.
+
+## Iteration loops
+
+- `autoresearch` — run bounded modify → verify → keep/revert loops toward a mechanical metric, plus the plan, debug, fix, security, ship, scenario, predict, learn, reason, probe, evals, improve, and regression subcommands.
 
 
 ## Credentials
