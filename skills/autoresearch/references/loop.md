@@ -42,7 +42,7 @@ If all are provided inline, skip setup.
 
 ### Preconditions and safety screen
 
-Apply the Preconditions and Verify safety screen blocks from the contracts, including the gpgsign dry-run commit check and the stale-marker rule.
+Apply the Preconditions and Verify safety screen blocks from the contracts, including the commit-signing check and the stale-marker rule.
 
 ### Baseline (iteration 0)
 

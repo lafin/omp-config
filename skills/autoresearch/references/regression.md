@@ -21,7 +21,7 @@ A regression is a **green→red transition ONLY**. The gate orchestrates the pro
 1. Auto-detect per-dimension verify commands: `package.json` scripts, `Makefile`, `nx`, migrate config, bench, snapshot, and size scripts.
 2. Ask the user once to confirm the detected commands, the base ref, and which dimensions to run.
 3. **Auto-skip probe** when running in CI, with no TTY, with `--mode autonomous`, with a complete config, or from a chained handoff: log the inferred config instead of asking.
-4. Apply the contracts Preconditions block (clean tree, gpgsign dry-run commit check, stale-marker rule). Write the active marker once the baseline is captured.
+4. Apply the contracts Preconditions block (clean tree, commit-signing check, stale-marker rule). Write the active marker once the baseline is captured.
 
 ## Classification phase (first-class, before any differential)
 

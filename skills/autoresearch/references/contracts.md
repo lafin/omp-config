@@ -13,7 +13,7 @@ Every subcommand reference points here for the blocks that used to be repeated p
 1. Inside a git repository (`git rev-parse --git-dir`).
 2. Working tree clean (`git status --porcelain`). Warn when dirty; unrelated uncommitted changes would be reverted or mixed into commits, so ask the user to commit or stash first.
 3. No stale lock files, no detached HEAD.
-4. Commit check: run `git commit --allow-empty --dry-run`. If it fails (for example `commit.gpgsign=true` with no usable signing key), stop and ask the user before starting.
+4. Commit-signing check: `[ "$(git config --bool commit.gpgsign)" != true ] || git commit-tree -S "HEAD^{tree}" -m probe >/dev/null`. It writes no ref and leaves the tree unchanged. If it fails (signing required, no usable key), stop and ask the user before starting; do not disable signing yourself. Do not use `git commit --dry-run`: it exits 1 on every clean tree.
 5. If `Guard:` is set, run it once to establish the guard baseline. A failing baseline guard is a critical failure.
 6. Stale marker check (see Active marker below).
 7. Fail fast on any critical issue; warn on non-critical ones.

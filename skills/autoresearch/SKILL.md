@@ -73,7 +73,7 @@ Overlap with other skills: for a single code review at a trust boundary use `ski
 
 1. Read the contracts and the matching reference.
 2. Collect Goal, Scope, Metric, Verify (and Guard) from the arguments; ask once for what is missing (headless runs fail fast, see failure modes).
-3. Preconditions: git repo, clean tree, `git commit --allow-empty --dry-run` succeeds, no stale `.active` marker.
+3. Preconditions: git repo, clean tree, commit-signing check passes, no stale `.active` marker.
 4. Screen commands, run the baseline (iteration 0), write the active marker.
 5. Loop per the reference; log every iteration.
 6. Write `handoff.json`, delete the marker (also on abort), print the summary, run any chain.
@@ -84,7 +84,7 @@ Overlap with other skills: for a single code review at a trust boundary use `ski
 
 ### Commit signing check
 
-Before the first iteration run `git commit --allow-empty --dry-run`. If it fails (for example `commit.gpgsign=true` with no available key), stop and ask the user how to proceed. Do not disable signing yourself.
+Before the first iteration run the commit-signing check from the contracts Preconditions block. If it fails (`commit.gpgsign=true` with no available key), stop and ask the user how to proceed. Do not disable signing yourself.
 
 ## Exit evidence
 

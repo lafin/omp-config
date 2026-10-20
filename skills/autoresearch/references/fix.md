@@ -27,7 +27,7 @@ If all are provided, skip setup. With `--from-debug`, read `handoff.json` for sc
 
 ## Preconditions
 
-Apply the contracts block: git repo, clean tree, no lock files, no detached HEAD, `git commit --allow-empty --dry-run` passes, stale-marker rule. Screen `Target:` and `Guard:` with `screen-cmd`.
+Apply the contracts block: git repo, clean tree, no lock files, no detached HEAD, commit-signing check passes, stale-marker rule. Screen `Target:` and `Guard:` with `screen-cmd`.
 
 ## Baseline (iteration 0)
 

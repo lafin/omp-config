@@ -197,7 +197,7 @@ Four subcommands overlap existing catalog owners: `security` (`security-review`)
 | --- | --- |
 | Stale `.active` marker after a crash keeps the git guard on | Block reason names the marker; setup refuses to start when a marker exists and its run directory has no TSV update in 30 minutes, offering to clear it |
 | `bash.patterns`/`bash.gitGuard` users see double blocking | Hook only blocks; it never allows. Overlap is harmless |
-| Loop commits in repos with `commit.gpgsign=true` and no agent signing key | `fix`/loop setup runs a dry `git commit --allow-empty --dry-run`; on failure, ask the user before starting |
+| Loop commits in repos with `commit.gpgsign=true` and no agent signing key | Setup probes signing with `git commit-tree -S` only when `commit.gpgsign` is true (no ref change); on failure, ask the user before starting. `git commit --dry-run` is unusable here: it exits 1 on a clean tree |
 | Upstream drift after the pin | Follow the repository's per-release upstream compare (`CONTRIBUTING.md`, `gh api .../compare/<pinned-sha>...HEAD`) and record dispositions in `ATTRIBUTION.md` |
 | Headless subagent runs cannot ask setup questions | Documented failure mode; setup fails fast with the missing fields named |
 
