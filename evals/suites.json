@@ -19,7 +19,7 @@
       "timeout_policy": {"omp_max_time_seconds": 600, "rpc_grace_seconds": 30, "per_attempt_seconds": 630, "overall": "per_attempt_seconds multiplied by selected case count and attempt_count"},
       "judge_disagreement": "INCONCLUSIVE for judge-dependent decisions; deterministic gates remain authoritative",
       "position_sensitivity": "INCONCLUSIVE for judge-dependent decisions",
-      "execution_config": {"model": "openai-codex/gpt-5.6-sol", "profile": "skill-eval-isolated", "tools": [], "thinking": "off", "attempt_count": 3, "system_prompt_sha256": null},
+      "execution_config": {"model": "openai-codex/gpt-6.1-sol", "profile": "skill-eval-isolated", "tools": [], "thinking": "off", "attempt_count": 3, "system_prompt_sha256": null},
       "baseline_catalog_revision": "a2384f71dc317446706c66799d26e15e6b18836a",
       "treatment_catalog_revision": "a2384f71dc317446706c66799d26e15e6b18836a"
     },
@@ -35,7 +35,7 @@
       "timeout_policy": {"omp_max_time_seconds": 600, "rpc_grace_seconds": 30, "per_attempt_seconds": 630, "overall": "per_attempt_seconds multiplied by selected case count and attempt_count"},
       "judge_disagreement": "INCONCLUSIVE for judge-dependent decisions; deterministic gates remain authoritative",
       "position_sensitivity": "INCONCLUSIVE for judge-dependent decisions",
-      "execution_config": {"model": "openai-codex/gpt-5.6-sol", "profile": "skill-eval-isolated", "tools": ["read", "bash", "edit", "write", "glob", "grep"], "thinking": "off", "attempt_count": 3, "system_prompt_sha256": null},
+      "execution_config": {"model": "openai-codex/gpt-6.1-sol", "profile": "skill-eval-isolated", "tools": ["read", "bash", "edit", "write", "glob", "grep"], "thinking": "off", "attempt_count": 3, "system_prompt_sha256": null},
       "baseline_catalog_revision": "a2384f71dc317446706c66799d26e15e6b18836a",
       "treatment_catalog_revision": "a2384f71dc317446706c66799d26e15e6b18836a"
     },
@@ -51,7 +51,7 @@
       "timeout_policy": {"omp_max_time_seconds": 600, "rpc_grace_seconds": 30, "per_attempt_seconds": 630, "overall": "per_attempt_seconds multiplied by selected case count and attempt_count"},
       "judge_disagreement": "INCONCLUSIVE for judge-dependent decisions; deterministic gates remain authoritative",
       "position_sensitivity": "INCONCLUSIVE for judge-dependent decisions",
-      "execution_config": {"model": "openai-codex/gpt-5.6-sol", "profile": "skill-eval-isolated", "tools": [], "thinking": "off", "attempt_count": 3, "system_prompt_sha256": null},
+      "execution_config": {"model": "openai-codex/gpt-6.1-sol", "profile": "skill-eval-isolated", "tools": [], "thinking": "off", "attempt_count": 3, "system_prompt_sha256": null},
       "baseline_catalog_revision": "a2384f71dc317446706c66799d26e15e6b18836a",
       "treatment_catalog_revision": "a2384f71dc317446706c66799d26e15e6b18836a"
     },
@@ -67,7 +67,7 @@
       "timeout_policy": {"omp_max_time_seconds": 600, "rpc_grace_seconds": 30, "per_attempt_seconds": 630, "overall": "per_attempt_seconds multiplied by selected case count and attempt_count"},
       "judge_disagreement": "INCONCLUSIVE for judge-dependent decisions; deterministic gates remain authoritative",
       "position_sensitivity": "INCONCLUSIVE for judge-dependent decisions",
-      "execution_config": {"model": "openai-codex/gpt-5.6-sol", "profile": "skill-eval-isolated", "tools": [], "thinking": "off", "attempt_count": 3, "system_prompt_sha256": null},
+      "execution_config": {"model": "openai-codex/gpt-6.1-sol", "profile": "skill-eval-isolated", "tools": [], "thinking": "off", "attempt_count": 3, "system_prompt_sha256": null},
       "baseline_catalog_revision": "e031aa5ce0233089bcffa6018e9cc1a91f648d0c",
       "treatment_catalog_revision": "e031aa5ce0233089bcffa6018e9cc1a91f648d0c"
     },
@@ -83,7 +83,7 @@
       "timeout_policy": {"omp_max_time_seconds": 600, "rpc_grace_seconds": 30, "per_attempt_seconds": 630, "overall": "per_attempt_seconds multiplied by selected case count and attempt_count"},
       "judge_disagreement": "INCONCLUSIVE for judge-dependent decisions; deterministic gates remain authoritative",
       "position_sensitivity": "INCONCLUSIVE for judge-dependent decisions",
-      "execution_config": {"model": "openai-codex/gpt-5.6-sol", "profile": "skill-eval-isolated", "tools": [], "thinking": "off", "attempt_count": 3, "system_prompt_sha256": null},
+      "execution_config": {"model": "openai-codex/gpt-6.1-sol", "profile": "skill-eval-isolated", "tools": [], "thinking": "off", "attempt_count": 3, "system_prompt_sha256": null},
       "baseline_catalog_revision": "e031aa5ce0233089bcffa6018e9cc1a91f648d0c",
       "treatment_catalog_revision": "e031aa5ce0233089bcffa6018e9cc1a91f648d0c"
     }

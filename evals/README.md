@@ -66,7 +66,7 @@ tools. Repository cases require an explicit editing-tool allowlist.
 Development remains compatible with explicit case paths:
 
 ```sh
-MODEL='openai-codex/gpt-5.6-sol'
+MODEL='openai-codex/gpt-6.1-sol'
 PROFILE='skill-eval-isolated'
 python3 evals/run.py \
   --cases evals/cases/routing-development.jsonl \
