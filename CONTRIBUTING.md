@@ -96,7 +96,8 @@ Before requesting review:
    python3 evals/validate.py
    python3 -m unittest discover -s tests
    python3 -m unittest discover -s skills/context-compression/tests
-   bun test tests/leancode_hook.test.ts
+   python3 -m unittest discover -s skills/autoresearch/tests
+   bun test tests/leancode_hook.test.ts tests/autoresearch_hook.test.ts
    ```
 
 2. Review the eight anatomy concepts and any script fields in [Skill anatomy](docs/skill-anatomy.md).

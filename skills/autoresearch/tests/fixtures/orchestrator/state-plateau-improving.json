@@ -1,0 +1,15 @@
+{
+  "goal": "reduce bundle size",
+  "archetype": "optimize-metric",
+  "predicate": "npm test",
+  "terminal_choice": "stop-at-verified",
+  "cycle": 5,
+  "units_remaining": [
+    10,
+    8,
+    6,
+    4,
+    2
+  ],
+  "pipeline_log": []
+}

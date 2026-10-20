@@ -17,6 +17,10 @@ TEMPLATE_PATHS = {
     Path("skills/hosted-agents/scripts/sandbox_manager.py"),
     Path("skills/project-development/scripts/pipeline_template.py"),
 }
+PRODUCTION_PATHS = {
+    Path("skills/autoresearch/scripts/orchestrate.py"),
+    Path("skills/autoresearch/scripts/score_regression.py"),
+}
 BOUNDARY_TERMS = {
     Path("skills/context-compression/scripts/compression_evaluator.py"): (
         "heuristic stub",
@@ -66,9 +70,12 @@ class ScriptContractTests(unittest.TestCase):
                     if line.startswith("Status: ")
                 ]
                 self.assertEqual(1, len(status_lines))
+                relative_path = path.relative_to(ROOT)
                 expected = (
                     "Status: Template"
-                    if path.relative_to(ROOT) in TEMPLATE_PATHS
+                    if relative_path in TEMPLATE_PATHS
+                    else "Status: Production helper"
+                    if relative_path in PRODUCTION_PATHS
                     else "Status: Example"
                 )
                 self.assertEqual(expected, status_lines[0])
@@ -128,8 +135,10 @@ class ScriptContractTests(unittest.TestCase):
             if path.relative_to(ROOT) in TEMPLATE_PATHS:
                 continue
             with self.subTest(script=path.relative_to(ROOT)), tempfile.TemporaryDirectory() as cwd:
+                # Production helpers are argument-driven CLIs; --help is their credential-free entry point.
+                extra = ["--help"] if path.relative_to(ROOT) in PRODUCTION_PATHS else []
                 completed = subprocess.run(
-                    [sys.executable, str(path)],
+                    [sys.executable, str(path), *extra],
                     cwd=cwd,
                     env=env,
                     capture_output=True,

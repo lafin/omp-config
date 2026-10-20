@@ -1,0 +1,1 @@
+{"goal":"ship the release","archetype":"ship-ready","predicate":"npm test","terminal_choice":"stop-at-verified","cycle":1,"units_remaining":[1],"pipeline_log":[],"errors_remaining":0,"regression_verdict":"STABLE","untested_gaps":0,"pending_verify":false}

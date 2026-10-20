@@ -128,6 +128,38 @@ that commit. The upstream MIT notice is preserved in [LICENSE-ecc](LICENSE-ecc).
   adopt / extend / build decision (admitted): inspired by
   https://github.com/affaan-m/ECC/blob/4eb71d92a39cab44ad40ac9d8a6a5ccb4029d6c2/skills/search-first/SKILL.md.
 
+## Autoresearch Skill
+
+Source: https://github.com/uditgoenka/autoresearch
+
+Pinned commit: `050e30dc4ba0974b03f2873111b9901ec3211390` (upstream v2.2.2).
+
+Copyright (c) 2026 Udit Goenka. Imported material is provided under the MIT
+License; see [LICENSE-autoresearch](LICENSE-autoresearch).
+
+Import scope: `.claude/skills/autoresearch/` (`SKILL.md`, references),
+`.claude/commands/autoresearch.md` and `.claude/commands/autoresearch/*.md`,
+scripts/orchestrate.sh, scripts/score-regression.sh,
+tests/test-orchestrator.sh, tests/test-regression.sh, and their fixtures.
+These became `skills/autoresearch/`, `commands/autoresearch.md`, and Python
+helpers and `unittest` tests under `skills/autoresearch/`.
+
+Adaptation: modified. Frontmatter reduced to OMP-valid keys; the 13
+subcommand commands became `skills/autoresearch/references/*.md` behind one
+`/autoresearch <subcommand>` command; repeated blocks moved to
+`skills/autoresearch/references/contracts.md`; host tool names and paths rewritten to
+model-neutral wording and `skill://` URIs; helpers ported from Bash to Python
+with documented contract fixes; the simplify gate in `ship` became a
+`git diff --numstat` size check routed to `leancode-review`. The run guard is
+a repository hook (`hooks/pre/autoresearch.ts`) instead of the upstream hooks.
+
+Dropped surfaces: other-harness distributions and mirrors (`claude-plugin/`,
+`plugins/`, `.agents/`, `.opencode/`, `.claude-plugin/`), the Claude hook
+layer (`.claude/hooks/autoresearch/`), install, transform, and release
+scripts, .github/preprgate/ and its workflow, scripts/score-debug-fix.sh,
+`.claude/skills/.env.example`, hook and maintenance tests, and upstream
+README, `guide/`, `docs/`, and context files.
+
 ## Simplified Engineering English
 
 `simplified-engineering-english` is repository-original material inspired by
