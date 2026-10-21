@@ -1,0 +1,28 @@
+{
+  "all_passed": true,
+  "artifacts": 9,
+  "condition": "baseline",
+  "critical_passed": 9,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/security-review-severity-development-email-lookup/1.json": "3108abb1f3c42687d08f0f81139023a243049d57b9d5ad1482b2492586aa95c1",
+      "artifacts/security-review-severity-development-email-lookup/2.json": "a56eee23b66182b127e968309d969749c77f684283be551ddd808243d11a7dd1",
+      "artifacts/security-review-severity-development-email-lookup/3.json": "06d4b0a35668fdcd337d1c97ca3e7d44e79a4cb87e9c87c4aea514b9ce698f3d",
+      "artifacts/security-review-severity-development-invoice-id/1.json": "9d1a0f188f603b0714ed866a87f572d7fe625da847f91d6aed47a862d08f9c9a",
+      "artifacts/security-review-severity-development-invoice-id/2.json": "31ce40dcd36f8077eb3ed93b2ccb0d6ded0d5c94ababd96f1ccc37572a192e3e",
+      "artifacts/security-review-severity-development-invoice-id/3.json": "46dc14da898a6639147c20b387a3b223b58facba65cd62c1ee084a02d8fee450",
+      "artifacts/security-review-severity-development-scoped-list/1.json": "3ee6710474411455cf8b3f6f3cba26a89e000fdd5549a47471af97cd002fd6a5",
+      "artifacts/security-review-severity-development-scoped-list/2.json": "81046f9420f719ea5636c9253376bf2d5298d0cc323f891ce467493a8732e1a8",
+      "artifacts/security-review-severity-development-scoped-list/3.json": "8df1a92ad8cf300e643e1f9c4d5cd7c2647215a33ef983dc6f22e53f64e8af46"
+    },
+    "case_snapshot_sha256": "636b0dad034fbae300350eeb8cbb0dcc8e71db52525795c944de8976623dcb3c",
+    "grader_sha256": "da87d8b9567a0f1b576957751d92522f2cd0df34a591859cc77abffc183baa3d",
+    "manifest_sha256": "610259ec5a0c4b499faee6c2f64e9303c0bdd5c51beb3c31a5c39506a96dcbc7"
+  },
+  "passed": 9,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-baseline-oldrule",
+  "schema_version": 5
+}

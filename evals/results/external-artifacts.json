@@ -1130,5 +1130,13 @@
  "evals/results/autoresearch-security-hard-6/hold-treatment/grades.jsonl": {
   "sha256": "af51cac3201b4cb11d51b6909e883962d900b73bc8c82410749fbe543bcd3ffe",
   "bytes": 23082
+ },
+ "evals/results/security-review-severity/dev-baseline-oldrule/grades.jsonl": {
+  "sha256": "7c442ddb219d44db4ac7533fab27567fe0dea689c73a23061006cb910bb17064",
+  "bytes": 15004
+ },
+ "evals/results/security-review-severity/dev-treatment-oldrule/grades.jsonl": {
+  "sha256": "25230c128f3ce217598e6d0978ea849d7cd98e71334827f851685fab52fce69c",
+  "bytes": 15026
  }
 }
