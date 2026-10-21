@@ -349,6 +349,14 @@ class EvaluationValidationTest(unittest.TestCase):
         self.assertTrue(selected["guarded_holdout"])
         self.assertEqual(REV, selected["evaluated_catalog_revision"])
 
+    def test_release_uses_holdout_pins_when_development_is_unpinned(self) -> None:
+        holdout = self.fixture.manifest["case_files"][1]
+        later = "d" * 40
+        holdout["baseline_catalog_revision"] = holdout["treatment_catalog_revision"] = later
+        selected = VALIDATE.select_case_files(self.fixture.manifest, self.root, mode="release", suite="routing", condition="treatment")
+        self.assertEqual(later, selected["treatment_catalog_revision"])
+        self.assertEqual(2, len(selected["entries"]))
+
     def test_independent_and_release_only_require_dedicated_modes(self) -> None:
         independent = copy.deepcopy(self.fixture.manifest["case_files"][1])
         independent["path"] = "evals/cases/independent.jsonl"

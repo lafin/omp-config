@@ -586,8 +586,10 @@ def select_case_files(
     contracts = {entry["comparison_contract"] for entry in selected}
     _require(len(contracts) == 1, "evals/suites.json", "comparison_contract", f"selection spans contracts {sorted(contracts)}", "run one suite contract at a time")
     contract = manifest["comparison_contracts"][contracts.pop()]
-    baselines = {entry["baseline_catalog_revision"] or contract["baseline_catalog_revision"] for entry in selected}
-    treatments = {entry["treatment_catalog_revision"] or contract["treatment_catalog_revision"] for entry in selected}
+    # Release runs the whole suite against the frozen holdout pair; development entries carry no pins of their own.
+    pinned = [entry for entry in selected if entry["split"] == "holdout"] if mode == "release" else selected
+    baselines = {entry["baseline_catalog_revision"] or contract["baseline_catalog_revision"] for entry in pinned or selected}
+    treatments = {entry["treatment_catalog_revision"] or contract["treatment_catalog_revision"] for entry in pinned or selected}
     _require(len(baselines) == 1 and len(treatments) == 1, "evals/suites.json", "catalog revisions", "selection contains inconsistent comparison pins", "split files with different immutable pairs into separate suites or runs")
     baseline = baselines.pop()
     treatment = treatments.pop()
