@@ -1,0 +1,25 @@
+{
+  "all_passed": false,
+  "artifacts": 6,
+  "condition": "baseline",
+  "critical_passed": 6,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/autoresearch-security-hard-development-audit/1.json": "0bcba20dc8bd32c9e03ebf1dd58153c4be05ec67d290367100ed0d3475088ff8",
+      "artifacts/autoresearch-security-hard-development-audit/2.json": "b66e8e810b1a8581fd454df3b85cd998a0fba501617830632157f7d83b9ffc20",
+      "artifacts/autoresearch-security-hard-development-audit/3.json": "591e2d6a2b18e7aebf153702c7b0f78315c77db457b00ea65acc0181730fbacd",
+      "artifacts/autoresearch-security-hard-development-audit/4.json": "f51d8d501cd5a325413da42c933e7288f2a659befa51bc9b9ced2182ee4e68f2",
+      "artifacts/autoresearch-security-hard-development-audit/5.json": "6f57373364380a8a500dd8398f393c540bddd127a4f7438a7389d666361b4799",
+      "artifacts/autoresearch-security-hard-development-audit/6.json": "82def3fa35c5b18248e9c8d7c5edc16925ce910f1f449771252c0da7d20e5551"
+    },
+    "case_snapshot_sha256": "8f0d8c9e72beb7b4c2be7eaea6afc3475d7fdd61d3bcddfefaf5353228041370",
+    "grader_sha256": "da87d8b9567a0f1b576957751d92522f2cd0df34a591859cc77abffc183baa3d",
+    "manifest_sha256": "4aa840c12b1577239f1eeaac38ae7f45d003e16b56d105c894d577b22b63028d"
+  },
+  "passed": 0,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-baseline",
+  "schema_version": 5
+}
