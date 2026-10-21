@@ -95,6 +95,7 @@ framework, artifact contract, and reproduction commands.
 - `security-review` — find and fix exploitable defects at application trust boundaries.
 - `ml-system-design-review` — review ML/AI system designs and implementation evidence.
 - `ai-stage-gate` — make evidence-based Go / Conditional / Kill decisions for AI initiatives.
+- `ui-craft` — build or review web UI details: radii, alignment, shadows, motion, typography, color tokens, accessibility basics, spacing, and microcopy.
 
 ## Iteration loops
 

@@ -173,3 +173,12 @@ https://asd-ste100.org/
 ASD owns ASD-STE100. The local skill adapts controlled-language concepts and
 does not distribute the standard or its dictionary. The root MIT license
 covers only the local adaptation.
+
+## UI Craft Skill
+
+`skills/ui-craft/` is inspired by Jakub Krehel's Interface Cheat Sheet
+(https://interfaces.dev/cheat-sheet, fetched 2026-10-21) and
+https://github.com/jakubkrehel/make-interfaces-feel-better at commit
+`35545ea1512ad59fa463e6b1f95ca9c052981fe6` (MIT). Rules and values are
+restated in this repository's own words; no upstream text or files were
+imported. Paid Interfaces issues were not used.
