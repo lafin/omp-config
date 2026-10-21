@@ -14,5 +14,5 @@ Keep `autoresearch` admitted. The accepted benefit is process consistency: a res
 
 ## Limits
 
-- The `security` subcommand shows no gain over baseline: `evals/results/autoresearch-security`, `autoresearch-security-hard`, and `autoresearch-security-hard-6` all fail the gate. Every holdout miss rated `lookup_requester` MEDIUM; the fixture never defines requesters as tenant-owned, so that case is ambiguous and is now historical. A single-handler check (`evals/results/security-review-severity`) rated every unambiguous cross-tenant read HIGH, so the `security-review` severity rule is not shown to be defective.
+- The `security` subcommand shows no gain over baseline. Every holdout miss in `evals/results/autoresearch-security-hard-6` rated `lookup_requester` MEDIUM because that fixture never defined requesters as tenant-owned; it is now historical. The replacement holdout v2 states org tenancy explicitly: baseline and treatment both passed 6/6 critical checks (`evals/results/autoresearch-security-hard-v2`), and the gate failed only on cost (355K → 2.99M holdout tokens). A single-handler check (`evals/results/security-review-severity`) rated every unambiguous cross-tenant read HIGH, so the `security-review` severity rule is not shown to be defective.
 - A future correctness claim needs a fresh holdout and a gate that passes without this decision.
