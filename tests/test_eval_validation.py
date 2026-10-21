@@ -287,11 +287,17 @@ class EvaluationValidationTest(unittest.TestCase):
         self.assert_invalid("waiver for 'alpha' is stale")
 
     def test_waiver_stays_valid_while_new_skill_lacks_behavior_holdout(self) -> None:
-        with mock.patch.object(VALIDATE, "revision_skills", return_value={"beta"}):
+        later = "c" * 40
+        self.fixture.manifest["comparison_contracts"]["routing"]["treatment_catalog_revision"] = later
+        with mock.patch.object(VALIDATE, "revision_skills", side_effect=lambda _root, rev: {"beta"} if rev == REV else {"alpha", "beta"}):
             self.fixture.manifest["holdout_coverage_waivers"] = [{"skill": "alpha", "reason": "behavior holdout lost"}]
             self.fixture.manifest["comparison_contracts"]["behavior"] = contract()
             self.fixture.add_file("behavior-development.jsonl", "behavior", "development", "canonical", "behavior", [behavior("alpha-dev", "development", "alpha")])
             self.validate()
+
+    def test_holdout_treatment_pin_must_contain_target_skill(self) -> None:
+        with mock.patch.object(VALIDATE, "revision_skills", return_value={"beta"}):
+            self.assert_invalid(r"target skills \['alpha'\] absent")
 
     def test_incomplete_comparison_contract_fails(self) -> None:
         del self.fixture.manifest["comparison_contracts"]["routing"]["ties"]
@@ -329,7 +335,10 @@ class EvaluationValidationTest(unittest.TestCase):
             entry = self.fixture.manifest["case_files"][0 if split == "development" else 1]
             rows = [route(f"{split}-alpha", split, "alpha", "gamma"), route(f"{split}-gamma", split, "gamma", "alpha"), route(f"{split}-beta-a", split, "beta", "alpha"), route(f"{split}-alpha-b", split, "alpha", "beta")]
             self.fixture.rewrite(entry, rows)
-        self.assert_invalid("gamma.*lacks canonical development behavior evidence")
+        later = "c" * 40
+        self.fixture.manifest["comparison_contracts"]["routing"]["treatment_catalog_revision"] = later
+        with mock.patch.object(VALIDATE, "revision_skills", side_effect=lambda _root, rev: {"alpha", "beta"} if rev == REV else {"alpha", "beta", "gamma"}):
+            self.assert_invalid("gamma.*lacks canonical development behavior evidence")
 
     def test_normal_low_level_holdout_is_rejected_and_guarded_mode_selects_pins(self) -> None:
         manifest = self.fixture.manifest

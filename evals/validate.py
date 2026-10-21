@@ -384,6 +384,11 @@ def validate_repository(root: Path, manifest_path: Path | None = None) -> dict[s
             for field in revision_fields:
                 pin = _entry_revision(entry, contract, field)
                 _validate_revision(root, pin, location, field)
+            if entry["status"] != "proposal":
+                treatment_pin = _entry_revision(entry, contract, "treatment_catalog_revision")
+                targets = {row["target_skill"] for _, row in load_rows(resolved, entry["kind"], entry["split"])}
+                absent = targets - revision_skills(root, treatment_pin)
+                _require(not absent, location, "treatment_catalog_revision", f"target skills {sorted(absent)} absent at {treatment_pin[:12]}", "pin a treatment catalog that contains every target skill")
 
         rows = load_rows(resolved, entry["kind"], entry["split"])
         rows_by_entry[rel] = rows
