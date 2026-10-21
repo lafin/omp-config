@@ -14,5 +14,5 @@ Keep `autoresearch` admitted. The accepted benefit is process consistency: a res
 
 ## Limits
 
-- The `security` subcommand shows no gain over baseline: `evals/results/autoresearch-security`, `autoresearch-security-hard`, and `autoresearch-security-hard-6` all fail the gate. At 6 attempts the holdout critical-pass rate was 1/6 baseline and 0/6 treatment. Every miss rated a cross-tenant disclosure MEDIUM instead of HIGH under `security-review`.
+- The `security` subcommand shows no gain over baseline: `evals/results/autoresearch-security`, `autoresearch-security-hard`, and `autoresearch-security-hard-6` all fail the gate. Every holdout miss rated `lookup_requester` MEDIUM; the fixture never defines requesters as tenant-owned, so that case is ambiguous and is now historical. A single-handler check (`evals/results/security-review-severity`) rated every unambiguous cross-tenant read HIGH, so the `security-review` severity rule is not shown to be defective.
 - A future correctness claim needs a fresh holdout and a gate that passes without this decision.
