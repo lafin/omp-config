@@ -209,3 +209,98 @@ a {
 }
 .button-primary { background: var(--color-accent-solid); }
 ```
+
+## Focus ring
+
+```css
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+input:focus-visible, textarea:focus-visible { outline-offset: -2px; }
+```
+
+Tailwind: `focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[--color-focus]`.
+No `transition` on `outline`.
+
+## Height animation without measuring
+
+```css
+.collapsible {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.collapsible[data-open] { grid-template-rows: 1fr; }
+.collapsible > * { overflow: hidden; min-height: 0; }
+```
+
+## Tooltip timing
+
+```css
+.tip { opacity: 0; transition: opacity 120ms ease-out; }
+.has-tip:hover .tip { opacity: 1; transition-delay: 900ms; }
+.has-tip:focus-visible .tip { opacity: 1; transition-delay: 0ms; }
+```
+
+Keep the tooltip hoverable (no gap between trigger and tip) and close it on
+`Escape`. Popover API or the headless library's tooltip handles both.
+
+## Reduced motion keeps feedback
+
+```css
+.panel { transition: opacity 150ms ease-out; }
+@media (prefers-reduced-motion: no-preference) {
+  .panel {
+    transition: opacity 300ms cubic-bezier(0.16, 1, 0.3, 1),
+                transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .panel[data-state="closed"] { transform: translateY(8px); }
+}
+.panel[data-state="closed"] { opacity: 0; }
+```
+
+## Delayed, minimum-duration spinner
+
+```js
+async function withSpinner(button, task, { delay = 200, min = 300 } = {}) {
+  let shownAt = 0;
+  const timer = setTimeout(() => { button.dataset.loading = ""; shownAt = performance.now(); }, delay);
+  try { return await task(); }
+  finally {
+    clearTimeout(timer);
+    if (shownAt) await new Promise((r) => setTimeout(r, Math.max(0, min - (performance.now() - shownAt))));
+    delete button.dataset.loading;
+  }
+}
+```
+
+Style `[data-loading]` to swap the label for a spinner at the same width.
+
+## Drag that survives interruption
+
+```js
+function draggable(el, onMove) {
+  let id = null;
+  const end = () => {
+    if (id !== null && el.hasPointerCapture(id)) el.releasePointerCapture(id);
+    id = null;
+  };
+  el.style.touchAction = "none";
+  el.addEventListener("pointerdown", (e) => {
+    if (id !== null) return;
+    id = e.pointerId;
+    el.setPointerCapture(id);
+  });
+  el.addEventListener("pointermove", (e) => { if (e.pointerId === id) onMove(e); });
+  for (const type of ["pointerup", "pointercancel", "lostpointercapture", "blur"]) el.addEventListener(type, end);
+}
+```
+
+## Safe-area bar
+
+```css
+.bottom-bar { padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
+```
+
+Requires `<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">`.

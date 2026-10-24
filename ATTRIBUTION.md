@@ -182,3 +182,13 @@ https://github.com/jakubkrehel/make-interfaces-feel-better at commit
 `35545ea1512ad59fa463e6b1f95ca9c052981fe6` (MIT). Rules and values are
 restated in this repository's own words; no upstream text or files were
 imported. Paid Interfaces issues were not used.
+
+The 2026-10-24 update also draws rules, thresholds, and detection signals
+from https://github.com/pbakaus/impeccable at commit
+`936867543ac2576920d663cc9803597f6044f3ac` (Apache-2.0; `skill/reference/`,
+`crates/foundation/src/registry.rs`) and https://github.com/Nutlope/hallmark
+at commit `7ec868225c6caa040558c321ee0fefa0e73f83a8` (MIT;
+`skills/hallmark/references/`, `skills/hallmark/scripts/sloplint.mjs`).
+Rules are restated in this repository's own words and recipes are written
+fresh; no upstream text, code, or files were imported, so neither license's
+notice requirement is triggered.
