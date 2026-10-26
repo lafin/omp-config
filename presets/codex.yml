@@ -1,4 +1,4 @@
-# Overlay: codex-only. Launch with: omp --profile home --config <omp-config>/presets/codex-only.yml
+# Overlay: codex. Launch with: omp --profile home --config <omp-config>/presets/codex.yml
 # Requires a profile that loads the omp-config package via `extensions:` (deep-verifier, fixer, review-and-fix); `--config` alone cannot run this pipeline.
 # gpt-6.1-sol:xhigh = driver, gpt-6.1-sol:high = strong worker, gpt-6-luna = cheap worker. No terra.
 # Restates every modelRoles key + agentModelOverrides to avoid profile leakage

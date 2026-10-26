@@ -11,7 +11,7 @@ extension package; files here are the source of truth.
 | `commands/*.md` | Slash commands (`/review-and-fix`) |
 | `hooks/pre/*.ts` | Hooks (`leancode`) |
 | `extensions/*.ts` | Extensions listed in `package.json#omp.extensions` (`dir-context`) |
-| `presets/*.yml` | `--config` overlays (`claude-only`, `codex-only`) |
+| `presets/*.yml` | `--config` overlays (`claude`, `claude-fable`, `codex`) |
 
 ## OMP
 
@@ -40,7 +40,7 @@ skills:
 ```
 
 Presets overlay a package-loading profile:
-`omp --profile home --config /<path>/omp-config/presets/claude-only.yml`.
+`omp --profile home --config /<path>/omp-config/presets/claude.yml`.
 
 `hooks/pre/leancode.ts` keeps leancode active every turn and registers
 `/leancode lite|full|ultra|off`. The selected mode persists for the current OMP

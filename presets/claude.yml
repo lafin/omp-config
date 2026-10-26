@@ -1,4 +1,4 @@
-# Overlay: claude-only. Launch with: omp --profile home --config <omp-config>/presets/claude-only.yml
+# Overlay: claude. Launch with: omp --profile home --config <omp-config>/presets/claude.yml
 # Requires a profile that loads the omp-config package via `extensions:` (deep-verifier, fixer, review-and-fix); `--config` alone cannot run this pipeline.
 # opus-5-5 = driver, sonnet-5-5 = strong worker, haiku-5-5 = cheap worker.
 # Haiku bills 5x above 100K-token prompts ($0.50/$2.50) but stays 4x cheaper than Sonnet; Anthropic positions it for subagent/summarization work.

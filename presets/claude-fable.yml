@@ -1,0 +1,35 @@
+# Overlay: claude-fable. Launch with: omp --profile home --config <omp-config>/presets/claude-fable.yml
+# Requires a profile that loads the omp-config package via `extensions:` (deep-verifier, fixer, review-and-fix); `--config` alone cannot run this pipeline.
+# fable-5-1 = driver/verifier, opus-5-5 = strong analyst, sonnet-5-5 = worker, haiku-5-5 = cheap worker.
+# Fable 5.1 ($10/$50, slower) is Anthropic's pick for long-horizon work where Opus 5.5 ($4/$20) at higher effort falls short; Opus is the general default.
+# Fable 5.1 thinking blocks are readable only by Fable/Mythos 5.1; keep it on long-lived roles, not ones that switch models mid-conversation.
+# Effort per Anthropic guidance: Fable xhigh/max for capability-sensitive agentic work; Sonnet medium for well-specified agentic tasks; Haiku low for short tasks, high for search/knowledge work.
+# Restates every modelRoles key + agentModelOverrides to avoid profile leakage
+# (map layers merge key-wise; arrays replace).
+enabledModels:
+  - anthropic/claude-fable-5-1
+  - anthropic/claude-opus-5-5
+  - anthropic/claude-sonnet-5-5
+  - anthropic/claude-haiku-5-5
+modelRoles:
+  default: anthropic/claude-fable-5-1:xhigh
+  slow: anthropic/claude-fable-5-1:max
+  plan: anthropic/claude-fable-5-1:xhigh
+  vision: anthropic/claude-opus-5-5:high
+  task: anthropic/claude-sonnet-5-5:high
+  smol: anthropic/claude-haiku-5-5:medium
+  tiny: anthropic/claude-haiku-5-5:low
+  commit: anthropic/claude-haiku-5-5:low
+  designer: anthropic/claude-opus-5-5:high
+  advisor: anthropic/claude-opus-5-5:medium
+task:
+  agentModelOverrides:
+    scout: anthropic/claude-haiku-5-5:high
+    sonic: anthropic/claude-haiku-5-5:low
+    librarian: anthropic/claude-haiku-5-5:high
+    reviewer: anthropic/claude-fable-5-1:xhigh
+    security-reviewer: anthropic/claude-opus-5-5:xhigh
+    designer: anthropic/claude-opus-5-5:high
+    deep-verifier: anthropic/claude-fable-5-1:xhigh
+    fixer: anthropic/claude-sonnet-5-5:medium
+    regression-reviewer: anthropic/claude-opus-5-5:high
