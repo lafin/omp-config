@@ -17,7 +17,7 @@ metadata:
   source_note: >
     Rules restated from https://interfaces.dev/cheat-sheet (Jakub Krehel,
     fetched 2026-10-21). Also inspired by pbakaus/impeccable at
-    936867543ac2576920d663cc9803597f6044f3ac (Apache-2.0; skill/reference/,
+    989c484c091d26f10fa102767eefc0da2e62ec67 (Apache-2.0; skill/reference/,
     crates/foundation/src/registry.rs) and Nutlope/hallmark at
     7ec868225c6caa040558c321ee0fefa0e73f83a8 (MIT; skills/hallmark/references/,
     skills/hallmark/scripts/sloplint.mjs), fetched 2026-10-24. No text copied.

@@ -196,3 +196,11 @@ at commit `7ec868225c6caa040558c321ee0fefa0e73f83a8` (MIT;
 Rules are restated in this repository's own words and recipes are written
 fresh; no upstream text, code, or files were imported, so neither license's
 notice requirement is triggered.
+
+Re-reviewed 2026-10-26: impeccable moved to
+`989c484c091d26f10fa102767eefc0da2e62ec67`. Both deltas in the referenced
+paths were declined as out of scope: `skill/reference/hooks.md` adds a trust
+note for impeccable's own edit hook, and `skill/reference/new-work.md`
+extends how design-direction challengers are presented. Neither changes a UI
+detail rule, threshold, or detection signal. The cheat-sheet repository and
+hallmark had no changes.
