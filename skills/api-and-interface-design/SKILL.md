@@ -4,7 +4,7 @@ description: "Design public application interfaces: REST and GraphQL APIs, modul
 license: MIT
 metadata:
   upstream: "https://github.com/addyosmani/agent-skills"
-  upstream_commit: "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39"
+  upstream_commit: "aeac41d4d005999432bb7312f7ff06383a91d59d"
   upstream_path: "skills/api-and-interface-design/SKILL.md"
   adaptation: modified
   license_notice: LICENSE-addy-agent-skills

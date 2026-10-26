@@ -105,8 +105,12 @@ No substantive external match was found for `leancode-review`,
 
 `skills/source-driven-development` and `skills/api-and-interface-design`
 (admitted) adapt the matching `skills/<name>/SKILL.md` files from
-https://github.com/addyosmani/agent-skills at commit
-`be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39`. The rejected
+https://github.com/addyosmani/agent-skills, originally at commit
+`be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39`, re-reviewed at
+`aeac41d4d005999432bb7312f7ff06383a91d59d` (2026-10-26). The only delta in
+either source path is `throw;` → `throw e;` in the upstream JavaScript
+idempotency example; not applicable, because the local skill replaced that
+example with language-neutral pseudocode. The rejected
 `deprecation-and-migration` proposal is retained at git tag
 `admit/deprecation-and-migration-treatment`. The upstream MIT notice is
 preserved in [LICENSE-addy-agent-skills](LICENSE-addy-agent-skills).

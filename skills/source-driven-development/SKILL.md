@@ -4,7 +4,7 @@ description: "Use when implementing or reviewing code whose correctness depends 
 license: MIT
 metadata:
   upstream: "https://github.com/addyosmani/agent-skills"
-  upstream_commit: "be4e44a9fbc5e8df0beaefadbb28bd22ee61cc39"
+  upstream_commit: "aeac41d4d005999432bb7312f7ff06383a91d59d"
   upstream_path: "skills/source-driven-development/SKILL.md"
   adaptation: modified
   license_notice: LICENSE-addy-agent-skills
