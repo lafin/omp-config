@@ -1,6 +1,6 @@
 # Research Evidence for Long-Horizon Brief Elements
 
-Dated academic findings backing each element of the pseudo-formal task brief. Compiled 2026-07-11. Each entry states what was measured and what it implies for prompt design. arXiv identifiers are given where known; treat 2026 preprints as unreviewed.
+Dated academic findings backing each element of the pseudo-formal task brief. Compiled 2026-07-11; handoff-contract evidence added 2026-10-26. Each entry states what was measured and what it implies for prompt design. arXiv identifiers are given where known; treat 2026 preprints as unreviewed.
 
 ## Give-up drift and premature termination (2025-08 to 2026-06)
 Sources: the dated arXiv papers and METR time-horizon reports identified below. Scope: long-horizon search, quantity-based agent tasks, budget-aware training, and software-task time horizons. Limitation: findings are benchmark- and model-specific; the 2026 papers may not have completed peer review.
@@ -35,6 +35,10 @@ Sources: the dated AOrchestra, DeLM, and orchestration-trace papers identified b
 - **DeLM** (arXiv 2606.10662, June 2026). Decentralized agents coordinating through shared verified context, where findings, failures, and falsified hypotheses are written into shared state, prevent parallel workers from re-exploring dead ends. Implication: blocked-route bookkeeping should be durable and shared, not implicit in the orchestrator's context.
 - **RL for LLM-based Multi-Agent Systems through Orchestration Traces** (arXiv 2605.02801, May 2026). Single-author survey: in its curated pool as of May 4, 2026, it found no explicit RL training method for the stopping decision. Implication: within that survey's coverage, no published training method targets when to stop, so the return condition in the brief and harness is load-bearing.
 
+## Handoff contracts and homogeneous loops (2026-10)
+Source: the MASS preprint identified below, annotated in `mass-handoff-contracts.md`. Scope: workflow text representation, evolved per-worker contracts, evaluator versus optimizer investment, and run-to-run variance. Limitation: unreviewed preprint on eight synthetic research tasks; the component analysis is descriptive, and transfer to coding benchmarks was negative.
+
+- **MASS: Recursive Self-Improvement through Multi-Agent Self-Supervision** (Sakana AI and UC Berkeley, arXiv 2610.12176, October 2026). One shared Qwen3.6-27B model acts as executor, workflow optimizer, and evaluator; workflows are text with a role, instruction, output contract, and call order (hop) per subagent. Four findings bear on brief design. (1) Over workflow search, estimated task information fell in roles and instructions and rose in contracts and hops (iterations 3 to 11, 8 to 9 tasks, descriptive text statistics). Implication: task-specific words belong in what each worker must return and check, not in role descriptions. (2) Replacing only the evaluator with GPT-5.5 sped up workflow search less than replacing evaluator and optimizer together; the all-homogeneous loop reached unanimous wins on 11 of 12 tasks, more slowly. Implication: the agent that acts on audit findings needs as much investment as the auditor. (3) Two runs with byte-identical prompts and the same seed diverged completely (one won all six external judgments, one halted under loop detection and lost all six). Implication: evaluate briefs across several runs. (4) Generation, evaluation, and revision in one model share a learned prior, so self-feedback can reinforce errors; progress was measured by withheld external judges. Implication: keep at least one check outside the loop. Evolved workflows also show per-handoff gates, degenerate-value rejection, and recall commands with acceptance criteria and a retry cap. Caveats: score per output token was 0.96x on Terminal-Bench 2.0 and 0.94x on SWE-bench Verified after two rounds, and evolved thresholds are optimizer proposals.
 
 ## Mapping evidence to brief elements (compiled 2026-07-11)
 Source: the dated studies summarized above. Scope: mapping observed findings to prompt-design elements. Limitation: the mapping is a design interpretation, not an ablation proving that any element caused a particular long-run outcome.
@@ -51,3 +55,7 @@ Source: the dated studies summarized above. Scope: mapping observed findings to 
 | External verified-progress ledger | PushBench state-tracking controllers (2605.23574) |
 | Harness-enforced budgets without token countdowns | Anthropic Claude Fable 5 guidance; BudgetThinker (2508.17196) as a trained, not prompted, budget signal |
 | Verifier investment parity | Large Language Monkeys selector plateau (2407.21787); verification gap (2602.18998) |
+| Per-worker output contracts with named checks | MASS task-information shift into contracts and hops (2610.12176) |
+| Recall with acceptance criteria; investment in the reviser | MASS evolved recall commands; evaluator-only versus evaluator-plus-optimizer ablation (2610.12176) |
+| Multi-run brief evaluation | MASS byte-identical-prompt divergence (2610.12176) |
+| Checks outside the loop | MASS shared-prior argument and withheld external judges (2610.12176) |

@@ -18,6 +18,18 @@ cost sentence in `context-optimization`. It did not import the new
 `self-managed-context` skill or the routing lines that point to it; see
 [conditional skill decisions](docs/conditional-skill-decisions.md#self-managed-context).
 
+Re-reviewed 2026-10-26 against `9ff0c99108b36d3b886defd825d8ac1f47dba374`
+(upstream PR #141, 2026-10-11). Only `long-horizon-prompting` changed; the
+other 16 imported skills keep their `58b55a89` pin because their upstream
+paths are unchanged. Adopted, with `claim-*` IDs rewritten as dated
+`skill://` evidence links: the MASS handoff-contract additions to
+`skills/long-horizon-prompting/SKILL.md`,
+`skills/long-horizon-prompting/references/research-evidence.md`,
+`skills/long-horizon-prompting/references/task-brief-template.md`, and the
+new `skills/long-horizon-prompting/references/mass-handoff-contracts.md`.
+The upstream researcher claims-corpus wiring was not imported, consistent
+with the original import scope.
+
 Copyright (c) 2025 Context Engineering Agent Skills Contributors. Imported
 materials are provided under the MIT License; see
 [LICENSE-context-engineering](LICENSE-context-engineering).
