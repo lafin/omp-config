@@ -1,0 +1,16 @@
+__pycache__
+.DS_Store
+# Autoresearch run logs (autoresearch/<sub>-YYMMDD-HHMM/, .active marker).
+/autoresearch/
+
+# dir-context local overrides: AGENTS.local.md, a.local.md, docs.local/.
+*.local
+*.local.*
+
+# Raw evaluation captures are retained locally or in external artifact storage.
+evals/results/**/artifacts/
+# Raw judge payloads and large captures stay local; hashes in evals/results/external-artifacts.json.
+# Deterministic grades are tracked: autoresearch.sh and grade gates read them.
+evals/results/**/*.jsonl
+!evals/results/**/cases.jsonl
+!evals/results/**/grades.jsonl

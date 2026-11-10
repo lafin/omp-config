@@ -1,0 +1,36 @@
+# Overlay: kessel-claude-home. Launch with: omp --profile home --config <omp-config>/presets/kessel-claude-home.yml
+# Requires a profile that loads the omp-config package via `extensions:` (deep-verifier, fixer, review-and-fix); `--config` alone cannot run this pipeline.
+# Requires the `kessel` provider in the profile's models.yml (kessel on pi3:8080, lane kessel-claude-home: claude-home -> claude-work -> claude api).
+# Same role layout as claude.yml, routed through kessel's claude-home lane.
+# The lane ends in a metered API key: once both subscriptions are exhausted, requests bill instead of returning 429.
+# Restates every modelRoles key + agentModelOverrides to avoid profile leakage
+# (map layers merge key-wise; arrays replace).
+enabledModels:
+  - kessel/kessel-claude-home/claude-opus-5-5
+  - kessel/kessel-claude-home/claude-sonnet-5-5
+  - kessel/kessel-claude-home/claude-haiku-5-5
+modelRoles:
+  default: kessel/kessel-claude-home/claude-opus-5-5:high
+  slow: kessel/kessel-claude-home/claude-opus-5-5:max
+  plan: kessel/kessel-claude-home/claude-opus-5-5:high
+  vision: kessel/kessel-claude-home/claude-opus-5-5:high
+  task: kessel/kessel-claude-home/claude-sonnet-5-5:medium
+  smol: kessel/kessel-claude-home/claude-haiku-5-5:medium
+  tiny: kessel/kessel-claude-home/claude-haiku-5-5:low
+  commit: kessel/kessel-claude-home/claude-haiku-5-5:low
+  designer: kessel/kessel-claude-home/claude-opus-5-5:high
+  advisor: kessel/kessel-claude-home/claude-sonnet-5-5:medium
+task:
+  agentModelOverrides:
+    scout: kessel/kessel-claude-home/claude-haiku-5-5:high
+    sonic: kessel/kessel-claude-home/claude-haiku-5-5:low
+    librarian: kessel/kessel-claude-home/claude-haiku-5-5:high
+    reviewer: kessel/kessel-claude-home/claude-opus-5-5:high
+    security-reviewer: kessel/kessel-claude-home/claude-sonnet-5-5:high
+    designer: kessel/kessel-claude-home/claude-opus-5-5:high
+    deep-verifier: kessel/kessel-claude-home/claude-opus-5-5:high
+    fixer: kessel/kessel-claude-home/claude-sonnet-5-5:medium
+    regression-reviewer: kessel/kessel-claude-home/claude-opus-5-5:high
+compaction:
+  modelThresholds:
+    kessel/kessel-claude-home/claude-haiku-5-5: "f90000" # compact before Haiku's 100K long-context price step
