@@ -1,0 +1,14 @@
+{
+  "goal": "fix the failing tests",
+  "archetype": "fix-broken",
+  "predicate": "npm test",
+  "terminal_choice": "stop-at-verified",
+  "cycle": 1,
+  "units_remaining": [
+    3
+  ],
+  "pipeline_log": [],
+  "errors_remaining": 3,
+  "regression_verdict": "STABLE",
+  "untested_gaps": 0
+}

@@ -1,0 +1,256 @@
+---
+name: memory-systems
+description: "This skill should be used for persistent semantic memory in agent systems: cross-session knowledge retention, entity tracking, temporal validity, graph or vector retrieval, memory consolidation, and memory benchmark selection. Route file-backed scratchpads to filesystem-context, handoff summaries to context-compression, and token-efficiency tactics to context-optimization."
+license: MIT
+metadata:
+  upstream: "muratcankoylan/Agent-Skills-for-Context-Engineering"
+  upstream_commit: "58b55a8921758d13453b440704fb1b5b208c0b0e"
+  upstream_path: "skills/memory-systems"
+  adaptation: modified
+  license_notice: LICENSE-context-engineering
+---
+
+# Memory System Design
+
+Memory provides the persistence layer that allows agents to maintain continuity across sessions and reason over accumulated knowledge. Simple agents rely entirely on context for memory, losing all state when sessions end. Sophisticated agents implement layered memory architectures that balance immediate context needs with long-term knowledge retention. The evolution from vector stores to knowledge graphs to temporal knowledge graphs represents increasing investment in structured memory for improved retrieval and reasoning.
+
+## When to Activate
+
+Activate this skill when:
+- Building agents that must persist knowledge across sessions
+- Choosing between memory frameworks (Mem0, Zep/Graphiti, Letta, LangMem, Cognee)
+- Needing to maintain entity consistency across conversations
+- Implementing reasoning over accumulated knowledge
+- Designing memory architectures that scale in production
+- Evaluating memory systems against benchmarks (LoCoMo, LongMemEval, DMR)
+- Building dynamic memory with automatic entity/relationship extraction and self-improving memory (Cognee)
+
+Do not activate this skill for adjacent work owned by other skills:
+- File-backed scratchpads, run logs, and tool-output offloading: `filesystem-context`.
+- Conversation compaction or human-readable handoff summaries: `context-compression`.
+- Masking, prefix caching, token budgets, or retrieval scoping inside one trajectory: `context-optimization`.
+- Formal belief/desire/intention models over RDF state: `bdi-mental-states`.
+
+## Core Concepts
+
+Think of memory as a spectrum from volatile context window to persistent storage. Default to the simplest layer that meets retrieval needs, and measure retrieval quality before adding infrastructure. Add structure (graphs, temporal validity) only when retrieval quality degrades or the agent needs multi-hop reasoning, relationship traversal, or time-travel queries.
+
+## Detailed Topics
+
+### Select architecture by retrieval need
+
+Shortlist implementations by the product's required retrieval shape:
+
+| Retrieval need | Candidate architecture | Evidence to collect |
+|---|---|---|
+| Exact identifiers and small state | Key-value store or files | Lookup accuracy, durability, operational cost |
+| Semantic similarity | Vector index | Recall on representative queries, ingestion and query latency |
+| Relationships or multi-hop queries | Graph-backed memory | Path accuracy, update cost, schema maintenance |
+| Facts that change over time | Bi-temporal graph or versioned records | Valid-time and transaction-time query accuracy |
+| Agent-managed working state | Tiered in-context and external storage | State retention, edit correctness, recovery behavior |
+
+Choose products only after testing the required row on one representative
+workload. Product feature sets and benchmark results change; record the source
+version and test date with every product-specific decision.
+
+### Compare candidates on one workload
+
+Do not rank memory systems by vendor-published results from different
+benchmarks, models, or configurations. For each shortlisted system, run the
+same corpus, queries, retrieval budget, and latency measurement, and hold the
+answering LLM and the embedding model fixed across every arm. Swapping only the
+embedding model can move accuracy by several points and flip the ranking.
+Include a verbatim-RAG or plain-filesystem baseline: an agent searching raw
+conversation text with ordinary search tools has matched or beaten dedicated
+memory tools on LoCoMo. Record the benchmark version and configuration with the
+result.
+
+Report retrieval accuracy per question type (for example single-hop,
+multi-hop, temporal, knowledge update), not only one aggregate score; a system
+can tie the baseline on a few types and lose on the rest. Report write-path
+cost (extraction LLM calls, tokens, and ingestion latency per stored item) next
+to read latency and operational complexity. A memory system that ties the
+baseline at many times the write cost has not earned its place. Start with the
+shallowest implementation and add semantic or graph structure only when the
+simpler layer fails a measured requirement.
+
+### Memory Layers (Decision Points)
+
+Pick the shallowest memory layer that satisfies the persistence requirement. Each deeper layer adds infrastructure cost and operational complexity, so only escalate when the shallower layer cannot meet the retrieval or durability need.
+
+| Layer | Persistence | Implementation | When to Use |
+|-------|------------|----------------|-------------|
+| **Working** | Context window only | Scratchpad in system prompt | Always — optimize with attention-favored positions |
+| **Short-term** | Session-scoped | File-system, in-memory cache | Intermediate tool results, conversation state |
+| **Long-term** | Cross-session | Key-value store → graph DB | User preferences, domain knowledge, entity registries |
+| **Entity** | Cross-session | Entity registry + properties | Maintaining identity ("John Doe" = same person across conversations) |
+| **Temporal KG** | Cross-session + history | Graph with validity intervals | Facts that change over time, time-travel queries, preventing context clash |
+
+### Retrieval Strategies
+
+Match the retrieval strategy to the query shape. Semantic search handles direct factual lookups well but degrades on multi-hop reasoning; entity-based traversal handles "everything about X" queries but requires graph structure; temporal filtering handles changing facts but requires validity metadata. When accuracy is paramount and infrastructure budget allows, combine strategies into hybrid retrieval.
+
+| Strategy | Use When | Limitation |
+|----------|----------|------------|
+| **Semantic** (embedding similarity) | Direct factual queries | Degrades on multi-hop reasoning |
+| **Entity-based** (graph traversal) | "Tell me everything about X" | Requires graph structure |
+| **Temporal** (validity filter) | Facts change over time | Requires validity metadata |
+| **Hybrid** (semantic + keyword + graph) | Best overall accuracy | Most infrastructure |
+
+Hybrid approaches reduce active context by retrieving only relevant subgraphs or memories. Cognee implements hybrid retrieval through multiple search modes across graph, vector, and relational stores, letting agents select the retrieval strategy that fits the query type rather than using a one-size-fits-all approach.
+
+### Memory Consolidation
+
+Run consolidation periodically to prevent unbounded growth, because unchecked memory accumulation degrades retrieval quality over time. **Invalidate but do not discard** — set `valid_until` on superseded facts instead of deleting them, because temporal queries need history to reconstruct past states. Trigger consolidation on memory count thresholds, degraded retrieval quality, or scheduled intervals. See [Implementation Reference](skill://memory-systems/references/implementation.md) for a consolidation example.
+
+## Practical Guidance
+
+### Choosing a Memory Architecture
+
+**Start with the simplest viable layer and add complexity only when retrieval quality degrades.** Most agents do not need a temporal knowledge graph on day one. Follow this escalation path:
+
+1. **Prototype**: Use file-system memory. Store facts as structured JSON with timestamps. This validates agent behavior before committing to infrastructure. Anthropic's client-side [memory tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool) is one vendor implementation: the model requests file operations under `/memories`, and your application executes them against storage you control and must reject paths outside that directory (docs checked 2026-10-06).
+2. **Scale**: Move to Mem0 or a vector store with metadata when the agent needs semantic search and multi-tenant isolation, because file-based lookup cannot handle similarity queries.
+3. **Complex reasoning**: Add Zep/Graphiti when the agent needs relationship traversal, temporal validity, or cross-session synthesis. Graphiti uses structured ties with generic relations, keeping graphs simple and easy to reason about; Cognee builds denser multi-layer semantic graphs with detailed relationship edges — choose based on whether the agent needs temporal bi-modeling (Graphiti) or richer interconnected knowledge structures (Cognee).
+4. **Full control**: Use Letta or Cognee when the agent must self-manage its own memory with deep introspection, because these frameworks expose memory operations as first-class agent actions. As of 2026-10-06, the Letta Filesystem API (folders with file tools) is deprecated and disabled; Letta replaces it with direct filesystem access and context repositories.
+
+### Integration with Context
+
+Load memories just-in-time rather than preloading everything, because large context payloads are expensive and degrade attention quality. Place retrieved memories in attention-favored positions (beginning or end of context) to maximize their influence on generation.
+
+### Error Recovery
+
+Handle retrieval failures gracefully because memory systems are inherently noisy. Apply these recovery strategies in order:
+
+- **Empty retrieval**: Fall back to broader search (remove entity filter, widen time range). If still empty, prompt user for clarification.
+- **Stale results**: Check `valid_until` timestamps. If most results are expired, trigger consolidation before retrying.
+- **Conflicting facts**: Prefer the fact with the most recent `valid_from`. Surface the conflict to the user if confidence is low.
+- **Storage failure**: Queue writes for retry. Never block the agent's response on a memory write.
+
+## Examples
+
+**Example 1: Mem0 Integration**
+```python
+from mem0 import Memory
+
+# Mem0 OSS v3 API (Python package mem0ai 2.x), docs checked 2026-10-06.
+m = Memory()
+m.add([{"role": "user", "content": "I prefer dark mode and Python 3.12"}], user_id="alice")
+m.add([{"role": "user", "content": "I switched to light mode"}], user_id="alice")
+
+# add() is add-only: both preferences stay stored, and search may return either.
+# Track supersession yourself (validity metadata or expiration_date on add).
+results = m.search("What theme does the user prefer?", filters={"user_id": "alice"})
+```
+
+**Example 2: Temporal Query**
+```python
+# Track entity with validity periods
+graph.create_temporal_relationship(
+    source_id=user_node,
+    rel_type="LIVES_AT",
+    target_id=address_node,
+    valid_from=datetime(2024, 1, 15),
+    valid_until=datetime(2024, 9, 1),  # moved out
+)
+
+# Query: Where did user live on March 1, 2024?
+results = graph.query_at_time(
+    {"type": "LIVES_AT", "source_label": "User"},
+    query_time=datetime(2024, 3, 1)
+)
+```
+
+**Example 3: Cognee Memory Ingestion and Search**
+```python
+import cognee
+from cognee import SearchType
+
+# Cognee v1.0 API (Python package cognee 1.x), docs checked 2026-10-06.
+# remember() ingests, builds the graph, and runs improve() enrichment;
+# add(), cognify(), and memify() are legacy.
+await cognee.remember("any data")
+
+# Re-run enrichment on the existing graph (replaces legacy memify())
+await cognee.improve()
+
+# Agent retrieves relationship-aware context (HYBRID_COMPLETION is the default)
+results = await cognee.search(
+    query_text="Any query for your memory",
+    query_type=SearchType.HYBRID_COMPLETION,
+)
+```
+
+## Guidelines
+
+1. Start with file-system memory; add complexity only when retrieval quality demands it
+2. Track temporal validity for any fact that can change over time
+3. Use hybrid retrieval (semantic + keyword + graph) for best accuracy
+4. Consolidate memories periodically — invalidate but don't discard
+5. Design for retrieval failure: always have a fallback when memory lookup returns nothing
+6. Consider privacy implications of persistent memory (retention policies, deletion rights)
+7. Benchmark your memory system against LoCoMo or LongMemEval before and after changes, with the LLM and embedding model fixed, a verbatim-RAG or filesystem baseline, write-path cost, and per-question-type scores
+8. Monitor memory growth and retrieval latency in production
+
+## Gotchas
+
+1. **Stuffing everything into context**: Loading all available memories into the prompt is expensive and degrades attention quality. Use just-in-time retrieval with relevance filtering instead.
+2. **Ignoring temporal validity**: Facts go stale. Without validity tracking, outdated information poisons the context and the agent acts on wrong assumptions.
+3. **Over-engineering early**: Start with the simplest memory layer that satisfies the retrieval requirement. Add sophistication only when measured retrieval failures justify it.
+4. **No consolidation strategy**: Unbounded memory growth degrades retrieval quality over time. Set memory count thresholds or scheduled intervals to trigger consolidation.
+5. **Embedding model mismatch**: Writing memories with one embedding model and reading with another produces poor retrieval because vector spaces are not interchangeable. Pin a single embedding model for each memory store and re-embed all entries if the model changes.
+6. **Graph schema rigidity**: Over-structured graph schemas (rigid node types, fixed relationship labels) break when the domain evolves. Prefer generic relation types and flexible property bags so new entity kinds do not require schema migrations.
+7. **Stale memory poisoning**: Old memories that contradict the current state corrupt agent behavior silently. Implement expiry policies or confidence decay so the agent deprioritizes aged facts, and surface contradictions explicitly when detected.
+8. **Memory-context mismatch**: Retrieving memories that are topically related but contextually wrong (e.g., a memory about "Python" the snake when the agent is discussing Python the language). Mitigate by including session or domain metadata in memory entries and filtering on it during retrieval.
+
+## Integration
+
+This skill owns persistent semantic memory. Adjacent skills own scratch storage, compaction, and context tactics:
+
+- `filesystem-context`: file-backed scratchpads, logs, and simple run state before semantic retrieval is needed.
+- `context-compression`: summaries and handoffs that preserve session state in prose.
+- `context-optimization`: just-in-time memory loading and retrieval scoping inside active context budgets.
+- `context-degradation`: stale or conflicting memories as context poisoning or clash.
+- `bdi-mental-states`: formal mental-state modeling when beliefs, desires, intentions, and provenance chains matter.
+- `multi-agent-patterns`: shared memory across agents.
+- `evaluation`: memory quality, retrieval correctness, and benchmark selection.
+
+## References
+
+Internal references:
+- [Implementation Reference](skill://memory-systems/references/implementation.md) - Read when: implementing vector stores, property graphs, temporal queries, or memory consolidation logic from scratch
+
+Runnable script:
+
+### `memory_store.py`
+
+- **Status:** Example.
+- **Boundary:** Uses deterministic pseudo-random stub vectors and in-memory storage; consolidation is not implemented, `retrieve_memories(..., time_filter=...)` does not apply its time filter, and no embedding model is called. It does not persist data or prove semantic or temporal retrieval quality.
+- **Run:** From the repository root, run `python skills/memory-systems/scripts/memory_store.py`. The demo accepts no arguments or credentials, uses built-in facts, and requires NumPy.
+- **Output:** Writes a human-readable boundary notice, retrieval matches and scores, and entity-context counts to standard output. Library callers receive indexes, dictionaries, lists, and graph records from the exported stores.
+- **Failure:** The demo exits non-zero on an uncaught Python error or missing NumPy dependency. Graph operations also raise `ValueError` for unknown nodes; install the declared dependency or create the referenced nodes before retrying.
+
+Related skills in this collection:
+- context-fundamentals - Read when: designing the context layer that memory feeds into
+- multi-agent-patterns - Read when: multiple agents need to share or coordinate memory state
+
+External resources:
+- Zep temporal knowledge graph paper (arXiv:2501.13956) - Read when: evaluating bi-temporal modeling or Graphiti's architecture
+- Mem0 production architecture paper (arXiv:2504.19413) - Read when: assessing managed memory infrastructure trade-offs
+- Cognee optimized knowledge graph + LLM reasoning paper (arXiv:2505.24478) - Read when: comparing multi-layer semantic graph approaches
+- LoCoMo benchmark (Snap Research) - Read when: evaluating long-conversation memory retention
+- [MemBench](https://aclanthology.org/2025.findings-acl.989/) (Findings of ACL 2025) - Read when: designing memory evaluation suites
+- [MemDelta (arXiv:2606.29914)](https://arxiv.org/abs/2606.29914) - Read when: controlling LLM, embedding model, baseline, and write-path cost in memory comparisons
+- [Letta: Benchmarking AI Agent Memory](https://www.letta.com/blog/benchmarking-ai-agent-memory) (2025-08-12) - Read when: building a filesystem baseline; its 74.0% LoCoMo result used the now-deprecated Letta Filesystem
+- Graphiti open-source temporal KG engine (github.com/getzep/graphiti) - Read when: implementing temporal knowledge graphs
+- Cognee open-source knowledge graph memory (github.com/topoteretes/cognee) - Read when: building customizable ECL pipelines for memory
+- [Cognee comparison: Form vs Function](https://www.cognee.ai/blog/deep-dives/competition-comparison-form-vs-function) - Read when: comparing graph structures across Mem0, Graphiti, LightRAG, Cognee
+
+---
+
+## Skill Metadata
+
+**Created**: 2025-12-20
+**Last Updated**: 2026-05-15
+**Author**: Agent Skills for Context Engineering Contributors
+**Version**: 4.1.0
