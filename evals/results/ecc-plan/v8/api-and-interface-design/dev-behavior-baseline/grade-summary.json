@@ -1,0 +1,25 @@
+{
+  "all_passed": false,
+  "artifacts": 6,
+  "condition": "baseline",
+  "critical_passed": 2,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-api-and-interface-design-behavior-development-error-contract/1.json": "93b4d9e13f45b12423440d34920618a536b633f0c6501cc9764bc024f4f50c84",
+      "artifacts/pilot-api-and-interface-design-behavior-development-error-contract/2.json": "156b360e5804a9d5e7482ea0577d6dcca0ed76c00cc7811da3d51c83703bee44",
+      "artifacts/pilot-api-and-interface-design-behavior-development-error-contract/3.json": "522e13c72a52438e8a6e3044b1f19448fc150c29687a2c1a7dcafa4907957730",
+      "artifacts/pilot-api-and-interface-design-behavior-development-idempotency/1.json": "10447d75f433386cc9488ac0f2251e0ea39ec47489347f59e315cf2d3a29b6a5",
+      "artifacts/pilot-api-and-interface-design-behavior-development-idempotency/2.json": "cdcd4640290ae8c57eef1cd90e19865c8ec7660e46b83de81c355f34227cb485",
+      "artifacts/pilot-api-and-interface-design-behavior-development-idempotency/3.json": "602c22b6403c7f56c5398381aad36a6031fdffad07bec75c91feb16776978946"
+    },
+    "case_snapshot_sha256": "84f91cf6565e317b5dcd8d208188a4acf97f72ac6b051e36c12a8d91d32ebcf3",
+    "grader_sha256": "49b310ddde90221b1fbad5b6b81bd8b6df947414229dbfbb4781cb494e16ecbc",
+    "manifest_sha256": "9c7eb819fdf2999eff63aa6507f7255628566bc333e89c12a80b56ca696ef3c2"
+  },
+  "passed": 2,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-behavior-baseline",
+  "schema_version": 5
+}

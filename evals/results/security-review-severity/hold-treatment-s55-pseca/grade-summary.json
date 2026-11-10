@@ -1,0 +1,37 @@
+{
+  "all_passed": false,
+  "artifacts": 18,
+  "condition": "treatment",
+  "critical_passed": 18,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/security-review-severity-holdout-order-export/1.json": "4256a17e4b7f1420ca1c01503ec475185fe18b352c7d04f02858db4b9cff6732",
+      "artifacts/security-review-severity-holdout-order-export/2.json": "afb3e45d26853a63dbe12a62899a4225ade5727d3388e7270339527f50eb4972",
+      "artifacts/security-review-severity-holdout-order-export/3.json": "8c0b53bd45c971ec52e9fba68a548f0c34409bf6d28c6533d0aa3d26af00a8ad",
+      "artifacts/security-review-severity-holdout-own-profile/1.json": "1ccf35a7b1b3b3ff1c9dc3eff7e551dffb5f2e117b6527faaee8bda436e22d18",
+      "artifacts/security-review-severity-holdout-own-profile/2.json": "cabcc35a2ca325874e769b6afb37d0f953a0d05ee581379d940e6cbb6870be6b",
+      "artifacts/security-review-severity-holdout-own-profile/3.json": "a336c6ca67c1e8c9badbb223fac0b3a49b1de8df937f772878c96bb1b067068b",
+      "artifacts/security-review-severity-holdout-patient-mrn/1.json": "3314f2092c03bb24a1a2eb11e44828fc36017153e6ae36a5cb1d79feb9723d47",
+      "artifacts/security-review-severity-holdout-patient-mrn/2.json": "483d1865e5b199fad28bac7fef50e914fecc0b7f8ac12e24b2390e97dd955ceb",
+      "artifacts/security-review-severity-holdout-patient-mrn/3.json": "6a6e9016e8989bef947ac18be35bc89fc02c4839d205939ce81b65e6f6970bc0",
+      "artifacts/security-review-severity-holdout-phone-search/1.json": "4cbc52591969eb9d14ac8ab7e1b0a35a831a856da4fccb0eb7347a6ac5b2a3ec",
+      "artifacts/security-review-severity-holdout-phone-search/2.json": "b19b6f7ba3b16608a2f3bc296828b145045c86c97d12001713d6d434b5d766a7",
+      "artifacts/security-review-severity-holdout-phone-search/3.json": "9a57e43e1497326ae94d9bcf3d2946640c6334909dae743d5625f8f586a4b1b3",
+      "artifacts/security-review-severity-holdout-scoped-get/1.json": "d2d90707dc14ab06638aff05293dc87cf0f66d45ddf60d084db4ab1569547465",
+      "artifacts/security-review-severity-holdout-scoped-get/2.json": "42d7fad268bb90ddb977e982ab0a03ea4d4477bf36314898f891a748215cfb83",
+      "artifacts/security-review-severity-holdout-scoped-get/3.json": "95f17a3275e25e8d85a819846472b70cf86010cb9be58c499f1f994da050ee0a",
+      "artifacts/security-review-severity-holdout-uuid-download/1.json": "7da1917db86763320110c7ea31877f403bddb59ea7469a41c9822f30d0ea4dc8",
+      "artifacts/security-review-severity-holdout-uuid-download/2.json": "0cd46f21957ebe39659054d606e8e444458632f69949b300f62d30473dd08eb9",
+      "artifacts/security-review-severity-holdout-uuid-download/3.json": "278c67f62dbdcbac0777ea74b4567c74bdbc44ea16b9848270a2224057ca6f20"
+    },
+    "case_snapshot_sha256": "67b27b9b648115bb018742405b33c092726f3d75056f390638e58b43e91783e4",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "a8f975aca14cfeebabd685775407322d48be16345c31a2c98e7a408fe89107e7"
+  },
+  "passed": 17,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-treatment-s55-pseca",
+  "schema_version": 5
+}

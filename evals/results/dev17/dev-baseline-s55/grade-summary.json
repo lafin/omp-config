@@ -1,0 +1,43 @@
+{
+  "all_passed": false,
+  "artifacts": 24,
+  "condition": "baseline",
+  "critical_passed": 2,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev17-behavior-development-security-review-error-handler-dsn-leak/1.json": "2e7f142c8fe4d31061e9a32e74184a0bb53aaed508bf85c5371b60633d6a6664",
+      "artifacts/dev17-behavior-development-security-review-error-handler-dsn-leak/2.json": "1119479cd7c76e4a4d77e09cb3351e83b810df9af13fc54678e01a2748ecaa66",
+      "artifacts/dev17-behavior-development-security-review-error-handler-dsn-leak/3.json": "211e5c228f148538b4b145021228e6640b4876fac564f401ae24fc31bac3576b",
+      "artifacts/dev17-behavior-development-security-review-guarded-logo-fetch-clean/1.json": "789bb72d4cc8d6e9011061730cf4969800314cd5ae2f9c996cbb5476a3a318a2",
+      "artifacts/dev17-behavior-development-security-review-guarded-logo-fetch-clean/2.json": "3c6da23501693b98c6b92e469c2b382c359b81dc9b406de25561b98c04c1836c",
+      "artifacts/dev17-behavior-development-security-review-guarded-logo-fetch-clean/3.json": "3b90b93e59202d43ad5741f86c314164f101d2f06f2b2b85287eef31d566cb49",
+      "artifacts/dev17-behavior-development-security-review-jwt-signature-skipped/1.json": "6ca08edf3d377910c660dde5adcc89716eefdfd3f89b96f87a60983e91f686d1",
+      "artifacts/dev17-behavior-development-security-review-jwt-signature-skipped/2.json": "0035375f7e45dc6f310f9413ceae259838dabbb05c0f6071a83fd3abe5ed7750",
+      "artifacts/dev17-behavior-development-security-review-jwt-signature-skipped/3.json": "6c329ff5d58ae1347ab4cb711e97f023bbf7182e1a401a91ea79bd92adce1e06",
+      "artifacts/dev17-behavior-development-security-review-refund-amount-from-client/1.json": "8bdb1686426952616e362671052f5fda6aa82e04300821647e14785917d785a0",
+      "artifacts/dev17-behavior-development-security-review-refund-amount-from-client/2.json": "c01b5e1c89301c0073929045934e857023b9738b84fca9cfd0b56a3bc5c24e7e",
+      "artifacts/dev17-behavior-development-security-review-refund-amount-from-client/3.json": "6eaba23339e0cbc06ee2f2a7c4c85d3582cd7fafb15b59ada6106f91a173f9d4",
+      "artifacts/dev17-behavior-development-security-review-reset-link-host-header/1.json": "67648eb9806d1a50b4f8e8fdb5ba0575129cb12f5aaf564fe843d5092bf67a4d",
+      "artifacts/dev17-behavior-development-security-review-reset-link-host-header/2.json": "3545b9c0eec25ec0944e78404383d4e29b31c68ec61dc4aa278e15282d05a5f6",
+      "artifacts/dev17-behavior-development-security-review-reset-link-host-header/3.json": "76d9ac0546df46d7e7b95fde4cf40d9bb195a49451ed91dbc1e16aac1cdfc858",
+      "artifacts/dev17-behavior-development-security-review-shell-thumbnail-size/1.json": "8aad2bd25d089b0fc0af50ab9152b925adf3300f410342aa49407a1dcdbdfac0",
+      "artifacts/dev17-behavior-development-security-review-shell-thumbnail-size/2.json": "ec810a32f2ece8dc67b03a917ff7aaa703e5cad800105ec5cc8f76b311e04cff",
+      "artifacts/dev17-behavior-development-security-review-shell-thumbnail-size/3.json": "fee42f148688c374056e5aee17fe5ddbd3d7ecf8d7da0f71c77c44bceaca254d",
+      "artifacts/dev17-behavior-development-security-review-ssrf-link-preview/1.json": "ea2c0a0871a299be0a025324701870ffc7c5c28d9334e56492c1913b81c0b939",
+      "artifacts/dev17-behavior-development-security-review-ssrf-link-preview/2.json": "2c2967e0847931942adb115b8d9e056cc4e7eea780d7bb8bcd5fd15979b8465f",
+      "artifacts/dev17-behavior-development-security-review-ssrf-link-preview/3.json": "901fbc412fdbbd06fb22f484716faad5a4af3f280dca2dad9202f1cba41f7eb2",
+      "artifacts/dev17-behavior-development-security-review-template-string-greeting/1.json": "b51b781831c4ba3bd6e611a8ea5cc996136ecfed2a3323a0ff72eed60d41c0b0",
+      "artifacts/dev17-behavior-development-security-review-template-string-greeting/2.json": "853c44e31379b4bd1425fe5ae806078011dc4405b5a1b8eb12ceb11c33e8841e",
+      "artifacts/dev17-behavior-development-security-review-template-string-greeting/3.json": "95df0bcb0c42b8dd1a079caba5e33d392259be24a75aaac15650fdd589e3af1c"
+    },
+    "case_snapshot_sha256": "2a7a080e2d1493cf3cc6de64462d601be384b7a0f7a6babfdcab829355a1dbbb",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "d6814414e28d182c14640a9c3b033d49bbfd2fc4a836628b9b10a3397bc6edbe"
+  },
+  "passed": 2,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-baseline-s55",
+  "schema_version": 5
+}

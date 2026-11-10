@@ -1,0 +1,22 @@
+{
+  "all_passed": false,
+  "artifacts": 3,
+  "condition": "treatment",
+  "critical_passed": 0,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-deprecation-and-migration-behavior-holdout-database-sequence/1.json": "a420b09480c76358e5fe9ddf3705ef8cec481b622ae05b10580363407d938363",
+      "artifacts/pilot-deprecation-and-migration-behavior-holdout-database-sequence/2.json": "7df8588fd0b1b6d66938c3adc2925a05fc26c904de6cb6bd6991c50f2d16bfbc",
+      "artifacts/pilot-deprecation-and-migration-behavior-holdout-database-sequence/3.json": "09be3c9ac00d2ac8c1f82d933a51c6c63c70ef413c0c8318ac8528d10c0176b9"
+    },
+    "case_snapshot_sha256": "7d76ceb11cf31b4857836ba1888c8209e798f07faec592fb3324aeaa87e59027",
+    "grader_sha256": "49b310ddde90221b1fbad5b6b81bd8b6df947414229dbfbb4781cb494e16ecbc",
+    "manifest_sha256": "c9f688ff04fa16e5f08500e8290aa6428672b27f148094dc6d59d172b29f4e04"
+  },
+  "passed": 0,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-behavior-treatment",
+  "schema_version": 5
+}

@@ -1,0 +1,22 @@
+{
+  "all_passed": false,
+  "artifacts": 3,
+  "condition": "baseline",
+  "critical_passed": 3,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/autoresearch-security-repository-development-audit/1.json": "24140080c45c35aa6ad187e9a4f5934bbfc425554664564f0667e7bc594e69df",
+      "artifacts/autoresearch-security-repository-development-audit/2.json": "07b0a7478511f8a08a3fc5d739dc28dceba03b492ae038f5dac8a33ccb9c4988",
+      "artifacts/autoresearch-security-repository-development-audit/3.json": "3d35fc3f027953eaef0b9feb8bbaba6123dfd629434ae0944f78ccb76b5cd044"
+    },
+    "case_snapshot_sha256": "02ca9f40c246193835f374550a25c8ffeac0a8b85ac099df31a64f1229e52334",
+    "grader_sha256": "da87d8b9567a0f1b576957751d92522f2cd0df34a591859cc77abffc183baa3d",
+    "manifest_sha256": "715e0d29c1c95827281b8b24fb18bb2d46f0200700b4c4bf2cb219af8be9ac94"
+  },
+  "passed": 0,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-baseline-s55",
+  "schema_version": 5
+}

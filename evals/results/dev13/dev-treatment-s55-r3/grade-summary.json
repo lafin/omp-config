@@ -1,0 +1,43 @@
+{
+  "all_passed": false,
+  "artifacts": 24,
+  "condition": "treatment",
+  "critical_passed": 12,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev13-behavior-development-api-and-interface-design-async-export-job-lifecycle/1.json": "580587502844dbf931d0299251262503d79000d8a0d6ea6a766e5bd6b0a1dcb2",
+      "artifacts/dev13-behavior-development-api-and-interface-design-async-export-job-lifecycle/2.json": "924e81dc66f6dada40ba537333f9c0ed570251feb5c22403f17a8c43415262a6",
+      "artifacts/dev13-behavior-development-api-and-interface-design-async-export-job-lifecycle/3.json": "28f9e6fc7c91e86c44503ada5f9433591e748c9de089b490d20f41307859f02a",
+      "artifacts/dev13-behavior-development-api-and-interface-design-batch-import-partial-failure/1.json": "1903c67c1f34e6972f6766215cabcb427566f009b0a250456e3bd14c3d0575e6",
+      "artifacts/dev13-behavior-development-api-and-interface-design-batch-import-partial-failure/2.json": "cadf208655e236a6a33ac007dcc8be05ce7ef29233822fbed595095cc5ce84cb",
+      "artifacts/dev13-behavior-development-api-and-interface-design-batch-import-partial-failure/3.json": "64a3e601661c6c2e113f417d0872c874b72125755f9d6da0ed526179c285e840",
+      "artifacts/dev13-behavior-development-api-and-interface-design-graphql-orders-field-evolution/1.json": "94d4c73a22c632717380f8498729ccd92610fbfdcfd983d9f378816d103d12f0",
+      "artifacts/dev13-behavior-development-api-and-interface-design-graphql-orders-field-evolution/2.json": "71c450737c809373c0981feb596e876997e7375c655fa7571f81d436e06ba184",
+      "artifacts/dev13-behavior-development-api-and-interface-design-graphql-orders-field-evolution/3.json": "207e9b7dbcfe606f2a1fa1e74160affe468cd6d9515808a342f1c82af9731813",
+      "artifacts/dev13-behavior-development-api-and-interface-design-rate-limit-and-strict-query-params/1.json": "bb0281500803ac81b7c49a9d748a3fbbddc57f5023d6d715cdad251263aba146",
+      "artifacts/dev13-behavior-development-api-and-interface-design-rate-limit-and-strict-query-params/2.json": "729bc1c54205fb782ce8e39af7472eb6736d8da6941a640034212c22d227868d",
+      "artifacts/dev13-behavior-development-api-and-interface-design-rate-limit-and-strict-query-params/3.json": "4ce49dc2075f4b01c1114e8e4d3e78ec8f5c5510e16e6766b2508c8917ad6623",
+      "artifacts/dev13-behavior-development-api-and-interface-design-reserve-stock-mixed-failure-signals/1.json": "992bc19cc48237a0701e2e94725d4c549947760a564e0b652296432daf43aa8f",
+      "artifacts/dev13-behavior-development-api-and-interface-design-reserve-stock-mixed-failure-signals/2.json": "420ed8a9bfbea913dbe3aacd8ac3b2c3f6c6a01dc84550759338cd248afd3aa9",
+      "artifacts/dev13-behavior-development-api-and-interface-design-reserve-stock-mixed-failure-signals/3.json": "f142fd77c5b3982cee7f70e7fdad140ffc4297299644fac63586db820b4d1f79",
+      "artifacts/dev13-behavior-development-api-and-interface-design-sdk-constructor-and-error-surface/1.json": "5a11558d3395fb0a68ec52093ea6723de8abb9ef539029d7a796c4f22230a35b",
+      "artifacts/dev13-behavior-development-api-and-interface-design-sdk-constructor-and-error-surface/2.json": "f872c81e2cdf945ec9e6e260369dc5c6d83315122e23d359483c8e3debf42171",
+      "artifacts/dev13-behavior-development-api-and-interface-design-sdk-constructor-and-error-surface/3.json": "73bf981cf65d833c85519f96b5b146f197246e2d3b9b173139cd11872c6edca7",
+      "artifacts/dev13-behavior-development-api-and-interface-design-soft-delete-restore-semantics/1.json": "c53764f0c7c248e2a5e56ec09ece7df6ae822a5e1c5ced8b237db071e35f6bed",
+      "artifacts/dev13-behavior-development-api-and-interface-design-soft-delete-restore-semantics/2.json": "858c1e91a679eea332146de049de7ed5cf87d8e54ccadf08a9973faca0748fdf",
+      "artifacts/dev13-behavior-development-api-and-interface-design-soft-delete-restore-semantics/3.json": "742813b1b5c6ac406106d26be387f3d8245fe30bace1e60ce3f71a8abd109991",
+      "artifacts/dev13-behavior-development-api-and-interface-design-webhook-delivery-integrity/1.json": "39695f8a461237be47967f8583957495a45c3eba3e6434037987b5c3a74135b7",
+      "artifacts/dev13-behavior-development-api-and-interface-design-webhook-delivery-integrity/2.json": "39509208e9285dba8c94e5c25d43025b3819823133e954dd3ee80ce2d9a2c488",
+      "artifacts/dev13-behavior-development-api-and-interface-design-webhook-delivery-integrity/3.json": "445c1feb271a8a0fe94cc121ac05995f9c8867667316404c0f348da3fbb1599f"
+    },
+    "case_snapshot_sha256": "7eb79ca6e3cb2e6cde901c540d3dfb651579852bd4517a6441028fdc1198de89",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "94a7d46f6d63d7e96dfa7bee92118ed6abee7fcb06153fbc7d1d28aaaa97a7aa"
+  },
+  "passed": 12,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55-r3",
+  "schema_version": 5
+}

@@ -1,0 +1,31 @@
+{
+  "all_passed": true,
+  "artifacts": 12,
+  "condition": "treatment",
+  "critical_passed": 12,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev38-behavior-development-leancode-review-go-slices-store/1.json": "7848ed9efc400e9d10d3b5d45e30223eee75ae86dbb5f26c8eef31d8715f30f0",
+      "artifacts/dev38-behavior-development-leancode-review-go-slices-store/2.json": "b11bfdc9823404c89731168dc03b5d881c9ae87b2bf1afeacc6f80b18189e91f",
+      "artifacts/dev38-behavior-development-leancode-review-go-slices-store/3.json": "b6f3b15a47661eeac3e97ea0f797ebaab756266e3837397808ab5c72e1e0be89",
+      "artifacts/dev38-behavior-development-leancode-review-python-mean-report/1.json": "741f90ac9d5ec5d1c720613ba0f5479daae734b9eeca0079006967e256a13a74",
+      "artifacts/dev38-behavior-development-leancode-review-python-mean-report/2.json": "e50751a82ad2be4381f2f9698d4d9acf3beed570e5e8f081d21da9ac291d5601",
+      "artifacts/dev38-behavior-development-leancode-review-python-mean-report/3.json": "cba0b18f20db0016d2d116d441b51029658c27de5639abc87cfcd09c1468eb97",
+      "artifacts/dev38-behavior-development-leancode-review-ruby-second-formatter/1.json": "436d22b90622a2f078057cff3e7c57f665a80f293f7a38ccaa399ba1784fa459",
+      "artifacts/dev38-behavior-development-leancode-review-ruby-second-formatter/2.json": "6a8438cb3f78a88a27c934c890d7059a070a8d11e2cfcbfb45c4d536b4f3815a",
+      "artifacts/dev38-behavior-development-leancode-review-ruby-second-formatter/3.json": "6de95057e2356f49e306af1928999036d25b280f0036606fc845878f61087aa4",
+      "artifacts/dev38-behavior-development-leancode-review-ts-pad-notifier/1.json": "5828855f99cf9a825f2f0f0c8dd6215f2f7eca6852706edab1b35349f1059b54",
+      "artifacts/dev38-behavior-development-leancode-review-ts-pad-notifier/2.json": "104861ae7f67532aa96c96f055e6860edd646e479917d9d65b863075b6b6fdce",
+      "artifacts/dev38-behavior-development-leancode-review-ts-pad-notifier/3.json": "be0521fd6f9c9ae33508d4a187e68016c0a523f4d98f4e825ab31d2a7fbd4bb4"
+    },
+    "case_snapshot_sha256": "fa536ca5ced556d4d83b2523f50b2ad2c745fc2cabf295816995487794f90ec4",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "ae9b0bd3f6d9dc2f28cf7512db8ba24f227427656e4fc65e44121703d6fd7e19"
+  },
+  "passed": 12,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55-r2",
+  "schema_version": 5
+}

@@ -1,0 +1,16 @@
+{
+  "agent": "agents/deep-verifier.md",
+  "revision": "working-tree",
+  "prompt_sha256": "d743717126d5c54c591a96f52ac7f230c609354a8f66a94d551b84f8714018c5",
+  "model": "openai-codex/gpt-5.6-sol",
+  "profile": "skill-eval-isolated",
+  "cases_sha256": "7a77699e98819e792d06fbec7132867192d02eec92f30ddc0bba908b75da14ae",
+  "case_attempts": 9,
+  "critical_failures": 0,
+  "per_case": {
+    "agent-deep-verifier-behavior-development-clean": 0,
+    "agent-deep-verifier-behavior-development-plausible-false": 0,
+    "agent-deep-verifier-behavior-development-real-high": 0
+  },
+  "capture_failures": 0
+}

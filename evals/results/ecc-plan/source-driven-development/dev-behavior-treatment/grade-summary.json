@@ -1,0 +1,25 @@
+{
+  "all_passed": false,
+  "artifacts": 6,
+  "condition": "treatment",
+  "critical_passed": 0,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-source-driven-development-behavior-development-unavailable-evidence/1.json": "8fb5422081486d227dda31d4c4274d1267d1d10b702d66afbb8d86d8838422ed",
+      "artifacts/pilot-source-driven-development-behavior-development-unavailable-evidence/2.json": "c31bc5a2472fbdfc85404ced4fc6380e2adaeea52ba5571532e2bf4fe46e1d65",
+      "artifacts/pilot-source-driven-development-behavior-development-unavailable-evidence/3.json": "1a34003e5498cc1af0a8cf5f989174a20ebc480417983720b685a4289c404b8f",
+      "artifacts/pilot-source-driven-development-behavior-development-versioned-primary-source/1.json": "2556d1560fd88b7eb4c91e090f2529521a937b04472dc6d6cbaae5be5f430b21",
+      "artifacts/pilot-source-driven-development-behavior-development-versioned-primary-source/2.json": "5d2e8265556661c8cc5a73976947abbe66335500a186f3901a92c181f840c697",
+      "artifacts/pilot-source-driven-development-behavior-development-versioned-primary-source/3.json": "7fca7a30991866e6f9bc89e183309c1d3938e91ab93581bdc0f6ff7dfb221411"
+    },
+    "case_snapshot_sha256": "5bc4674c9e4f29bfc684b71e22521d9e99c122d774be91bc57108c71b01bac4a",
+    "grader_sha256": "49b310ddde90221b1fbad5b6b81bd8b6df947414229dbfbb4781cb494e16ecbc",
+    "manifest_sha256": "4ff3ce380be7fa683aca78dadcce1f0b73a9bac28d9dfd0dc350b01c982caba7"
+  },
+  "passed": 0,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-behavior-treatment",
+  "schema_version": 5
+}

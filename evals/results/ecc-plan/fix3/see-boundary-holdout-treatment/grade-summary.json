@@ -1,0 +1,31 @@
+{
+  "all_passed": false,
+  "artifacts": 12,
+  "condition": "treatment",
+  "critical_passed": 11,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/see-boundary-descriptive-25-noop/1.json": "5eeafb2e74aa83f9a3da894c546f96195587fee2b7895ba0a648787ca8125dca",
+      "artifacts/see-boundary-descriptive-25-noop/2.json": "eb79f61f62cfac43f9374b47188bf30c91437148f6d0073960fe7001f1245727",
+      "artifacts/see-boundary-descriptive-25-noop/3.json": "60e8a0fe9caf90cdd991dfa64fd3a083be1fd0135d9dbc6ab31169eac6dfe250",
+      "artifacts/see-boundary-descriptive-26-split/1.json": "63e43514024032b78abb799c2f2b9ba41d217f2c444364956b723003c4153241",
+      "artifacts/see-boundary-descriptive-26-split/2.json": "7a93133a1ca71d72bcbf176ae2a3389ac58bee326ab5f7070ec87224427102a2",
+      "artifacts/see-boundary-descriptive-26-split/3.json": "68f206e90a38bb5833236f6f510c9993736c3d24d1f39527a33f86435b7823e1",
+      "artifacts/see-boundary-procedural-20-noop/1.json": "1489761dc32ce525b6c85dcb9aee96c2ddc5ef8c045fc2fec0f98b3e7cf7b0e2",
+      "artifacts/see-boundary-procedural-20-noop/2.json": "b9ccab221ed06921da1e7d15791fde1632d44fe7ed74c367aff26df72ac217d7",
+      "artifacts/see-boundary-procedural-20-noop/3.json": "8e466ed97d3de91bd1534b1b7accb55e36fbf7faf9bdb7a3abbc21af1cc9181f",
+      "artifacts/see-boundary-procedural-21-split/1.json": "eab17774574533cbca02f2fe8c166815d2bce65057a9e0b9cd9a6ebddc805c49",
+      "artifacts/see-boundary-procedural-21-split/2.json": "661e6543d5a373fafb4b60debe37c356513e59b9fa646fe24a4242195e20cb42",
+      "artifacts/see-boundary-procedural-21-split/3.json": "078ba8c2ac6cd2ae8535f5ffb8a605b84def2062a48c06bc8eea0fd8d3de3022"
+    },
+    "case_snapshot_sha256": "edf75b4543ecd470aa070f36a1e0b66e512ee24ad8a944306b135ea69fcae975",
+    "grader_sha256": "49b310ddde90221b1fbad5b6b81bd8b6df947414229dbfbb4781cb494e16ecbc",
+    "manifest_sha256": "c3a3a6d1b398a67aebcd1450a1a8dfcded47e39ed39e21ebd9dc02bb02c3dd7f"
+  },
+  "passed": 11,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "see-boundary-holdout-treatment",
+  "schema_version": 5
+}

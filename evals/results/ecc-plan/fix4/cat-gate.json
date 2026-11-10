@@ -1,0 +1,102 @@
+{
+  "admission_path": "improvement",
+  "case_kind": "behavior",
+  "correctness_benefit": null,
+  "criteria": {
+    "cost_metrics_known": true,
+    "development_improved": false,
+    "holdout_preserved": false,
+    "increased_cost_has_correctness_benefit": false,
+    "no_critical_regressions": false,
+    "routing_holdout_all_passed": true
+  },
+  "decision": "fail",
+  "development": {
+    "baseline_check_coverage": 0.7918470418470418,
+    "baseline_critical_failures": 53,
+    "baseline_metrics": {
+      "questions": 0,
+      "tokens": 46179,
+      "tool_events": 0
+    },
+    "baseline_passed": 13,
+    "critical_regressions": [
+      "catalog-behavior-development-evaluation:1",
+      "catalog-behavior-development-project-development:1"
+    ],
+    "regressions": [
+      "catalog-behavior-development-evaluation:1",
+      "catalog-behavior-development-project-development:1"
+    ],
+    "total": 66,
+    "treatment_check_coverage": 0.9772727272727273,
+    "treatment_critical_failures": 8,
+    "treatment_metrics": {
+      "questions": 0,
+      "tokens": 565081,
+      "tool_events": 0
+    },
+    "treatment_passed": 58
+  },
+  "efficacy_claim": null,
+  "holdout": {
+    "baseline_check_coverage": 0.7745310245310245,
+    "baseline_critical_failures": 48,
+    "baseline_metrics": {
+      "questions": 0,
+      "tokens": 51402,
+      "tool_events": 0
+    },
+    "baseline_passed": 18,
+    "critical_regressions": [
+      "catalog-behavior-holdout-advanced-evaluation:2",
+      "catalog-behavior-holdout-context-fundamentals:1",
+      "catalog-behavior-holdout-evaluation:1",
+      "catalog-behavior-holdout-harness-engineering:1"
+    ],
+    "regressions": [
+      "catalog-behavior-holdout-advanced-evaluation:2",
+      "catalog-behavior-holdout-context-fundamentals:1",
+      "catalog-behavior-holdout-evaluation:1",
+      "catalog-behavior-holdout-harness-engineering:1"
+    ],
+    "total": 66,
+    "treatment_check_coverage": 0.898989898989899,
+    "treatment_critical_failures": 31,
+    "treatment_metrics": {
+      "questions": 0,
+      "tokens": 576289,
+      "tool_events": 0
+    },
+    "treatment_passed": 35
+  },
+  "increased_metrics": [
+    "development:tokens",
+    "holdout:tokens",
+    "routing_holdout:tokens"
+  ],
+  "paired_evidence": true,
+  "routing_holdout": {
+    "baseline_check_coverage": 1.0,
+    "baseline_critical_failures": 0,
+    "baseline_metrics": {
+      "questions": 0,
+      "tokens": 19224,
+      "tool_events": 0
+    },
+    "baseline_passed": 36,
+    "critical_regressions": [],
+    "regressions": [],
+    "total": 36,
+    "treatment_check_coverage": 1.0,
+    "treatment_critical_failures": 0,
+    "treatment_metrics": {
+      "questions": 0,
+      "tokens": 19338,
+      "tool_events": 0
+    },
+    "treatment_passed": 36
+  },
+  "schema_version": 5,
+  "unknown_metrics": []
+}

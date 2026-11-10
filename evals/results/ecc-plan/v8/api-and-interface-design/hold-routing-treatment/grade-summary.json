@@ -1,0 +1,31 @@
+{
+  "all_passed": true,
+  "artifacts": 12,
+  "condition": "treatment",
+  "critical_passed": 12,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-api-and-interface-design-routing-holdout-api--project-a/1.json": "b52be21de2c232319af38ccd0a0c83b13c86100f62e0d46032f08e089c5450f3",
+      "artifacts/pilot-api-and-interface-design-routing-holdout-api--project-a/2.json": "953d939bfef02da35469c7602173da4569d837cd12da0a6ffb441002da3ff6c7",
+      "artifacts/pilot-api-and-interface-design-routing-holdout-api--project-a/3.json": "937880e8a5cd89ec5fbd207e004d3b1897c508063ad8036b40f30ceef3f03db3",
+      "artifacts/pilot-api-and-interface-design-routing-holdout-api--project-b/1.json": "4d4d5f6f8d8becb5a06c675e60158a34a758e2e6d2bb11a81c13858864d74adc",
+      "artifacts/pilot-api-and-interface-design-routing-holdout-api--project-b/2.json": "d655ddf0f5515107cde2923698e551203ab29c3855948732d92637f6e17764d3",
+      "artifacts/pilot-api-and-interface-design-routing-holdout-api--project-b/3.json": "a309044a962e23d78bbb4935a71d86a2acd369e8fce5c13a061362907f4c97db",
+      "artifacts/pilot-api-and-interface-design-routing-holdout-api--tool-a/1.json": "3ddabcae539436b1b7b7fb66acb2ef979b266c8b4636cc00bc78f1200373bd42",
+      "artifacts/pilot-api-and-interface-design-routing-holdout-api--tool-a/2.json": "8c1661ea7ae2bf03d8de18909bf0797e65978fee7817356f214bd65113cec968",
+      "artifacts/pilot-api-and-interface-design-routing-holdout-api--tool-a/3.json": "67958aaeade7bf979c18544895c761c7e681c95a02d600c6cd1e956cfa77373b",
+      "artifacts/pilot-api-and-interface-design-routing-holdout-api--tool-b/1.json": "3666ba94b9963f8bcaed7e24145ad2cf6289daa7ab847aa453e948c0f1e8fb8e",
+      "artifacts/pilot-api-and-interface-design-routing-holdout-api--tool-b/2.json": "ae07774e22c2b7ac3c27e68ede9fd1e37bd8903f5bd0698a92a97c0826b486e1",
+      "artifacts/pilot-api-and-interface-design-routing-holdout-api--tool-b/3.json": "99c04ef72b1555a9bf115ff372472cbed48ea7c930b81e4ae5893fdddad8ed4a"
+    },
+    "case_snapshot_sha256": "51ce178be806843d945612e8ea5be896fe0f6002df7405b986df253a86365222",
+    "grader_sha256": "49b310ddde90221b1fbad5b6b81bd8b6df947414229dbfbb4781cb494e16ecbc",
+    "manifest_sha256": "5b3cdf4a3c079df93eddb0871ef72fb2649cde9753945d2787a1fd0cf5e75ca3"
+  },
+  "passed": 12,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-routing-treatment",
+  "schema_version": 5
+}

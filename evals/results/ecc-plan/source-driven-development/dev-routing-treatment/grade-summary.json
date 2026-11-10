@@ -1,0 +1,37 @@
+{
+  "all_passed": true,
+  "artifacts": 18,
+  "condition": "treatment",
+  "critical_passed": 18,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-source-driven-development-routing-development-ordinary-implementation-a/1.json": "fe4cba9da04b32c0dbbcf8ad0084da9bedda2ae99ec496fc5349dbf08d1919ed",
+      "artifacts/pilot-source-driven-development-routing-development-ordinary-implementation-a/2.json": "3efb5cb06892dc4ae09efcadb87ed18bffc3775a5b6d769f2fa01fd6d0f8b384",
+      "artifacts/pilot-source-driven-development-routing-development-ordinary-implementation-a/3.json": "639e159c2b728574a84eb23f1968c8894e28eaca56f983558747ca2e542a4952",
+      "artifacts/pilot-source-driven-development-routing-development-ordinary-implementation-b/1.json": "dfcf4cc194932d77b0ddf6b087896f96046dc4cbd1427fb62bf2919b77ed564f",
+      "artifacts/pilot-source-driven-development-routing-development-ordinary-implementation-b/2.json": "0ee0391082337486bb7b8c69eebca7fd64c8fceb9d9c1a8ce851b0543a82efc5",
+      "artifacts/pilot-source-driven-development-routing-development-ordinary-implementation-b/3.json": "fe3aea817b49219b4122416d423c33bdf14671fe860ba37121db41124293e5d6",
+      "artifacts/pilot-source-driven-development-routing-development-project-development-a/1.json": "cfb6ce5a1248cb9cac1f3ed35be1c74bf4d728fa6ac02c881160a2bd461cf3fe",
+      "artifacts/pilot-source-driven-development-routing-development-project-development-a/2.json": "37037b4aff6bce88d8f75e8987cd3f910b08e1b91049497706944c1431faf5b2",
+      "artifacts/pilot-source-driven-development-routing-development-project-development-a/3.json": "fc0ebb87d544ed9cc3ed199fed4e5ebfaec1e09477510af096878a1e956a479c",
+      "artifacts/pilot-source-driven-development-routing-development-project-development-b/1.json": "db40c8013d57dbc55c92ad33a0c3de9cd0cc32b87adefc35652a70fde09783c1",
+      "artifacts/pilot-source-driven-development-routing-development-project-development-b/2.json": "17cec253fa51594f41970e6df043fff516b72081b4390408533f90aac7fdb220",
+      "artifacts/pilot-source-driven-development-routing-development-project-development-b/3.json": "520e16a9b2c645cf9bc14d0f547d900ae6dcf7953aea1f7342d84519a6ca16a9",
+      "artifacts/pilot-source-driven-development-routing-development-tool-design-a/1.json": "294a7ce8b973d0588563d4edac8ab97f5064350ddbb2d750eb83b549be70961b",
+      "artifacts/pilot-source-driven-development-routing-development-tool-design-a/2.json": "93ca9eb48d3d8e7d425eb727655f63637543560c77bf915cfabe81f881439117",
+      "artifacts/pilot-source-driven-development-routing-development-tool-design-a/3.json": "aeeb954d64fe131df80af216697588962839557805782fb264c86d9d0900c1a2",
+      "artifacts/pilot-source-driven-development-routing-development-tool-design-b/1.json": "489b9479c390cb7bcb1b06bdca022fe0f866db341d1c3c777934ff2fc838fd1c",
+      "artifacts/pilot-source-driven-development-routing-development-tool-design-b/2.json": "a54f6ff0e499c10ecface27b1091454e0b07dde9a76ada68b553cf9a3a86b5a5",
+      "artifacts/pilot-source-driven-development-routing-development-tool-design-b/3.json": "ab6f008710c491eab48a1c4c91548d1608cf1fa50fde8ce24c0896d8e9e78ca8"
+    },
+    "case_snapshot_sha256": "26ed1fc8913a7ff8f052a34dc51a5a570f9b966ecb5d9b6576c0c1c24e251c22",
+    "grader_sha256": "49b310ddde90221b1fbad5b6b81bd8b6df947414229dbfbb4781cb494e16ecbc",
+    "manifest_sha256": "683e4eb18d8cda2ec2718226eb8ef4f26a6ae620742095cc9837855cdc65c062"
+  },
+  "passed": 18,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-routing-treatment",
+  "schema_version": 5
+}

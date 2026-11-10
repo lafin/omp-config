@@ -1,0 +1,28 @@
+{
+  "all_passed": false,
+  "artifacts": 9,
+  "condition": "treatment",
+  "critical_passed": 6,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/leancode-patch-dev-audit-sink/1.json": "25e69103f7f89d2ad118da737d1ca351831e60ffeb98cd638dc196d478163bab",
+      "artifacts/leancode-patch-dev-audit-sink/2.json": "1aae4aab48efb807f64e9256c2f8bdf7e8b4b0f6f9f2044e31a32ff9dcf04038",
+      "artifacts/leancode-patch-dev-audit-sink/3.json": "ca49e65e715622a3ac018e0d1f7462d2ed222c9af2db2904acb8217af1f849a9",
+      "artifacts/leancode-patch-dev-invoice-rounding/1.json": "d0fa6d6122871ee769a49c14495d4ec18d7f57bf7a53163b8f3419c04750194a",
+      "artifacts/leancode-patch-dev-invoice-rounding/2.json": "d74f8b40b2c8fca54d64d8c64feb0d8ba8b4b92b0f20f5236cf0566b19e98d91",
+      "artifacts/leancode-patch-dev-invoice-rounding/3.json": "41a00e09edbdf66991f90e65f46e5b0dbdb3f04b12194d4610ad29de7acd9607",
+      "artifacts/leancode-patch-dev-ultra-loan-payment/1.json": "1d3f96f4dcccbe53900ee13f21004bce78923c1fc671fcd8a15b546dc13ff54e",
+      "artifacts/leancode-patch-dev-ultra-loan-payment/2.json": "549480e7c89bcd46a81ac702000fe9c5ae4fe73afe3f4b57bcb37db4b54f6426",
+      "artifacts/leancode-patch-dev-ultra-loan-payment/3.json": "6e9138548a23becb0568e47067418bf4b48ad94dbfd46312f7ca769d45fadb90"
+    },
+    "case_snapshot_sha256": "4e3237fd2d8909d04a49c85b057114d28d127326dbff4ad5435d32e75b1b5166",
+    "grader_sha256": "da87d8b9567a0f1b576957751d92522f2cd0df34a591859cc77abffc183baa3d",
+    "manifest_sha256": "07ee12a1c7fc7f93bd43f39835c8c74d7b29e6eade6878e4b61bf77bffc4d589"
+  },
+  "passed": 6,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55",
+  "schema_version": 5
+}

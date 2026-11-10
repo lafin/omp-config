@@ -1,0 +1,37 @@
+{
+  "all_passed": true,
+  "artifacts": 18,
+  "condition": "treatment",
+  "critical_passed": 18,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-security-review-routing-holdout-harness-engineering-a/1.json": "ae629665d2f5abad62dec97b79b49978b1cefe1ebc090b88c1d7439cacf09a29",
+      "artifacts/pilot-security-review-routing-holdout-harness-engineering-a/2.json": "f562ec20dfeb3d9e52feb5a0b1c0f6c891657f4490d78000cddd559b584afd57",
+      "artifacts/pilot-security-review-routing-holdout-harness-engineering-a/3.json": "def943344dc2dcb2b34f4fa4233db8dc94ddb91c0a10cae60395ac6c143abc39",
+      "artifacts/pilot-security-review-routing-holdout-harness-engineering-b/1.json": "29eccc46fa06657a75a902a50dfa9e57da9b5a1ff6a89871454d057f4127e4c7",
+      "artifacts/pilot-security-review-routing-holdout-harness-engineering-b/2.json": "9afac918f7f40d02e9090f4b7e1c376c8de8d68dff7750c1052e1a301b05c125",
+      "artifacts/pilot-security-review-routing-holdout-harness-engineering-b/3.json": "3b3188c4447b5c1aeea6971df1e591f544bf96ed27f31f706cb98ba4cd451e4f",
+      "artifacts/pilot-security-review-routing-holdout-hosted-agents-a/1.json": "80a2cd1c780362ed52193b5341d78520e6769e6dab376dd9fb729d68edf9f1d3",
+      "artifacts/pilot-security-review-routing-holdout-hosted-agents-a/2.json": "6f18310dcbb09b09ce568ed969388a421b2bb405a10421425f6cafd7fbdbfd46",
+      "artifacts/pilot-security-review-routing-holdout-hosted-agents-a/3.json": "21c1878b8f1466099e8af4727b681afae397d80445fcca736984eed1873f1bb9",
+      "artifacts/pilot-security-review-routing-holdout-hosted-agents-b/1.json": "b2eb9802be7d3fbd0fd72c80b26179036582f5574cff27c023fecd66b294fd32",
+      "artifacts/pilot-security-review-routing-holdout-hosted-agents-b/2.json": "c2090e971737f8026ff064dce765b3339cfbe5eecc6d61e98138b0c05fe9dc92",
+      "artifacts/pilot-security-review-routing-holdout-hosted-agents-b/3.json": "f42706d6e0ef2d51dfeddf283c75ad8779898005e63b00b2f9822a5911e1ab23",
+      "artifacts/pilot-security-review-routing-holdout-tool-design-a/1.json": "58c53f4f8ae23bbef939042d6bb569d5358fd7b7b8c02c5fedc08d6cd37d27bc",
+      "artifacts/pilot-security-review-routing-holdout-tool-design-a/2.json": "cdb76803037469ba77eedb2f1731493d6d51634db78c5d7548dc3c3216326137",
+      "artifacts/pilot-security-review-routing-holdout-tool-design-a/3.json": "3b0292d27554cd359c63d5063ff16e55fdd709c39d20128f45e8b823e4e8de08",
+      "artifacts/pilot-security-review-routing-holdout-tool-design-b/1.json": "6901588775d221c80c4ca3b2fa3c6638dd735c2e2845faf0a1e541ccd9665bfa",
+      "artifacts/pilot-security-review-routing-holdout-tool-design-b/2.json": "8355aee5fed77d5017438805c30a17f5533b25bb76bdf0463232d14cd8ee2637",
+      "artifacts/pilot-security-review-routing-holdout-tool-design-b/3.json": "f4f2ab46b0ec2c40185edf21fee0da44737a8fad8836ab954ba919c62eb0b876"
+    },
+    "case_snapshot_sha256": "f43c33a3965dd5d3204d8a0645a7931ddadfbb4687332610cb36063d035544ca",
+    "grader_sha256": "da87d8b9567a0f1b576957751d92522f2cd0df34a591859cc77abffc183baa3d",
+    "manifest_sha256": "069f682851a6184a908a914ab37e24c9a221914ac373f1d906e216077a74458b"
+  },
+  "passed": 18,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "pilot-security-review-routing-treatment-s55",
+  "schema_version": 5
+}

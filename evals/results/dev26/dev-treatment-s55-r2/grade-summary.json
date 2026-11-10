@@ -1,0 +1,43 @@
+{
+  "all_passed": false,
+  "artifacts": 24,
+  "condition": "treatment",
+  "critical_passed": 20,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev26-behavior-development-autoresearch-iteration-loop/1.json": "614dae7dbb35245662a88d872076160812d0761d5eb5b6dffa8ce5839faa16a0",
+      "artifacts/dev26-behavior-development-autoresearch-iteration-loop/2.json": "f952473e5b3790cd8117b5484f0f6b820a4f78cec35b385d0fdf9393bfcd2d66",
+      "artifacts/dev26-behavior-development-autoresearch-iteration-loop/3.json": "81e9855004dec5f6278c8bf33c70adbb7a1b2f40bdbf9a8f44b883dfb0168994",
+      "artifacts/dev26-behavior-development-autoresearch-noisy-verify/1.json": "7c6637eab43c45eb316efdba9e45265f339c4abfcac34a196868e2799f9d6198",
+      "artifacts/dev26-behavior-development-autoresearch-noisy-verify/2.json": "da746863afb41e2e906da53a4d6dacd605193dccef21b4ee13744bd6558f8214",
+      "artifacts/dev26-behavior-development-autoresearch-noisy-verify/3.json": "6d05cd44a195491bd8aefc25ee579157524ae6ebe033c7bab8b82c179161463f",
+      "artifacts/dev26-behavior-development-autoresearch-preconditions/1.json": "3200e4ca8dd9f3b0e1100fe2465e1755adbbb8c939b1cb064f8a54c1f86832a1",
+      "artifacts/dev26-behavior-development-autoresearch-preconditions/2.json": "93ce69f81755fa203a8717231936313df1df97d95fd41113ae4ef120231f02b9",
+      "artifacts/dev26-behavior-development-autoresearch-preconditions/3.json": "400907c687ead360b9dd5754c8d2c3b79ffac883399937754da09fc15d90490f",
+      "artifacts/dev26-behavior-development-autoresearch-verify-vs-guard/1.json": "729053d0a1bb269ae350f0874d2e111c80cea0307406a9b08f4bc5aa9bbf18d0",
+      "artifacts/dev26-behavior-development-autoresearch-verify-vs-guard/2.json": "b05ed06ee34066bb73bbf719c5637f0926fdbf347667125cde3cf5723056f46c",
+      "artifacts/dev26-behavior-development-autoresearch-verify-vs-guard/3.json": "fe93b9f5e577b5207a6d1cdf592dccdfb5f9a9274844964fc64cefe3396e0dc4",
+      "artifacts/dev26-behavior-development-self-improvement-loops-archive-selection/1.json": "938fa8582e5fa69a9d08457c92d146cc3ae249297e27fa89063800fe013846f3",
+      "artifacts/dev26-behavior-development-self-improvement-loops-archive-selection/2.json": "6702b17837b9ca503239c2b5dbd55b4fe1069c44e1fd8b2d7c577d292288bc7a",
+      "artifacts/dev26-behavior-development-self-improvement-loops-archive-selection/3.json": "2f871de9ec824878ac864218f6dc63d31c04131a6e725a96d3ec2b866d332eef",
+      "artifacts/dev26-behavior-development-self-improvement-loops-failure-mining/1.json": "f3e074fcf5b54b39e6b02a050abf7503b0a78d0767431cd08dee314f6700921d",
+      "artifacts/dev26-behavior-development-self-improvement-loops-failure-mining/2.json": "8b0619c0a037583cdc9857a14a455436b7c090c759d34790f03712624ff87ed4",
+      "artifacts/dev26-behavior-development-self-improvement-loops-failure-mining/3.json": "c12443f2613694fb662aaf2ec0c5e23e4a96900e664f1b4a13665a1f2b2e1092",
+      "artifacts/dev26-behavior-development-self-improvement-loops-heldout-gate/1.json": "fa37e1a40f8bed5478d7017afc2595880d38851146c2094f54c36cd08af106c3",
+      "artifacts/dev26-behavior-development-self-improvement-loops-heldout-gate/2.json": "8c8414a892a3c5d219acab6e1a32b7e9d1d1e79f2f9ce52764a615478f5c3b93",
+      "artifacts/dev26-behavior-development-self-improvement-loops-heldout-gate/3.json": "5ce9d15d75a4c0c5618e78fd3c39184981ceef78763fff3d0d42f867121b7ca3",
+      "artifacts/dev26-behavior-development-self-improvement-loops-proposer-evaluator/1.json": "216b915d68cee1a1bf25e51aec09f8d83f8a6eeb2ed622271964d0e7e91ed379",
+      "artifacts/dev26-behavior-development-self-improvement-loops-proposer-evaluator/2.json": "071844efc191bfd3f90f4c43e8cc41562d6054b7d7825120593917daf7f040cd",
+      "artifacts/dev26-behavior-development-self-improvement-loops-proposer-evaluator/3.json": "c411822158c8cd6b38caacbe68cd54661986dbd84d100ac47da1ab044f3739d7"
+    },
+    "case_snapshot_sha256": "c4f5441b985a6badee576e21218dcabca04fbaec464ed280ba6c0b86b0d41807",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "a674748436cad7a0b874c795491192018676ce429be3a18e04017a8e869bf103"
+  },
+  "passed": 20,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55-r2",
+  "schema_version": 5
+}

@@ -1,0 +1,22 @@
+{
+  "all_passed": false,
+  "artifacts": 3,
+  "condition": "baseline",
+  "critical_passed": 3,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/autoresearch-security-repository-holdout-audit/1.json": "6dfe4af94c040600b548fb2118a567a0550f2d74d6f62837c732e968d1c75f42",
+      "artifacts/autoresearch-security-repository-holdout-audit/2.json": "b52ecb1b371029694ee3816679adf1d922d6f7b2224eb97321b601ef3392f4d6",
+      "artifacts/autoresearch-security-repository-holdout-audit/3.json": "fde652f2619f66de027bbd2e7204b151a2951a9d860d08b5942cea0997ed6293"
+    },
+    "case_snapshot_sha256": "adfc8b3fad04eb1be9de73d38777ccf460d9fca342b88a6c63cadbb92dc59df0",
+    "grader_sha256": "da87d8b9567a0f1b576957751d92522f2cd0df34a591859cc77abffc183baa3d",
+    "manifest_sha256": "19ec272eaafa23df836c5b6e67e8d2fa3c0239c271f1173773f516edfbd5f631"
+  },
+  "passed": 0,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-baseline-s55",
+  "schema_version": 5
+}

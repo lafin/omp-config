@@ -1,0 +1,31 @@
+{
+  "all_passed": true,
+  "artifacts": 12,
+  "condition": "treatment",
+  "critical_passed": 12,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev40-behavior-development-ml-system-design-review-churn-post-cancellation-features/1.json": "5a87704adb4e67c7d49e88a6535534cef793b1540a40b26d20a30d14f6561b38",
+      "artifacts/dev40-behavior-development-ml-system-design-review-churn-post-cancellation-features/2.json": "f668f53e06f0cb7511c472fee8ba6e5996d34b06f187472392ccdd25a18d1149",
+      "artifacts/dev40-behavior-development-ml-system-design-review-churn-post-cancellation-features/3.json": "6369eccd88d875b7d2b5153d415ec0e6f160ca8609986941677cafc9293b659a",
+      "artifacts/dev40-behavior-development-ml-system-design-review-defect-classifier-accuracy-imbalance/1.json": "726ed8f2088910839639dc0e6caafb874e5d7df4c26b73599e79cda214ea0fbe",
+      "artifacts/dev40-behavior-development-ml-system-design-review-defect-classifier-accuracy-imbalance/2.json": "1e0679045a6c41d1fcd58d80e03b430a67c6ecf8b20b2dc5481832872d288748",
+      "artifacts/dev40-behavior-development-ml-system-design-review-defect-classifier-accuracy-imbalance/3.json": "e7896f096804f193acda226a20f3f11b0af066675c82fe14c2fd22abe76dd586",
+      "artifacts/dev40-behavior-development-ml-system-design-review-demand-forecast-no-baseline/1.json": "a71c8d3c3b3d3d6a1128d1b04a61352b8a7c276db851bee4b7b6c09e89b3ccb4",
+      "artifacts/dev40-behavior-development-ml-system-design-review-demand-forecast-no-baseline/2.json": "360559474c35c9dee791c228a69e52fafe5eea95dfe1829e5d128a449f5fbf6d",
+      "artifacts/dev40-behavior-development-ml-system-design-review-demand-forecast-no-baseline/3.json": "2c069ebe96bde3c695cd3d03314462d575905f69c36339b5fe6756ce98ad01ac",
+      "artifacts/dev40-behavior-development-ml-system-design-review-recsys-no-online-test/1.json": "991d33df0cddd887214a5c09cfefecb36287a005e17ac301e4ad1ba5a84697b8",
+      "artifacts/dev40-behavior-development-ml-system-design-review-recsys-no-online-test/2.json": "1e299b651c9869efc4894cc75fcae4c5cd684fd47c55801028ef18546cecada0",
+      "artifacts/dev40-behavior-development-ml-system-design-review-recsys-no-online-test/3.json": "9d57fed25c29cda9096c366b46257b29e3a49897fe95fbbce66352856afe1a94"
+    },
+    "case_snapshot_sha256": "0cc17bdfcb962325b757037fa197d5d3d9ab2557a4aab69d5b3f435b6ca3508a",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "7241033a4dda6d481c6484f5741f1ec707cf20b9ee88f0808296acc824645efe"
+  },
+  "passed": 12,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55",
+  "schema_version": 5
+}

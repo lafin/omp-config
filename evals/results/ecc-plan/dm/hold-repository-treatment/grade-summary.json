@@ -1,0 +1,22 @@
+{
+  "all_passed": true,
+  "artifacts": 3,
+  "condition": "treatment",
+  "critical_passed": 3,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-deprecation-and-migration-repository-holdout-rolling-production/1.json": "4742004989254435c60c810b33fbac386f1239e14997bf4cafa4ab5088d8c6a6",
+      "artifacts/pilot-deprecation-and-migration-repository-holdout-rolling-production/2.json": "64c2a6ccbffc26417902deb3d14404c36c35e6027ad74042954ff6e8b19397eb",
+      "artifacts/pilot-deprecation-and-migration-repository-holdout-rolling-production/3.json": "acfd9501fc8647cb37b46caaf6e770bb7fbb4effec77c16a3ccfe5594cda2772"
+    },
+    "case_snapshot_sha256": "7b03c6777eddfa7f831fa3abd8dc9ac154b922210caa7974fa1a5564f7a604e1",
+    "grader_sha256": "fc1e6fbc9c8c78632fee520a729f13040a2a80142b27e2f54b3895022445f66b",
+    "manifest_sha256": "64a705a8fc81f1b6209aa0565e29c57721e811075259e225e6b706cbdecb6afa"
+  },
+  "passed": 3,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-repository-treatment",
+  "schema_version": 5
+}

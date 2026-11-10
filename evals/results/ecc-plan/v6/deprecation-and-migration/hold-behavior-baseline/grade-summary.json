@@ -1,0 +1,37 @@
+{
+  "all_passed": false,
+  "artifacts": 18,
+  "condition": "baseline",
+  "critical_passed": 18,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-deprecation-and-migration-behavior-holdout-v2-db-lock-safe-expand/1.json": "2343c07806fb39900cb7e1d21a6e06fdc0d89f7855934f0a959f03341e6fcbc2",
+      "artifacts/pilot-deprecation-and-migration-behavior-holdout-v2-db-lock-safe-expand/2.json": "deb88188edcf81006fd67f6d842a39a56c6cb8e578caf090ebafe65c690a16fa",
+      "artifacts/pilot-deprecation-and-migration-behavior-holdout-v2-db-lock-safe-expand/3.json": "645e36e86bf572a0832bbb808b3b3cea75e2846b8e13f91a1fa2f0eea26f8050",
+      "artifacts/pilot-deprecation-and-migration-behavior-holdout-v2-db-verify-drift/1.json": "7c846783a700646b21976828b446ecab781456ce121594f73b8bafdef695af5a",
+      "artifacts/pilot-deprecation-and-migration-behavior-holdout-v2-db-verify-drift/2.json": "6ce1706ac90972060493c90c3c78d8fefc8f70c3f0272ad2053853d110256cc0",
+      "artifacts/pilot-deprecation-and-migration-behavior-holdout-v2-db-verify-drift/3.json": "fb81394e43d2282e6504613d84c4df374de65564a4c1aadf0c29e149799b6a3f",
+      "artifacts/pilot-deprecation-and-migration-behavior-holdout-v2-gate-passed-cleanup/1.json": "eff12ac846bffda02f504bd8fdf28af7697713eb9ec5f48516ea1e9586cc5a0f",
+      "artifacts/pilot-deprecation-and-migration-behavior-holdout-v2-gate-passed-cleanup/2.json": "001bee13973ce0d0b1c465b18e07d9d8433fd92eacf6d3c07c5abd5ca493010a",
+      "artifacts/pilot-deprecation-and-migration-behavior-holdout-v2-gate-passed-cleanup/3.json": "332548f82d6f6a7440ee6297038f630de3a73adc73bc93de0e03b34c58c39b47",
+      "artifacts/pilot-deprecation-and-migration-behavior-holdout-v2-internal-alias/1.json": "f1f165b139bf0162e83a352ab60c4594dcdf9841d660c674f9c296a18ac70258",
+      "artifacts/pilot-deprecation-and-migration-behavior-holdout-v2-internal-alias/2.json": "718c9c57c5579cc6b47c9f19213c57f5ee8bfbd99348a4efb36f4007c1f06d49",
+      "artifacts/pilot-deprecation-and-migration-behavior-holdout-v2-internal-alias/3.json": "47e6e538bfaf5bc9217444b0c75d6870f4fd8db06e9a57cfbf4b50c4a76d59c9",
+      "artifacts/pilot-deprecation-and-migration-behavior-holdout-v2-monorepo-mobile/1.json": "a10221c6251fb5e352b8a6f288a5a09db4fd144b0a0def25515b9047f4dc9b94",
+      "artifacts/pilot-deprecation-and-migration-behavior-holdout-v2-monorepo-mobile/2.json": "d50969152db795c572e3509e87767804fce770ceb28bf429018aebf1a289a322",
+      "artifacts/pilot-deprecation-and-migration-behavior-holdout-v2-monorepo-mobile/3.json": "f3e06725904412ec13a4c8dd9cb1572fdb6d1d5363308a4013a8695783dc2ada",
+      "artifacts/pilot-deprecation-and-migration-behavior-holdout-v2-no-boundary-rename/1.json": "3f3ba42ad7a99217b891eb1e35d522bab35d18bb799fd78fc3a868cfe996f299",
+      "artifacts/pilot-deprecation-and-migration-behavior-holdout-v2-no-boundary-rename/2.json": "d385c7612122edfc2ddaf71de5f5bab4770ba5c43422b74b5b37a621da66d390",
+      "artifacts/pilot-deprecation-and-migration-behavior-holdout-v2-no-boundary-rename/3.json": "bd5d31c6d7d9674d95d808aac53513d5214b2fcd4cba60fd253568b05e0f8876"
+    },
+    "case_snapshot_sha256": "7174a7f562e2312ff772748b188e32cb53c54a6ba32b556f455e92c126ffbb35",
+    "grader_sha256": "49b310ddde90221b1fbad5b6b81bd8b6df947414229dbfbb4781cb494e16ecbc",
+    "manifest_sha256": "25d36221aaad3474e4086cd51e16112e7f0651ad3d13f594eb2e44af6f8c5841"
+  },
+  "passed": 10,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-behavior-baseline",
+  "schema_version": 5
+}

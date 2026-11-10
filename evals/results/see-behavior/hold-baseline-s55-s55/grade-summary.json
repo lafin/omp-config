@@ -1,0 +1,37 @@
+{
+  "all_passed": false,
+  "artifacts": 18,
+  "condition": "baseline",
+  "critical_passed": 9,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/see-final-error-upload/1.json": "c883d7a71436aff775c744b4e1bf8d94d1a2fb0ff5bd12c12bd018eca45da1c6",
+      "artifacts/see-final-error-upload/2.json": "fccb9e56c62d6beddecfed8ae6bbcaeaba90efb02c88dde00f53b9c8a4695420",
+      "artifacts/see-final-error-upload/3.json": "549a1c95f81334bf21adc34ebee0a0ed2a6f5cd5a43925481a458c03b620289e",
+      "artifacts/see-final-explanation-async/1.json": "a351c633657e4591095ca936e10abe428fb482fee0082a36fa27d07ad87d8113",
+      "artifacts/see-final-explanation-async/2.json": "0229524424730ffce605b005159c6b1a0bfcac73aeae31b665d72ff13559d81c",
+      "artifacts/see-final-explanation-async/3.json": "49af351d3831a653d48c98c45850e91c3ce15d3c7975d2c395dfd507418ad40f",
+      "artifacts/see-final-procedure-destructive/1.json": "c641b0842921aefd6efa9d4971e352af5c991f51021c5abe65a435fa80e94c5e",
+      "artifacts/see-final-procedure-destructive/2.json": "33c3a982501b713194bd44bd65d5f41e6a0eacc07336a1f0835aaecdc23e3e26",
+      "artifacts/see-final-procedure-destructive/3.json": "09e62fa7ae91713b16d088d2432c45128265450891876b938f0d67d83769e69b",
+      "artifacts/see-final-procedure-noop/1.json": "0f5333f4da55ec144248ac9be1e7f36ac42ceaea45bf5b150794d947a5f542e6",
+      "artifacts/see-final-procedure-noop/2.json": "4e643be8605a08d769084b3b6ce2a43b78b93ff165a3a6f52be2daf1dd23a2a6",
+      "artifacts/see-final-procedure-noop/3.json": "f86085be0ca303a1e410f35b07921ea445041a76c67d03ebcc19ab360cd14c8d",
+      "artifacts/see-final-requirement-noop/1.json": "bfbce1a67707b6cb840007a62e0c350361247f0ff42beea99b402c38ee357bb8",
+      "artifacts/see-final-requirement-noop/2.json": "a6117ce97e237758c77f90bb6d8ade16771ab3d90f617ea2ccf8e81a608f37ea",
+      "artifacts/see-final-requirement-noop/3.json": "456dc275e53715f3efa83d423ce4cf87058026ed2f1d83b2d472ffa9cd6d2329",
+      "artifacts/see-final-requirement-security/1.json": "9f9b04442eb8264897b4a70e0a343c3ecbb10f51bab48155b83588a61f99a92e",
+      "artifacts/see-final-requirement-security/2.json": "89fa26f0129c080fd01b69c7e26691b191186a63f0eb755453f2b5380c060018",
+      "artifacts/see-final-requirement-security/3.json": "633e8feab492f4a018ff84c3384b485cc960d240b6035495ca3d6098d40d0ad3"
+    },
+    "case_snapshot_sha256": "60cbc6c296395c2b816691745fc89f6878ad0bfee5c3179255aa46868ec096c4",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "e05945f80f316c17b763d8199e183d4ec0036999c47ffe02d2ba37436a87f0ce"
+  },
+  "passed": 9,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-baseline-s55-s55",
+  "schema_version": 5
+}

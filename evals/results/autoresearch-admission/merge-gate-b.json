@@ -1,0 +1,88 @@
+{
+  "admission_path": "improvement",
+  "case_kind": "repository",
+  "correctness_benefit": null,
+  "criteria": {
+    "cost_metrics_known": true,
+    "development_improved": true,
+    "holdout_preserved": true,
+    "increased_cost_has_correctness_benefit": false,
+    "no_critical_regressions": true,
+    "routing_holdout_all_passed": true
+  },
+  "decision": "fail",
+  "development": {
+    "baseline_check_coverage": 0.8090909090909091,
+    "baseline_critical_failures": 0,
+    "baseline_metrics": {
+      "questions": 0,
+      "tokens": 520287,
+      "tool_events": 88
+    },
+    "baseline_passed": 0,
+    "critical_regressions": [],
+    "regressions": [],
+    "total": 6,
+    "treatment_check_coverage": 1.0,
+    "treatment_critical_failures": 0,
+    "treatment_metrics": {
+      "questions": 0,
+      "tokens": 3949317,
+      "tool_events": 203
+    },
+    "treatment_passed": 6
+  },
+  "efficacy_claim": null,
+  "holdout": {
+    "baseline_check_coverage": 0.8090909090909091,
+    "baseline_critical_failures": 0,
+    "baseline_metrics": {
+      "questions": 0,
+      "tokens": 795355,
+      "tool_events": 117
+    },
+    "baseline_passed": 0,
+    "critical_regressions": [],
+    "regressions": [],
+    "total": 6,
+    "treatment_check_coverage": 1.0,
+    "treatment_critical_failures": 0,
+    "treatment_metrics": {
+      "questions": 0,
+      "tokens": 4879180,
+      "tool_events": 242
+    },
+    "treatment_passed": 6
+  },
+  "increased_metrics": [
+    "development:tokens",
+    "development:tool_events",
+    "holdout:tokens",
+    "holdout:tool_events",
+    "routing_holdout:tokens"
+  ],
+  "paired_evidence": true,
+  "routing_holdout": {
+    "baseline_check_coverage": 1.0,
+    "baseline_critical_failures": 0,
+    "baseline_metrics": {
+      "questions": 0,
+      "tokens": 12778,
+      "tool_events": 0
+    },
+    "baseline_passed": 30,
+    "critical_regressions": [],
+    "regressions": [],
+    "total": 30,
+    "treatment_check_coverage": 1.0,
+    "treatment_critical_failures": 0,
+    "treatment_metrics": {
+      "questions": 0,
+      "tokens": 18039,
+      "tool_events": 0
+    },
+    "treatment_passed": 30
+  },
+  "schema_version": 5,
+  "unknown_metrics": []
+}

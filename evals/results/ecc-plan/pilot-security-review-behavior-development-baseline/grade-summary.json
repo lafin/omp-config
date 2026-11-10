@@ -1,0 +1,28 @@
+{
+  "all_passed": true,
+  "artifacts": 9,
+  "condition": "baseline",
+  "critical_passed": 9,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-security-review-behavior-development-command-injection/1.json": "0eb8daa36143bb6e63eca757a47b458a4d829fc4633bc3e0d560558478e6a58e",
+      "artifacts/pilot-security-review-behavior-development-command-injection/2.json": "cef206ff4e3ac34027a0e14f60672c6b29aa9988d48d7054b534e2aafd4bd2c6",
+      "artifacts/pilot-security-review-behavior-development-command-injection/3.json": "ff22217ef4b2df93df8218aa4375457715fb265d3d9787767c0b297de9f272bb",
+      "artifacts/pilot-security-review-behavior-development-guarded-clean/1.json": "ff17381ce48553a7f5d3760f04d9d7f193c6a4c47b23a787cc1cf3f3d832cd68",
+      "artifacts/pilot-security-review-behavior-development-guarded-clean/2.json": "fd3ec14dcbbc8bedda331f23d6d686078bb60c31b378764719d1f527fd28f516",
+      "artifacts/pilot-security-review-behavior-development-guarded-clean/3.json": "df239252eea1d5205b150b24ae28804e86a3848888f4f1ef7741345568d3afdd",
+      "artifacts/pilot-security-review-behavior-development-ssrf/1.json": "8493d33381f0fc00dde4b25ac8767aabcc8016c43d625fe415b1d3b8bf806485",
+      "artifacts/pilot-security-review-behavior-development-ssrf/2.json": "cd307feabcd5e1125f2c79d17bd82ce2111d0a7e968b47c393bd4855e93c2100",
+      "artifacts/pilot-security-review-behavior-development-ssrf/3.json": "ca309f91e29814e377eb2313ec60d571d5c14806d9b4cf2da165558b29b3490a"
+    },
+    "case_snapshot_sha256": "62a492249b1564281e83995fe835246002d0e3c9460b892c4d45d38021c689b0",
+    "grader_sha256": "6af448be75bbfd4e074eae818aca31cdf172a65f3a853b151f406ae1be231591",
+    "manifest_sha256": "26c6ad59f4613fbb1fbc23297f28ce1aad9dcded6c6ebcb1c2dbf768b9abed1d"
+  },
+  "passed": 9,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "pilot-security-review-behavior-development-baseline",
+  "schema_version": 5
+}

@@ -1,0 +1,25 @@
+{
+  "all_passed": false,
+  "artifacts": 6,
+  "condition": "baseline",
+  "critical_passed": 0,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-source-driven-development-behavior-holdout-conflicting-version-evidence/1.json": "633fa744823e7c32f6415c3aabdecf2a975ae97df3bb4146d6d64e410dbe51a4",
+      "artifacts/pilot-source-driven-development-behavior-holdout-conflicting-version-evidence/2.json": "7780a52eff2d1bead6df2af10d2fafa5c1a0e40b27ff3c88eb4c211f3b9a49ca",
+      "artifacts/pilot-source-driven-development-behavior-holdout-conflicting-version-evidence/3.json": "a5b6e417eb055e52dbd90acf1c0ec1c11975784b3dddd6a28ed7bcc41d2a26e6",
+      "artifacts/pilot-source-driven-development-behavior-holdout-observation-without-authority/1.json": "2e362d4e1e45cf2b107c3e9a04f48d21743ad7316493875234bee717827850fb",
+      "artifacts/pilot-source-driven-development-behavior-holdout-observation-without-authority/2.json": "6224cda93048712b05ba534356028036881a5c05b730f33ee13b8ede7e882148",
+      "artifacts/pilot-source-driven-development-behavior-holdout-observation-without-authority/3.json": "a727a96985a6de6769d25c6be7426af46c939fdc046056f82cf24189df73489f"
+    },
+    "case_snapshot_sha256": "ef56aef17758e674b6604b2b7acd4848c7e187f40c4af2ddbbd5283ddd42b3f6",
+    "grader_sha256": "49b310ddde90221b1fbad5b6b81bd8b6df947414229dbfbb4781cb494e16ecbc",
+    "manifest_sha256": "11e5c7b0c7c9aa6164ca3d54c9a81a8e400e53749a30befa4069ff5b8a91b369"
+  },
+  "passed": 0,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-behavior-baseline",
+  "schema_version": 5
+}

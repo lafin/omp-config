@@ -1,0 +1,25 @@
+{
+  "all_passed": false,
+  "artifacts": 6,
+  "condition": "treatment",
+  "critical_passed": 0,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/autoresearch-security-hard-holdout-v2-audit/1.json": "e8f69eb2d28a6fefc9374760900d1c8fa3b2b218d011755193e86d9e8976a442",
+      "artifacts/autoresearch-security-hard-holdout-v2-audit/2.json": "bd021777d937d321c29cbbdf1faefc6b54b6c1015bdc9373d71d14cfc11534a3",
+      "artifacts/autoresearch-security-hard-holdout-v2-audit/3.json": "3cda24ebb681256b029991001f6a1b2434c607cc871db2e4a09fbb4b6a692ca2",
+      "artifacts/autoresearch-security-hard-holdout-v2-audit/4.json": "fe2e22537a951bded70b7ba0b4f2ef901c4a28943bed7abb932a4c8bf21a22be",
+      "artifacts/autoresearch-security-hard-holdout-v2-audit/5.json": "534e0b03380aa76d1141d698266dffd69daa6d3950eb18d2664b6091eb838c0b",
+      "artifacts/autoresearch-security-hard-holdout-v2-audit/6.json": "9826ce7a3db3b1253e3118bc7430436ae8d151dc260255cbd2f4071bd6569c23"
+    },
+    "case_snapshot_sha256": "3042f5affa57eae4e89389adc81322a071458ec674d1d788fa2d162efa7faf7c",
+    "grader_sha256": "da87d8b9567a0f1b576957751d92522f2cd0df34a591859cc77abffc183baa3d",
+    "manifest_sha256": "9ef6a14340150e24d738a953c88a95a4d1e14d78cd8ee9a327758d7ab87bfd92"
+  },
+  "passed": 0,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-treatment-s55",
+  "schema_version": 5
+}

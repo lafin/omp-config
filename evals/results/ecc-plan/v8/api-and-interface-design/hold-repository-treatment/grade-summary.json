@@ -1,0 +1,25 @@
+{
+  "all_passed": true,
+  "artifacts": 6,
+  "condition": "treatment",
+  "critical_passed": 6,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-api-and-interface-design-repository-holdout-no-speculative-abstraction/1.json": "181a2b7690b608d27cb98043b0ff8524dce4140396f22e68cf89215a0a193e02",
+      "artifacts/pilot-api-and-interface-design-repository-holdout-no-speculative-abstraction/2.json": "a784fcf0af85412b329c135c7e61af51d1446f865bb343c3121391e4644d19f5",
+      "artifacts/pilot-api-and-interface-design-repository-holdout-no-speculative-abstraction/3.json": "ab94b8c5624f15eb8f38a978b69690b0d769c3fa7742860375c485f2bb610a72",
+      "artifacts/pilot-api-and-interface-design-repository-holdout-schema-evolution/1.json": "e6fb0f9e497c9985bbfdad1d2d3bc1d508dbe2c870b081994c2a78b4bbca9e28",
+      "artifacts/pilot-api-and-interface-design-repository-holdout-schema-evolution/2.json": "e677f85f6149c0661a878a80b397367c97f077495ea17cb8a0d3075a6057519b",
+      "artifacts/pilot-api-and-interface-design-repository-holdout-schema-evolution/3.json": "8f1ac0ad5d6d35a24fe4d641e72917f5e47be578908897626a54370c8f6c264a"
+    },
+    "case_snapshot_sha256": "25c23e8f24be9114941f85f6ada3e03ea977f91ef02fc10d9141282a29aeb6b0",
+    "grader_sha256": "49b310ddde90221b1fbad5b6b81bd8b6df947414229dbfbb4781cb494e16ecbc",
+    "manifest_sha256": "5855b97d0d74bee370c016be7d4314ac5623430451988bc3292f8c8b9baea448"
+  },
+  "passed": 6,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-repository-treatment",
+  "schema_version": 5
+}

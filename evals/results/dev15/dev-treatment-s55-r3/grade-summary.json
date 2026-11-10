@@ -1,0 +1,43 @@
+{
+  "all_passed": false,
+  "artifacts": 24,
+  "condition": "treatment",
+  "critical_passed": 19,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev15-behavior-development-ml-system-design-review-ab-test-peeking-multiple-metrics/1.json": "6fa21b57fd7cc8cbac1ec948b87a8a64266ec2ca1cb38dd4c6d2d62b8d22c941",
+      "artifacts/dev15-behavior-development-ml-system-design-review-ab-test-peeking-multiple-metrics/2.json": "79bd4879df05f80a16e69b1f78f69dbd8b1348538481031db21e766a97feaffa",
+      "artifacts/dev15-behavior-development-ml-system-design-review-ab-test-peeking-multiple-metrics/3.json": "3051ef853ad09467a623361ae2338b931a4f6f0878c340b6d349fbf3d669696d",
+      "artifacts/dev15-behavior-development-ml-system-design-review-auto-promote-pricing-no-rollback/1.json": "2d9de6e35c43f490cae7da768d63041630803d2d7169f34b05c04acc72d31906",
+      "artifacts/dev15-behavior-development-ml-system-design-review-auto-promote-pricing-no-rollback/2.json": "4e8b7115b6b684a60f80891d7151425f8c41145b5d37207421b0d2d23324f6d5",
+      "artifacts/dev15-behavior-development-ml-system-design-review-auto-promote-pricing-no-rollback/3.json": "af58e2b9c3d79bf5d7c551cc46e2fcd55931720f28654eddb50ad19ec928244a",
+      "artifacts/dev15-behavior-development-ml-system-design-review-feedback-loop-ranker-clicks/1.json": "730129b2530e37135c81b589895f548510027448d079cc9e19624fcfef41ce47",
+      "artifacts/dev15-behavior-development-ml-system-design-review-feedback-loop-ranker-clicks/2.json": "c8bdacc7afd9de1ee1eea927646884c18905100b238c3e052e6330da6aadbd77",
+      "artifacts/dev15-behavior-development-ml-system-design-review-feedback-loop-ranker-clicks/3.json": "44451790a298a2f6fb91a0843a3a3bbeefd1a10c3ce1488985996c6e903bacea",
+      "artifacts/dev15-behavior-development-ml-system-design-review-internal-digest-low-stakes/1.json": "fa4efcdb5864da212368040f99dec7cb360e0bab87d2b01363a4560daa0d7def",
+      "artifacts/dev15-behavior-development-ml-system-design-review-internal-digest-low-stakes/2.json": "5b2ca2044da651c8b65a19492100830dd0f12b47c3a6de0510b0b71c3edefe94",
+      "artifacts/dev15-behavior-development-ml-system-design-review-internal-digest-low-stakes/3.json": "e88a611a63ae2266a055df5035e0ace91761db1dd8b9cee34ceec0d0894397a0",
+      "artifacts/dev15-behavior-development-ml-system-design-review-invoice-extraction-auto-pay/1.json": "f9c50a96e37511f6a114df751b9b9bfac11fc405a11046df08c20609de34189c",
+      "artifacts/dev15-behavior-development-ml-system-design-review-invoice-extraction-auto-pay/2.json": "405c73a67643672b076ba9cd87a4a0e13687ab4961048f7ed125e25b3abf7ea3",
+      "artifacts/dev15-behavior-development-ml-system-design-review-invoice-extraction-auto-pay/3.json": "c3c996a385b61bb5d15f80052dc404d4234e44c1dfbcd6d0315d18d39797f5e5",
+      "artifacts/dev15-behavior-development-ml-system-design-review-near-duplicate-tickets-straddle-split/1.json": "e4d99de11b26e21ea117d61747d476eb3d80442d4727c077efa3a2400402353e",
+      "artifacts/dev15-behavior-development-ml-system-design-review-near-duplicate-tickets-straddle-split/2.json": "589dd1b40b645d34e80d771188e93f51baaad44edb805a59b203e1c983d194a7",
+      "artifacts/dev15-behavior-development-ml-system-design-review-near-duplicate-tickets-straddle-split/3.json": "962ac3993508e905fd2b39d580b65dc0653c09782e34711bce47d9365b94308e",
+      "artifacts/dev15-behavior-development-ml-system-design-review-rag-shared-drive-no-acl/1.json": "9ec02ea864c66ad2e06e3ce7058576bba4056709b14d4d34d27e734ba3e5bed0",
+      "artifacts/dev15-behavior-development-ml-system-design-review-rag-shared-drive-no-acl/2.json": "9e1c5cbd863b0486702c94a018d8db93f568e8641f676eb1469f1e1bab37b2d6",
+      "artifacts/dev15-behavior-development-ml-system-design-review-rag-shared-drive-no-acl/3.json": "23432ea91f16b86d337dfdf9cb8e309f5893d74e334c9ff3b0d3fbbaf3363ea8",
+      "artifacts/dev15-behavior-development-ml-system-design-review-research-agent-unbounded-cost/1.json": "c0d8c1736296f30bfb3013189b151f684c55b9c8eb60a81fd5cf85f1cc159c1b",
+      "artifacts/dev15-behavior-development-ml-system-design-review-research-agent-unbounded-cost/2.json": "4c59bac447bfa0e869e79fee1fa44d1d818d017499a17f690dbd29e00efee410",
+      "artifacts/dev15-behavior-development-ml-system-design-review-research-agent-unbounded-cost/3.json": "5a9a9e9577a9eb368a7373ad8aad73a0759f79bc714f1cd65a24aff3a10ca24f"
+    },
+    "case_snapshot_sha256": "73de01db0724c3bc659aa6148307f9074017ed9b71bd9c09d88181cad8d31cfb",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "0474201a98b79d86b2594c50666719d087ecabd79a06a9970b0091d2a6301c86"
+  },
+  "passed": 19,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55-r3",
+  "schema_version": 5
+}

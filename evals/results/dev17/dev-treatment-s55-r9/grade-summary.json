@@ -1,0 +1,43 @@
+{
+  "all_passed": false,
+  "artifacts": 24,
+  "condition": "treatment",
+  "critical_passed": 21,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev17-behavior-development-security-review-error-handler-dsn-leak/1.json": "9a9aea292ff8494676e58153bff1958a48fa8de64226ac2c39159a37ef8bc39c",
+      "artifacts/dev17-behavior-development-security-review-error-handler-dsn-leak/2.json": "5d0e0596d2b5abdf355eb4ded6018f5b1b82a2b21a52b802f55b10b4c0c6349f",
+      "artifacts/dev17-behavior-development-security-review-error-handler-dsn-leak/3.json": "0618302ec2cdb3f2590fc3be15ab92c7e8fa0c84566d3080005cfa3d0ba94e9d",
+      "artifacts/dev17-behavior-development-security-review-guarded-logo-fetch-clean/1.json": "2cefbf0c5eb3ae85e74d06629884d70387a2d2c449b36c04cd0daf525d14e0b1",
+      "artifacts/dev17-behavior-development-security-review-guarded-logo-fetch-clean/2.json": "af026967a08bffa8d99f8c86654f733bea67285aac262bcd28543c2849dd2a40",
+      "artifacts/dev17-behavior-development-security-review-guarded-logo-fetch-clean/3.json": "766014898f3af0fc930ef49bd3082eaf06774fca325fde0acba5511022964ef2",
+      "artifacts/dev17-behavior-development-security-review-jwt-signature-skipped/1.json": "8fbe91febc9b2ca75d15ee31ee0ee2f35b9e764519c5fe22ac91e6011bececfb",
+      "artifacts/dev17-behavior-development-security-review-jwt-signature-skipped/2.json": "ca13913ae55c6e3ca36d02e3548e9b451d4643fbbbec7ecf8968f944cc70b0f0",
+      "artifacts/dev17-behavior-development-security-review-jwt-signature-skipped/3.json": "1ee7b388c556d6ab406aca9892f51f4bbf2033971058572a132ef7c902da2d61",
+      "artifacts/dev17-behavior-development-security-review-refund-amount-from-client/1.json": "f764096921c9b5a51893c0f8127f29232179f4952e802f06884289fb7dd8158a",
+      "artifacts/dev17-behavior-development-security-review-refund-amount-from-client/2.json": "98319eee4e329c22038e0411ff538518ee70b6e91d3bef03638c2dd00c19e8ae",
+      "artifacts/dev17-behavior-development-security-review-refund-amount-from-client/3.json": "f896b1e9b4f4408ee7d9984bc9e5c0b660fca139137532039477a5529ead4a60",
+      "artifacts/dev17-behavior-development-security-review-reset-link-host-header/1.json": "663dc76220c8cbc4dd6db6abab6ec1243f71b94994a5d0eee80bb24c5916c809",
+      "artifacts/dev17-behavior-development-security-review-reset-link-host-header/2.json": "0e21344233cd82a24acb206a5ede74124ee7f9377c1c2dcb3d6ff2a92544146a",
+      "artifacts/dev17-behavior-development-security-review-reset-link-host-header/3.json": "1bd18d6796889733c5caf11ba5842c65bcc9ab7dab0cb91dde8fe82fab491d1b",
+      "artifacts/dev17-behavior-development-security-review-shell-thumbnail-size/1.json": "1f13496e261a81036aa35ac8b21471f8dcb7fb518503079a322d135fe59b37bc",
+      "artifacts/dev17-behavior-development-security-review-shell-thumbnail-size/2.json": "15614f366d4a7546876d17f4f067486a57e4b6ab09881dbcea56600ed7a60e21",
+      "artifacts/dev17-behavior-development-security-review-shell-thumbnail-size/3.json": "4e1167b6a015d993075537834b08e5317058a63e390d6701396e590e5ad0fbb9",
+      "artifacts/dev17-behavior-development-security-review-ssrf-link-preview/1.json": "c1dc99d4ad62db65b68c7ca72e449b49aabe6a350baa789f19fa768564632d9f",
+      "artifacts/dev17-behavior-development-security-review-ssrf-link-preview/2.json": "d5b74e6a9580337b36a084e54ee30527dc4af28a9e32c47f386f2a1979468c69",
+      "artifacts/dev17-behavior-development-security-review-ssrf-link-preview/3.json": "55ed9c1d454ad5cf7d27a7af5a098d2559f3e5de7ebaf786bd278e84875b1780",
+      "artifacts/dev17-behavior-development-security-review-template-string-greeting/1.json": "9e45746b3ea233e97420ca44b4c14df0a781052c71e930ef29a92b08384d9eca",
+      "artifacts/dev17-behavior-development-security-review-template-string-greeting/2.json": "67f1d632f9e44072f01aec001bca00d3c9525740936ad77b00279e9e9acbc74d",
+      "artifacts/dev17-behavior-development-security-review-template-string-greeting/3.json": "798266beae884e742b54a6c84ae38a7f3bc4320bd3e4f63f5f5946d30efd448b"
+    },
+    "case_snapshot_sha256": "2a7a080e2d1493cf3cc6de64462d601be384b7a0f7a6babfdcab829355a1dbbb",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "702db10eb520f462a7057c0fb5b993f9721aae388456d5a2d2a43c58066c9b03"
+  },
+  "passed": 21,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55-r9",
+  "schema_version": 5
+}

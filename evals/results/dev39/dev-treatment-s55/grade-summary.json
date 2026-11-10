@@ -1,0 +1,31 @@
+{
+  "all_passed": true,
+  "artifacts": 12,
+  "condition": "treatment",
+  "critical_passed": 12,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev39-behavior-development-filesystem-context-code-review-budget-gate/1.json": "78dc81ee212dffbd24c9e08676f2ff630c73481c9f93ad7c22fe34b98d195a29",
+      "artifacts/dev39-behavior-development-filesystem-context-code-review-budget-gate/2.json": "a1c3dacf0b53d3dc0bb5497ad7c6aad4e78fa652e13356f0bf99fcc983ad0371",
+      "artifacts/dev39-behavior-development-filesystem-context-code-review-budget-gate/3.json": "27006770b739ad167938691f5fb0615d1067eaa7cd69418ec4f57947547e14cc",
+      "artifacts/dev39-behavior-development-filesystem-context-log-search-truncation/1.json": "0a30e041830b04607eb8a6764b9849328e789a43f862b0ef9b0d9c8b75327d0a",
+      "artifacts/dev39-behavior-development-filesystem-context-log-search-truncation/2.json": "fb5d8732ca95bae6f82542e8af5a2fb1985f5cff7cd99a32f7ba9bab695a39f2",
+      "artifacts/dev39-behavior-development-filesystem-context-log-search-truncation/3.json": "e2da0c4da820d313825b948f69974067a841b96230e1d3d570505580000fc523",
+      "artifacts/dev39-behavior-development-filesystem-context-multilingual-offload-wrapper/1.json": "248ce36cefc6161a1b817507eb8675c61102657f7e50d784feabdc46526349c1",
+      "artifacts/dev39-behavior-development-filesystem-context-multilingual-offload-wrapper/2.json": "e4771d77f40c8acd8eb88beb8780f6bb91a81da9492180dd183107e7679a6a4b",
+      "artifacts/dev39-behavior-development-filesystem-context-multilingual-offload-wrapper/3.json": "0bb87c9cf2899b6a9802c2ec9c426adb2beb800d34c7d5901d39432fc40b5b49",
+      "artifacts/dev39-behavior-development-filesystem-context-plan-file-size-cap/1.json": "bde64c2a74a07a462fdc01bc5b5ab1cd87207f407499e019ce5cdac57e2fa1ce",
+      "artifacts/dev39-behavior-development-filesystem-context-plan-file-size-cap/2.json": "a61ec5fe9fbe9187547d733d5679a7ef15753b53b570b5d2fc78346a1cc20059",
+      "artifacts/dev39-behavior-development-filesystem-context-plan-file-size-cap/3.json": "ac57a4852c7a5183779da41443a457faa469c8d6c094c100389f02b84f935857"
+    },
+    "case_snapshot_sha256": "abf81e1dc2d492e99011d96e8970778fc1f169a66eaaec900b1e8fa8f992903a",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "2aba45356cdf673cc497b6ca64dcc96a0cf0686fba1054429cf5c5846e2a039a"
+  },
+  "passed": 12,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55",
+  "schema_version": 5
+}

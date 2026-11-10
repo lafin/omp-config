@@ -1,0 +1,43 @@
+{
+  "all_passed": true,
+  "artifacts": 24,
+  "condition": "treatment",
+  "critical_passed": 24,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev30-behavior-development-bdi-mental-states-justification-trace/1.json": "cbf5d8eeae2163ea904dc849e649daf1aef15731cdd39ff99f985f94acea30a6",
+      "artifacts/dev30-behavior-development-bdi-mental-states-justification-trace/2.json": "451422c7f61502e8aa51c4a46a22a1967711fa5608808a1a0b79b33b0d03b65f",
+      "artifacts/dev30-behavior-development-bdi-mental-states-justification-trace/3.json": "328922777895ae15ba1584613853d871125d22b0515df39f38a1f0be90725406",
+      "artifacts/dev30-behavior-development-bdi-mental-states-lag-validate-triples/1.json": "c45c1e717890c3b6d4924f1518f5358e21d2b497b3a3e8c9637bbd80dec7b2da",
+      "artifacts/dev30-behavior-development-bdi-mental-states-lag-validate-triples/2.json": "42abcc6132c564b609614399f235f6fdde7928f92fb7ceb07f3f3ae1196ec1fd",
+      "artifacts/dev30-behavior-development-bdi-mental-states-lag-validate-triples/3.json": "54a0926b5f8efb8c010d0fbffb03b5d63964e9b8bedeb075d0bf589251ba793a",
+      "artifacts/dev30-behavior-development-bdi-mental-states-partial-update-haspart/1.json": "1ecc4103987cf4b2f3848bdf62cddbabe8da97c5a424a6476f2a20a700f02cad",
+      "artifacts/dev30-behavior-development-bdi-mental-states-partial-update-haspart/2.json": "39d1b30832b58e21ff7f4c138eb7f02ae82d00d279bb7a82a9147fb558b4021c",
+      "artifacts/dev30-behavior-development-bdi-mental-states-partial-update-haspart/3.json": "af7a0674e8bec56249cd595a57a185ce13332dc07a4d7904977b731c28d3ba7f",
+      "artifacts/dev30-behavior-development-bdi-mental-states-plan-task-order/1.json": "762c41c1d9d30370f4f616eac142a8477741b12e8c9632ea3378932a9585cf4b",
+      "artifacts/dev30-behavior-development-bdi-mental-states-plan-task-order/2.json": "69dbe36df15aa79a4ac4d8380d9ad89bdc16a9cdbd31b490fec5be880c6285ec",
+      "artifacts/dev30-behavior-development-bdi-mental-states-plan-task-order/3.json": "31be95a74b8a25ce7ac483734bf917b0db229c5cf1649c707cf9c7c2f5656a0f",
+      "artifacts/dev30-behavior-development-context-degradation-clash-rate-limit/1.json": "723dddab43b18ac9f0963a075652da5dc09c15751e981cb287b4f87f000876c0",
+      "artifacts/dev30-behavior-development-context-degradation-clash-rate-limit/2.json": "1c50a40a895a9992a57f8a3db962b3df026db6376b820a42b8f0376ea8749ed2",
+      "artifacts/dev30-behavior-development-context-degradation-clash-rate-limit/3.json": "3f440778d21dd8e86f51ddd4c17582a8987902da6dd984a213463e2226e50ad3",
+      "artifacts/dev30-behavior-development-context-degradation-distractor-retrieval/1.json": "200fa083847e42f4e82b8afb41973104b682770ed1f96a94f943c24a54dc730b",
+      "artifacts/dev30-behavior-development-context-degradation-distractor-retrieval/2.json": "428a6ce501b6f3960d8da2c692de1781711d3f693787cfb7e9c3f0f69ac4f9dc",
+      "artifacts/dev30-behavior-development-context-degradation-distractor-retrieval/3.json": "1da5a59ae7ecf1fea757ebc93806915ce1bdc05ab96f1c407eddb4d6d830dd11",
+      "artifacts/dev30-behavior-development-context-degradation-needle-test-false-confidence/1.json": "838ac0128516409e8591ea596defdf1af1a18fd11eb05dd238c7d1fa93c439f3",
+      "artifacts/dev30-behavior-development-context-degradation-needle-test-false-confidence/2.json": "3e5fbb689a0d398b47d8f5f402dd26570b08ddad557284db9a10afb42c704b31",
+      "artifacts/dev30-behavior-development-context-degradation-needle-test-false-confidence/3.json": "6b653c752392adb79f821d7852b105099dc2467faed453f786b33cf394d9b428",
+      "artifacts/dev30-behavior-development-context-degradation-task-confusion-isolation/1.json": "5fc1603209709cc7052f7a14bbd53b3c4f027a46ba597746a0be51fa0857e14d",
+      "artifacts/dev30-behavior-development-context-degradation-task-confusion-isolation/2.json": "0aaa80905b902c63909cabd6bd0aea96d6377c6db50bb3ccff80d2dbfba9bf3d",
+      "artifacts/dev30-behavior-development-context-degradation-task-confusion-isolation/3.json": "43e6ac8c9e82031113bbbf943e671501f2cf92df5f24c6e39bedac76e3241d38"
+    },
+    "case_snapshot_sha256": "8c46f6fbd64f8ad699f60117dc758a5d934717e3fe7f15b9e23a3f94c3891604",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "1376963d28aea446f59f1deaf30da5539df58a3346d827f3be9dbc9f68fb777f"
+  },
+  "passed": 24,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55",
+  "schema_version": 5
+}

@@ -1,0 +1,31 @@
+{
+  "all_passed": true,
+  "artifacts": 12,
+  "condition": "treatment",
+  "critical_passed": 12,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/see-boundary-descriptive-25-noop/1.json": "faa4bdfa9e5bf0d47a89c795acc0e30c04b7063663ee9d69300fe6a9b784c90c",
+      "artifacts/see-boundary-descriptive-25-noop/2.json": "6a63f5e091b69e84a0fb5af628d85a9d31ac42837e0313beb9d40024db1bd67e",
+      "artifacts/see-boundary-descriptive-25-noop/3.json": "837a19a09951624b407ea2bbf0522117157819c7b1bdb1779377b05d02294eb0",
+      "artifacts/see-boundary-descriptive-26-split/1.json": "89de81961032175467141cde40dc4852b6ffb7536334e804b74fade8c7494132",
+      "artifacts/see-boundary-descriptive-26-split/2.json": "7bfa3e447f2e411374caeef5fbcded45d78ebd524f0282278691c387cfc83bfc",
+      "artifacts/see-boundary-descriptive-26-split/3.json": "11aafaca1a60b1283bd60a6cb81d460d9ce3cc6708275968eff5fc458b386aaf",
+      "artifacts/see-boundary-procedural-20-noop/1.json": "607ecb99237a18638024d127c635176f88ce9c9bd8d61276b3c2559b62aabe26",
+      "artifacts/see-boundary-procedural-20-noop/2.json": "9e92c8a488b11561fa55c7f2a60be21edda39b33be66802d8d7f66f57b4366c0",
+      "artifacts/see-boundary-procedural-20-noop/3.json": "a7d450d55c63da2a68d5d76d2e36328996b5184e4dfef81c99faec823006f424",
+      "artifacts/see-boundary-procedural-21-split/1.json": "d3211968ec6a9bf877712a6b7fa656014ae006f895bde56c99d150aa8ff417c5",
+      "artifacts/see-boundary-procedural-21-split/2.json": "14c93812092e948bed1a3b4e9e71081e6335504d928f66cdf452496998d87f7a",
+      "artifacts/see-boundary-procedural-21-split/3.json": "85cd5dc2e3b01af5be64c1cad48ec13d0101c337f9c24e6b4e66847bdc1d1205"
+    },
+    "case_snapshot_sha256": "edf75b4543ecd470aa070f36a1e0b66e512ee24ad8a944306b135ea69fcae975",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "6c7e438e76876cfa4edf756fb8db65c5e9ce5b9d0073d704c5a146fa425cc872"
+  },
+  "passed": 12,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-treatment-s55-p854",
+  "schema_version": 5
+}

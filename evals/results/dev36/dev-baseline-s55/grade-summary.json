@@ -1,0 +1,31 @@
+{
+  "all_passed": false,
+  "artifacts": 12,
+  "condition": "baseline",
+  "critical_passed": 0,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev36-behavior-development-leancode-debt-ansible-sre-label/1.json": "6ffcc4a0d1916089f458f887dae29a89a32a85b6acb7ecd1c97ca41b3f03bf91",
+      "artifacts/dev36-behavior-development-leancode-debt-ansible-sre-label/2.json": "52e1fe47c4ef624e8cfeb544f3836f35e17f5d554986801a61f752a265ad7aef",
+      "artifacts/dev36-behavior-development-leancode-debt-ansible-sre-label/3.json": "aca2fd58f33d5e960ca637fe2253bdd36f5acaadca6a98257afe2e5b2e70a076",
+      "artifacts/dev36-behavior-development-leancode-debt-fixtures-shared/1.json": "8abc6f256ae6510d60c33affd60a15019679fdb74bf481b3112ac955162cb0f6",
+      "artifacts/dev36-behavior-development-leancode-debt-fixtures-shared/2.json": "02043436f41ac6d2c1544757cbdb933b02a3777397a17aaf54323de066c8e13c",
+      "artifacts/dev36-behavior-development-leancode-debt-fixtures-shared/3.json": "c4ab7aa4bfa5f2bb4cef643a57ce608a6ccbe0042127cb1da0bba98439beb34e",
+      "artifacts/dev36-behavior-development-leancode-debt-generated-nobodys/1.json": "19c84defce4f3aa0c58efe76f67e9676b57d84d8c06da3461400e47aa8be8682",
+      "artifacts/dev36-behavior-development-leancode-debt-generated-nobodys/2.json": "df415c4d1c5c44dff04cb86f638d264ad730607fa879f6defa43817026371a87",
+      "artifacts/dev36-behavior-development-leancode-debt-generated-nobodys/3.json": "81f13da9164727570dd19ebddbccdbbfc3dce2070caea2d79676e1d469ab4424",
+      "artifacts/dev36-behavior-development-leancode-debt-vendor-fork-no-owner/1.json": "35b7aacf2d35516198b40cd901cca3a8af0f59786d22e62a54fcdae1da58f1b9",
+      "artifacts/dev36-behavior-development-leancode-debt-vendor-fork-no-owner/2.json": "9fee3803858416b8faac9c7d34f09d24e760028f616c70522fb47e5bfc89ab73",
+      "artifacts/dev36-behavior-development-leancode-debt-vendor-fork-no-owner/3.json": "f8aef47129c856ad8245284accb0bb9da3e96b94c6b3c7ba57ebb71efce72467"
+    },
+    "case_snapshot_sha256": "8464a96540ef0968514faaa21920ba2ceec74fb5ee2031e12e432515f35f1260",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "d3f498929b1554f2b2232d865154cac949fdbf3a8fb4097f388cbe078b86ffc4"
+  },
+  "passed": 0,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-baseline-s55",
+  "schema_version": 5
+}

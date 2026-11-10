@@ -1,0 +1,22 @@
+{
+  "all_passed": true,
+  "artifacts": 3,
+  "condition": "treatment",
+  "critical_passed": 3,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-deprecation-and-migration-repository-holdout-rolling-production/1.json": "1c2fa877f7228a48c3fe0f1752cdc4c14d36e550bd7d83734368ce721b1a08ee",
+      "artifacts/pilot-deprecation-and-migration-repository-holdout-rolling-production/2.json": "a7392bfa73bcf6e1222b810020301559c8cba441b1631dc165d30f45ccce411e",
+      "artifacts/pilot-deprecation-and-migration-repository-holdout-rolling-production/3.json": "2024d218619a51bdc22c3ef3c1eb06c8add0396f71bcd91b55c2e46c959cd661"
+    },
+    "case_snapshot_sha256": "7b03c6777eddfa7f831fa3abd8dc9ac154b922210caa7974fa1a5564f7a604e1",
+    "grader_sha256": "49b310ddde90221b1fbad5b6b81bd8b6df947414229dbfbb4781cb494e16ecbc",
+    "manifest_sha256": "3a6f9e6c5e0f4164d3d4afd69aa014b803a77bd6a9ce9146c62d25f59f3b987c"
+  },
+  "passed": 3,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-repository-treatment",
+  "schema_version": 5
+}

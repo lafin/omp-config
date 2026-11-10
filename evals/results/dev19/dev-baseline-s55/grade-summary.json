@@ -1,0 +1,43 @@
+{
+  "all_passed": false,
+  "artifacts": 24,
+  "condition": "baseline",
+  "critical_passed": 3,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev19-behavior-development-hosted-agents-budget-timeout-cost/1.json": "7c716fd55a34b74a44e2003d427f1d0c56593c76d9f2b16c221abaf33f9249ab",
+      "artifacts/dev19-behavior-development-hosted-agents-budget-timeout-cost/2.json": "04ed70df5db109025bb68c86ed1d4dfc594d3212a549842e2aa09c24f8c743b8",
+      "artifacts/dev19-behavior-development-hosted-agents-budget-timeout-cost/3.json": "b063c610b7229a6878043496e1a53f13f2a87fb412148e91da63e891af692b98",
+      "artifacts/dev19-behavior-development-hosted-agents-egress-identity-review/1.json": "17a9144e0068217773097a99c6edf7e5a48ed73d722d497fe5214a34632fe01d",
+      "artifacts/dev19-behavior-development-hosted-agents-egress-identity-review/2.json": "3d4daad6ff758545b77bd87515e6b734ec2a276f8892d33ba95ae74aebb93eb9",
+      "artifacts/dev19-behavior-development-hosted-agents-egress-identity-review/3.json": "a24f97390b3cd286ed92f0efc9465677465e5e4ae189342688d7e0b4626a3ef0",
+      "artifacts/dev19-behavior-development-hosted-agents-image-cadence-sync/1.json": "c1c4bf67a041f28b5e1fdef73937dcbc47dc3d337aa014adfe13e3d30b62845d",
+      "artifacts/dev19-behavior-development-hosted-agents-image-cadence-sync/2.json": "4581ae634b584eb63fad373d6d0f405f0df92229c7199c83763fd9ca97434be3",
+      "artifacts/dev19-behavior-development-hosted-agents-image-cadence-sync/3.json": "96636940be40e353b1a3999e711136d4f0e048b33a153f4e4bca54eb31ec40aa",
+      "artifacts/dev19-behavior-development-hosted-agents-nightly-fleet-deps/1.json": "19b73e831c0d8b646a83a7f7c22f84bb3650875ad614b1859465add89f612e7a",
+      "artifacts/dev19-behavior-development-hosted-agents-nightly-fleet-deps/2.json": "e9b7c1237feec102fe9b1ec1b13e255ef6b8ceabcee6368356538e3be7b67204",
+      "artifacts/dev19-behavior-development-hosted-agents-nightly-fleet-deps/3.json": "0eb5220c9719f6e423a5594509809e72f3076baadfdeba23c6675032e6932004",
+      "artifacts/dev19-behavior-development-hosted-agents-output-extraction-teardown/1.json": "3306ff939a2f51e13e4cf190e954bd002c17caa221303684b944fe3b2b2f9821",
+      "artifacts/dev19-behavior-development-hosted-agents-output-extraction-teardown/2.json": "1a250abdd0a48472b84a78ec773e3326b65a2f76b713c2e1247d9254a77ce98f",
+      "artifacts/dev19-behavior-development-hosted-agents-output-extraction-teardown/3.json": "cf798e18cc2c836cb3cd047f71b6002c6441781bf1f230e66129d1ea36bc88f8",
+      "artifacts/dev19-behavior-development-hosted-agents-slack-repo-router/1.json": "e9e083cea3446b1a4fb0bdb244b3598d8967448a95def05c19c84bcf9b04f651",
+      "artifacts/dev19-behavior-development-hosted-agents-slack-repo-router/2.json": "a5ae229138f54ebae2487b980c6712082d0d7381e1fe89b4af3d0741360c7aae",
+      "artifacts/dev19-behavior-development-hosted-agents-slack-repo-router/3.json": "90a4588031fc41c01cbb9b8ddbff54c1122f1292e62160c2e096992acd719e9f",
+      "artifacts/dev19-behavior-development-hosted-agents-snapshot-expiry-return/1.json": "e2f70992cf658e4ea99343288b7e37dc7a827df975b1634cf6ef23af03335947",
+      "artifacts/dev19-behavior-development-hosted-agents-snapshot-expiry-return/2.json": "7449b8cdaa8dfee37b2026fac64a275acefef591d727ee54ae9251df39b734da",
+      "artifacts/dev19-behavior-development-hosted-agents-snapshot-expiry-return/3.json": "a22ecec6e18a616b6a333eec3bdaaedc08d3114782fdbb992373c7c7a20b95d8",
+      "artifacts/dev19-behavior-development-hosted-agents-token-expiry-long-task/1.json": "f29a1b4e3b83639e89ba43234cf34cbca09faeedc9e9b8c99477e32f95873276",
+      "artifacts/dev19-behavior-development-hosted-agents-token-expiry-long-task/2.json": "9068bd69ff73e06e9fc4f78e51005caff00f01059d42b9570be937dd21c8922b",
+      "artifacts/dev19-behavior-development-hosted-agents-token-expiry-long-task/3.json": "af7f398fb167ee5d0097eefce4336e28072c23bd54b6f756ac50ffd2dad4524c"
+    },
+    "case_snapshot_sha256": "03b7081a625a5591dcfdb0022da77fcaaf100b3c992e4285c663bc127d198574",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "95567a7665160536730e0cfdde644dc7f183e33a2d6343074975fdf4e687642e"
+  },
+  "passed": 3,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-baseline-s55",
+  "schema_version": 5
+}

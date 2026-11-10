@@ -1,0 +1,37 @@
+{
+  "all_passed": true,
+  "artifacts": 18,
+  "condition": "baseline",
+  "critical_passed": 18,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-source-driven-development-routing-holdout-ordinary-implementation-a/1.json": "374012fd4877ff185a3ade39a710425ba8d94e4cbf33fcba932207ce922107d9",
+      "artifacts/pilot-source-driven-development-routing-holdout-ordinary-implementation-a/2.json": "5c29c303d042df88a48419eeb29a1e0fea00b9820de972d188dd9ec473f68a3a",
+      "artifacts/pilot-source-driven-development-routing-holdout-ordinary-implementation-a/3.json": "b71edcc7479d4c39161fa57789aa9796ad2f115437126ce111a3e32e2687d9ef",
+      "artifacts/pilot-source-driven-development-routing-holdout-ordinary-implementation-b/1.json": "eaabdd4b9a8c15d6ff9d075f99f36074ba51391c66049bac7223670f9be525a5",
+      "artifacts/pilot-source-driven-development-routing-holdout-ordinary-implementation-b/2.json": "dff94f8504ff69234ef6c8f0e015db5f025b5c719eee5d3efe6200b9ff87338d",
+      "artifacts/pilot-source-driven-development-routing-holdout-ordinary-implementation-b/3.json": "6caee82cb1de10e10ef24891d5c80a30700bf383d4a851545a24b7d7000f0fd9",
+      "artifacts/pilot-source-driven-development-routing-holdout-project-development-a/1.json": "840dbae163ca2f7e6643461815c0e86c7b0e5f4f4f8d54f12f6486acb3e5310f",
+      "artifacts/pilot-source-driven-development-routing-holdout-project-development-a/2.json": "a5122287e0679d40b16fb14c76a9f45874538215ed6e4b8a3b7662c801f08aa2",
+      "artifacts/pilot-source-driven-development-routing-holdout-project-development-a/3.json": "5fb7f46df3a3a9af2f5debc8f15d1eb672c2569ff5577cbfa637dcf7b04f297b",
+      "artifacts/pilot-source-driven-development-routing-holdout-project-development-b/1.json": "5ef49736e151d057fe79cc533d565b2bfae45088a8d5c7e833415693e64f6b1f",
+      "artifacts/pilot-source-driven-development-routing-holdout-project-development-b/2.json": "80618466d565a57c25e3e815e09b79add650936dd246855146adb013b4570073",
+      "artifacts/pilot-source-driven-development-routing-holdout-project-development-b/3.json": "f2fa1aa676a0203eef3cd351fa9a67fff76830688972762c824ef41c11dd18e7",
+      "artifacts/pilot-source-driven-development-routing-holdout-tool-design-a/1.json": "bb7b92e5c8ae4f874f400b73f3bfaacf2e105da361de3db476785f8b32e6d0d2",
+      "artifacts/pilot-source-driven-development-routing-holdout-tool-design-a/2.json": "d97c12a65409d38de831ebd806066a7f6991bd40b049a7bf1adae6cd80221946",
+      "artifacts/pilot-source-driven-development-routing-holdout-tool-design-a/3.json": "5b1d5f8de1c2979d13956b172e85693aa4a01045f357d252dc0b786537745908",
+      "artifacts/pilot-source-driven-development-routing-holdout-tool-design-b/1.json": "2bedbac738e1fc847deeba15cd379be6ca09d60f337453777756e39ba6ba7b46",
+      "artifacts/pilot-source-driven-development-routing-holdout-tool-design-b/2.json": "81401ad40bd34fbfb0fd081fda7c919df6c15189d1d56b9f71a834a1e82d0311",
+      "artifacts/pilot-source-driven-development-routing-holdout-tool-design-b/3.json": "b299ebe14a6ac6f81a6e001dd4f1a77f727cdbcb33a7391b7d4a6e7e7b3e6b45"
+    },
+    "case_snapshot_sha256": "cab2fb4d736a494467e484a711932de81e2deed91e86b8a96490d1d94bcc7629",
+    "grader_sha256": "da87d8b9567a0f1b576957751d92522f2cd0df34a591859cc77abffc183baa3d",
+    "manifest_sha256": "d8741fe8c83504020d9b4ef0457e858929bd672c6ed1931f517d90a2a1a2150a"
+  },
+  "passed": 18,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "pilot-source-driven-development-routing-baseline-s55",
+  "schema_version": 5
+}

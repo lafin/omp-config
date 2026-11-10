@@ -1,0 +1,25 @@
+{
+  "all_passed": true,
+  "artifacts": 6,
+  "condition": "baseline",
+  "critical_passed": 6,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/routing-development-ui-craft--api-and-interface-design-a/1.json": "07cb0aa3682dc9320331807889aa0f4f0bf575d7150d50f9cfacdf3d81915b2a",
+      "artifacts/routing-development-ui-craft--api-and-interface-design-a/2.json": "ef46c3b7db2568dbde15b3bb42e674aab4fc3d08ba39d529897710bb5797377f",
+      "artifacts/routing-development-ui-craft--api-and-interface-design-a/3.json": "1ad371861da320d5f81fd2567774bbf514e19c48c83d730c73871805e550943d",
+      "artifacts/routing-development-ui-craft--api-and-interface-design-b/1.json": "ba07888d0fce106b8a7ab9d3306774af483c25b0fb20373b3507cf8fe7c4b43f",
+      "artifacts/routing-development-ui-craft--api-and-interface-design-b/2.json": "422b34325e116ab85a15cc02a935ee611db2c12bc594543058f9cf935af3cc12",
+      "artifacts/routing-development-ui-craft--api-and-interface-design-b/3.json": "6b0e48d8117658d37fcabf9d88a8c75c0c3a1b139710486c6fb8cead7c714142"
+    },
+    "case_snapshot_sha256": "f768e075d200c10bb58dc11a7e87d79ee68e2b666d25899086101501a7a81f94",
+    "grader_sha256": "da87d8b9567a0f1b576957751d92522f2cd0df34a591859cc77abffc183baa3d",
+    "manifest_sha256": "f1c5bce22e8cc9ae511d24254b396eb0897867fe84ca9fbd0f469e324cdfebfd"
+  },
+  "passed": 6,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-routing-baseline-s55",
+  "schema_version": 5
+}

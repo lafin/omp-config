@@ -1,0 +1,37 @@
+{
+  "all_passed": true,
+  "artifacts": 18,
+  "condition": "treatment",
+  "critical_passed": 18,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev25-behavior-development-ml-system-design-review-agent-injection-send-tool-benign-eval/1.json": "6a0019358035eb6eb7bb6dcb4e0da15fa62b44a9995ac40c7033ed63ed5e4252",
+      "artifacts/dev25-behavior-development-ml-system-design-review-agent-injection-send-tool-benign-eval/2.json": "aa177dfa9f473f928f958cf6acae090ccbea987542d387207f1fd1bf6d984381",
+      "artifacts/dev25-behavior-development-ml-system-design-review-agent-injection-send-tool-benign-eval/3.json": "7c5cc876660dc8f58007ac0913bd128704760983580c9a04bc9d93ef5eef0e99",
+      "artifacts/dev25-behavior-development-ml-system-design-review-circular-synthetic-questions-stale-index/1.json": "c0ab1bb9f292541180fb13ae1c64709cdd2c321c1d2ae804ad82d47df8a1c22b",
+      "artifacts/dev25-behavior-development-ml-system-design-review-circular-synthetic-questions-stale-index/2.json": "a001308c0a410dc4f7364a8adc043f3b30d243c1f7b08f64c63436da83be7732",
+      "artifacts/dev25-behavior-development-ml-system-design-review-circular-synthetic-questions-stale-index/3.json": "24adfc6cef8836aff6a04c35aa51920c5184d2faa3bded35e832138188b874e1",
+      "artifacts/dev25-behavior-development-ml-system-design-review-forecast-future-feature-leak-code/1.json": "62621bfe0b6cf17d4ec808dad3c9d9cbd978f9339aebffd3ea61f0af04a2f0ee",
+      "artifacts/dev25-behavior-development-ml-system-design-review-forecast-future-feature-leak-code/2.json": "8fa3c51f2f27c0577c60326659e48fd0156e169a209738eec9341c03090c8985",
+      "artifacts/dev25-behavior-development-ml-system-design-review-forecast-future-feature-leak-code/3.json": "c89329697b131c1b07dfa1b4ef818023994767b28c9cfe3e323c96681abe07c6",
+      "artifacts/dev25-behavior-development-ml-system-design-review-imbalanced-accuracy-majority-baseline-code/1.json": "bc72f786a864abe22f2fa132b60fa9a01ddfc682c4f9de86ff6c724180bc53bf",
+      "artifacts/dev25-behavior-development-ml-system-design-review-imbalanced-accuracy-majority-baseline-code/2.json": "607136b69802a1b4ef6eba7f40115bbb6bf7339336609920663db0a2c4e2f1c0",
+      "artifacts/dev25-behavior-development-ml-system-design-review-imbalanced-accuracy-majority-baseline-code/3.json": "1be783facd7670eb4b0e46b18bd8ffc247a5f95282ba75e5e20dc5809ec7d679",
+      "artifacts/dev25-behavior-development-ml-system-design-review-multi-tenant-semantic-cache-embedding-swap/1.json": "0d5eececc236a13d1a6370cf5e251f5374e4e180c23c1507f7cc6171aec5a63d",
+      "artifacts/dev25-behavior-development-ml-system-design-review-multi-tenant-semantic-cache-embedding-swap/2.json": "0e353f0a645803a2d9b70a49d591a1c439971d80eb7e4dcdf919277c0838a580",
+      "artifacts/dev25-behavior-development-ml-system-design-review-multi-tenant-semantic-cache-embedding-swap/3.json": "369c6ab6cff2671b065113088235bc1ca7aa49c4c14bf4aebe54c03f94c08457",
+      "artifacts/dev25-behavior-development-ml-system-design-review-reject-inference-selection-bias-threshold-on-test/1.json": "a1f1b159e9878a761f504d9608794493cd73d2e5a312ef28e2c6277f2bfab7c1",
+      "artifacts/dev25-behavior-development-ml-system-design-review-reject-inference-selection-bias-threshold-on-test/2.json": "c884ef06b6b21caa6fcf7c5d79df1e94bca13908ed43839b7ae42bdc33abbac6",
+      "artifacts/dev25-behavior-development-ml-system-design-review-reject-inference-selection-bias-threshold-on-test/3.json": "34348397805fe680621a038416876def71b784d9a977fc17b515786aaed8ee21"
+    },
+    "case_snapshot_sha256": "f800abb0aebda56e3e07d60d14214786d285601d4dd58168436a095acae370ae",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "a38b2427410a274d8ebcd64b75653f1b5970e6c227f1703562c946d0dca17f9e"
+  },
+  "passed": 18,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55",
+  "schema_version": 5
+}

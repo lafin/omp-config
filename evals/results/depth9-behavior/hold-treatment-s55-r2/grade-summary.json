@@ -1,0 +1,28 @@
+{
+  "all_passed": false,
+  "artifacts": 9,
+  "condition": "treatment",
+  "critical_passed": 3,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/depth9-behavior-holdout-leancode-debt-owner-from-codeowners-python/1.json": "7f6ed79d6bd426ae8e4c3098d83632d5a8374f834ed2478c2d9716786820497f",
+      "artifacts/depth9-behavior-holdout-leancode-debt-owner-from-codeowners-python/2.json": "38e992ab67b0fdac6dffdfb284bdaff1aa797bbd40502693fae3f1e092f8bfac",
+      "artifacts/depth9-behavior-holdout-leancode-debt-owner-from-codeowners-python/3.json": "b9ea1be4c760b64a462df87bd78f1825c0f4b496a23d8446d2424ab7d565a926",
+      "artifacts/depth9-behavior-holdout-leancode-debt-owner-from-folder-team-mobile/1.json": "20840d4e3638105192b265064b2daf75384bb352c419a9e9adb7905ccb5f3126",
+      "artifacts/depth9-behavior-holdout-leancode-debt-owner-from-folder-team-mobile/2.json": "bacf027a39accc61969a0fd1e10e9471bb146e3be03981c2d396d804369df009",
+      "artifacts/depth9-behavior-holdout-leancode-debt-owner-from-folder-team-mobile/3.json": "39e1041780d1ccebb28427f768753bec398a6d55df8c776ae2a1ccb227a99128",
+      "artifacts/depth9-behavior-holdout-leancode-debt-owner-from-readme-table-rails/1.json": "ef580bb7583a1fc9b8860dc12462847a3d77a4ca2773afbe1dd9668ae6865268",
+      "artifacts/depth9-behavior-holdout-leancode-debt-owner-from-readme-table-rails/2.json": "6a2e967e22959e3adf98921eb28c3d03997cf86b665a77db3c281d06a204d074",
+      "artifacts/depth9-behavior-holdout-leancode-debt-owner-from-readme-table-rails/3.json": "8caadd493400d63e8dd5bb83dcd7d9aa4f506c6d7435d9ea5bf1760b926649ef"
+    },
+    "case_snapshot_sha256": "622198fd37470cad4dd48a0a5d3545f5bcde03a0f4a5c2657b45a8dba495944e",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "7182a066a43e33b6d463e9f686590f9dbef7edc2f57d6c7a5151a3262ea5b6f1"
+  },
+  "passed": 3,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-treatment-s55-r2",
+  "schema_version": 5
+}

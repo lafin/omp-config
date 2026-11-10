@@ -1,0 +1,25 @@
+{
+  "all_passed": true,
+  "artifacts": 6,
+  "condition": "baseline",
+  "critical_passed": 6,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/routing-holdout-ui-craft--api-and-interface-design-a/1.json": "c446ef6ab8f80076bcb53dace5f079ffc4bc34c9e62541d1fde883321bc97b09",
+      "artifacts/routing-holdout-ui-craft--api-and-interface-design-a/2.json": "745e1d6552cfa266230ed33ec38e0494ec956ebf84b96639bd72522dd41f31c4",
+      "artifacts/routing-holdout-ui-craft--api-and-interface-design-a/3.json": "a2b709ac3f581ea35d6cd5c21c4ef026a32b06d9d982df9ec9e04330d8fdc19e",
+      "artifacts/routing-holdout-ui-craft--api-and-interface-design-b/1.json": "645bcc2724b90f695d01e2944a7373a65f9b27c86564bc89fb191584dc95171f",
+      "artifacts/routing-holdout-ui-craft--api-and-interface-design-b/2.json": "6b2a8a06ed92e2a5829b583f2e5ea84720bf81063a0acf2e219b08d88f17d40e",
+      "artifacts/routing-holdout-ui-craft--api-and-interface-design-b/3.json": "6865dd25d83734de29e79a833abafa957b0e948a47bedc877623b587bf0caf53"
+    },
+    "case_snapshot_sha256": "a79dece5b3636a05a9ef51a84cc096bf35e398c40b97163bbd75658c6110f38a",
+    "grader_sha256": "da87d8b9567a0f1b576957751d92522f2cd0df34a591859cc77abffc183baa3d",
+    "manifest_sha256": "7af7acbec4be7de0a487226d5f6c48fac11878b0a2437cc614101b9430f2f798"
+  },
+  "passed": 6,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-routing-baseline-s55",
+  "schema_version": 5
+}

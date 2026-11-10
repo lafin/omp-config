@@ -1,0 +1,90 @@
+{
+  "admission_path": "improvement",
+  "case_kind": "behavior",
+  "correctness_benefit": null,
+  "criteria": {
+    "cost_metrics_known": true,
+    "development_improved": false,
+    "holdout_preserved": false,
+    "increased_cost_has_correctness_benefit": false,
+    "no_critical_regressions": true,
+    "routing_holdout_all_passed": true
+  },
+  "decision": "fail",
+  "development": {
+    "baseline_check_coverage": 1.0,
+    "baseline_critical_failures": 0,
+    "baseline_metrics": {
+      "questions": 0,
+      "tokens": 2238,
+      "tool_events": 0
+    },
+    "baseline_passed": 3,
+    "critical_regressions": [],
+    "regressions": [],
+    "total": 3,
+    "treatment_check_coverage": 1.0,
+    "treatment_critical_failures": 0,
+    "treatment_metrics": {
+      "questions": 0,
+      "tokens": 13930,
+      "tool_events": 0
+    },
+    "treatment_passed": 3
+  },
+  "efficacy_claim": null,
+  "holdout": {
+    "baseline_check_coverage": 0.9388888888888888,
+    "baseline_critical_failures": 0,
+    "baseline_metrics": {
+      "questions": 0,
+      "tokens": 13336,
+      "tool_events": 0
+    },
+    "baseline_passed": 10,
+    "critical_regressions": [],
+    "regressions": [
+      "pilot-deprecation-and-migration-behavior-holdout-v2-monorepo-mobile:1",
+      "pilot-deprecation-and-migration-behavior-holdout-v2-monorepo-mobile:2",
+      "pilot-deprecation-and-migration-behavior-holdout-v2-db-verify-drift:1"
+    ],
+    "total": 18,
+    "treatment_check_coverage": 0.9361111111111112,
+    "treatment_critical_failures": 0,
+    "treatment_metrics": {
+      "questions": 0,
+      "tokens": 82514,
+      "tool_events": 0
+    },
+    "treatment_passed": 9
+  },
+  "increased_metrics": [
+    "development:tokens",
+    "holdout:tokens",
+    "routing_holdout:tokens"
+  ],
+  "paired_evidence": true,
+  "routing_holdout": {
+    "baseline_check_coverage": 1.0,
+    "baseline_critical_failures": 0,
+    "baseline_metrics": {
+      "questions": 0,
+      "tokens": 5955,
+      "tool_events": 0
+    },
+    "baseline_passed": 12,
+    "critical_regressions": [],
+    "regressions": [],
+    "total": 12,
+    "treatment_check_coverage": 1.0,
+    "treatment_critical_failures": 0,
+    "treatment_metrics": {
+      "questions": 0,
+      "tokens": 6879,
+      "tool_events": 0
+    },
+    "treatment_passed": 12
+  },
+  "schema_version": 5,
+  "unknown_metrics": []
+}

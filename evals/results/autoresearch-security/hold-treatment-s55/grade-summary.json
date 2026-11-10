@@ -1,0 +1,22 @@
+{
+  "all_passed": false,
+  "artifacts": 3,
+  "condition": "treatment",
+  "critical_passed": 3,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/autoresearch-security-repository-holdout-audit/1.json": "98976d6a9a273222eca7a88cc40358d72f76dd45c604de9c2f64301bef59113a",
+      "artifacts/autoresearch-security-repository-holdout-audit/2.json": "233bfd7186caa584763b5bc12cebe14a3cbd530190d1cdc103f48dcbd9cd432a",
+      "artifacts/autoresearch-security-repository-holdout-audit/3.json": "47d58a0d56669f32b826c8e0d9eb7bbecabd98566f1b79e7cee4b046c6918614"
+    },
+    "case_snapshot_sha256": "adfc8b3fad04eb1be9de73d38777ccf460d9fca342b88a6c63cadbb92dc59df0",
+    "grader_sha256": "da87d8b9567a0f1b576957751d92522f2cd0df34a591859cc77abffc183baa3d",
+    "manifest_sha256": "91afa0aba6ef715c3a4f9871abe54e89d0368eb83ca59b822c66790cba25b03a"
+  },
+  "passed": 2,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-treatment-s55",
+  "schema_version": 5
+}

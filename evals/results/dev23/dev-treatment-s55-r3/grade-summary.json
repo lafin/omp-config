@@ -1,0 +1,43 @@
+{
+  "all_passed": false,
+  "artifacts": 24,
+  "condition": "treatment",
+  "critical_passed": 20,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev23-behavior-development-ml-system-design-review-agent-prod-creds-injection/1.json": "587137e6737ee11f6d716b51aec2c8e91412dc619a11036be63c26edc2ce866d",
+      "artifacts/dev23-behavior-development-ml-system-design-review-agent-prod-creds-injection/2.json": "b01172fed3354fb01576ddf835ca98af2c1f8fa3823a07a6b135cc9914680499",
+      "artifacts/dev23-behavior-development-ml-system-design-review-agent-prod-creds-injection/3.json": "64cf811e48b5cb74098ce41a43dc64a74ed546515f6507413c31d68404efdbe4",
+      "artifacts/dev23-behavior-development-ml-system-design-review-agent-retry-quick-pass/1.json": "33926e013bcc0124ba60b386609187e6b985135e8a69a43031a3f69b41599ffc",
+      "artifacts/dev23-behavior-development-ml-system-design-review-agent-retry-quick-pass/2.json": "41d25d5c1ec17e824394cf02d2688416cc1aacad78ff9550d8d40ffdcaecaeaf",
+      "artifacts/dev23-behavior-development-ml-system-design-review-agent-retry-quick-pass/3.json": "ccf7059b45fd320877f736d399724ea56daf62ff24c0eb6d1322b77bacfb7c49",
+      "artifacts/dev23-behavior-development-ml-system-design-review-empty-template-tbd/1.json": "5134e3855367c1592c84ff31307d2f2dd671d889c8bf8626a530a307c78527b3",
+      "artifacts/dev23-behavior-development-ml-system-design-review-empty-template-tbd/2.json": "98360d7a6c88a216e3c8f2c4fe8452d6c43ec706a48a29b504cf947f89166f7c",
+      "artifacts/dev23-behavior-development-ml-system-design-review-empty-template-tbd/3.json": "a879d91ed181ca831a70bb777930c398fabce4996c4286c774d2b0643d2904e5",
+      "artifacts/dev23-behavior-development-ml-system-design-review-pdf-chunk-group-split/1.json": "b83a5b9cde26acc2b7382ee9487239f13e320af01fc0fd7062101e136244df0f",
+      "artifacts/dev23-behavior-development-ml-system-design-review-pdf-chunk-group-split/2.json": "d1dcf1f4fa1f1301ba150e1cda1a9967c7ec70d668e10c94fef7a2282f304369",
+      "artifacts/dev23-behavior-development-ml-system-design-review-pdf-chunk-group-split/3.json": "8ce68a4c87e689d0f50693561d1d8d228f62126d9490988cbe55bd790448feca",
+      "artifacts/dev23-behavior-development-ml-system-design-review-rag-stale-kb-versions/1.json": "8d240871154c856fdd5f05c88118cba533e5f4757b5e94b1effa5509daf997eb",
+      "artifacts/dev23-behavior-development-ml-system-design-review-rag-stale-kb-versions/2.json": "d798d62468f9954fcfa78e20788df2d90398f1375909519d9abc96dfdcaa512c",
+      "artifacts/dev23-behavior-development-ml-system-design-review-rag-stale-kb-versions/3.json": "ef4dc3b517817a61c96582cc111dd7bd12083631d96de3e39728e645733e1ca3",
+      "artifacts/dev23-behavior-development-ml-system-design-review-reranker-quick-pass/1.json": "fc86ab52267de7cc79d231cea9bc1ea8d036fe1ae01f0e7ae4a5f258a1eb8bf0",
+      "artifacts/dev23-behavior-development-ml-system-design-review-reranker-quick-pass/2.json": "5e47542de964fd66742706cfc99a77e75115e1c219b36f484e74cf02b2992ad7",
+      "artifacts/dev23-behavior-development-ml-system-design-review-reranker-quick-pass/3.json": "5bf61229dd6668b905afa4903527b2b5dae12eb28e530c19e0dd3450b19efba5",
+      "artifacts/dev23-behavior-development-ml-system-design-review-serving-fallback-unpinned-model/1.json": "c801aa4dc8f924555586a6567b960d051bf7c2535d8e966aaa75144e8999169b",
+      "artifacts/dev23-behavior-development-ml-system-design-review-serving-fallback-unpinned-model/2.json": "7f74d64cbb3ce42ca3b18d34f75369deea054b7b706c88beeb85e64362a889b7",
+      "artifacts/dev23-behavior-development-ml-system-design-review-serving-fallback-unpinned-model/3.json": "f0208b7db1fd152f4f51c38e34f102b26531bb2cb9a6ad1e3f18fee4284c1778",
+      "artifacts/dev23-behavior-development-ml-system-design-review-thin-pitch-cannot-grade/1.json": "a4f6b8fab697d818ef32fca1b138b0bc6d1ec27ebb1ee9e9e2ec5ce645abe113",
+      "artifacts/dev23-behavior-development-ml-system-design-review-thin-pitch-cannot-grade/2.json": "5a171cf4336778cda6015c507cc8d4790140f2e36190dd3b58f9de32f50cf6a8",
+      "artifacts/dev23-behavior-development-ml-system-design-review-thin-pitch-cannot-grade/3.json": "f69214059d006166a896ab9241c4367c6157622dfa854fad7dfc10c8c89985cc"
+    },
+    "case_snapshot_sha256": "1d181cd2d22419252d14d44dfd8a5b42bd2c9e093cfbcc4a6e6ca6d7d7284658",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "3d09a85cc10788092b143a32037602204a395b187aaa1100d9fb60f4d2695ee9"
+  },
+  "passed": 20,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55-r3",
+  "schema_version": 5
+}

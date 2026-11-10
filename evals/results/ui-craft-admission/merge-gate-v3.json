@@ -1,0 +1,86 @@
+{
+  "admission_path": "improvement",
+  "case_kind": "behavior",
+  "correctness_benefit": "Development critical passes 0/6 -> 6/6 and blind holdout-v2 3/6 -> 6/6; extra tokens are the loaded ui-craft rules that produced the fixes.",
+  "criteria": {
+    "cost_metrics_known": true,
+    "development_improved": true,
+    "holdout_preserved": true,
+    "increased_cost_has_correctness_benefit": true,
+    "no_critical_regressions": true,
+    "routing_holdout_all_passed": true
+  },
+  "decision": "pass",
+  "development": {
+    "baseline_check_coverage": 0.7645502645502645,
+    "baseline_critical_failures": 6,
+    "baseline_metrics": {
+      "questions": 0,
+      "tokens": 25880,
+      "tool_events": 0
+    },
+    "baseline_passed": 0,
+    "critical_regressions": [],
+    "regressions": [],
+    "total": 6,
+    "treatment_check_coverage": 1.0,
+    "treatment_critical_failures": 0,
+    "treatment_metrics": {
+      "questions": 0,
+      "tokens": 110103,
+      "tool_events": 0
+    },
+    "treatment_passed": 6
+  },
+  "efficacy_claim": "Treatment improved deterministic development results, preserved every passing holdout result, passed routing holdout, and introduced no undocumented critical or cost regression.",
+  "holdout": {
+    "baseline_check_coverage": 0.9375,
+    "baseline_critical_failures": 3,
+    "baseline_metrics": {
+      "questions": 0,
+      "tokens": 14311,
+      "tool_events": 0
+    },
+    "baseline_passed": 3,
+    "critical_regressions": [],
+    "regressions": [],
+    "total": 6,
+    "treatment_check_coverage": 1.0,
+    "treatment_critical_failures": 0,
+    "treatment_metrics": {
+      "questions": 0,
+      "tokens": 87882,
+      "tool_events": 0
+    },
+    "treatment_passed": 6
+  },
+  "increased_metrics": [
+    "development:tokens",
+    "holdout:tokens",
+    "routing_holdout:tokens"
+  ],
+  "paired_evidence": true,
+  "routing_holdout": {
+    "baseline_check_coverage": 1.0,
+    "baseline_critical_failures": 0,
+    "baseline_metrics": {
+      "questions": 0,
+      "tokens": 4679,
+      "tool_events": 0
+    },
+    "baseline_passed": 6,
+    "critical_regressions": [],
+    "regressions": [],
+    "total": 6,
+    "treatment_check_coverage": 1.0,
+    "treatment_critical_failures": 0,
+    "treatment_metrics": {
+      "questions": 0,
+      "tokens": 9257,
+      "tool_events": 0
+    },
+    "treatment_passed": 6
+  },
+  "schema_version": 5,
+  "unknown_metrics": []
+}

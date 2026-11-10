@@ -1,0 +1,31 @@
+{
+  "all_passed": false,
+  "artifacts": 12,
+  "condition": "baseline",
+  "critical_passed": 8,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev34-behavior-development-self-improvement-loops-code-repair/1.json": "d3da1f406d3d046f31ea1beceec1c78fe1cd00b1bf51b8c600f36b17a6e79d37",
+      "artifacts/dev34-behavior-development-self-improvement-loops-code-repair/2.json": "fa582cee532df06c511fac903be54fc6dde49f82e31aefbc63f853c3d26b927c",
+      "artifacts/dev34-behavior-development-self-improvement-loops-code-repair/3.json": "9aea0da563977be7986c62e4d91d661f913bff721994a4cfbdc171958cbd6696",
+      "artifacts/dev34-behavior-development-self-improvement-loops-prompt-optimizer/1.json": "7dbcc75b421eae192ce5e641c327f12f91240f5c1a4125f229d5381cf45ae579",
+      "artifacts/dev34-behavior-development-self-improvement-loops-prompt-optimizer/2.json": "febe9cb5ab8774229e8538152e9c5487200bdb4f7d3ceb771a4589453e9cc15f",
+      "artifacts/dev34-behavior-development-self-improvement-loops-prompt-optimizer/3.json": "24b6a1d0c025b27ad128f6a9f2d345ee58a12bbca5e7a5e486fd86d5796db931",
+      "artifacts/dev34-behavior-development-self-improvement-loops-robot-policy/1.json": "b61423621d657283141cd542af960cd37008e3f0fc4095105e005cf13892f908",
+      "artifacts/dev34-behavior-development-self-improvement-loops-robot-policy/2.json": "0d514c3f61128f22a01268232683e55f6a258539f67a8a8abc0c925c8fd2eb64",
+      "artifacts/dev34-behavior-development-self-improvement-loops-robot-policy/3.json": "bd24f765c42fc6576e1fa44be4158cc4d6a6e4a841b1a8f4f72f2f1b7f9c1c8f",
+      "artifacts/dev34-behavior-development-self-improvement-loops-sql-agent/1.json": "785ce6c5814ccb31b0cd3f6e17cf7c642c8e4e3f72c87c2c9a1216114a8708f1",
+      "artifacts/dev34-behavior-development-self-improvement-loops-sql-agent/2.json": "b508b58299df324d8c79a95f35f5a7c1debeaab00b75468e51fbc29038d758e7",
+      "artifacts/dev34-behavior-development-self-improvement-loops-sql-agent/3.json": "57901a51a259442ae3ec150b45bd8fd331bde855892d9d5e8f1b91a4b691c1b3"
+    },
+    "case_snapshot_sha256": "69647e9dad03c888fccedd4a60664afdac2917fcf99c5280fbbfa3b6d546c4d5",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "7843e5f222c3c7eebe3116fc04273df17af54c50392652535ea59df095d09f92"
+  },
+  "passed": 8,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-baseline-s55",
+  "schema_version": 5
+}

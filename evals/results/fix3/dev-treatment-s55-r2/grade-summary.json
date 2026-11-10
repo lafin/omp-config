@@ -1,0 +1,37 @@
+{
+  "all_passed": true,
+  "artifacts": 18,
+  "condition": "treatment",
+  "critical_passed": 18,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/fix3-context-fundamentals-rag-chars-div4/1.json": "d056e2fd8b0aae23d563ded76cb49243e1fd1c9fceced33d37bb3fc868b389b9",
+      "artifacts/fix3-context-fundamentals-rag-chars-div4/2.json": "9dfd4bf7ca3fa7da9fd3a5e3d7765c6e2e828ea43e148d96b93b15dcdc47dda0",
+      "artifacts/fix3-context-fundamentals-rag-chars-div4/3.json": "88785befc13a637ff2c13b739afc56a7d814fdb009c96cfdb57aa09be5a3f595",
+      "artifacts/fix3-context-fundamentals-support-wordcount-budget/1.json": "a3e0e04fcf128add55a96dfdf0b77f401bf381512df96d62e08de5f29ff776f8",
+      "artifacts/fix3-context-fundamentals-support-wordcount-budget/2.json": "ee51887ef61764afdd17a03ce475fa0ecf351fb01ac0dce48e8b190d7f4505c6",
+      "artifacts/fix3-context-fundamentals-support-wordcount-budget/3.json": "1ee84e61cbc729db6b03a49d517cf1d5541f25381ce57a8031884245fb1c3649",
+      "artifacts/fix3-filesystem-context-learned-notes-drift/1.json": "1c6c5a1382690da9964278272201e1f54a725eebfd5119ebff5ba618c1e09012",
+      "artifacts/fix3-filesystem-context-learned-notes-drift/2.json": "f309846b072c01170dd4bf2d113f2c260c08026168f86558e639bafcce773f2d",
+      "artifacts/fix3-filesystem-context-learned-notes-drift/3.json": "fa024dbfcad084b37c807e4714799adb1070b9414eb9025ef3e49dd866a26c9a",
+      "artifacts/fix3-filesystem-context-log-api-borderline/1.json": "86422016d28a02f39531dcfaedb3a8789fcd472aab1ee4cbf8a5b842d9555e87",
+      "artifacts/fix3-filesystem-context-log-api-borderline/2.json": "90c9b22f58da9191e839fda2d2e36e0f8501d431f1858d4a13d6d3df47ece53c",
+      "artifacts/fix3-filesystem-context-log-api-borderline/3.json": "bb108524408a75542211b10be94c61a53caa8b8ef0c619c766c9a09547c24e78",
+      "artifacts/fix3-filesystem-context-pytest-vs-gitlog/1.json": "d64098fdcf065e249ae4bd84b8664f4f8b5941057c6cc3f989c07b0d7b58bca7",
+      "artifacts/fix3-filesystem-context-pytest-vs-gitlog/2.json": "780a306c68cc7d80d6289cd3ca5aced72c2916b552600c4c48aaccb06b2b9679",
+      "artifacts/fix3-filesystem-context-pytest-vs-gitlog/3.json": "c8cae26e945f2a172c1335728a62e6fc93e8351034e7e8d4c2bcf15c85c1b6da",
+      "artifacts/fix3-filesystem-context-style-prefs-json/1.json": "f364f20274cf19f4714e1a3306efc2664eda0b45245b38cb6a662b66793d1e20",
+      "artifacts/fix3-filesystem-context-style-prefs-json/2.json": "4f065bc50c4c7db4257ab94bdb86fc54d578c47f5964a12e7c5f667fd67688ae",
+      "artifacts/fix3-filesystem-context-style-prefs-json/3.json": "a468a731f5ab05b2a00d161b36905d093c7957b168703aa77d82283137f7a6d3"
+    },
+    "case_snapshot_sha256": "562de22711981b501e269cf140b6606c3c858c8f5ded04c7682f2f36ebf7bb4e",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "b869fc21d7e6ec91fe1f780be6ce4ce1e677c9e1fc8b68ae27a3a64b1449224e"
+  },
+  "passed": 18,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55-r2",
+  "schema_version": 5
+}

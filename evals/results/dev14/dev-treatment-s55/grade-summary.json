@@ -1,0 +1,43 @@
+{
+  "all_passed": false,
+  "artifacts": 24,
+  "condition": "treatment",
+  "critical_passed": 12,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev14-behavior-development-source-driven-development-docs-silent-read-source-at-tag/1.json": "919d2b347600fa498bee6736ecf902d87f867e901bc7f62cfbc007279e1f3a50",
+      "artifacts/dev14-behavior-development-source-driven-development-docs-silent-read-source-at-tag/2.json": "fae6d29bb879e03c0026f3dbb174582686c61b61feb4655f927049f11eac52fe",
+      "artifacts/dev14-behavior-development-source-driven-development-docs-silent-read-source-at-tag/3.json": "d090533e01a4ca1c538b35af91000abd52d1992d2fa45e16e0e865d0216dd7c5",
+      "artifacts/dev14-behavior-development-source-driven-development-feature-added-after-pin-extend-wrapper/1.json": "0c30f1666933cbc3c27a8cbb1fc4ac0c2199a93e9cd1fe753e97f3c55efa05d0",
+      "artifacts/dev14-behavior-development-source-driven-development-feature-added-after-pin-extend-wrapper/2.json": "f27a6be52383987bb0af49fc6303f9d7127550eaa18dd00a8c3143fa5871d4c5",
+      "artifacts/dev14-behavior-development-source-driven-development-feature-added-after-pin-extend-wrapper/3.json": "9abe2b7507731f32ec0a91e29ef578e4db1140bc9b32af3c0f0677645751fea2",
+      "artifacts/dev14-behavior-development-source-driven-development-k8s-ingress-api-removed-in-cluster/1.json": "286e6dbcea19705842505844622e0bf4dfd1d0d939296e2adf6a2ab646b0b0a1",
+      "artifacts/dev14-behavior-development-source-driven-development-k8s-ingress-api-removed-in-cluster/2.json": "736f478ae4e2ac02b4f4d3d62ead2d14d6c5519b9d307f5c116d5e9d52d0d22e",
+      "artifacts/dev14-behavior-development-source-driven-development-k8s-ingress-api-removed-in-cluster/3.json": "46091eb52fbdbfe1085e2c3280b30751f594c5cefc386bc98b4b6021895a3077",
+      "artifacts/dev14-behavior-development-source-driven-development-loadenvfile-missing-adopt-transitive-dotenv/1.json": "ddeaca80e2b00fdeadc48ba2f2a631381aed9abb42028b1715e37a63aaee303c",
+      "artifacts/dev14-behavior-development-source-driven-development-loadenvfile-missing-adopt-transitive-dotenv/2.json": "499971d0347f6d3ba9c9237bedc1bc1ed1daab44718820b83ea35ae4b17f3163",
+      "artifacts/dev14-behavior-development-source-driven-development-loadenvfile-missing-adopt-transitive-dotenv/3.json": "35e077c19ffe99785d77944eec64eac33565c53b84b61b879189a8313ac37f27",
+      "artifacts/dev14-behavior-development-source-driven-development-migration-chain-start-target-versions/1.json": "177ef05a87f47b8d83c5b26b7dc3bced10d9e96dd98ebd1d9aa02cf3de24e37b",
+      "artifacts/dev14-behavior-development-source-driven-development-migration-chain-start-target-versions/2.json": "795f5c8b0740c4a5f74f13e95568f9941008b27411cac377b96cc3755b1739cc",
+      "artifacts/dev14-behavior-development-source-driven-development-migration-chain-start-target-versions/3.json": "7df587fba702fd6cd64fda25b9cb20582a833de55d275cf75bcb3c2f3832c669",
+      "artifacts/dev14-behavior-development-source-driven-development-runtime-conflict-nvmrc-vs-dockerfile/1.json": "5ae97c317bfe95067ee19f1277278da007b3ab3d37d7a644805770ef8883cdd2",
+      "artifacts/dev14-behavior-development-source-driven-development-runtime-conflict-nvmrc-vs-dockerfile/2.json": "5dd932b99af486582a86825844820144723cefeb091431b88b5b34f3726ad278",
+      "artifacts/dev14-behavior-development-source-driven-development-runtime-conflict-nvmrc-vs-dockerfile/3.json": "19fbb801df8ae578b48a38734b0705299694958e86dc1a856f5a46851d2d43d4",
+      "artifacts/dev14-behavior-development-source-driven-development-standard-vs-vendor-cache-directive/1.json": "c14e778e250488285ab9431e51fb078d24972c39b4cb5a9463b80605029e113b",
+      "artifacts/dev14-behavior-development-source-driven-development-standard-vs-vendor-cache-directive/2.json": "2afb888b3d743c3ecc9adf7113b624681f8ec8807d192ad8d4a573c2f653f7d3",
+      "artifacts/dev14-behavior-development-source-driven-development-standard-vs-vendor-cache-directive/3.json": "47c9ddcf648e75c5b63d752249c8457b40c45f65d6ccaa8603df66fb3d08d0b1",
+      "artifacts/dev14-behavior-development-source-driven-development-workspace-two-resolved-versions-shared-package/1.json": "c345717e6ff58c69812a1bb8c4a6d146b8095f265f655dcdacd891e9b9972572",
+      "artifacts/dev14-behavior-development-source-driven-development-workspace-two-resolved-versions-shared-package/2.json": "64fe534cf779155816fb161d8c09e32f2ed47273c33c58138d422467c7164632",
+      "artifacts/dev14-behavior-development-source-driven-development-workspace-two-resolved-versions-shared-package/3.json": "3eaad9476a365d48c5fe490cbd267d8dc25b9003af9bf2764d37afd5fa6eb84e"
+    },
+    "case_snapshot_sha256": "d1e261b6e93aee85bbed8b095d0a0bc5bf1239a20148f8e36c58778255dbe6c9",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "66694222c8e413bb49dd69ee6f1ef4efc7e54b11ec60efc72fc5bd3a042e7848"
+  },
+  "passed": 12,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55",
+  "schema_version": 5
+}

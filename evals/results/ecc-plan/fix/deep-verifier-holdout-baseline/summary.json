@@ -1,0 +1,19 @@
+{
+  "agent": "agents/deep-verifier.md",
+  "revision": "e920bb7",
+  "prompt_sha256": "5e73b02be92300dc93ad587e778f406deee3b19e02ef1a0eeca03419baca4e2c",
+  "model": "openai-codex/gpt-5.6-sol",
+  "profile": "skill-eval-isolated",
+  "cases_sha256": "580f41530278898b16862b57478594cae11153cdc596f0ec5b3b7f2ffe75ffef",
+  "case_attempts": 18,
+  "critical_failures": 0,
+  "per_case": {
+    "agent-deep-verifier-behavior-holdout-clean-pagination": 0,
+    "agent-deep-verifier-behavior-holdout-guarded-path-traversal": 0,
+    "agent-deep-verifier-behavior-holdout-insufficient-evidence": 0,
+    "agent-deep-verifier-behavior-holdout-real-high-archive-loss": 0,
+    "agent-deep-verifier-behavior-holdout-medium-timezone-workaround": 0,
+    "agent-deep-verifier-behavior-holdout-off-topic-defect": 0
+  },
+  "capture_failures": 0
+}

@@ -1,0 +1,34 @@
+{
+  "all_passed": true,
+  "artifacts": 15,
+  "condition": "treatment",
+  "critical_passed": 15,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/depth7-behavior-holdout-leancode-local-disk-avatars-no-storage-interface/1.json": "f8fd925328e6754bc06368b7283a186441aef58003e92ce62ee12b0395c4625d",
+      "artifacts/depth7-behavior-holdout-leancode-local-disk-avatars-no-storage-interface/2.json": "44f340e2e522085c2a5776cbdb26e5c60e4ab86c2fc583205bd47f24539e4e31",
+      "artifacts/depth7-behavior-holdout-leancode-local-disk-avatars-no-storage-interface/3.json": "fa9bc617cf6928e13e1ae5e222a5aa80b887d59527fa6d532d44c71c1f47e221",
+      "artifacts/depth7-behavior-holdout-leancode-loop-remove-while-iterating-patch/1.json": "702c4689fb8969c6f90a02f72a0095ba32fb074bfe17bcb0635cb42b6affbe46",
+      "artifacts/depth7-behavior-holdout-leancode-loop-remove-while-iterating-patch/2.json": "f152a2857c1d3cafbbb2717b274e5cb090ea62cb7a34a2a17d5336cb640da29b",
+      "artifacts/depth7-behavior-holdout-leancode-loop-remove-while-iterating-patch/3.json": "e39388abae09610113f351f38d4161361b5064075891388b716fcd88b8ed0d0d",
+      "artifacts/depth7-behavior-holdout-leancode-no-retry-internal-rates-fetch/1.json": "52a64d2de692ebdd0ae8c172122abb4216f171a7503f1df03305fed44a922686",
+      "artifacts/depth7-behavior-holdout-leancode-no-retry-internal-rates-fetch/2.json": "fa4b55c1f531bc044042bf0c3cf974fa6fd795bec2b4e5c83c9781a01e40b6ab",
+      "artifacts/depth7-behavior-holdout-leancode-no-retry-internal-rates-fetch/3.json": "5ec90884e6ea98f73a4afcbbfa13555d535bad23ebeb2ab3784996a72e0cae05",
+      "artifacts/depth7-behavior-holdout-leancode-trivial-rename-no-test/1.json": "6e879e8c04b84ed7950389775f91bf95562db18bf9c1fe583e5107f0281e6f39",
+      "artifacts/depth7-behavior-holdout-leancode-trivial-rename-no-test/2.json": "50ea1a18579c01ed5f3346e14640c28358bb3da9f18929a2c0aa7c81760f49f4",
+      "artifacts/depth7-behavior-holdout-leancode-trivial-rename-no-test/3.json": "59c904dda0da97070f52316e733fc9305dc8e111e358e6abf381de81e50ac165",
+      "artifacts/depth7-behavior-holdout-leancode-ultra-split-bill-remainder-patch/1.json": "4e3294d255957e9702784342585f6a5a94c7f63f6a48afea64b5086357157c9e",
+      "artifacts/depth7-behavior-holdout-leancode-ultra-split-bill-remainder-patch/2.json": "76ceddebe75a6e1b6b74c5bc1fd4b28a96a2be43dacbf9574eb7e254f9ed46f9",
+      "artifacts/depth7-behavior-holdout-leancode-ultra-split-bill-remainder-patch/3.json": "c353e0ef8b81440827eaa41296f51d197b3092931491d226064a109f7f9041a7"
+    },
+    "case_snapshot_sha256": "13f4b9e1cf231361bdbb28d3fc81b80feb88b652e6fa89e519f812793ed30130",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "02f7bfc5504378a93042e7a88e20936e488e7d9b9e62298227c039a8c3d2506f"
+  },
+  "passed": 15,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-treatment-s55-p854",
+  "schema_version": 5
+}

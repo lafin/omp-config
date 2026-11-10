@@ -1,0 +1,22 @@
+{
+  "all_passed": true,
+  "artifacts": 3,
+  "condition": "treatment",
+  "critical_passed": 3,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-deprecation-and-migration-behavior-development-public-window/1.json": "85217b5c4f72eb341521f641de6fd7a45e4727086c41aa04bbf47374ef946280",
+      "artifacts/pilot-deprecation-and-migration-behavior-development-public-window/2.json": "f6796438733b3895e746e9c88671442d9c8a694749e5a2783fdc32c989f66fe4",
+      "artifacts/pilot-deprecation-and-migration-behavior-development-public-window/3.json": "5ec99387be31910cedebfcb33bf35fbeb7078656d0d11c7b0102b252edd7e3a9"
+    },
+    "case_snapshot_sha256": "78a6c88472db7d551970be8ee0138d9e48f33e74e98fbe83039ebc80d6f7f4a4",
+    "grader_sha256": "49b310ddde90221b1fbad5b6b81bd8b6df947414229dbfbb4781cb494e16ecbc",
+    "manifest_sha256": "178b7acac7cc182d60f18825be7747eaaa5d02de744a8c8c0ab1ad41e3cfe3a8"
+  },
+  "passed": 3,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-behavior-treatment",
+  "schema_version": 5
+}

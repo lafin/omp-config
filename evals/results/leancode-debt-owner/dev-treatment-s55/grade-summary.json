@@ -1,0 +1,25 @@
+{
+  "all_passed": false,
+  "artifacts": 6,
+  "condition": "treatment",
+  "critical_passed": 4,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/leancode-debt-owner-dev-payments-folder/1.json": "6a69b066f845c9b500c313d8985627b6173c21de4c3322f17ba33869002bd488",
+      "artifacts/leancode-debt-owner-dev-payments-folder/2.json": "4fa6210f801b1c5377ec8ec43a0d822150ed352fac645090625cc9635f211671",
+      "artifacts/leancode-debt-owner-dev-payments-folder/3.json": "4bbb6232a5a0784094e9647f4ea76a26750b395ff3de4fbf3f3c8f982ef8f2e7",
+      "artifacts/leancode-debt-owner-dev-pkg-names/1.json": "b58f29ca2daf34877d71df07ef4e7eab79aea538db9fefdb2c64d3f88af98687",
+      "artifacts/leancode-debt-owner-dev-pkg-names/2.json": "ff086fdb16405aa8b0b1f8336ec72ee80cbf549093ff1003e2523a27819b823e",
+      "artifacts/leancode-debt-owner-dev-pkg-names/3.json": "df9f0885003c633a1ebbcc09699610ef19d3ae24319d84a13e8e4765700b9277"
+    },
+    "case_snapshot_sha256": "67e0b7e5413b222506c73a7e6710a9a31f130d2d4d5fbac1e2b0879dd829c82f",
+    "grader_sha256": "da87d8b9567a0f1b576957751d92522f2cd0df34a591859cc77abffc183baa3d",
+    "manifest_sha256": "012679306399df4c9587e75983fdc77dc78e25155fb3d2fde202d8fefee197fe"
+  },
+  "passed": 4,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55",
+  "schema_version": 5
+}

@@ -1,0 +1,25 @@
+{
+  "all_passed": false,
+  "artifacts": 6,
+  "condition": "baseline",
+  "critical_passed": 1,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/ui-craft-behavior-development-v3-menu-tooltip-motion/1.json": "5078641c78ead79416fa4dc0e8d33bf2fe218650e795304e73bb27c655a49b0a",
+      "artifacts/ui-craft-behavior-development-v3-menu-tooltip-motion/2.json": "d4e16c348fd45f75544cd721f8eddf20e50af01a617d4da5d178bc560465b53c",
+      "artifacts/ui-craft-behavior-development-v3-menu-tooltip-motion/3.json": "089f340daaafc668e0eae7baae3130fe1a3d67f603152b2af8da96babaaad999",
+      "artifacts/ui-craft-behavior-development-v3-nested-card/1.json": "26895f8b0f70be5cdf5cb3bc1947d5098dd525f50e677ebac0b1d1b4fbbcb7e0",
+      "artifacts/ui-craft-behavior-development-v3-nested-card/2.json": "81490c35eccd5cbdcc41986706bf301bdcd4c6e099d93582b21ffd731687eca4",
+      "artifacts/ui-craft-behavior-development-v3-nested-card/3.json": "7a2143ce4c90d8fcc1ffb84d25565138e7047b04650b7ee163ef96efe76e5fe2"
+    },
+    "case_snapshot_sha256": "3af596f2bc798647b689c6fde24d353cc2980e45e9467cebbb35164de15204ee",
+    "grader_sha256": "da87d8b9567a0f1b576957751d92522f2cd0df34a591859cc77abffc183baa3d",
+    "manifest_sha256": "19c5514a6cf7390ac298e9867272b1d2c21e22a8aa16a402c079d4f72fc13cd6"
+  },
+  "passed": 1,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-behavior-v3-baseline-s55",
+  "schema_version": 5
+}

@@ -1,0 +1,43 @@
+{
+  "all_passed": false,
+  "artifacts": 24,
+  "condition": "baseline",
+  "critical_passed": 4,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev16-behavior-development-harness-engineering-crash-timeout-budget/1.json": "3924c832dc2171a2742e90fe2aac3bb92f3e9cc3826592555bc8b475bf5acffc",
+      "artifacts/dev16-behavior-development-harness-engineering-crash-timeout-budget/2.json": "0a554f1d96b4348dd364b04785a63bfabbf3af51639cb718c2d71df96b28a476",
+      "artifacts/dev16-behavior-development-harness-engineering-crash-timeout-budget/3.json": "233fd5aba1ab178875bd57734ba34cf831524bd51af8961c2391b30c3c64d2df",
+      "artifacts/dev16-behavior-development-harness-engineering-init-coder-split/1.json": "6694dabc62bd919126dc8a085709caad92a75877e01670e028eb5a9c24063db9",
+      "artifacts/dev16-behavior-development-harness-engineering-init-coder-split/2.json": "6e686372d4e2e0b6d015f8d717a87df1d716462942ab0ee328ac50b5178c9839",
+      "artifacts/dev16-behavior-development-harness-engineering-init-coder-split/3.json": "e6431d78ff5d8a5bcb8bc1571207d804372d923b754bda758cefa49c3b7d3b16",
+      "artifacts/dev16-behavior-development-harness-engineering-judge-pleasing-drafts/1.json": "9e72c4da4d2abf76c8200c972338fc031924c601a51bc93ffc478b990bf7d29c",
+      "artifacts/dev16-behavior-development-harness-engineering-judge-pleasing-drafts/2.json": "900ab6487af7002594bf2143de83717787fc02c26cdf14defc7206a8ebc74de8",
+      "artifacts/dev16-behavior-development-harness-engineering-judge-pleasing-drafts/3.json": "b709b375884bd2d1c2bf609f40c80d98d0ee1b00fbccb183829774c91cb55360",
+      "artifacts/dev16-behavior-development-harness-engineering-mid-run-rubric-change/1.json": "a6fa94651fa9d71ecd6d6c7d9d4b739805982c4fe43c15cb9a162d750b9f3e6f",
+      "artifacts/dev16-behavior-development-harness-engineering-mid-run-rubric-change/2.json": "b775747c1a70e709eba7ae5e3fd4d6874c2450ad8a57fe97d9fdae97785b56f7",
+      "artifacts/dev16-behavior-development-harness-engineering-mid-run-rubric-change/3.json": "bfcb0b2b5d3d9d9692eb1d125444eb13b6022c8fdeda2dba07a818f3f4cec5f7",
+      "artifacts/dev16-behavior-development-harness-engineering-monitor-report-evidence/1.json": "3f8cdec4feda15b53386d592ec90232d0ecc92970ccbf9eb9976954fa2d791ce",
+      "artifacts/dev16-behavior-development-harness-engineering-monitor-report-evidence/2.json": "f9399f8db81e7c33464c756bf344cad35749899b07a1827413136497b876e6bb",
+      "artifacts/dev16-behavior-development-harness-engineering-monitor-report-evidence/3.json": "fb8f1878ac03683da4226ab013f61afcf3c093b5271cb8930e843f2d79b2d114",
+      "artifacts/dev16-behavior-development-harness-engineering-novelty-plateau-refresh/1.json": "22be49f03f661fcdaa04e091086d65314e1c3e9be80c8b2ae564cb6e493aaadb",
+      "artifacts/dev16-behavior-development-harness-engineering-novelty-plateau-refresh/2.json": "1a5d9edd67e527aa043f6e9f3dbb844c9c6c72867d2cfc2aa9766c67477816a7",
+      "artifacts/dev16-behavior-development-harness-engineering-novelty-plateau-refresh/3.json": "07dec736cc404563ac8a5277af6308a706f93216753181ba42d11ec2c210e672",
+      "artifacts/dev16-behavior-development-harness-engineering-registry-before-keyword-gate/1.json": "47429a4e386ca06558db6f0d55b1b70e8b711f2bfd3f7fdc5891bf35549f6003",
+      "artifacts/dev16-behavior-development-harness-engineering-registry-before-keyword-gate/2.json": "3454da6280f79ed5bd15ca3a90a89e129ae37ec212f766331baf6b18ac9f8893",
+      "artifacts/dev16-behavior-development-harness-engineering-registry-before-keyword-gate/3.json": "e883156196686377b1f46bc9d4589a22a62a4112346e1c792f2d91eb2715a8a0",
+      "artifacts/dev16-behavior-development-harness-engineering-remediating-linter/1.json": "8df295fad14d38071f65f1cdbdb0e8a72b2ef08be5cc8d955db846c9005183b2",
+      "artifacts/dev16-behavior-development-harness-engineering-remediating-linter/2.json": "9d22df11a18ea7a2fe42e25fcf0e83b44edb9a8e755a3b7ee4eb7d9c174d62f1",
+      "artifacts/dev16-behavior-development-harness-engineering-remediating-linter/3.json": "dd36d38710464229361f5c5fe2a32315d0140501ce806b7297a80c13bd3a743b"
+    },
+    "case_snapshot_sha256": "19083cba3a88eff872ab08ad4eb53e511bb2aa096b8dcb702c2e97f68ac20d78",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "855af0a1e86fe5996f5b354f930a2411ca92e0a0fa7d46f2a09a1a8de9de8f9a"
+  },
+  "passed": 4,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-baseline-s55",
+  "schema_version": 5
+}
