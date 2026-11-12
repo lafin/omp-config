@@ -237,6 +237,8 @@ def handle_customer_request(request):
 7. **Over-decomposition** — Splitting tasks too finely can create more handoff work than task work. Decompose only when subtasks genuinely benefit from separate contexts.
 8. **Missing shared state** — Agents operating without a shared filesystem or state store duplicate work, produce inconsistent outputs, and lose track of what has already been accomplished. Establish shared persistent storage before building multi-agent workflows.
 
+A caller-specified layout (named fields, one line per field, JSON) overrides any list shape: put the topology inline in its named fields, one line per field, numbered inline as `(1) ... (2) ...`, with no headings, bullets, numbered lines, fenced blocks, or extra lines.
+
 ## Integration
 
 This skill owns agent topology and coordination protocols. Adjacent skills own project shape, hosted runtime, and latent-state transfer:

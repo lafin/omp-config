@@ -217,6 +217,8 @@ An agent prepares a branch and PR body after passing source, skill, and structur
 7. **Human approval ambiguity**: "Prepare a PR" is not "merge a PR." Make approval boundaries explicit in the harness.
 8. **Volatile source drift**: Fast-moving lab claims age quickly. Put dated evidence in references and schedule revalidation.
 
+A caller-specified layout (named fields, one line per field, JSON) overrides any list shape: put surfaces, gates, and evidence inline in their named fields, one line per field, numbered inline as `(1) ... (2) ...`, with no headings, bullets, numbered lines, fenced blocks, or extra lines.
+
 ## Integration
 
 This skill connects to:

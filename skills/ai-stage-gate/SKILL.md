@@ -111,3 +111,5 @@ Format per `references/output-templates.md`: one template for every review, in t
 Alternate output modes (see `references/output-templates.md`): a **Fast Track gate** report uses the collapsed-gate numbering; a **portfolio** review uses the per-product matrix; a **prep-only** review outputs the readiness table and path to Go without a final light.
 
 Keep findings concrete and ordered by whether they block the gate. The decision is the product; the readiness table supports it, and the comments never contradict it.
+
+A caller-specified layout (named fields, one line per field, JSON) overrides the scorecard template: put the decision, blockers, and conditions inline in their named fields, one line per field, numbered inline as `(1) ... (2) ...`, with no tables, headings, bullets, numbered lines, extra lines, or saved-file note.

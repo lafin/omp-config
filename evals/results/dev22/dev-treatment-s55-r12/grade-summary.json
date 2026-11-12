@@ -1,0 +1,43 @@
+{
+  "all_passed": false,
+  "artifacts": 24,
+  "condition": "treatment",
+  "critical_passed": 23,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev22-behavior-development-leancode-debt-caller-layout-one-line/1.json": "484e086aa9183aba99a86781a88eab2895e0e1c3fc6a6eaae63afc11c1b74b5f",
+      "artifacts/dev22-behavior-development-leancode-debt-caller-layout-one-line/2.json": "c017df4498e76e364247d52ba2e90401793ea1e43cc4366bfd88131126a6f8c8",
+      "artifacts/dev22-behavior-development-leancode-debt-caller-layout-one-line/3.json": "1491063900b67a013d2cc814e21fefabe2b531b07a080d1c5fd958c70b64b8ed",
+      "artifacts/dev22-behavior-development-leancode-debt-mixed-comment-prefixes-prose/1.json": "e17b58e31c218e022bafe9ad0b36b473c713befe01da72fddf48edef68f946ec",
+      "artifacts/dev22-behavior-development-leancode-debt-mixed-comment-prefixes-prose/2.json": "c20ad682d17380ddbf860ea699b479c491973add5d45296084897bc55543b9fc",
+      "artifacts/dev22-behavior-development-leancode-debt-mixed-comment-prefixes-prose/3.json": "f72b95cd7fa26ab687796aae81d56225ad2a58e9df35e08bf8f9ac214e4a8a24",
+      "artifacts/dev22-behavior-development-leancode-debt-persist-request-read-only/1.json": "e5f407014be2bbcbb9c37049f164b1396070e0246c0053a646ebf64c4627523c",
+      "artifacts/dev22-behavior-development-leancode-debt-persist-request-read-only/2.json": "ad3964a6ef3fccffb411aa608a97462b03909a17565ab6a42ee618b1e8c25346",
+      "artifacts/dev22-behavior-development-leancode-debt-persist-request-read-only/3.json": "39fb8cb8b39533bd8d49e7fd547802eda2e765807eb0149155f5b89c2531d157",
+      "artifacts/dev22-behavior-development-leancode-debt-verbatim-ceiling-trigger/1.json": "a28144f77f68a3fd9d1a8634a2c1063a638287452e0fd71b3b87d759b2a50865",
+      "artifacts/dev22-behavior-development-leancode-debt-verbatim-ceiling-trigger/2.json": "ce1cca56b70ecd2a1c2411bb6ef031cd762c04f58ac28fe127c569c42083bfdf",
+      "artifacts/dev22-behavior-development-leancode-debt-verbatim-ceiling-trigger/3.json": "13ccb25650b229e0b04f85bf9b8261b6919d350e9a7cd7eb0a8baa10d218f1e2",
+      "artifacts/dev22-behavior-development-self-improvement-loops-playbook-rewrite-collapse/1.json": "06fc8161c6f6bd004a164604102b0a7eccd3e4c4f7624128d71da3464cd18802",
+      "artifacts/dev22-behavior-development-self-improvement-loops-playbook-rewrite-collapse/2.json": "efe590fb3c1549a6733b68e5ecbfca6f23494a88ff36f4a1cb540d442adb436e",
+      "artifacts/dev22-behavior-development-self-improvement-loops-playbook-rewrite-collapse/3.json": "9a9be5f41b7bb96cc4abf7a8b378fab222a66eec77025688431a2f0f61f0b569",
+      "artifacts/dev22-behavior-development-self-improvement-loops-scorer-tamper-candidate/1.json": "c7e38ec3781518d5f05fed068d9744f45806a55fd963014835dc3cb9c4fd41a0",
+      "artifacts/dev22-behavior-development-self-improvement-loops-scorer-tamper-candidate/2.json": "ab30e0f0972e6d776e9d13e7664b10a0370fd153ebc091affcd77a0c698c52f7",
+      "artifacts/dev22-behavior-development-self-improvement-loops-scorer-tamper-candidate/3.json": "230e3c18fbfeb2a74853520c4b3001dc08f52e1f36e0c2dce464151a55cc4cd1",
+      "artifacts/dev22-behavior-development-self-improvement-loops-timeout-cluster-mining/1.json": "8756f81a0107530ed86185a6584eec760bcb5e390194d154145e3d572655af19",
+      "artifacts/dev22-behavior-development-self-improvement-loops-timeout-cluster-mining/2.json": "c0be3f78287013ff2652885a1848bb4dded4c8422f2f572bf4fca2ba8bf58750",
+      "artifacts/dev22-behavior-development-self-improvement-loops-timeout-cluster-mining/3.json": "61cb29ef10bded4cdd0a76c03b370f90491dd718f89c6e77b1bf61b6c15d405e",
+      "artifacts/dev22-behavior-development-self-improvement-loops-weak-model-recursion-preflight/1.json": "740cafc823b0334032d976d43b84b4ea6ace98216270c98f03b5ddb504f5cc68",
+      "artifacts/dev22-behavior-development-self-improvement-loops-weak-model-recursion-preflight/2.json": "6f93a230a97a91214aa8f81229e705237583520f3c01d58dd55dde7697e69839",
+      "artifacts/dev22-behavior-development-self-improvement-loops-weak-model-recursion-preflight/3.json": "f1732672fb6e29331aecab9843f1c45eb5d8d59ca631e305ae97124fcd2458e5"
+    },
+    "case_snapshot_sha256": "9884f835639121875eeb89bc1c673f34082d0c51044150ac39f8602750473eaf",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "af7f6a21aa5bdc9c8dc6d76d04e1376b5d02db7e910430eb3b66a9a8bf2eab40"
+  },
+  "passed": 23,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55-r12",
+  "schema_version": 5
+}

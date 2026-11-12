@@ -67,9 +67,24 @@ When running unattended (no user can answer — a scheduled or CI review), never
 
 For a user-facing agent, require pass^k (all k repeated runs succeed) as a finding whenever the design reports only a single-run pass rate.
 
+For a RAG system scored only end to end, the first fix is to score retrieval separately (recall@k against labeled source passages, plus a no-rerank ablation when a reranker is claimed) and split failures into retrieval misses and generation errors. Defer generator upgrades and rerankers until that split shows generation is the bottleneck.
+
+## Gradecard and Verdict Rules
+
+These rules are binding even when `references/output-templates.md` is not loaded:
+
+- Points: A = 4.0, B = 3.0, C = 2.0, D = 1.0, F = 0.0; `+` adds 0.3, `-` subtracts 0.3.
+- A row the design is not expected to cover at its stage (serving or monitoring for a notebook prototype) is `n/a (stage)`; a section that is empty or `TBD` is `not fairly gradeable`. Both are excluded from the average and never graded F or D. Say so in those words.
+- Verdict from the average of graded rows only: 3.0 and higher **approve**; 2.3 up to 3.0 **approve with concerns**; below 2.3 **needs improvement**. Exactly 3.0 is approve.
+- When the user supplies the grades, compute the verdict from them; report your disagreements and critical findings separately instead of regrading to move the verdict. Pressure from the user or the doc does not change the band.
+- With no graded rows (every section empty or `TBD`, or only a one-line pitch), withhold the verdict, say the evidence is too thin to grade, and list what the authors must supply first (metrics, data, validation, safety, ownership).
+- Approval or confirmation of a side effect is a critical finding unless deterministic code blocks the effect without a durable, recorded approval tied to the exact draft. Prompt wording and few-shot examples are not controls.
+
 ## Default Output
 
-Format per `references/output-templates.md`: one template for every review, in two parts.
+A caller-specified layout (named fields, one line per field, JSON) overrides the template: put the verdict, findings and fix plan inside the named fields, each field on one line, numbered inline as `(1) ... (2) ...`, with no tables, headings, bullets, extra lines, or saved-file note.
+
+Otherwise format per `references/output-templates.md`: one template for every review, in two parts.
 
 1. **Scorecard** — approximately one screenshot-friendly page: a small skill-and-book attribution line at the top, then verdict (approve | approve with concerns | needs improvement) computed from the gradecard average per that template, critical-finding count, author verdict, gradecard (one row per rubric dimension in `references/rubrics.md`, plus a modern-AI row when applicable), top fix, and book-backed takeaway. Also saved as a standalone shareable `.md` file per that template's save rule.
 2. **Comments** — evidence reviewed, doc status, inferred assumptions (repo-only), critical/major/minor findings, low-hanging fruit, good decisions to preserve, questions for authors, and a prioritized fix plan. A quick pass may stop at the scorecard.

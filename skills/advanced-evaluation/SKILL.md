@@ -378,6 +378,8 @@ strictness: "balanced"
 
 8. **Uncontrolled length bias**: A judge may favor longer responses even when conciseness is preferred. Add explicit length-neutrality instructions and validate with length-controlled test pairs.
 
+A caller-specified layout (named fields, one line per field, JSON) overrides every template and JSON shape here: put the answer inline in its named fields, one line per field, numbered inline as `(1) ... (2) ...`, with no headings, bullets, numbered lines, fenced blocks, or extra lines.
+
 ## Integration
 
 This skill owns judge design and bias mitigation. Adjacent skills own broader quality gates and infrastructure:

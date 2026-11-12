@@ -1,0 +1,37 @@
+{
+  "all_passed": false,
+  "artifacts": 18,
+  "condition": "treatment",
+  "critical_passed": 17,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/depth-behavior-holdout-ai-stage-gate-no-data/1.json": "8ed9fbb5c184093ac9dc9f6852006ef8f5025f5168d6cccba99dbae60cbe9243",
+      "artifacts/depth-behavior-holdout-ai-stage-gate-no-data/2.json": "c8f67154038cabb9c09d8c05b304164f20dd337fc876ff792b1b1029ca7d43c2",
+      "artifacts/depth-behavior-holdout-ai-stage-gate-no-data/3.json": "2c131087ef7bed9c3ec27ae98be963d3234c56e43a35febbdff308c797f786f1",
+      "artifacts/depth-behavior-holdout-ai-stage-gate-verbal-only/1.json": "867105d78800d01ef1996d1e7263ea7b51eba66ad69dcdd138b6d1b12db2a44f",
+      "artifacts/depth-behavior-holdout-ai-stage-gate-verbal-only/2.json": "31e5797774068ba6e24c14862522c6d5d04c0a7cbacb2dbf33e0ac1ed0c8e2af",
+      "artifacts/depth-behavior-holdout-ai-stage-gate-verbal-only/3.json": "d01312e31be99b89c3e4b46a28a301e4acd38b0fca6970b91c6517b360fe5ca3",
+      "artifacts/depth-behavior-holdout-bdi-competing-desires/1.json": "818cb84307d8650fd441cde1065f6a5c90c47df2a5436fbb740ff8c1fc911c6e",
+      "artifacts/depth-behavior-holdout-bdi-competing-desires/2.json": "7e40ba2d94b4183fd5576de5b0a78ee566e961261e55adc59fab93d341317387",
+      "artifacts/depth-behavior-holdout-bdi-competing-desires/3.json": "f23f2bf6470764447ecd88aeb16b95432ecbe8acb785c42f0b63451a536d6c36",
+      "artifacts/depth-behavior-holdout-bdi-not-memory/1.json": "7c8afb9436182f69a321032c35e355aac158602046855fb321be6e24aa095c60",
+      "artifacts/depth-behavior-holdout-bdi-not-memory/2.json": "13a9b2b88921d6762afa5fc9abdd7052805ce541ee50a0768aeac01ff5d1bb58",
+      "artifacts/depth-behavior-holdout-bdi-not-memory/3.json": "5e8bce77561a119a0428a7d25c45b4dbf824fcc059b26a3ac162dae312a1848f",
+      "artifacts/depth-behavior-holdout-context-fundamentals-anatomy/1.json": "4e7c04d87b389cf26e4766caa5a298eb495026a7bf5f63b961db18772291a6b2",
+      "artifacts/depth-behavior-holdout-context-fundamentals-anatomy/2.json": "1c060bd374836a431590bd465480f03668011537045797b935272b73fc9cd707",
+      "artifacts/depth-behavior-holdout-context-fundamentals-anatomy/3.json": "ea8854b4fbf086f8a14465120ebe34cb458c169b13a0c7f9397ea3cd52809460",
+      "artifacts/depth-behavior-holdout-context-fundamentals-buried-rule/1.json": "07e901aaace3c08009ebe1edd47f4e6b88316c0e60fdd49cbd11282128b972a9",
+      "artifacts/depth-behavior-holdout-context-fundamentals-buried-rule/2.json": "f333bb68677cebf3a968d2a5895cac6872d7bfa510b6fd38bd2579b1c87e8ea7",
+      "artifacts/depth-behavior-holdout-context-fundamentals-buried-rule/3.json": "04ec5780b8c4864b366c1fd17952ec08f2791d8de9a6246be92b1bc2ecaf7f7c"
+    },
+    "case_snapshot_sha256": "6f87e63b027c911404b8639c84cdaad85206016cc638498219b6f4fb108a46be",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "4690361dd64370bbd4f0848b93c83c05e49445b6a2937f14997d1c6ec197f8fd"
+  },
+  "passed": 17,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-treatment-s55-p6723b",
+  "schema_version": 5
+}

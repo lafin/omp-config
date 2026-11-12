@@ -203,6 +203,8 @@ results = await cognee.search(
 7. **Stale memory poisoning**: Old memories that contradict the current state corrupt agent behavior silently. Implement expiry policies or confidence decay so the agent deprioritizes aged facts, and surface contradictions explicitly when detected.
 8. **Memory-context mismatch**: Retrieving memories that are topically related but contextually wrong (e.g., a memory about "Python" the snake when the agent is discussing Python the language). Mitigate by including session or domain metadata in memory entries and filtering on it during retrieval.
 
+A caller-specified layout (named fields, one line per field, JSON) overrides any list shape: put the design inline in its named fields, one line per field, numbered inline as `(1) ... (2) ...`, with no headings, bullets, numbered lines, fenced blocks, or extra lines.
+
 ## Integration
 
 This skill owns persistent semantic memory. Adjacent skills own scratch storage, compaction, and context tactics:

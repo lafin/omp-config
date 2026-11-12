@@ -176,6 +176,8 @@ The corresponding operational question—how to reduce the load after measuring 
 
 7. **Mixing instruction altitudes causes inconsistent behavior**: Combining hyper-specific rules ("always use exactly 3 bullet points") with vague directives ("be helpful") in the same prompt creates conflicting signals. Group instructions by altitude level and keep each section internally consistent — either heuristic-driven or prescriptive, not both interleaved.
 
+A caller-specified layout (named fields, one line per field, JSON) overrides any list shape: put the answer inline in its named fields, one line per field, numbered inline as `(1) ... (2) ...`, with no headings, bullets, numbered lines, fenced blocks, or extra lines.
+
 ## Integration
 
 This skill is the conceptual foundation. It does not own operational work; it provides the mental models the operational skills assume.

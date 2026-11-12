@@ -190,6 +190,8 @@ triggers:
 
 6. **Cache miss cost spikes after deployment changes**: Reordering tools, rewording the system prompt, or changing few-shot examples between deployments invalidates the changed prefix. Roll out prompt changes gradually and monitor cache hit rate during deployment windows.
 
+A caller-specified layout (named fields, one line per field, JSON) overrides any list shape: put rules and budgets inline in their named fields, one line per field, numbered inline as `(1) ... (2) ...`, with no headings, bullets, numbered lines, fenced blocks, or extra lines.
+
 ## Integration
 
 This skill owns token-efficiency tactics and budget policy. Adjacent skills own diagnosis, storage, and architecture:

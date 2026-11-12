@@ -268,6 +268,8 @@ See [Case Studies](skill://project-development/references/case-studies.md) for d
 8. **Evaluation-less deployment**: Shipping agent pipelines without measuring output quality means regressions go undetected. Define quality metrics during development and run evaluation checks before and after every model or prompt change.
 9. **Provenance drift**: Raw inputs, intermediate outputs, and final proposals separated across ad hoc folders become impossible to audit. Keep each pipeline run in a single directory with source evidence, transformations, validation reports, and decisions.
 
+A caller-specified layout (named fields, one line per field, JSON) overrides any list shape: put estimates and steps inline in their named fields, one line per field, numbered inline as `(1) ... (2) ...`, with no headings, bullets, numbered lines, fenced blocks, or extra lines.
+
 ## Integration
 
 This skill owns project-shape and pipeline decisions. Adjacent decisions are owned elsewhere:

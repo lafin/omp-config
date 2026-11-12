@@ -93,11 +93,11 @@ Set defaults to reflect common use cases. Defaults reduce agent burden by elimin
 
 ### Response Format Optimization
 
-Offer response format options (concise vs. detailed) because tool response size significantly impacts context usage. Concise format returns essential fields only, suitable for confirmations. Detailed format returns complete objects, suitable when full context drives decisions. Document when to use each format in the tool description so agents learn to select appropriately.
+Offer response format options because tool response size significantly impacts context usage. Name the parameter `response_format` with values `"concise"` and `"detailed"` and state the default (usually `"concise"`). Concise returns essential fields only and always keeps the identifiers needed to drill down with another tool (`order_id` for `get_order`). Detailed returns complete objects, for when full context drives decisions. Strip internal fields (audit trails, raw gateway payloads) from both modes rather than telling the agent to ignore them. For outputs that can exceed the context budget (multi-MB logs, exports), add a file-reference mode that writes the full output to a file and returns its path plus a short summary, so the full payload is never inline by default. Document when to use each mode in the tool description so agents learn to select appropriately.
 
 ### Error Message Design
 
-Design error messages for two audiences: developers debugging issues and agents recovering from failures. For agents, every error message must be actionable -- it must state what went wrong and how to correct it. Include retry guidance for retryable errors, corrected format examples for input errors, and specific missing fields for incomplete requests. An error that says only "failed" provides zero recovery signal. MCP servers return these as `isError: true` tool results (checklist item 11).
+Design error messages for two audiences: developers debugging issues and agents recovering from failures. For agents, every error message must be actionable -- it must state what went wrong and how to correct it. Include retry guidance for retryable errors, corrected format examples for input errors (`e.g. "USD"`), and specific missing fields for incomplete requests. An error that says only "failed" or "Invalid params" provides zero recovery signal. MCP servers return validation and business failures (amount over the order total, wrong currency) as `isError: true` tool results with that recovery text, not as JSON-RPC protocol errors; say this explicitly when replacing a protocol-error draft (checklist item 11).
 
 ### Tool Definition Schema
 
@@ -105,7 +105,7 @@ Establish a consistent schema across all tools. Use verb-noun pattern for tool n
 
 ### Tool Collection Design
 
-Limit tool collections to the smallest set with non-overlapping purposes, because description overlap causes model confusion. When a catalog is large because it covers many distinct capabilities (many MCP servers, 100+ tools), consider deferred loading or a tool-search tool before merging tools that do different things: keep the few most-used tools loaded and let the agent discover the rest on demand. Anthropic's reported context and accuracy gains from tool search are vendor-scoped; measure on your catalog ([source](https://www.anthropic.com/engineering/advanced-tool-use)). Other selection aids: namespacing, example-based hints, and umbrella tools that route to sub-tools.
+Limit tool collections to the smallest set with non-overlapping purposes, because description overlap causes model confusion. When several narrow lookups differ only by key (by id, by email, by name), consolidate them into one tool with an identifier parameter instead of adding another lookup, and say so in those words. When a catalog is large because it covers many distinct capabilities (many MCP servers, 100+ tools), consider deferred loading or a tool-search tool before merging tools that do different things: keep the few most-used tools loaded and let the agent discover the rest on demand. Anthropic's reported context and accuracy gains from tool search are vendor-scoped; measure on your catalog ([source](https://www.anthropic.com/engineering/advanced-tool-use)). Other selection aids: namespacing, example-based hints, and umbrella tools that route to sub-tools.
 
 ### MCP Tool Naming
 
@@ -119,7 +119,7 @@ Pinned to MCP specification revision [2026-07-28](https://modelcontextprotocol.i
 
 Feed observed tool failures back to an agent to diagnose issues and improve descriptions: give it the tool spec and failure transcripts, ask why calls failed and what is missing or ambiguous, then rerun the same tasks against the revised description. Treat reported efficiency gains as workload-specific until reproduced on the target tool catalog.
 
-Whenever a tool is reported as misused, the answer includes this loop as the method, not only the fixed description: transcripts of the failing calls plus the spec go to an agent for diagnosis, and the same failing tasks are rerun after the revision. System-prompt reminders and silent input-rewriting wrappers are not substitutes.
+Whenever a tool is reported as misused (wrong arguments, wrong dialect, timeouts, unbounded results), the answer includes this loop as the method, not only the fixed description: transcripts of the failing calls plus the spec go to an agent for diagnosis, and the same failing tasks are rerun after the revision to compare. Name both steps (failure transcripts, rerun of the same tasks) in the answer. System-prompt reminders and silent input-rewriting wrappers are not substitutes.
 
 ### Testing Tool Design
 

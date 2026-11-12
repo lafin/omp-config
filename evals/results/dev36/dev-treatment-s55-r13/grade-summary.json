@@ -1,0 +1,31 @@
+{
+  "all_passed": true,
+  "artifacts": 12,
+  "condition": "treatment",
+  "critical_passed": 12,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev36-behavior-development-leancode-debt-ansible-sre-label/1.json": "df4e09f8644308f8ae1affd9f2ce52f3c73daf9d47a5f3aab63e194f7d7a842a",
+      "artifacts/dev36-behavior-development-leancode-debt-ansible-sre-label/2.json": "25ceae83e181e706d5b0b8206e6bd826a71520e3b27b07072e022b815da41f1b",
+      "artifacts/dev36-behavior-development-leancode-debt-ansible-sre-label/3.json": "54a5a9e1d4341480a69c035070f515e78a0ccf3df6d6b35eb4f9ccf47cc0817a",
+      "artifacts/dev36-behavior-development-leancode-debt-fixtures-shared/1.json": "e62b9a32e81edaa4ae4592ec5a9c105c47cff971206439b1f5041b6f3a9fd775",
+      "artifacts/dev36-behavior-development-leancode-debt-fixtures-shared/2.json": "8a1435dad26d0ae557208d2f166b42c40f825fda1dc4fcef702c5ad152e74f49",
+      "artifacts/dev36-behavior-development-leancode-debt-fixtures-shared/3.json": "289aa9fa15493561a7fea1a066633e545bdcd5564ca66385ddf97b3bfb465497",
+      "artifacts/dev36-behavior-development-leancode-debt-generated-nobodys/1.json": "8c4813fbb606d39704ea1610293a537945caffb7255fe926c20d625df7c5bf2d",
+      "artifacts/dev36-behavior-development-leancode-debt-generated-nobodys/2.json": "d60331386cf59a319879e759c58eaf181c37e28ba9796f08dd209d50ed8e3184",
+      "artifacts/dev36-behavior-development-leancode-debt-generated-nobodys/3.json": "5b1d466d57fa66c05d41752488710c03318879273e35dcf02ae8ead0414ef0aa",
+      "artifacts/dev36-behavior-development-leancode-debt-vendor-fork-no-owner/1.json": "f2cb02cc575f7912dcff6d39ccb33b3fcf86a1e3efd792f0198692f4a284b3ef",
+      "artifacts/dev36-behavior-development-leancode-debt-vendor-fork-no-owner/2.json": "3791e5557dc40c503db2ef5dd884eb5e1d691b571d931ad310c14a28d8847240",
+      "artifacts/dev36-behavior-development-leancode-debt-vendor-fork-no-owner/3.json": "d07472bd648e8d05f837b4a34d403c013ac5a52462f6e67779d085f69ce9f67f"
+    },
+    "case_snapshot_sha256": "8464a96540ef0968514faaa21920ba2ceec74fb5ee2031e12e432515f35f1260",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "b442fea06475c2ca78f9bc12ff8495f6c24ab15a6c949ef68ee5b9ad1bb1a630"
+  },
+  "passed": 12,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55-r13",
+  "schema_version": 5
+}

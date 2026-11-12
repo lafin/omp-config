@@ -223,6 +223,8 @@ so ground the context; do not add machinery.
 8. **Benchmark-shaped improvements**: Self-Harness reports model-specific edits on fixed benchmark subsets, and Meta-Harness searches and evaluates on the same benchmark. Validate on a distribution shift before promotion. [Self-Harness evidence](skill://self-improvement-loops/references/loop-design-evidence.md#evidence-reviewed-2026-07-08-self-harness-bounded-self-edits) [Meta-Harness evidence](skill://self-improvement-loops/references/loop-design-evidence.md#evidence-reviewed-2026-07-08-meta-harness-search)
 9. **Cross-stage score cherry-picking**: The ScientistOne paper reports writeup stages selecting favorable intermediate scores instead of the shipped artifact's score. Bind scores to submitted candidates deterministically. [Evidence](skill://self-improvement-loops/references/loop-design-evidence.md#evidence-reviewed-2026-07-08-reward-hacking-and-oversight)
 
+A caller-specified layout (named fields, one line per field, JSON) overrides any list shape: put the loop design inline in its named fields, one line per field, numbered inline as `(1) ... (2) ...`, with no headings, bullets, numbered lines, fenced blocks, or extra lines.
+
 ## Integration
 
 This skill connects to:

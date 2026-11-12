@@ -360,6 +360,8 @@ If the task is "remember that Alice prefers concise summaries," use `memory-syst
 
 7. **Reasoning cost explosion**: Keep belief chains no deeper than the competency questions require. Measure inference cost and decision quality before adding another layer.
 
+A caller-specified layout (named fields, one line per field, JSON) overrides every template here: put triples, queries, and steps inline in their named fields, one line per field, numbered inline as `(1) ... (2) ...`, with no headings, bullets, numbered lines, fenced blocks, or extra lines.
+
 ## Integration
 
 This skill owns formal mental-state modeling. Adjacent skills own different layers:

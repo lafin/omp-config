@@ -118,3 +118,5 @@ Format per `references/output-templates.md`: three artifacts, always.
 
 Name the saved file paths at the end of the run. Per-run outputs are not committed to any
 repo.
+
+A caller-specified layout (named fields, one line per field, JSON) overrides the three artifacts: put the result, removals, and flags inline in their named fields, one line per field, separated by `; `, with no headings, bullets, extra lines, or saved-file note.

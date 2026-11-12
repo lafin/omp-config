@@ -122,3 +122,4 @@ Paths are relative to this skill directory (the `scripts` directory sits next to
 - **Unbounded loops.** Not passing a bound is never a license to run forever; default bounds apply.
 - **Stale marker.** A crashed run leaves `<project>/autoresearch/.active`; the guard stays on until it is deleted. Follow the stale-marker rule.
 - **Rationalizations.** "One more tweak before logging", "the guard failure is unrelated", "I'll skip the revert, it is nearly better": each produces an unlogged or unverified state. Log, revert, move on.
+- **Ignoring the caller's layout.** When the request names an output layout (named fields, one line per field, JSON), put the answer inline in its named fields, one line per field, numbered inline as `(1) ... (2) ...`, with no headings, bullets, numbered lines, fenced blocks, or extra lines.

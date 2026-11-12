@@ -1,0 +1,43 @@
+{
+  "all_passed": false,
+  "artifacts": 24,
+  "condition": "treatment",
+  "critical_passed": 17,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev33-behavior-development-hosted-agents-egress-allowlist/1.json": "6bbf0d9deea6dad5e5c13416aa8dc8026bc692efc3f8d207432a4b61380679e0",
+      "artifacts/dev33-behavior-development-hosted-agents-egress-allowlist/2.json": "651e0981c4c3f3dfb9f9265cf482a6ef475a5bf983b9f17e3db194f0504aa482",
+      "artifacts/dev33-behavior-development-hosted-agents-egress-allowlist/3.json": "8c8ca33379686dedb66e02344e4578a47181558b1315172114f893c13e6569ec",
+      "artifacts/dev33-behavior-development-hosted-agents-git-credentials/1.json": "129ebc3b55630b3946af53ac9a8157dac76e864497d1c0e063801e834409bcfc",
+      "artifacts/dev33-behavior-development-hosted-agents-git-credentials/2.json": "efa426db23be86d31f2a050ae39ed0db2797508aebaff6c54370b51822ba0465",
+      "artifacts/dev33-behavior-development-hosted-agents-git-credentials/3.json": "a2a43871232a370ef78a4dd3e22d0b11243f151202b239015d868a68f0e9c667",
+      "artifacts/dev33-behavior-development-hosted-agents-output-extraction/1.json": "9cbe793d83e5feca0fc51c1670259779e0f1263dd255c172d38ca97c36597dd0",
+      "artifacts/dev33-behavior-development-hosted-agents-output-extraction/2.json": "9c054f2e962f8da07da18d6418e756f95f57b903f89f60b136d71f0a97422744",
+      "artifacts/dev33-behavior-development-hosted-agents-output-extraction/3.json": "a00178eee4132922f640030134d8b6a3caed0da0ce80f9cb50f0e825500b94a9",
+      "artifacts/dev33-behavior-development-hosted-agents-sync-read-write-gate/1.json": "6d90e7ea01d1a035d5c2edeeb7d487de105e708159a6461c38754f31fe89f148",
+      "artifacts/dev33-behavior-development-hosted-agents-sync-read-write-gate/2.json": "398982b6ea840171734095159fa35bf7518bc1c15615374180beccbde71f50af",
+      "artifacts/dev33-behavior-development-hosted-agents-sync-read-write-gate/3.json": "26cbc46924a4bb3f43b946e255699d30703ec724a6810a000d868aba272b2d5a",
+      "artifacts/dev33-behavior-development-tool-design-fs-catalog-annotations/1.json": "4d11d5db6cf6ba952aa0293d417ef1d990cbdb107bb0cde2643100b1f38a4c65",
+      "artifacts/dev33-behavior-development-tool-design-fs-catalog-annotations/2.json": "a0048fbc2527f9204175a234fe7855d96fe5649a1888000b08253d50422a0bae",
+      "artifacts/dev33-behavior-development-tool-design-fs-catalog-annotations/3.json": "010fac103df35724b5d0e097a9072d442250f1802bad49d14dbe127ed52db67c",
+      "artifacts/dev33-behavior-development-tool-design-large-output-modes/1.json": "1f0dcd756e0045d5e3de8df3b7b3d8515bd3a1e5eda8b5ce66583b6a931bb6e1",
+      "artifacts/dev33-behavior-development-tool-design-large-output-modes/2.json": "5643a59c9c62e40c2aaa6a785eed10793d18192f4437477dd29c37b37ad72722",
+      "artifacts/dev33-behavior-development-tool-design-large-output-modes/3.json": "a5de341eea585ddc1a7a0e323393de6f05d0eab34ba09c0f3e92996fe6b01a90",
+      "artifacts/dev33-behavior-development-tool-design-mcp-name-collision/1.json": "55281e504f616d9eaf4a9b75336d833228ca0a68d1a8798841531d2f078b182d",
+      "artifacts/dev33-behavior-development-tool-design-mcp-name-collision/2.json": "4108724e19ffe8f2eabe8ec0f451cf6fc7a822c1cc5541060d29509bcce9cadd",
+      "artifacts/dev33-behavior-development-tool-design-mcp-name-collision/3.json": "7816c8f6434e7356b2a5d7dc922a800f4c33f9b49a7cebdd0af4bd49d5a4acc4",
+      "artifacts/dev33-behavior-development-tool-design-payments-error-channel/1.json": "3ab63023bbaf7fe684ec444764ddf6f1cc93b771b25db0e87d802cf2f5f8324c",
+      "artifacts/dev33-behavior-development-tool-design-payments-error-channel/2.json": "1498ab4aebec0127bbc60b15fa5d8c8f9df4b86a6335979049046b42c168f0d2",
+      "artifacts/dev33-behavior-development-tool-design-payments-error-channel/3.json": "de7dc7cd82dcfac746faf27a520224a5e1ee9c62bc1fbf0ebb0333db0564b16b"
+    },
+    "case_snapshot_sha256": "de8aa7fe03ce4a190bf7a2c6e80b2ef890a25402d0e75b31d6fcc8bd457bd44a",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "f2465310eaad9d89cbdae12ea96e1c2db04a76d9cf44d207823a0c317e3e1e88"
+  },
+  "passed": 17,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55-r9",
+  "schema_version": 5
+}

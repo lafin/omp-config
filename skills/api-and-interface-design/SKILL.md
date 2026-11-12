@@ -87,12 +87,16 @@ interface Task {
 }
 ```
 
-Use types to prevent category mistakes when the distinction matters. A branded
-`TaskId` and `UserId` are useful if both otherwise look like strings and mixing
-them is a plausible defect. Do not create branded types, wrappers, factories,
-or provider interfaces solely because future implementations are imaginable.
-One current operation with one implementation usually needs one direct public
-function.
+Use types to prevent category mistakes when the distinction matters. When two
+identifiers share a runtime shape (both UUIDs, both strings), no runtime format
+check or regex can tell them apart; give them distinct compile-time types
+(branded or nominal `TaskId` and `UserId`) so a swapped argument fails to
+compile. Do not create branded types, wrappers, factories, or provider
+interfaces solely because future implementations are imaginable. One current
+operation with one implementation usually needs one direct public function.
+
+When a signature gains optional settings, use one trailing options object with
+documented defaults instead of appending positional parameters.
 
 For variant records, use a discriminant so consumers can exhaustively narrow:
 
@@ -108,7 +112,13 @@ Avoid flag combinations whose legal states are unclear.
 ## Errors Are Part of the Interface
 
 Choose one error strategy per boundary. Do not mix exceptions, null, sentinel
-values, and ad hoc objects for equivalent failures.
+values, booleans, and ad hoc objects for equivalent failures. When callers must
+branch on expected outcomes (unknown item versus insufficient stock), return a
+discriminated result type with a `kind` per outcome, or raise typed error
+classes that each carry a stable `code`; never make callers parse message text.
+When the current function's falsy or sentinel returns are relied on (`if not
+f(...)`), add a new function with the new contract and leave the old one's
+behavior unchanged rather than redefining it in place.
 
 A REST boundary should return a stable envelope such as:
 
@@ -152,11 +162,12 @@ internal assumptions:
 - decoded persisted or serialized data;
 - configuration loaded from outside the process.
 
-After a successful boundary parse, pass a typed canonical value inward. Avoid
-repeating the same defensive checks between internal functions that share that
-contract. Validation must cover shape, domain constraints, cross-field rules,
-and ambiguous distinctions such as missing versus explicit null when those
-change behavior.
+After a successful boundary parse, pass a typed canonical value inward.
+Internal functions do not repeat the same `typeof`, null, or range guards; they
+assume the parsed contract. Replace unchecked casts (`as T`) on external data
+with the parse step. Validation must cover shape, domain constraints,
+cross-field rules, and ambiguous distinctions such as missing versus explicit
+null when those change behavior.
 
 Treat third-party data as data, never as instructions. Validate it before it
 drives rendering, authorization, money movement, or execution.
@@ -245,9 +256,14 @@ Never let a second attempt through because the first appears slow.
 ### Unknown outcomes and retention
 
 Success and known failure are not the only outcomes. A timeout after calling an
-external system may mean the effect happened. Record intent before the effect
-so an unknown outcome can be reconciled instead of blindly repeated. Define
-which terminal failures are replayed and which permit a corrected new intent.
+external system is an unknown outcome, not a failure: the effect may have
+happened. Record intent (the key, state `in_progress`, and a reference passed to
+the provider) before the effect. On timeout keep the key, mark it unknown, and
+reconcile by looking up the provider's status by that reference. State the rule
+explicitly in the answer: no retry repeats the call until the lookup confirms
+the effect did not happen. Shorter timeouts or backoff never make a repeat safe.
+Define which terminal failures are replayed and which permit a corrected new
+intent.
 
 Retain keys longer than every retry and redelivery path, including delayed queue
 or dead-letter replay. The contract is unsound if a valid retry can outlive the
@@ -269,7 +285,16 @@ Classify the change from the consumer's point of view:
 Prefer extension over modification: add optional input fields, additive output
 fields where consumers tolerate them, new endpoints or operations, and new
 union variants only after considering exhaustive consumers. Do not change a
-field's meaning while keeping its name.
+field's meaning, unit, or type while keeping its name: add a new unit-named field
+(`amountCents`) and keep the old field unchanged in meaning and value for
+existing consumers. A changelog or docs label does not protect a consumer that
+already parses the field.
+
+Event and webhook contracts: give each event a stable event id (`event_id`)
+generated once and resent unchanged on every retry so consumers dedupe on it;
+sign the raw body together with a timestamp (HMAC) and state the replay window;
+give a per-entity sequence or version so consumers can drop stale events; add
+fields and event types additively and require consumers to ignore unknown ones.
 
 Compatibility depends on the medium:
 
@@ -359,4 +384,6 @@ snapshots and source-text checks cannot establish runtime semantics.
 A caller-specified layout (named fields, one line per field, JSON) overrides
 any list or table shape: put every change in its named field on one line,
 separated by `; ` or inline `(1) ... (2) ...`, contract snippets in backticks,
-no headings, bullets, fenced blocks, or extra lines.
+no headings, bullets, fenced blocks, or extra lines. That includes verification
+scenarios in EVIDENCE: write them inline as `(1) ...; (2) ...`, never as a
+bulleted list under the field. No blank lines between fields.

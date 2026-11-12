@@ -262,6 +262,8 @@ gate:
 7. **Not stratifying by difficulty**: Easy examples inflate overall scores, masking failures on hard cases. Report scores per complexity stratum and weight the overall score to prevent easy-case dominance.
 8. **Treating eval as one-time**: Evaluation must be continuous, not a launch gate. Agent quality drifts as models update, tools change, and usage patterns evolve. Run evals on every change and on a regular production cadence.
 
+A caller-specified layout (named fields, one line per field, JSON) overrides any list shape: put gates and metrics inline in their named fields, one line per field, numbered inline as `(1) ... (2) ...`, with no headings, bullets, numbered lines, fenced blocks, or extra lines.
+
 ## Integration
 
 This skill owns outcome measurement and quality gates. Adjacent skills own specialized evaluator design and control-loop governance:

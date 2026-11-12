@@ -201,6 +201,8 @@ conflict:
 
 7. **Over-organizing context can backfire**: Compare coherent and shuffled layouts when order is not semantically required. Use the layout that performs better on the target retrieval task.
 
+A caller-specified layout (named fields, one line per field, JSON) overrides any list shape: put diagnosis and mitigation inline in their named fields, one line per field, numbered inline as `(1) ... (2) ...`, with no headings, bullets, numbered lines, fenced blocks, or extra lines.
+
 ## Integration
 
 This skill owns diagnosis and mitigation of active context failures. Adjacent skills own the implementation tactics once the failure is identified:
