@@ -1,0 +1,43 @@
+{
+  "all_passed": false,
+  "artifacts": 24,
+  "condition": "treatment",
+  "critical_passed": 20,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev20-behavior-development-context-compression-k8s-debug-compaction-plan/1.json": "138aa05f0aa193de348ab7ab6831a4d440bc19b853aff227329be992a69309fb",
+      "artifacts/dev20-behavior-development-context-compression-k8s-debug-compaction-plan/2.json": "b739ae06f95573f9a3914d9419ff2dd6ba8971641dc611aa9848914ac3929a03",
+      "artifacts/dev20-behavior-development-context-compression-k8s-debug-compaction-plan/3.json": "ede2d2b5c7eeda72f17140ff31c18ce7232145e0c8fb6bd73d4328d55a419e34",
+      "artifacts/dev20-behavior-development-context-compression-summary-injected-constraint/1.json": "e3dd81e39128abe2e4e0f8d47caafb822ba529c8c82222a5b6d5d73de16c92a3",
+      "artifacts/dev20-behavior-development-context-compression-summary-injected-constraint/2.json": "cd98fc6a02181918c7e690ea892d4b9d022a26c4739b92c46b17e9ad70ecaa49",
+      "artifacts/dev20-behavior-development-context-compression-summary-injected-constraint/3.json": "10a47e08f8802fe64d4f2e2bb57c08b14e10f84dad46109e60e3fdc94c918a15",
+      "artifacts/dev20-behavior-development-latent-briefing-hosted-api-kv-request/1.json": "d9f2fbf4e22762e2ccc7ef539e3909aeb95bc482e311e926d4af6211389f7afc",
+      "artifacts/dev20-behavior-development-latent-briefing-hosted-api-kv-request/2.json": "a7ed188782a6393efe0dd7ad08ce366aa08b5d4e786ef6e3e8a629ba08f0591e",
+      "artifacts/dev20-behavior-development-latent-briefing-hosted-api-kv-request/3.json": "a1e371f02c11be1a620d98e2ec5c099ad62349eee995ff587dc1ffaa72784af9",
+      "artifacts/dev20-behavior-development-latent-briefing-selfhosted-eval-and-security/1.json": "673abf1795524b9ad8eb0f998496b878bda249d24c2b1b5808074640f5b24dc7",
+      "artifacts/dev20-behavior-development-latent-briefing-selfhosted-eval-and-security/2.json": "e5b716abc8e890fc3e21799fda8c8868fbf1efbe6c785376bc28180cba886b6c",
+      "artifacts/dev20-behavior-development-latent-briefing-selfhosted-eval-and-security/3.json": "57407b0a39e7976397b694b3d5ffdc9838f85d3a11378a1a1b253a47a7bf0f6e",
+      "artifacts/dev20-behavior-development-long-horizon-prompting-ingest-p99-launch-brief/1.json": "588d190a340f38ef6db0dbb7c4e551fb01daa1f08436fdea57500e4f8b7eb730",
+      "artifacts/dev20-behavior-development-long-horizon-prompting-ingest-p99-launch-brief/2.json": "8e1b426d060378872a22044fdf75bbec2da06d0cc252c7f3e2d85ba7df1e3a5d",
+      "artifacts/dev20-behavior-development-long-horizon-prompting-ingest-p99-launch-brief/3.json": "042bd5b83122c448df5d082addbe11b22b7e34f035b7eb62b39cd6da1890bdb4",
+      "artifacts/dev20-behavior-development-long-horizon-prompting-tf-migration-handoff-contracts/1.json": "b8170599567c1561467dc6c9194a0906997523f4d545003b219052f9d7e1a9e2",
+      "artifacts/dev20-behavior-development-long-horizon-prompting-tf-migration-handoff-contracts/2.json": "5279b29d06193021e6fbc551c756bcfc0c571af0efb859c1e2d954c2e5dc8a05",
+      "artifacts/dev20-behavior-development-long-horizon-prompting-tf-migration-handoff-contracts/3.json": "17933384be27da8e7b958b9c6ac97f2edf55aec74700d8cb4529591a19a94302",
+      "artifacts/dev20-behavior-development-ml-system-design-review-sku-forecast-scorecard/1.json": "04e572a78c36e21a26c5f97abdc1b7bbd6e1964a5127dd4b3cb996adaf91447b",
+      "artifacts/dev20-behavior-development-ml-system-design-review-sku-forecast-scorecard/2.json": "9503cee292079cdd5404bc2d913c922639a1042a2efe9c6a7aa759a8d0d397d0",
+      "artifacts/dev20-behavior-development-ml-system-design-review-sku-forecast-scorecard/3.json": "528f558710c3c45a5d4779557085cf14973b4663822d6cdc316842cdd50393bd",
+      "artifacts/dev20-behavior-development-ml-system-design-review-ticket-tagger-doc-and-repo/1.json": "60990e6ef33e3381bcddfecc7fe9ac6a6421597aa2908862b30eea0b64bdb18b",
+      "artifacts/dev20-behavior-development-ml-system-design-review-ticket-tagger-doc-and-repo/2.json": "3278e73acb9d1427e5f7c4a4e996a22e3d676f1e1cfe5a941cac7de62277faa1",
+      "artifacts/dev20-behavior-development-ml-system-design-review-ticket-tagger-doc-and-repo/3.json": "e7bf2e4b94969f0974fb5f90ed4752897a38fef2be84f208d5f10a8d2b2f4158"
+    },
+    "case_snapshot_sha256": "286299f138e43c72b894926d13d54db85b878cc0251ed40f052c193238080c12",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "3acfbc728c39e9cbf6d075860ececefb40e85937c10ba43131f386e76ff489f6"
+  },
+  "passed": 20,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55-r7",
+  "schema_version": 5
+}

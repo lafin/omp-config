@@ -84,6 +84,8 @@ considered whether all these validation rules are needed at this stage?"
 ## Scoring
 
 End with `net: -<N> lines possible.` Repository scope: `net: -<N> lines, -<M> deps possible.`
+Diff scope keeps the lines-only form even when a finding drops a dependency; the
+dropped dependency stays in its own finding line, never in the net line.
 
 If there is nothing to cut, say `Lean already. Ship.` and stop.
 

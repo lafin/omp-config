@@ -218,7 +218,7 @@ def search(query):
 7. **Over-consolidation**: Making a single tool handle unrelated workflows produces a parameter surface that agents struggle to use. Split it when evaluation shows selection or argument errors caused by fundamentally different use cases.
 8. **Parameter explosion**: Too many optional parameters overwhelm agent decision-making. Each parameter the agent must evaluate adds cognitive load. Provide sensible defaults, group related options into format presets, and move rarely-used parameters into an `options` object.
 9. **Missing error context**: Error messages that say only "failed" or "invalid input" without specifying which input, why it failed, or what a valid input looks like leave agents unable to self-correct. Include the invalid value, the expected format, and a concrete example in every error response.
-10. **Ignoring the caller's layout**: When the request names an output layout (named fields, one line per field, JSON), put schemas, descriptions, and error messages inline in their named field on one line, separated by `; `, with no headings, bullets, fenced blocks, or extra lines.
+10. **Ignoring the caller's layout**: When the request names an output layout (named fields, one line per field, JSON), put schemas, descriptions, and error messages inline in their named field on one line, separated by `; `, with no headings, bullets, fenced blocks, or extra lines. One line per field, not one line in total: each named field starts its own line, so the answer has exactly as many lines as fields; never run the next field's label into the previous line.
 
 ## Integration
 

@@ -1,0 +1,31 @@
+{
+  "all_passed": true,
+  "artifacts": 12,
+  "condition": "treatment",
+  "critical_passed": 12,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/leancode-check-dev2-backoff-schedule/1.json": "70dede1dc7f4cbf62ec940bd68c91f74da79a733fb93cb1ebe712eb25f49d98a",
+      "artifacts/leancode-check-dev2-backoff-schedule/2.json": "746a82c5e2df557b3d59adccb8f185fee12924564264791001bd1ef4b1bb7634",
+      "artifacts/leancode-check-dev2-backoff-schedule/3.json": "87adf4d144cb42cc8cbb6c75b5a7d38194c8209f4df2e6ea585b6c5a9727b7af",
+      "artifacts/leancode-check-dev2-discount-cents/1.json": "6ed9fe2ade313523d95e7bcc005e99159cb865f3f694669554dd7970ad3f66a3",
+      "artifacts/leancode-check-dev2-discount-cents/2.json": "ce000e8fcf3e3171448d337987924f8b2180229c19deb438f50d40aad9960465",
+      "artifacts/leancode-check-dev2-discount-cents/3.json": "95aa6999986212f5aa65cb0d19a080710967b900f1c70f9aecf3a93f1f6ddaf6",
+      "artifacts/leancode-check-dev2-duration-parser/1.json": "ac5fffee68d3f9bba28a92cf2fa18deb7dc5126ecbd3fc3e654f00cee432d985",
+      "artifacts/leancode-check-dev2-duration-parser/2.json": "263f44db05a69355babb771221190be0ae8e2ba6d90d8cb7fed036b2f0d998d8",
+      "artifacts/leancode-check-dev2-duration-parser/3.json": "1aac83a53b87c3ffa37416474ae6106a6dc2017c85c3561b159d8cc71454d5f4",
+      "artifacts/leancode-check-dev2-trivial-typo/1.json": "151d870c2385903dcfee82791edf13ecad8f4a5d94baab9fda29b9c4c66de2a8",
+      "artifacts/leancode-check-dev2-trivial-typo/2.json": "fa9959b47cdd1845564b78a38de68034b19d06a1c2f654f2109623910f32e903",
+      "artifacts/leancode-check-dev2-trivial-typo/3.json": "ff9620eac68e9774d9b462eb546425a3b57d4813088e24a9e14dbc9756783c70"
+    },
+    "case_snapshot_sha256": "478af4f0e41096c8b7a9c1e370fa7d2db91fd995040d15587927d6f16b2f40f2",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "f23a26c7138ccd9af4cec0a93afbf395cab8c5a615b34cc066e776c8162f3817"
+  },
+  "passed": 12,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55-r2",
+  "schema_version": 5
+}

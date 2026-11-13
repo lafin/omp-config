@@ -1,0 +1,31 @@
+{
+  "all_passed": true,
+  "artifacts": 12,
+  "condition": "treatment",
+  "critical_passed": 12,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev37-behavior-development-lossless-doc-compress-api-changelog/1.json": "4c63df9480db2a21c2451d581340c88aadcb7fca33554d2e9a99011db3d105a6",
+      "artifacts/dev37-behavior-development-lossless-doc-compress-api-changelog/2.json": "80a9a289556b4e8242f13ccf96ec4482de3ea7b4206d20274f99c49447f42e56",
+      "artifacts/dev37-behavior-development-lossless-doc-compress-api-changelog/3.json": "382ccb74fff01022bfe9a1859685e7be1bb01e54ac31f0552c42b9ad52f3ef03",
+      "artifacts/dev37-behavior-development-lossless-doc-compress-design-decision/1.json": "82ddb764dd4437a3715ab2333f5b5fd1c3562de01a1692c584f5ce3084930cae",
+      "artifacts/dev37-behavior-development-lossless-doc-compress-design-decision/2.json": "71672d8e8f68efea66d91dc1564c85107fa89a007cfcb3e5c428b79764a9f309",
+      "artifacts/dev37-behavior-development-lossless-doc-compress-design-decision/3.json": "ab3e2a7a592c0f3ab9ba71c1e07ce77bf7702a4b160784974ac0b168b86564e1",
+      "artifacts/dev37-behavior-development-lossless-doc-compress-incident/1.json": "6825db0f129049ba4596dd45d607c83e632eecca5358535ee495a743c5a271af",
+      "artifacts/dev37-behavior-development-lossless-doc-compress-incident/2.json": "7c1d2e081ebc5d9022c83e5a0641921775fa8071c009bced064a430b1a621a19",
+      "artifacts/dev37-behavior-development-lossless-doc-compress-incident/3.json": "cfc5201d3d153e23066428fb1c6ed75a9feea26ea2a10f665e4f55650e52c209",
+      "artifacts/dev37-behavior-development-lossless-doc-compress-runbook/1.json": "11a8f1c22018b754c4deb089a6f2b50c9e114170adfb6d8a216f45a0ceb9af11",
+      "artifacts/dev37-behavior-development-lossless-doc-compress-runbook/2.json": "6a73190734b6be8ee81ac309b0db6005052ca088b1febb048b18d69a18ea0be0",
+      "artifacts/dev37-behavior-development-lossless-doc-compress-runbook/3.json": "5849ff2597d4686746bdb01eaa6fe2ebee5030a14f888a80e4e4767095a612ba"
+    },
+    "case_snapshot_sha256": "78d5185f12726b99e285d2791999bf602398f30061b95b4768c1c30207ab902e",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "ca1fae8d485dcaf63d9653d0d6e0dd9f10f9b4f06c540f65b9e12194adbbdae4"
+  },
+  "passed": 12,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55-r2",
+  "schema_version": 5
+}

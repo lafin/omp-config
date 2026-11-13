@@ -1,0 +1,31 @@
+{
+  "all_passed": false,
+  "artifacts": 12,
+  "condition": "treatment",
+  "critical_passed": 11,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev35-behavior-development-leancode-config-loader/1.json": "0a882dff46a5b217ec499b312bbe2caef21bc9d7d8aed38805234daab25442ca",
+      "artifacts/dev35-behavior-development-leancode-config-loader/2.json": "cb053c463cab431ae17085ad5161d460d830ed0c83bd4209572dfac223a23e92",
+      "artifacts/dev35-behavior-development-leancode-config-loader/3.json": "cbded56a2ab93835f76bcbfbdf49c1dad5d770ad621ee8ebab14624ab934fa89",
+      "artifacts/dev35-behavior-development-leancode-memo-wrapper/1.json": "0309ef7cfb277070e8f4b959bd52ddd464b8202d2da2bea2865b4768ad513b31",
+      "artifacts/dev35-behavior-development-leancode-memo-wrapper/2.json": "3fdafe37f2e13c94a9c6160d523807f634c71fba9d6acffcd2dbf522ee6a5c1e",
+      "artifacts/dev35-behavior-development-leancode-memo-wrapper/3.json": "ee64c59931a8d8c16df45118eccdb32c662fce8ffcad1c1112367992af9c35ae",
+      "artifacts/dev35-behavior-development-leancode-rate-limiter/1.json": "04f90a70f8b68c62210641f0766f74a8ba9b5c2af5471d6a5785578741d3bd08",
+      "artifacts/dev35-behavior-development-leancode-rate-limiter/2.json": "a0193142ad5597112bc481d4063e8cb977a495d693b0e079ef45e376b446e698",
+      "artifacts/dev35-behavior-development-leancode-rate-limiter/3.json": "92f07d5ce1aaedf419ccc2bb077ca8337d75d637fe698998ed50a9f6e20c4dcf",
+      "artifacts/dev35-behavior-development-leancode-retry-runner/1.json": "f12f94017107f2f934599588d3bb75d83ab6436b80cbaae97c82d51f814c6448",
+      "artifacts/dev35-behavior-development-leancode-retry-runner/2.json": "1d633b3ab99824f7e3f3deeae32d58646bed0537a2fd88c26dee59263943ea61",
+      "artifacts/dev35-behavior-development-leancode-retry-runner/3.json": "8b93efadbaf765218e9bbea61af0011b3f28cf81481bba69086294f6c2acab54"
+    },
+    "case_snapshot_sha256": "77a94a162dcd2a08e9a5bbe58d02e980d5b6bc3ebeb470cd7f7d0e93772c8d00",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "cdd7c1ad9114a2a78e14048698aab9e135d115ccc874bed04e59cb591dcd20fb"
+  },
+  "passed": 11,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55-r2",
+  "schema_version": 5
+}

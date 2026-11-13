@@ -119,4 +119,4 @@ Format per `references/output-templates.md`: three artifacts, always.
 Name the saved file paths at the end of the run. Per-run outputs are not committed to any
 repo.
 
-A caller-specified layout (named fields, one line per field, JSON) overrides the three artifacts: put the result, removals, and flags inline in their named fields, one line per field, separated by `; `, with no headings, bullets, extra lines, or saved-file note.
+A caller-specified layout (named fields, one line per field, JSON) overrides the three artifacts: put the result, removals, and flags inline in their named fields, one line per field, separated by `; `, with no headings, bullets, extra lines, or saved-file note. The scorecard content keeps its template wording inline: the verdict (`Tightened −<percent>% · lossless ✓ · <n> flags`) and `Words: <before> → <after>` as two bare numbers joined by the arrow.

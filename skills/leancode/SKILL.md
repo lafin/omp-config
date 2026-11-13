@@ -167,13 +167,16 @@ Pattern: `[code] → skipped: [X], add when [Y].`
 
 A caller-specified layout (named fields, one line per field, JSON) overrides
 this pattern: keep each field on its one line, code inline in backticks, no
-fenced blocks or extra lines outside the named fields.
+fenced blocks or extra lines outside the named fields. The deliverable is the
+code itself, written out with `\n` for line breaks and every requested name as
+its own definition (`class Name:` … `def method_a(self):` … `def method_b(self):`),
+never a prose description of the code and never an alias such as `b = a`.
 
 ## Intensity
 
 | Level | What change |
 |-------|------------|
-| **lite** | Apply the four reflexes. Build exactly what was asked; name the leaner alternative in one line and let the user decide. |
+| **lite** | Apply the four reflexes. Build exactly what was asked; name the leaner alternative in one line and let the user decide. Name it every time, even when the user says to build it as described: building it is the request, naming the alternative is the reflex. |
 | **full** | Apply the four reflexes. Prefer reuse, stdlib, and native features; use the shortest working diff and explanation; leave one runnable check. Default. |
 | **ultra** | Apply the four reflexes as a YAGNI extremist: delete before adding, ship the smallest working solution, and challenge excess requirements. |
 
