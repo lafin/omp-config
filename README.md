@@ -10,8 +10,8 @@ extension package; files here are the source of truth.
 | `agents/*.md` | Task agents (`deep-verifier`, `fixer`) |
 | `commands/*.md` | Slash commands (`/review-and-fix`) |
 | `hooks/pre/*.ts` | Hooks (`leancode`) |
-| `extensions/*.ts` | Extensions listed in `package.json#omp.extensions` (`dir-context`) |
-| `presets/*.yml` | `--config` overlays (`claude`, `kessel-codex-home`, `kessel-claude-home`, `kessel-claude-work`) |
+| `extensions/*.ts` | Extensions listed in `package.json#omp.extensions` (`dir-context`, `kessel-refusal`) |
+| `presets/*.yml` | `--config` overlays (`claude`, `kessel-codex-home`, `kessel-claude-home`, `kessel-claude-work`, `kessel-claude-home2`, `kessel-claude-work2`) |
 
 ## OMP
 

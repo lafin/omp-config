@@ -1,0 +1,41 @@
+# Overlay: kessel-claude-work2. Launch with: omp --profile work --config <omp-config>/presets/kessel-claude-work2.yml
+# Requires a profile that loads the omp-config package via `extensions:` (deep-verifier, fixer, review-and-fix); `--config` alone cannot run this pipeline.
+# Requires the `kessel` provider in the profile's models.yml (kessel on pi3:8080, lane kessel-claude-work: claude-work -> claude-home -> claude api).
+# kessel-claude-work.yml plus Fable 5.2 ($8/$40, 2x Opus) on the escalation roles, per Anthropic's model guide (2026-11-09):
+#   slow -> Fable :high (FrontierCode 2.0: Fable high ~= Opus max at ~half the cost per task; replaces Opus :max).
+#   plan -> Fable :medium (guide: architecture planning starts on Fable at medium).
+# Default stays Opus (guide: start most work there). security-reviewer stays Sonnet: Fable's safeguards block most cyber tasks.
+# Moving off Fable drops its thinking blocks (no other model reads them); plan -> execute compacts at that break anyway.
+# The lane ends in a metered API key: once both subscriptions are exhausted, requests bill instead of returning 429.
+# Restates every modelRoles key + agentModelOverrides to avoid profile leakage
+# (map layers merge key-wise; arrays replace).
+enabledModels:
+  - kessel/kessel-claude-work/claude-fable-5-2
+  - kessel/kessel-claude-work/claude-opus-5-5
+  - kessel/kessel-claude-work/claude-sonnet-5-5
+  - kessel/kessel-claude-work/claude-haiku-5-5
+modelRoles:
+  default: kessel/kessel-claude-work/claude-opus-5-5:high
+  slow: kessel/kessel-claude-work/claude-fable-5-2:high
+  plan: kessel/kessel-claude-work/claude-fable-5-2:medium
+  vision: kessel/kessel-claude-work/claude-opus-5-5:high
+  task: kessel/kessel-claude-work/claude-sonnet-5-5:medium
+  smol: kessel/kessel-claude-work/claude-haiku-5-5:medium
+  tiny: kessel/kessel-claude-work/claude-haiku-5-5:low
+  commit: kessel/kessel-claude-work/claude-haiku-5-5:low
+  designer: kessel/kessel-claude-work/claude-opus-5-5:high
+  advisor: kessel/kessel-claude-work/claude-sonnet-5-5:medium
+task:
+  agentModelOverrides:
+    scout: kessel/kessel-claude-work/claude-haiku-5-5:high
+    sonic: kessel/kessel-claude-work/claude-haiku-5-5:low
+    librarian: kessel/kessel-claude-work/claude-haiku-5-5:high
+    reviewer: kessel/kessel-claude-work/claude-opus-5-5:high
+    security-reviewer: kessel/kessel-claude-work/claude-sonnet-5-5:high
+    designer: kessel/kessel-claude-work/claude-opus-5-5:high
+    deep-verifier: kessel/kessel-claude-work/claude-opus-5-5:high
+    fixer: kessel/kessel-claude-work/claude-sonnet-5-5:medium
+    regression-reviewer: kessel/kessel-claude-work/claude-opus-5-5:high
+compaction:
+  modelThresholds:
+    kessel/kessel-claude-work/claude-haiku-5-5: "f90000" # compact before Haiku's 100K long-context price step

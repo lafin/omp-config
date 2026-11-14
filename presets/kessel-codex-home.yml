@@ -1,23 +1,22 @@
 # Overlay: kessel-codex-home. Launch with: omp --profile home --config <omp-config>/presets/kessel-codex-home.yml
 # Requires a profile that loads the omp-config package via `extensions:` (deep-verifier, fixer, review-and-fix); `--config` alone cannot run this pipeline.
 # Requires the `kessel` provider in the profile's models.yml (kessel on pi3:8080, lane kessel-codex-home: one Codex account, no metered tail).
-# Tiers per OpenAI's GPT-6 guide: astra = hardest reasoning ($10/$50), 6.1-sol = complex coding ($2/$10), luna = focused work ($0.1/$0.5),
-# 6.1-terra = visual reasoning ($1/$5; needs kessel's codexModels to list it, else vision falls through to sol).
-# Effort per the same guide: medium for well-specified work (Sol's default), high for debugging/review, xhigh where high falls short.
-# Codex serves Sol at 500K and Astra at 272K while kessel advertises 1.05M; modelThresholds compacts against the served window.
+# Two tiers only: gpt-6.1-sol (near-Astra, $2/$10; efforts low..max) and gpt-6-luna (focused, repeatable work, $0.1/$0.5; efforts none..max).
+# No gpt-6.1-luna exists (kessel: model_not_found; absent from models.dev and Codex docs); Luna 6 is the current Luna.
+# Effort per Codex's model guide: Sol starts at medium; high for debugging/review; xhigh where Astra used to sit; max for the slow role only.
+# Luna starts at high per the same guide; low only for trivial one-shot roles (tiny, commit, sonic).
+# Codex serves Sol at 500K and Luna at 272K while kessel advertises 1.05M; modelThresholds compacts against the served window.
 # Codex exhaustion walks to the claude-home lane, which ends in a metered API key.
 # Restates every modelRoles key + agentModelOverrides to avoid profile leakage
 # (map layers merge key-wise; arrays replace).
 enabledModels:
-  - kessel/kessel-codex-home/gpt-6-astra
   - kessel/kessel-codex-home/gpt-6.1-sol
-  - kessel/kessel-codex-home/gpt-6.1-terra
   - kessel/kessel-codex-home/gpt-6-luna
 modelRoles:
   default: kessel/kessel-codex-home/gpt-6.1-sol:high
-  slow: kessel/kessel-codex-home/gpt-6-astra:xhigh
+  slow: kessel/kessel-codex-home/gpt-6.1-sol:max
   plan: kessel/kessel-codex-home/gpt-6.1-sol:high
-  vision: kessel/kessel-codex-home/gpt-6.1-terra:high,kessel/kessel-codex-home/gpt-6.1-sol:high
+  vision: kessel/kessel-codex-home/gpt-6.1-sol:high
   task: kessel/kessel-codex-home/gpt-6.1-sol:medium
   smol: kessel/kessel-codex-home/gpt-6-luna:high
   tiny: kessel/kessel-codex-home/gpt-6-luna:low
@@ -29,14 +28,13 @@ task:
     scout: kessel/kessel-codex-home/gpt-6-luna:high
     sonic: kessel/kessel-codex-home/gpt-6-luna:low
     librarian: kessel/kessel-codex-home/gpt-6-luna:high
-    reviewer: kessel/kessel-codex-home/gpt-6-astra:high
+    reviewer: kessel/kessel-codex-home/gpt-6.1-sol:xhigh
     security-reviewer: kessel/kessel-codex-home/gpt-6.1-sol:high
     designer: kessel/kessel-codex-home/gpt-6.1-sol:high
-    deep-verifier: kessel/kessel-codex-home/gpt-6-astra:high
+    deep-verifier: kessel/kessel-codex-home/gpt-6.1-sol:xhigh
     fixer: kessel/kessel-codex-home/gpt-6.1-sol:medium
     regression-reviewer: kessel/kessel-codex-home/gpt-6.1-sol:high
 compaction:
   modelThresholds:
-    kessel/kessel-codex-home/gpt-6-astra: "f230000" # served window 272K minus omp's 15% reserve
     kessel/kessel-codex-home/gpt-6.1-sol: "f425000" # served window 500K minus omp's 15% reserve
-
+    kessel/kessel-codex-home/gpt-6-luna: "f230000" # served window 272K minus omp's 15% reserve
