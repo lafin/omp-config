@@ -47,6 +47,21 @@ Presets overlay a package-loading profile:
 process; a new process starts in `full`. Outside a package-loading profile, pass
 it with `--extension <path>/hooks/pre/leancode.ts`.
 
+`extensions/kessel-refusal.ts` reports Kessel redirect and Anthropic server-side
+fallback response signals immediately, plus terminal assistant safety refusals.
+These are manual-only notices, not automatic recovery or evidence of a completed
+answer. Cache warming, subagents, and side requests can emit the same signals;
+notices can repeat for each provider response. Headerless retries and later runs
+do not inherit earlier signals. The extension sends no requests, changes no
+messages, writes no session state, and never navigates the transcript.
+
+Use `/tree` to rewind for manual rephrasing or `/compact` to potentially release
+an existing redirect. Neither guarantees that the requested model answers;
+rewinding does not undo file or command side effects. To disable the notices in
+a profile using normal package discovery, set
+`disabledExtensions: [extension-module:kessel-refusal]`. Explicit CLI
+`-e extensions/kessel-refusal.ts` loading overrides that disablement in omp 18.20.0.
+
 ## Validation
 
 ```sh
@@ -57,7 +72,7 @@ python3 evals/validate.py
 python3 -m unittest discover -s tests
 python3 -m unittest discover -s skills/context-compression/tests
 python3 -m unittest discover -s skills/autoresearch/tests
-bun test tests/leancode_hook.test.ts tests/autoresearch_hook.test.ts tests/dir_context.test.ts
+bun test tests/leancode_hook.test.ts tests/autoresearch_hook.test.ts tests/dir_context.test.ts tests/kessel_refusal.test.ts
 ```
 
 The validators check skill metadata, provenance, links, license notices, Python

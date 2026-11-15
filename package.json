@@ -2,6 +2,6 @@
   "name": "omp-config",
   "private": true,
   "omp": {
-    "extensions": ["./extensions/dir-context.ts"]
+    "extensions": ["./extensions/dir-context.ts", "./extensions/kessel-refusal.ts"]
   }
 }
