@@ -1,0 +1,25 @@
+{
+  "all_passed": true,
+  "artifacts": 6,
+  "condition": "treatment",
+  "critical_passed": 6,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev42-behavior-development-filesystem-context-context-budget-no-tokenizer/1.json": "600beee0b3055affa8a15c483296f35aa914fd7a3c49b7f231a5d389d4fd07ec",
+      "artifacts/dev42-behavior-development-filesystem-context-context-budget-no-tokenizer/2.json": "6459198c45e6ead71299225c72a97a72845d1fa1c17354c25c9b50b491502da6",
+      "artifacts/dev42-behavior-development-filesystem-context-context-budget-no-tokenizer/3.json": "a33e594362206546cad6a9cb63b2eb88a002cb4db6b43131051d5ef6547b12f0",
+      "artifacts/dev42-behavior-development-filesystem-context-learned-style-rules-review/1.json": "0f066f86c42f7194538803e3cdb26ff92b6a5708d56d12441beec8160b93af39",
+      "artifacts/dev42-behavior-development-filesystem-context-learned-style-rules-review/2.json": "71fc1d7a034ebed9f3f56b2232507c3da4c2ae028c1604800edb8e465aa67542",
+      "artifacts/dev42-behavior-development-filesystem-context-learned-style-rules-review/3.json": "21a2c1afb3f8f6ebf66e4177e0d847109fe144081987932b3e8fe08d8c37946b"
+    },
+    "case_snapshot_sha256": "3f38a248f40c551d32966305cc8fc06d4087e8aa05b8059bb7ec9b28a745e53b",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "e8a70c3ad20c2a019818cffe53cfafd895566af28d9a4889c8c97ca3270c84ef"
+  },
+  "passed": 6,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55-l1",
+  "schema_version": 5
+}

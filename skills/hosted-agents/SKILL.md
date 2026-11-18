@@ -277,7 +277,7 @@ If the task is "make the agent loop run for days with locked rubrics and PR appr
 7. **Oversubscribing warm pools**: Maintaining too many warm sandboxes wastes money during low-traffic periods. Scale pool size based on traffic patterns and time-of-day; use autoscaling rather than fixed pool sizes.
 8. **Missing output extraction**: Agents complete work inside the sandbox but results never get pulled out to the user. Build explicit extraction steps (push branch, create PR, return file contents) into the session teardown flow.
 9. **Credentials baked into snapshots**: A token passed into the sandbox lands in `.git/config`, shell history, or environment and is copied into every image and snapshot. Keep credentials in a proxy outside the sandbox, scoped to the session branch.
-10. **Ignoring the caller's layout**: When the request names an output layout (named fields, one line per field, JSON), put the design inline in its named field on one line, separated by `; ` or `(1) ... (2) ...`, with no headings, bullets, fenced blocks, or extra lines.
+10. **Ignoring the caller's layout**: When the request names an output layout (named fields, one line per field, JSON), put the design inside its named fields, one line per field, numbered inline as `(1) ... (2) ...`, with no headings, bullets, numbered lines, fenced blocks, or extra lines.
 
 ## Integration
 

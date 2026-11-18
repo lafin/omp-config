@@ -1,0 +1,31 @@
+{
+  "all_passed": false,
+  "artifacts": 12,
+  "condition": "treatment",
+  "critical_passed": 11,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev31-behavior-development-filesystem-context-api-reference-shards/1.json": "5d9e2855a8be46ab91272864c8d5468aa5625e228d95ffae731d3a81516793fb",
+      "artifacts/dev31-behavior-development-filesystem-context-api-reference-shards/2.json": "be8ea92fbf18e4707e16e59078ed23f29cd931a082ff6cbe6e68c9b33bfea378",
+      "artifacts/dev31-behavior-development-filesystem-context-api-reference-shards/3.json": "63a5565d8141b33961e7121275018ba3505994da8f00304d03a2a269b5de8256",
+      "artifacts/dev31-behavior-development-filesystem-context-code-style-guides/1.json": "30f65bf6ff689713ebf7cad05c36e52fb51c3e3cf1e8970ecc4691a946d9fc80",
+      "artifacts/dev31-behavior-development-filesystem-context-code-style-guides/2.json": "272965e919a18543953c5204f4249432eddee35013c31bb6b10973d938f9e592",
+      "artifacts/dev31-behavior-development-filesystem-context-code-style-guides/3.json": "45c689d97d0e132d8368fdb8e781686f35f9a3bda960556f9b17bb44d0fb76d3",
+      "artifacts/dev31-behavior-development-filesystem-context-support-macros/1.json": "85e478f17129f3ce96a2a750d9081e9c520bcaf485e4c486117cfccb772a1bab",
+      "artifacts/dev31-behavior-development-filesystem-context-support-macros/2.json": "ca327c7827a9eef3a53e216659171487b73082f6dccfd84ec7216bbdc64ebb4e",
+      "artifacts/dev31-behavior-development-filesystem-context-support-macros/3.json": "9b6828d0dffddd8d25c5266a0ca6b2db6a1c2438da8787e09e338acb54639cde",
+      "artifacts/dev31-behavior-development-filesystem-context-warehouse-table-docs/1.json": "3e1b005b1b23bbfed313ab6b4e01609f775671a6aed475c16fdac2c6e840bb14",
+      "artifacts/dev31-behavior-development-filesystem-context-warehouse-table-docs/2.json": "f82fc4022bd14a8b21f87e89530237d427f98159a85528d265f2a943ef47edfb",
+      "artifacts/dev31-behavior-development-filesystem-context-warehouse-table-docs/3.json": "8f253d54352bbf7d38472c458860fb1e86ab3956c04e2f7403e2983265bcd6fd"
+    },
+    "case_snapshot_sha256": "5c6ea602c9a419adae2626429f9fe87229cef26ec9a0ea33daa37e98cd2e61d1",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "b9c447f07dea5943880b1a916b9c5345fec604c5a0904827b72df934f9a7f191"
+  },
+  "passed": 11,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55-pre-l1",
+  "schema_version": 5
+}

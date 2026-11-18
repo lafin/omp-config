@@ -35,8 +35,8 @@ MAX_SKILL_LINES = 500
 ALLOWED_FRONTMATTER_KEYS = frozenset({"name", "description", "license", "compatibility", "metadata", "allowed-tools"})
 DESCRIPTION_WARNING_LENGTH = 600
 DESCRIPTION_LOCK = Path("evals/description-lock.json")
-# Tools listed by `omp --help` (omp 18.8.7).
-OMP_TOOLS = frozenset({"read", "bash", "edit", "write", "grep", "glob", "lsp", "python", "notebook", "browser", "computer", "task", "todo", "web_search", "ask"})
+# Tools listed by `omp --help` (omp 18.8.7), plus `eval` (hosts the `browser` prelude; spawn-checked on omp 18.20.2).
+OMP_TOOLS = frozenset({"read", "bash", "edit", "write", "grep", "glob", "lsp", "eval", "python", "notebook", "browser", "computer", "task", "todo", "web_search", "ask"})
 # Agents bundled with omp (`omp agents unpack`, omp 18.8.7).
 BUILTIN_AGENTS = frozenset({"reviewer", "scout", "security-reviewer", "sonic", "task"})
 ROUTED_AGENT_RE = re.compile(r"(?m)^- `([a-z0-9-]+)`:")

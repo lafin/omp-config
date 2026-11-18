@@ -1,0 +1,25 @@
+{
+  "all_passed": false,
+  "artifacts": 6,
+  "condition": "treatment",
+  "critical_passed": 5,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-api-and-interface-design-behavior-holdout-v3-direct-module-boundary/1.json": "a4b47e8df9bb903e36a8abe66c1381123b34788d6eb8267167f251c99ccb4183",
+      "artifacts/pilot-api-and-interface-design-behavior-holdout-v3-direct-module-boundary/2.json": "4d0a696a42aa6314c86adde028eda9fae819037ef9b48caabbcfb5831c600810",
+      "artifacts/pilot-api-and-interface-design-behavior-holdout-v3-direct-module-boundary/3.json": "dcbca0f54cd14db1ce6244edf87b5bf24828e3c7b6b8b5234c86ea15257118c2",
+      "artifacts/pilot-api-and-interface-design-behavior-holdout-v3-graphql-evolution/1.json": "330ad36cbc26714e665fae1eea0939a3c349e563629ae55dcb46ab40f1ec2536",
+      "artifacts/pilot-api-and-interface-design-behavior-holdout-v3-graphql-evolution/2.json": "45dbaf8c26f57e3f82c9450e4b2a19b2ff0fb66547c3a30d3f58935c80f42862",
+      "artifacts/pilot-api-and-interface-design-behavior-holdout-v3-graphql-evolution/3.json": "b749ae513c864a2da0e75ea733323d4ba57645eb2d111d6379f8906842329443"
+    },
+    "case_snapshot_sha256": "d34ef97d5705284111ee466896650287d7b5eace8ef8e3bc6e04dd2afd80b797",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "4621b50c06c4fa670b8d3f13a11b513e9cea202897015f652c55e63efe063934"
+  },
+  "passed": 5,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-treatment-s55-pa065b",
+  "schema_version": 5
+}

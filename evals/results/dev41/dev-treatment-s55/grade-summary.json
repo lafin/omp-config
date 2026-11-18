@@ -1,0 +1,25 @@
+{
+  "all_passed": true,
+  "artifacts": 6,
+  "condition": "treatment",
+  "critical_passed": 6,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev41-behavior-development-ml-system-design-review-eval-weakest-no-cap/1.json": "016e5d1ea0d53267d67bd7a8c3ae919897486710ca9199a650456349e5279475",
+      "artifacts/dev41-behavior-development-ml-system-design-review-eval-weakest-no-cap/2.json": "219923f07ab78139efea76c58345ad1bf8089fa3c455044d967cd65716dd7070",
+      "artifacts/dev41-behavior-development-ml-system-design-review-eval-weakest-no-cap/3.json": "bbeb5601fc7cd19ad62be1e0ab29bcfef94f3ea40c40dada5d0e03839e45c92f",
+      "artifacts/dev41-behavior-development-ml-system-design-review-rag-memory-weakest/1.json": "68e7d7dee17b8bd6d77265c3fa6423f6c66f80fb5e5ae0fd8026e7c97d916ba2",
+      "artifacts/dev41-behavior-development-ml-system-design-review-rag-memory-weakest/2.json": "531dc698e221d8c58f8c094c4470f59d27c4e386d3130779f34a8f42ba390509",
+      "artifacts/dev41-behavior-development-ml-system-design-review-rag-memory-weakest/3.json": "a62552218451adf6c9d51e30bd22d98f7a2e0ed342974d9e48ad7d2e71300a6b"
+    },
+    "case_snapshot_sha256": "3be9cd8ad41cec6adbadbc73cde7d08154cb1d7cf273a644c718b96a698118f0",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "e2056cb3986d1f556b476809c97feb22c08de712bd37ddfa3186f1b7b16e534f"
+  },
+  "passed": 6,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55",
+  "schema_version": 5
+}

@@ -1,0 +1,43 @@
+{
+  "all_passed": false,
+  "artifacts": 24,
+  "condition": "treatment",
+  "critical_passed": 22,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev18-behavior-development-tool-design-catalog-parameter-naming-consistency/1.json": "789192ac6fbc138d49fa112342af201c40547c8aeddb41b162447a3b8463bd8b",
+      "artifacts/dev18-behavior-development-tool-design-catalog-parameter-naming-consistency/2.json": "c1fabc01ba2c2086868081ead67952dd432429a54ccf64885ca6e8f1aeae4bf1",
+      "artifacts/dev18-behavior-development-tool-design-catalog-parameter-naming-consistency/3.json": "741f4063c0cbeadc7016cf3f23032255014fd3550c2ed0c697499f10899cdfff",
+      "artifacts/dev18-behavior-development-tool-design-create-task-description-drift/1.json": "375a1c9ef01abda85c1d76450b715692752bac8cf396e1943741ca55729c83e4",
+      "artifacts/dev18-behavior-development-tool-design-create-task-description-drift/2.json": "adb0e910110f25c1ab1d7e153b3eab9d7801615cb5278dd5dc5abfcd3db8d2d0",
+      "artifacts/dev18-behavior-development-tool-design-create-task-description-drift/3.json": "074767109dd93e27525f8d9138dc97e52fce49d394775cf8fb2a9d00fc549368",
+      "artifacts/dev18-behavior-development-tool-design-deploy-service-defaults-and-options/1.json": "5d99936705edd4791e32f631f11eb4ba0dc8e888ccd75752950a5aaa59682c8a",
+      "artifacts/dev18-behavior-development-tool-design-deploy-service-defaults-and-options/2.json": "940a2ba07843c267748b8f032dbc6b26454b009a940c1641ede37cf5c4806033",
+      "artifacts/dev18-behavior-development-tool-design-deploy-service-defaults-and-options/3.json": "5db3c59cd5d98d7c2c8d35c7fffb94123216db89c780810d1f4165c7b7cf492f",
+      "artifacts/dev18-behavior-development-tool-design-duplicate-customer-tools-merge/1.json": "88390e37629dd14def463894134ae1b8035132d8c3aecdd00b23e85fb74903fc",
+      "artifacts/dev18-behavior-development-tool-design-duplicate-customer-tools-merge/2.json": "de9c06bc09c15956fdc6520e413adc891fd729221614f22f1785bea7094334e7",
+      "artifacts/dev18-behavior-development-tool-design-duplicate-customer-tools-merge/3.json": "31a8f02e5f459c32f338d98f16bc05e823255655068b4bc08998259f37c85c13",
+      "artifacts/dev18-behavior-development-tool-design-forecast-output-schema-structured-content/1.json": "3384ef1355614f7f53537dcfa04979fc3c4146658129a8b5098ae0a4d254ad1b",
+      "artifacts/dev18-behavior-development-tool-design-forecast-output-schema-structured-content/2.json": "1d33dbc97b7b43a741d9a388d57fa0734f85302c888463e44bc8147f6670eb02",
+      "artifacts/dev18-behavior-development-tool-design-forecast-output-schema-structured-content/3.json": "86e9c6441d5e734a61cbf6acbad0c51f69a9756cfafe6a2fe9b14a1035304a6f",
+      "artifacts/dev18-behavior-development-tool-design-list-tickets-cursor-pagination/1.json": "92210f0dda35f7d10181c2b02e00e56593d892788c8e9324ee06dacc7ba2f24f",
+      "artifacts/dev18-behavior-development-tool-design-list-tickets-cursor-pagination/2.json": "706e38cb1f31da0b6693210a15343bb72d43412ce3cfa575f206b96e8ebf220b",
+      "artifacts/dev18-behavior-development-tool-design-list-tickets-cursor-pagination/3.json": "a12d6d41528bd5328dd095fde58f1347b6ab905c325311e3f81500935d3e1397",
+      "artifacts/dev18-behavior-development-tool-design-order-history-response-format/1.json": "648d524aa03e8049a3a9ad51ca438885c6ef1e8fb5d60a69400d27882ea61d25",
+      "artifacts/dev18-behavior-development-tool-design-order-history-response-format/2.json": "bb4625b048e4029d59b0577ddb6ed34c8475d91efd8745eaf9074b7decbe0898",
+      "artifacts/dev18-behavior-development-tool-design-order-history-response-format/3.json": "15653e74419314e0a8a53b1df9d0ad4a4305b413d5f0377b2c81a13008cc2737",
+      "artifacts/dev18-behavior-development-tool-design-send-email-actionable-errors/1.json": "368e961a6101678470d071889b0b8ee7add18ce079ca2f03403a0bb69b6087dc",
+      "artifacts/dev18-behavior-development-tool-design-send-email-actionable-errors/2.json": "ef4d53ad35f2578123f8788189bb80049dd6fb54702663080c7e0d7b2f6ced51",
+      "artifacts/dev18-behavior-development-tool-design-send-email-actionable-errors/3.json": "409afbd32827c7915408948854e48b509c5dfad23dfe5b9369775e9a4f03d85f"
+    },
+    "case_snapshot_sha256": "d94998b28c8fc4202919b444ea2688969e499221f2b6f83d337e7a88fdc5999a",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "b8d4e491dd96a5bcdee99b6313325c01a84df763066a137b202936e70f163d0e"
+  },
+  "passed": 22,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55-l1",
+  "schema_version": 5
+}

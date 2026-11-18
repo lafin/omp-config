@@ -297,7 +297,7 @@ The weak version spends its words on a persona and an adjective. The strong vers
 13. **Simulated delegation**: Under pressure, orchestrators write a worker's output themselves and report the stage as done. Require real worker calls and list simulation as non-counting.
 14. **Strong auditor, weak reviser**: In [MASS](skill://long-horizon-prompting/references/research-evidence.md#handoff-contracts-and-homogeneous-loops-2026-10), upgrading only the verifier helped less than upgrading the verifier and the agent acting on its findings. Accurate findings stall when the root cannot turn them into a better next round.
 15. **One run is an anecdote**: In [MASS](skill://long-horizon-prompting/references/research-evidence.md#handoff-contracts-and-homogeneous-loops-2026-10), byte-identical prompts with the same seed produced one complete win and one loop-detection halt. Do not accept or reject a brief on a single run.
-16. **Ignoring the caller's layout**: When the request names an output layout (named fields, one line per field, JSON), put the brief inline in its named field on one line, separated by `; ` or `(1) ... (2) ...`, with no headings, bullets, fenced blocks, or extra lines.
+16. **Ignoring the caller's layout**: When the request names an output layout (named fields, one line per field, JSON), put the brief inside its named fields, one line per field, numbered inline as `(1) ... (2) ...`, with no headings, bullets, numbered lines, fenced blocks, or extra lines.
 
 ## Integration
 

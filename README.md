@@ -7,7 +7,7 @@ extension package; files here are the source of truth.
 | Path | Contents |
 |---|---|
 | `skills/<name>/SKILL.md` | Skills, loaded on demand via `skill://<name>` |
-| `agents/*.md` | Task agents (`deep-verifier`, `fixer`) |
+| `agents/*.md` | Task agents (`deep-verifier`, `fixer`, `designer`; `designer` runs on the `designer` role: Fable in `kessel-claude-*2`, Opus elsewhere) |
 | `commands/*.md` | Slash commands (`/review-and-fix`) |
 | `hooks/pre/*.ts` | Hooks (`leancode`) |
 | `extensions/*.ts` | Extensions listed in `package.json#omp.extensions` (`dir-context`, `kessel-refusal`) |

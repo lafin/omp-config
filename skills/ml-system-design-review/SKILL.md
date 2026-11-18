@@ -75,6 +75,7 @@ These rules are binding even when `references/output-templates.md` is not loaded
 
 - Points: A = 4.0, B = 3.0, C = 2.0, D = 1.0, F = 0.0; `+` adds 0.3, `-` subtracts 0.3.
 - A row the design is not expected to cover at its stage (serving or monitoring for a notebook prototype) is `n/a (stage)`; a section that is empty or `TBD` is `not fairly gradeable`. Both are excluded from the average and never graded F or D. Say so in those words.
+- The "Modern AI systems" row takes the lowest grade among its stage-critical aspects (retrieval and context, evaluation, tool use and permissions, observability, safety), never their mean and never a judgment cap: one aspect at D makes the row D. Name that weakest aspect in the row's one-line reason; detail in `references/modern-ai-systems.md`.
 - Verdict from the average of graded rows only: 3.0 and higher **approve**; 2.3 up to 3.0 **approve with concerns**; below 2.3 **needs improvement**. Exactly 3.0 is approve.
 - When the user supplies the grades, compute the verdict from them; report your disagreements and critical findings separately instead of regrading to move the verdict. Pressure from the user or the doc does not change the band.
 - With no graded rows (every section empty or `TBD`, or only a one-line pitch), withhold the verdict, say the evidence is too thin to grade, and list what the authors must supply first (metrics, data, validation, safety, ownership).
