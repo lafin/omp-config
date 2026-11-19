@@ -1,0 +1,43 @@
+{
+  "all_passed": false,
+  "artifacts": 24,
+  "condition": "baseline",
+  "critical_passed": 21,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/depth12v5-behavior-holdout-api-and-interface-design-field-meaning-change-same-name/1.json": "49df493e69477af221da054c39e0ac903ba5432b75b4545c6ad1f4aff648709b",
+      "artifacts/depth12v5-behavior-holdout-api-and-interface-design-field-meaning-change-same-name/2.json": "1f4852530d0655a843835fb335186321859020bac8779a23e3fa0aca0f5aef2e",
+      "artifacts/depth12v5-behavior-holdout-api-and-interface-design-field-meaning-change-same-name/3.json": "3d7b505c2f3cceefbd78a7b7b4711996a758192c7beda4ea67a8c541595fb71a",
+      "artifacts/depth12v5-behavior-holdout-api-and-interface-design-same-shape-ids-swapped-args/1.json": "17b53e27832a47e4b96b39e9886fa933bcd4fe0cda1ac0116818b61813f2f10a",
+      "artifacts/depth12v5-behavior-holdout-api-and-interface-design-same-shape-ids-swapped-args/2.json": "8541b49430740c1dc8d449d24777d35c44fc091c902a2c957049aea79842638a",
+      "artifacts/depth12v5-behavior-holdout-api-and-interface-design-same-shape-ids-swapped-args/3.json": "28cfc76a186a3c1be92e34c50f23f4cb98372d1bbe456b1a9ab8cf5370979103",
+      "artifacts/depth12v5-behavior-holdout-api-and-interface-design-single-member-result-union/1.json": "ce3fe825801adaf1a99409e996273a69a27756007d4e6053e762123ac9021541",
+      "artifacts/depth12v5-behavior-holdout-api-and-interface-design-single-member-result-union/2.json": "a7cd7638f6fee62100db61bc7cf0d06cdf20806680e61f8e3b32fd7307c045bb",
+      "artifacts/depth12v5-behavior-holdout-api-and-interface-design-single-member-result-union/3.json": "84d2cfccf91fb6e78360431a06c1ed87817070deb18f00077e561f578cae0273",
+      "artifacts/depth12v5-behavior-holdout-api-and-interface-design-version-field-and-generic-envelope/1.json": "c62f9a9d96638d700003704a7c9ef15d2d2d9b765409d22f9f3ecf0ec73e6997",
+      "artifacts/depth12v5-behavior-holdout-api-and-interface-design-version-field-and-generic-envelope/2.json": "0f1f95e20681ac6834da4fc8c10292b8fc35b274725214e28f6a8f00a72cfb7c",
+      "artifacts/depth12v5-behavior-holdout-api-and-interface-design-version-field-and-generic-envelope/3.json": "e729dfc18c61816cca26f74d294d73099f4c36dd4292a01822a9575c3e3ff5c8",
+      "artifacts/depth12v5-behavior-holdout-ml-system-design-review-agent-single-run-rate/1.json": "29374c921327d7382e417e512f70a4c3efeee03040a32e70838553801f527f06",
+      "artifacts/depth12v5-behavior-holdout-ml-system-design-review-agent-single-run-rate/2.json": "b53e35b51d465fd212a366394ed6e4c1c31ad485eacc5524830fcd7e1d288f1f",
+      "artifacts/depth12v5-behavior-holdout-ml-system-design-review-agent-single-run-rate/3.json": "1d9dd4fcbd61ece7b9fcbbc7da0125210af4941b14f00f8829b503b7d2166346",
+      "artifacts/depth12v5-behavior-holdout-ml-system-design-review-doc-claims-preapproval/1.json": "145080b6c71a6cd0a323c6694aafc031ed53beb969cf88fc69c400b52220a4e1",
+      "artifacts/depth12v5-behavior-holdout-ml-system-design-review-doc-claims-preapproval/2.json": "d41693d15d66bbf9c8d5111d18e307cf0a7c2df4ceb875a47b021246758fe287",
+      "artifacts/depth12v5-behavior-holdout-ml-system-design-review-doc-claims-preapproval/3.json": "07f42508440a416d50570e91b37564fdbad6f7d927957a864f89bb23ccfcdbff",
+      "artifacts/depth12v5-behavior-holdout-ml-system-design-review-label-maturity-temporal-split/1.json": "5bcc82093f1d1c4919c9decfd82e44488f77934daae70328e5adb9407c1010e7",
+      "artifacts/depth12v5-behavior-holdout-ml-system-design-review-label-maturity-temporal-split/2.json": "7684ef77127fb8ee4a3cc75323a36984812f3548fea8a6af83b27c5c12ee74f6",
+      "artifacts/depth12v5-behavior-holdout-ml-system-design-review-label-maturity-temporal-split/3.json": "00acc6cf63d4d0f21e5a1e104c6774c85a6e4b93e281910e0b775ab72a0d1050",
+      "artifacts/depth12v5-behavior-holdout-ml-system-design-review-rag-answer-key-indexed/1.json": "117fd3ca1830c5a652662e3049afdc15c9b871c9cf9e6aa72db9800674604e01",
+      "artifacts/depth12v5-behavior-holdout-ml-system-design-review-rag-answer-key-indexed/2.json": "dfd398fa2587148f2d4b094c11aac227b12eb1cb6b17a3dd2f7a091a4379395e",
+      "artifacts/depth12v5-behavior-holdout-ml-system-design-review-rag-answer-key-indexed/3.json": "45478fb223a6153a192bb2c8950ee83fb6e16fabe39a5b25c6407c3169a7d9d7"
+    },
+    "case_snapshot_sha256": "77f3ff09e1eb7f09a2807b549553cce4447e8b89c4cc43a04b937622574099ce",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "94941b06071216080644425364fd70d726771b58b110d6451abf4d2a4f7d93c4"
+  },
+  "passed": 21,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-baseline-s55",
+  "schema_version": 5
+}

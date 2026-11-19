@@ -121,7 +121,7 @@ Design prompts for structured, parseable outputs because prompt design directly 
 3. **Rationale disclosure**: State "I will be parsing this programmatically" so the model prioritizes format compliance
 4. **Constrained values**: Enumerated options, score ranges, and fixed formats
 
-Build parsers that handle LLM output variations gracefully, because LLMs do not follow instructions perfectly. Use regex patterns flexible enough for minor formatting variations, provide sensible defaults when sections are missing, and log parsing failures for review rather than crashing.
+Build parsers that handle LLM output variations gracefully, because LLMs do not follow instructions perfectly. Use regex patterns flexible enough for minor formatting variations, provide sensible defaults when sections are missing, and log parsing failures for review rather than crashing. When outputs drift from the format, fix the prompt as well as the parser: add the exact format example, section markers, enumerated values, and the programmatic-parsing note to the main prompt, not only to a retry. More retries or a bigger model is not the fix for format drift.
 
 ### Agent-Assisted Development
 

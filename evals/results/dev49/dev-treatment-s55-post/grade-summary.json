@@ -1,0 +1,22 @@
+{
+  "all_passed": false,
+  "artifacts": 3,
+  "condition": "treatment",
+  "critical_passed": 0,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev49-behavior-development-project-development-two-year-roadmap-lockin/1.json": "4f897cbce1ed017f38d08ac87f16514aa7999a86f2705d9768d950b90523a682",
+      "artifacts/dev49-behavior-development-project-development-two-year-roadmap-lockin/2.json": "d090a5e7ca6c8463e72f5550da0aeaea7e2d8153f842a29a479dd67f06a68bb4",
+      "artifacts/dev49-behavior-development-project-development-two-year-roadmap-lockin/3.json": "d2a25d01ee7e12549e218cf6a3b2824e9240d4310a22390e6eab8cee40896325"
+    },
+    "case_snapshot_sha256": "dd70a2254803cd5a508fc1045ce07c0723bec9f72fa7e63a05a39eb672887186",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "37255b669d9819bd014d9f3afc21b72c1d520737e26cbe4933563669bd3b91b6"
+  },
+  "passed": 0,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55-post",
+  "schema_version": 5
+}

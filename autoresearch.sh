@@ -12,17 +12,18 @@ PY=python3; [ -x .venv/bin/python ] && PY=.venv/bin/python
 "$PY" - <<'EOF'
 import json, glob, os, collections
 suites = json.load(open("evals/suites.json"))
-FIXED = {"catalog-behavior-holdout-v5", "depth-behavior-holdout", "depth10-behavior-holdout-v6",
-         "depth11-behavior-holdout-v3", "depth12-behavior-holdout-v4", "depth2-behavior-holdout-v4",
-         "depth3-behavior-holdout-v8", "depth4-behavior-holdout-v7", "depth5-behavior-holdout-v2",
-         "depth6-behavior-holdout", "depth7-behavior-holdout", "depth8-behavior-holdout-v3",
+FIXED = {"catalog-behavior-holdout-v6", "depth-behavior-holdout", "depth10-behavior-holdout-v7",
+         "depth11-behavior-holdout-v4", "depth12-behavior-holdout-v5", "depth2-behavior-holdout-v5",
+         "depth3-behavior-holdout-v9", "depth4-behavior-holdout-v8", "depth5-behavior-holdout-v3",
+         "depth6-behavior-holdout", "depth7-behavior-holdout", "depth8-behavior-holdout-v4",
          "depth9-behavior-holdout", "leancode-merge-behavior-holdout",
-         "pilot-api-and-interface-design-behavior-holdout-v3",
+         "pilot-api-and-interface-design-behavior-holdout-v4",
          "pilot-security-review-behavior-holdout-v2",
-         "pilot-source-driven-development-behavior-holdout-v2", "refresh-behavior-holdout-v6",
+         "pilot-source-driven-development-behavior-holdout-v2", "refresh-behavior-holdout-v7",
          "security-review-severity-holdout", "see-behavior-boundary-holdout",
-         "see-behavior-holdout-final-v3", "ui-craft-behavior-holdout-v2", "depth13-behavior-holdout-v4",
-         "depth14-behavior-holdout-v4", "depth15-behavior-holdout-v3"}
+         "see-behavior-holdout-final-v4", "ui-craft-behavior-holdout-v2", "depth13-behavior-holdout-v5",
+         "depth14-behavior-holdout-v5", "depth15-behavior-holdout-v4", "depth16-behavior-holdout-v2",
+         "depth17-behavior-holdout"}
 files = {f["path"]: f["frozen_sha256"] for f in suites["case_files"]
          if f["kind"] == "behavior" and f["split"] == "holdout" and f["status"] == "canonical"
          and os.path.basename(f["path"])[:-6] in FIXED}

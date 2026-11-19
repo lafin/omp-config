@@ -1,0 +1,25 @@
+{
+  "all_passed": false,
+  "artifacts": 6,
+  "condition": "treatment",
+  "critical_passed": 3,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev48-behavior-development-lossless-doc-compress-percent-target-tight-prose/1.json": "e4f34bb349f59472fb8fa31427e410f7b07a1f5ba16013fc400ce9e93707b8fe",
+      "artifacts/dev48-behavior-development-lossless-doc-compress-percent-target-tight-prose/2.json": "af3e875f01d61694d0ebd0edb4d262cb4dfa20c8d478da0ddda0f6f2e07da31e",
+      "artifacts/dev48-behavior-development-lossless-doc-compress-percent-target-tight-prose/3.json": "365aa783d210c5fc6adddc24246b60670c9fd4534f63d8495f34cfa2713eeed8",
+      "artifacts/dev48-behavior-development-lossless-doc-compress-word-limit-unreachable/1.json": "3424b7163e8da0c531872021ecb3b1d1b3620e10286b912df7a1da8fc6398c2d",
+      "artifacts/dev48-behavior-development-lossless-doc-compress-word-limit-unreachable/2.json": "a0a3cc7608d331d34c32e6e59467266ee35f0b5f546dab1a8868cf9196621a9e",
+      "artifacts/dev48-behavior-development-lossless-doc-compress-word-limit-unreachable/3.json": "e60ed4c98ed8ba2131912a376d8343538ae470595c2dc5d2ac7edee0db0ad3fc"
+    },
+    "case_snapshot_sha256": "f42a098a1725040262d37bc9a571bfff28addcd3f59b727bce5bdff394b47833",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "7a9b3b4bb1d2d73032686c8cef1740f099c06ef117812ce392d6cf7a46578cf0"
+  },
+  "passed": 3,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55-pre-b",
+  "schema_version": 5
+}

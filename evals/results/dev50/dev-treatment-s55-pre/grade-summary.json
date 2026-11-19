@@ -1,0 +1,25 @@
+{
+  "all_passed": true,
+  "artifacts": 6,
+  "condition": "treatment",
+  "critical_passed": 6,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev50-behavior-development-lossless-doc-compress-half-length-quota-limits/1.json": "072b0a41a3b82ba659f3ae76e9aa8c557c717af5f12004da468e2ece8770b49f",
+      "artifacts/dev50-behavior-development-lossless-doc-compress-half-length-quota-limits/2.json": "398d04942dfad91e331d957a5f969875006def594961fd1adb823e410b96421e",
+      "artifacts/dev50-behavior-development-lossless-doc-compress-half-length-quota-limits/3.json": "6bd35b927bbfda2046f04c44576c1f5ca3fad24c486289cbc72bd50c37f9f709",
+      "artifacts/dev50-behavior-development-lossless-doc-compress-sixty-percent-dense-spec/1.json": "4781e55cdde11e9c2e4de232d97eb5ceac15c91ba76154e483a2ad42a6e54aa3",
+      "artifacts/dev50-behavior-development-lossless-doc-compress-sixty-percent-dense-spec/2.json": "f3516c6c255289c8056e348c76795a3eca952a048dce986a018419555eb49b13",
+      "artifacts/dev50-behavior-development-lossless-doc-compress-sixty-percent-dense-spec/3.json": "8cf750a3c1311f49bd3a393e4d7943c67529a5753ea3b82ccc41fe687144c3f3"
+    },
+    "case_snapshot_sha256": "878094fb44429a4e21867ef7263a375af76993b61dead01a4cd8e6f0c656dc76",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "7b5e1b7a5d00c5d9e2dc50646cfaa219b0c1c20e43ae8c0aa865ac82eaa96930"
+  },
+  "passed": 6,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55-pre",
+  "schema_version": 5
+}

@@ -1,0 +1,25 @@
+{
+  "all_passed": false,
+  "artifacts": 6,
+  "condition": "baseline",
+  "critical_passed": 5,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev45-behavior-development-source-driven-development-changelog-default-claim/1.json": "520ab89aadc6e9b1cba10c4b38e48bd02e13ad174558c2bee06e988859d601c2",
+      "artifacts/dev45-behavior-development-source-driven-development-changelog-default-claim/2.json": "037b253dcd55eeb7952cfd66f05b2de32c9237a9be1964927d9008fcfcea45f5",
+      "artifacts/dev45-behavior-development-source-driven-development-changelog-default-claim/3.json": "d209edd4c7a846609e0e9295af8faf6af845155546d59d3c11124704ee11933e",
+      "artifacts/dev45-behavior-development-source-driven-development-docs-cited-as-proof/1.json": "8eb761b1cdf120ecca83ec1a26c7c09cefe355b7c2faf484b3ca38bd6ebebc8e",
+      "artifacts/dev45-behavior-development-source-driven-development-docs-cited-as-proof/2.json": "af40647b0d74673a981e64cf10571f8c2c86a0681d76b8595d97a154288cfddf",
+      "artifacts/dev45-behavior-development-source-driven-development-docs-cited-as-proof/3.json": "e405079938b07444767491819cc0450164de83be8bc4ffd894ba3b0d35ca1a14"
+    },
+    "case_snapshot_sha256": "603340b06ed709f7d3e6dc596285d49d0f9c8beadb8d4c4d54b83a8894f6b885",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "71af3f0689ed64ae0f225bff356f8789561bffacdadfe202efed54f993e7e976"
+  },
+  "passed": 5,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-baseline-s55",
+  "schema_version": 5
+}

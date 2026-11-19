@@ -1,0 +1,22 @@
+{
+  "all_passed": false,
+  "artifacts": 3,
+  "condition": "baseline",
+  "critical_passed": 0,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev49-behavior-development-project-development-two-year-roadmap-lockin/1.json": "14f6e57c93b1ae650460920942c595171bb84017636f35945189b23c3adbb036",
+      "artifacts/dev49-behavior-development-project-development-two-year-roadmap-lockin/2.json": "fd8aeab9a9df33056fb6aa1ef176febf11cca00318f0d9def867c3dfae1fcfa5",
+      "artifacts/dev49-behavior-development-project-development-two-year-roadmap-lockin/3.json": "f5b24559b3b2f5b6cd2b3634a06c166119dcb76b29e3cfb204d2acda8edf25e7"
+    },
+    "case_snapshot_sha256": "dd70a2254803cd5a508fc1045ce07c0723bec9f72fa7e63a05a39eb672887186",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "d54ad1967e5b899778b322c792abc2f6676ace251ae587d2031b9fc51208619c"
+  },
+  "passed": 0,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-baseline-s55",
+  "schema_version": 5
+}

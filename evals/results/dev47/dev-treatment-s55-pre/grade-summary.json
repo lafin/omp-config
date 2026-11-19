@@ -1,0 +1,25 @@
+{
+  "all_passed": false,
+  "artifacts": 6,
+  "condition": "treatment",
+  "critical_passed": 3,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev47-behavior-development-project-development-hand-tuned-pipeline-new-model/1.json": "de585cfa4855dcd7398417e02855983925c05fed8e2821283bef53d6cbe63d8e",
+      "artifacts/dev47-behavior-development-project-development-hand-tuned-pipeline-new-model/2.json": "ef3d2160f4926f0f3b7825b8b79628bace3a911c845adb157b5983d81313b915",
+      "artifacts/dev47-behavior-development-project-development-hand-tuned-pipeline-new-model/3.json": "762616c80312dfd3ea7f54ef5a7212805ffb099acb74c274b8d7b91db3c98334",
+      "artifacts/dev47-behavior-development-project-development-prompt-tweak-no-eval/1.json": "d2b965fa864f5d198d79a13c42b989cbb9427df31c9e16c2a9261a8a670dd005",
+      "artifacts/dev47-behavior-development-project-development-prompt-tweak-no-eval/2.json": "ce51d732571c53a89ecb1181a64381cd7c1977cf2372fd95e141fba739149291",
+      "artifacts/dev47-behavior-development-project-development-prompt-tweak-no-eval/3.json": "676abfd5f9f47941718e2a18c2ae82878cf6f9af94e05f72fc092db773ca9a70"
+    },
+    "case_snapshot_sha256": "9b1df7baabcb3ad3b6d71a08ba3fa96979e53aa91263c7ed3ff1ea4a0204f52b",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "7ff2b177a2b577ddb75e999c17d9a7cdff8a3d6ba7cc9ac03d6e0bae619c19f3"
+  },
+  "passed": 3,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55-pre",
+  "schema_version": 5
+}

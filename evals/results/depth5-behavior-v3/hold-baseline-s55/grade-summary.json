@@ -1,0 +1,34 @@
+{
+  "all_passed": false,
+  "artifacts": 15,
+  "condition": "baseline",
+  "critical_passed": 8,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/depth5v3-behavior-holdout-leancode-constant-change-no-drive-by/1.json": "3a9a61436eb88d8de233af24cdae27af45023e1137099fee858e6f7817b0ddce",
+      "artifacts/depth5v3-behavior-holdout-leancode-constant-change-no-drive-by/2.json": "dc310b0cb07b91419789bb1d1e5a2e12254bd979cfb543d7170a59b75fd2c2aa",
+      "artifacts/depth5v3-behavior-holdout-leancode-constant-change-no-drive-by/3.json": "d57e2f0ae77a3c8e10182edd8bc121a078870066c6dc1226bfbcafa512254998",
+      "artifacts/depth5v3-behavior-holdout-leancode-explicit-abc-requested-build-it/1.json": "624a2fc3558d278893867104e3210cc5ffc756fdca4a534817a2c9b60755bc96",
+      "artifacts/depth5v3-behavior-holdout-leancode-explicit-abc-requested-build-it/2.json": "150c7e27ee7bd8ab6167c715fa9f6201c17852784dc41cce05ccf9afe87b2dc8",
+      "artifacts/depth5v3-behavior-holdout-leancode-explicit-abc-requested-build-it/3.json": "e625d372df99d6abb1b0cf1a550ddf9dc41a78beaaad9a8a53c679af43502e98",
+      "artifacts/depth5v3-behavior-holdout-leancode-slack-alert-no-abstraction/1.json": "51ed3796b633ca7a253fe7e404637ad1d5848c7a5251a62fe2d40862c6c9757c",
+      "artifacts/depth5v3-behavior-holdout-leancode-slack-alert-no-abstraction/2.json": "f569be0e73b07a23630db23c61fec19c797ac4ce3e0a440eef77d9a719d03316",
+      "artifacts/depth5v3-behavior-holdout-leancode-slack-alert-no-abstraction/3.json": "abe7cd0a6fc5ded2fc97781b3241c038406b0bad24f61155ef255de7fc586ef6",
+      "artifacts/depth5v3-behavior-holdout-leancode-top-words-stdlib-ties/1.json": "04b015a1e8779d9def4ae4ba38b4606459de9eec8aa37c8637a3e920e6a7a46c",
+      "artifacts/depth5v3-behavior-holdout-leancode-top-words-stdlib-ties/2.json": "223e4eeabf40df487bbfd8e4c4efcad222682a143f3d4152aa8dc4b58b11d63e",
+      "artifacts/depth5v3-behavior-holdout-leancode-top-words-stdlib-ties/3.json": "72876fb6aeaa954732e94bdf1ea6c7e10e6702d8c3649582b1a52924a629fefd",
+      "artifacts/depth5v3-behavior-holdout-leancode-trust-boundary-limit-param/1.json": "436355c7d8feba9a747a94ef3887f05d365f1cd8049b107f261e0283a6a0db3d",
+      "artifacts/depth5v3-behavior-holdout-leancode-trust-boundary-limit-param/2.json": "314f7f432fdbbc974e0e120266ab18a7fc022550af7690eb02ac871c138c53f6",
+      "artifacts/depth5v3-behavior-holdout-leancode-trust-boundary-limit-param/3.json": "aba692f05a0bf56d79b684ad84ac956078ebfeba61acd71ed8d2839323378d95"
+    },
+    "case_snapshot_sha256": "188ef5252201e5002ac72bde9362dcd307e2e1ec4b21b755ce94db31c89afbfd",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "f342d1d7b5b2a981a133050ef80b68feed06a9907d08e189851959236ec99cea"
+  },
+  "passed": 8,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-baseline-s55",
+  "schema_version": 5
+}

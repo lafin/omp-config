@@ -1,0 +1,25 @@
+{
+  "all_passed": false,
+  "artifacts": 6,
+  "condition": "treatment",
+  "critical_passed": 4,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev46-behavior-development-project-development-json-fence-drift/1.json": "644856c6779851bd387b73c149f096d64c611adebe5aec3585bd9488eb9de0c4",
+      "artifacts/dev46-behavior-development-project-development-json-fence-drift/2.json": "d912bf863f03aed7cf9acd68d7dc7d82f3169513656e5bf80b29a16e267dbc3a",
+      "artifacts/dev46-behavior-development-project-development-json-fence-drift/3.json": "ee399de7db819041cf83d9fcf02aff59169b6d9ca61ca2e3685bda7dd3e7d507",
+      "artifacts/dev46-behavior-development-project-development-sentiment-label-drift/1.json": "15c8a366d2fee2e1c9dd95c87dad74a6107219fe2daea1e3ebdb59daf7d56d26",
+      "artifacts/dev46-behavior-development-project-development-sentiment-label-drift/2.json": "b65540c1bcdbc8c4eaab606f4c9ff86476fdae33530ebdff045bc9c08bd5deca",
+      "artifacts/dev46-behavior-development-project-development-sentiment-label-drift/3.json": "42dd67758ec122e67852b8088468327e5dddaf88612ec38fdbc0bd0596dc6ec9"
+    },
+    "case_snapshot_sha256": "0794a8602ed99e1ce221e1a4d79111b770cf1b8ccfd76f76748dd7fd8a7cb67f",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "d2d7185c05ae0332affd5f84d021e503785ff499636a84220d7197ea10b2bd02"
+  },
+  "passed": 4,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55-pre",
+  "schema_version": 5
+}
