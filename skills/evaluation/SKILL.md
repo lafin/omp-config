@@ -120,7 +120,7 @@ Structure test sets across complexity levels to prevent easy examples from infla
 - Complex: many tool calls, significant ambiguity
 - Very complex: extended interaction, deep reasoning, synthesis
 
-Report scores per stratum alongside overall scores to reveal where the agent actually struggles.
+Report scores per stratum alongside overall scores to reveal where the agent actually struggles. Gate on every stratum, not only the one named as risky: give each stratum a minimum and fail the release if any stratum falls below it, even when the overall score rises.
 
 ### Context Engineering Evaluation
 

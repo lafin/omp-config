@@ -21,8 +21,8 @@ FIXED = {"catalog-behavior-holdout-v5", "depth-behavior-holdout", "depth10-behav
          "pilot-security-review-behavior-holdout-v2",
          "pilot-source-driven-development-behavior-holdout-v2", "refresh-behavior-holdout-v6",
          "security-review-severity-holdout", "see-behavior-boundary-holdout",
-         "see-behavior-holdout-final", "ui-craft-behavior-holdout-v2", "depth13-behavior-holdout-v4",
-         "depth14-behavior-holdout-v3", "depth15-behavior-holdout-v3"}
+         "see-behavior-holdout-final-v3", "ui-craft-behavior-holdout-v2", "depth13-behavior-holdout-v4",
+         "depth14-behavior-holdout-v4", "depth15-behavior-holdout-v3"}
 files = {f["path"]: f["frozen_sha256"] for f in suites["case_files"]
          if f["kind"] == "behavior" and f["split"] == "holdout" and f["status"] == "canonical"
          and os.path.basename(f["path"])[:-6] in FIXED}

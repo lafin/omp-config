@@ -1,0 +1,37 @@
+{
+  "all_passed": false,
+  "artifacts": 18,
+  "condition": "treatment",
+  "critical_passed": 17,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/see-final-v3-error-upload/1.json": "ba8065b242a6298c47f612680fcfeb4d57c7db8ccabb3e22ed15de24662c115f",
+      "artifacts/see-final-v3-error-upload/2.json": "de6044e5448044413412c7131ce7af663dbca2c91c0d4d1fea44d2de9a84bc91",
+      "artifacts/see-final-v3-error-upload/3.json": "11b4e5d84f2914cd50064ab6300ddbb1adcd8817743df3066df947cd958350ba",
+      "artifacts/see-final-v3-explanation-async/1.json": "e33b584b28d48b122011170ae414d5c0050cf8debc498f465a03a12c5cca119d",
+      "artifacts/see-final-v3-explanation-async/2.json": "513740df29018974c698a04101dd4c81dcfc59c28653be59e7ac0538d43b9752",
+      "artifacts/see-final-v3-explanation-async/3.json": "c20b27fe9cc819d9a61aa2d5a353a6073d0c3ef6b6d040d928764cf66ba0f1a9",
+      "artifacts/see-final-v3-procedure-destructive/1.json": "4686da990faccec346268b6e61ed31be85d639a1021cd9c3c95bedab49f0c78e",
+      "artifacts/see-final-v3-procedure-destructive/2.json": "0c12108b9f4fed3286dbc65a3ea4d50f230ab88036b1ad78fa44ff889bb7436e",
+      "artifacts/see-final-v3-procedure-destructive/3.json": "1b9c3c64982a7b12b8a04762d74233616997f38135100d8b271c22e47cbd61e4",
+      "artifacts/see-final-v3-procedure-noop/1.json": "01ee5e90bea9b583afa80b82cd5906c83c5e836de411fdfcd7f25b1a94e39533",
+      "artifacts/see-final-v3-procedure-noop/2.json": "31ac41e1ec8701a2a6ff11fa0b7ebf3da0b872aa9ac931c20b35007a26927c1c",
+      "artifacts/see-final-v3-procedure-noop/3.json": "866f9c5f852dc3c080b3bc5ed862b02cefe81105c04fe695fea88df3490e355c",
+      "artifacts/see-final-v3-requirement-noop/1.json": "43e3017d6b156ffd7b5fbc2fb561c7208c152e7cf84e73248416eafee41c64c3",
+      "artifacts/see-final-v3-requirement-noop/2.json": "fab225d5de2f540cb480a7375d6e8a38aa824aab9003c7484040240f297228f9",
+      "artifacts/see-final-v3-requirement-noop/3.json": "32196a43209673b46f9ea414a4b36d9a47d819c5a731fe38eeddaf14c6560e1a",
+      "artifacts/see-final-v3-requirement-security/1.json": "fb1e235af22852d7a2dbb2a4477356c3140f72e777af1dd429804a69bcd4b5fa",
+      "artifacts/see-final-v3-requirement-security/2.json": "129e7673cf1e23971f8b3a38015236c1df44b4a94e7c3cc30c617ae19a1b473a",
+      "artifacts/see-final-v3-requirement-security/3.json": "ab514934d97fee9b002e55321b59bf4f9ea105f31d81af860ee86fe8fdf18a25"
+    },
+    "case_snapshot_sha256": "8281bfd3cb38a5b9ceabcb353cab9c9a7f2d05ac2e969cf07dfedd3191929ac7",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "e36c7e816dde9d536ab783ccc320f1ddd1d93c24bb5db8ed4a2389a59c8546a9"
+  },
+  "passed": 17,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-treatment-s55-a",
+  "schema_version": 5
+}

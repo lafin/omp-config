@@ -1,0 +1,25 @@
+{
+  "all_passed": false,
+  "artifacts": 6,
+  "condition": "treatment",
+  "critical_passed": 3,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev44-behavior-development-evaluation-complaint-tier-gate/1.json": "ff64d085cdc17962b7871474e2860214ac121dc899657699016911bf208896c8",
+      "artifacts/dev44-behavior-development-evaluation-complaint-tier-gate/2.json": "3c779e754fa96e1fe96a06c396360fc59b612698d6e1324ef99e1283f0b3d75d",
+      "artifacts/dev44-behavior-development-evaluation-complaint-tier-gate/3.json": "ec9c0b2285e32f5586c2f80d01216dc64a597bac9efbccc396bd4875d0c25153",
+      "artifacts/dev44-behavior-development-evaluation-named-stratum-only/1.json": "03f30f31b872f74249c9a7ef7a131380ca8bb55660fbed6bf087939c645ee0a5",
+      "artifacts/dev44-behavior-development-evaluation-named-stratum-only/2.json": "73a0d2f47b0e6a7d5a56974e9f739138ae11f2ed0fd471a1d0a4fa3d0ccee3fa",
+      "artifacts/dev44-behavior-development-evaluation-named-stratum-only/3.json": "944e4b2290037f923c7d9e1e11cc59fa748794fa9eabf3a4a31a0e5e985313f7"
+    },
+    "case_snapshot_sha256": "20427a73b4e78e703f1c4de22f05d88b2512d406b50747901f5f13c4516943ba",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "b45fce10c1e9d03610205368181fb340cf4dbe4904389a614129901d1bd2a6c7"
+  },
+  "passed": 3,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55-pre",
+  "schema_version": 5
+}
