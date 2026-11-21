@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Skill-uplift benchmark (offline, deterministic: reads committed eval results only).
-# Primary: mean over skills of (treatment - baseline) critical pass rate on a FIXED set of
-# canonical holdout files (frozen 2026-11-09), so adding cases cannot move it; only skill
-# edits re-captured against these files can. Guards: both validators must pass.
+# Primary: mean over skills of (treatment - baseline) critical pass rate on the FIXED gap holdout
+# (24 blind cases, 8 skills, frozen 2026-11-21); only skill edits re-captured against it can move it.
+# Guards: both validators must pass.
 set -euo pipefail
 cd "$(dirname "$0")"
 PY=python3; [ -x .venv/bin/python ] && PY=.venv/bin/python
@@ -12,18 +12,7 @@ PY=python3; [ -x .venv/bin/python ] && PY=.venv/bin/python
 "$PY" - <<'EOF'
 import json, glob, os, collections
 suites = json.load(open("evals/suites.json"))
-FIXED = {"catalog-behavior-holdout-v6", "depth-behavior-holdout", "depth10-behavior-holdout-v7",
-         "depth11-behavior-holdout-v4", "depth12-behavior-holdout-v5", "depth2-behavior-holdout-v5",
-         "depth3-behavior-holdout-v9", "depth4-behavior-holdout-v8", "depth5-behavior-holdout-v3",
-         "depth6-behavior-holdout", "depth7-behavior-holdout", "depth8-behavior-holdout-v4",
-         "depth9-behavior-holdout", "leancode-merge-behavior-holdout",
-         "pilot-api-and-interface-design-behavior-holdout-v4",
-         "pilot-security-review-behavior-holdout-v2",
-         "pilot-source-driven-development-behavior-holdout-v2", "refresh-behavior-holdout-v7",
-         "security-review-severity-holdout", "see-behavior-boundary-holdout",
-         "see-behavior-holdout-final-v4", "ui-craft-behavior-holdout-v2", "depth13-behavior-holdout-v5",
-         "depth14-behavior-holdout-v5", "depth15-behavior-holdout-v4", "depth16-behavior-holdout-v2",
-         "depth17-behavior-holdout"}
+FIXED = {"gap-behavior-holdout-v2"}
 files = {f["path"]: f["frozen_sha256"] for f in suites["case_files"]
          if f["kind"] == "behavior" and f["split"] == "holdout" and f["status"] == "canonical"
          and os.path.basename(f["path"])[:-6] in FIXED}
@@ -35,8 +24,11 @@ for p in files:
 # Per (case files, condition): pool every run sharing the newest run's evaluated catalog,
 # model and grader; older pins, models and graders are superseded, never mixed in.
 groups = collections.defaultdict(list)
+MODEL = os.environ.get("BENCH_MODEL", "anthropic/claude-haiku-5-5")
 for m in glob.glob("evals/results/**/manifest.json", recursive=True):
     man = json.load(open(m))
+    if man.get("model_requested") != MODEL:
+        continue
     matched = tuple(sorted(cf["path"] for cf in man.get("case_files", [])
                            if cf.get("path") in files and cf.get("sha256") == files[cf["path"]]))
     if not matched or not os.path.exists(os.path.join(os.path.dirname(m), "grades.jsonl")):

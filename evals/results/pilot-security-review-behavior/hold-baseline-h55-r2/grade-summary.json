@@ -1,0 +1,37 @@
+{
+  "all_passed": false,
+  "artifacts": 18,
+  "condition": "baseline",
+  "critical_passed": 18,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/pilot-security-review-behavior-holdout-v2-clean-signed-webhook/1.json": "0795af0c6b78e849c7c223f915845cb86033f683c8d55788f924f5c6e537fbcd",
+      "artifacts/pilot-security-review-behavior-holdout-v2-clean-signed-webhook/2.json": "8574fde936ca16d474b2ded604220babf893073ddb84ab4bff6d7b68c6d5c1a1",
+      "artifacts/pilot-security-review-behavior-holdout-v2-clean-signed-webhook/3.json": "a40d5c739de14595d5d163fa530b20eaa0da79cf5b2c78d36c6e4a0f074dc779",
+      "artifacts/pilot-security-review-behavior-holdout-v2-cross-tenant-purge/1.json": "8cd61c0e05ed965ffc883a6620314aa58ea516af5b286a19a66e79ebdf66be8c",
+      "artifacts/pilot-security-review-behavior-holdout-v2-cross-tenant-purge/2.json": "15cb31524f9131aec362805af977511a8b313d89ef4addcce04a5b90180c4329",
+      "artifacts/pilot-security-review-behavior-holdout-v2-cross-tenant-purge/3.json": "c23ab46402227971817f48c1a15b0b076afa6958744d5c55b45884a2cd559cd3",
+      "artifacts/pilot-security-review-behavior-holdout-v2-mass-assignment-role/1.json": "ec6693a89b608514ab6bd859f27df547427556b23a6811e04e1fbc9050c87da0",
+      "artifacts/pilot-security-review-behavior-holdout-v2-mass-assignment-role/2.json": "5bdcd3d0274f8f7b6866433c43695bdd1c936b5193725d28b40066f63e96be59",
+      "artifacts/pilot-security-review-behavior-holdout-v2-mass-assignment-role/3.json": "0900b3425467f7ae5906fb9b2e06af8fdcb2f3bbddc8e7f274d8253738d90399",
+      "artifacts/pilot-security-review-behavior-holdout-v2-path-traversal-denylist/1.json": "0a23a1ffae2c1783c3a7e06f986ccadf4466d68ab1bb0c47ab1d261087e764f2",
+      "artifacts/pilot-security-review-behavior-holdout-v2-path-traversal-denylist/2.json": "a268ea0536ed33c9623ab323f77900360b1dee36bc97627d17e981608a7c9124",
+      "artifacts/pilot-security-review-behavior-holdout-v2-path-traversal-denylist/3.json": "70fc02bbcd7db6180250002af439db3cae30074f07059bfde99963bc0eea0205",
+      "artifacts/pilot-security-review-behavior-holdout-v2-reset-token-no-expiry/1.json": "0c3d2aa4a6205e59cb7c05399b6f69c3473cfb06c59191a6b6e10187f7889882",
+      "artifacts/pilot-security-review-behavior-holdout-v2-reset-token-no-expiry/2.json": "2ffc72c55422a22486ad9caf3aee31cb211910854ae556836a72b88b65399199",
+      "artifacts/pilot-security-review-behavior-holdout-v2-reset-token-no-expiry/3.json": "7bc68121250b56b8c90480a73f5f8d9d891c825d43161d26244bbffb6a5f0f48",
+      "artifacts/pilot-security-review-behavior-holdout-v2-unbounded-export-limit/1.json": "d307bd6715606dc416c3b692274a1ba71edc5b889d5cfdf658d96a3f05760462",
+      "artifacts/pilot-security-review-behavior-holdout-v2-unbounded-export-limit/2.json": "59be43f533835c9a4e1b6fc946039769d46c3d7d3b908caa0630a1cf85d3a1f3",
+      "artifacts/pilot-security-review-behavior-holdout-v2-unbounded-export-limit/3.json": "214e5d2c96b03b30815d5243a4d77e5ea9a4dba755eb1c9e723d7f4739ac35b6"
+    },
+    "case_snapshot_sha256": "cb2481a4c71f7485d3e20a1a1ab30c80715c463d695dddf0881d43fe07cfa7d8",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "f19036db240ca7d672acd9f60580c42394d4b7f0b4331a310ccdcf87a75c029c"
+  },
+  "passed": 15,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-baseline-h55-r2",
+  "schema_version": 5
+}

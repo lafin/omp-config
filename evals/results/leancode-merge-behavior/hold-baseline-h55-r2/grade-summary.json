@@ -1,0 +1,22 @@
+{
+  "all_passed": false,
+  "artifacts": 3,
+  "condition": "baseline",
+  "critical_passed": 0,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/merge-catalog-behavior-holdout-leancode-review/1.json": "30a911275e270e5d42128f0686e24e851a2b436fb3c78200a6a5e4bc3820689d",
+      "artifacts/merge-catalog-behavior-holdout-leancode-review/2.json": "aa3c6f1eb75ead7dd744955253fd2d068839e06b56d1a94778e2ae11a5d5110e",
+      "artifacts/merge-catalog-behavior-holdout-leancode-review/3.json": "be7496e1f7586b5475fad11a264a79f4541579d0314da96bb5a0d240fc3b0328"
+    },
+    "case_snapshot_sha256": "bca1e6d56e483092a1cc1eacf2267eff9c8392b5f5dfdfe1f432632638e7fa5f",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "e58991d5b359793874c34de16c62e7d6cf6889a69ba4771cf210d3f91ba251dd"
+  },
+  "passed": 0,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-baseline-h55-r2",
+  "schema_version": 5
+}

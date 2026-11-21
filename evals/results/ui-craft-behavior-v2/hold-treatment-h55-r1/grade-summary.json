@@ -1,0 +1,25 @@
+{
+  "all_passed": false,
+  "artifacts": 6,
+  "condition": "treatment",
+  "critical_passed": 5,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/ui-craft-behavior-holdout-v2-icon-toolbar/1.json": "b705f7ea2e0138e9780ab3a12801256939e537c7270394b62800bde32399b83a",
+      "artifacts/ui-craft-behavior-holdout-v2-icon-toolbar/2.json": "74c80e4201b0ddd70dd3544c42c76d2b4669c1b61185cac7ee477434aa83a777",
+      "artifacts/ui-craft-behavior-holdout-v2-icon-toolbar/3.json": "042e61efaea3531bb51411470f969791c8cb1a460b05ebe39b4497b0a2072d91",
+      "artifacts/ui-craft-behavior-holdout-v2-price-table/1.json": "1a30e9c319654f7bbcccf19ee1354203ca69bd29b633ef22642cd98faf3746dc",
+      "artifacts/ui-craft-behavior-holdout-v2-price-table/2.json": "c13807d8c4a26b6a1fcc6c4a7829b12e757a6953d0ed5dc78591fe4a1d730b52",
+      "artifacts/ui-craft-behavior-holdout-v2-price-table/3.json": "3892786945ae2c946de5302aacfb7bd3948f794da3dcc22d56912e2cc557559f"
+    },
+    "case_snapshot_sha256": "f57013160e0084faa6072708f8d254d8524850c6c602ef0d71b4ae54d10fea70",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "06083c66b350e9d19d2302d56d15960618368e85621e6bf7517e4af972034e3e"
+  },
+  "passed": 5,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-treatment-h55-r1",
+  "schema_version": 5
+}

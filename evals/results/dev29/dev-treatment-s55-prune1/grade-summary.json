@@ -1,0 +1,37 @@
+{
+  "all_passed": true,
+  "artifacts": 18,
+  "condition": "treatment",
+  "critical_passed": 18,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev29-behavior-development-api-and-interface-design-card-capture-timeout/1.json": "4069daf9b1209b89fd4a6b7ac01a703eeecf533d8320664f0f30b915596f9bd4",
+      "artifacts/dev29-behavior-development-api-and-interface-design-card-capture-timeout/2.json": "e2e6c5309c12bff0c2fbea9f30b6092c448049a359a9aa808ed0c9bf7a1a23c1",
+      "artifacts/dev29-behavior-development-api-and-interface-design-card-capture-timeout/3.json": "dc83f33cc56331377ba12f123ba1323107be0f2fb0b79704c46fe60a3dea6ddb",
+      "artifacts/dev29-behavior-development-api-and-interface-design-partner-ledger-transfer-timeout/1.json": "09da842580f47c25f2e21d68f392ca9fdbeb6182c7a8b5532ffaf67ac2bf844f",
+      "artifacts/dev29-behavior-development-api-and-interface-design-partner-ledger-transfer-timeout/2.json": "f1a35a1b483c6bf6e7df081807fd0e2a4daf966295bc02fda01fef9242be7768",
+      "artifacts/dev29-behavior-development-api-and-interface-design-partner-ledger-transfer-timeout/3.json": "79dd3a7e62374883c679d273d670b4b9c98c0f78322ff013242a8a7b98842510",
+      "artifacts/dev29-behavior-development-api-and-interface-design-refund-webhook-timeout/1.json": "938c309ad82b440725216230b6fc33c5d363c097e0d8a6d8f97392e9ce5e74b0",
+      "artifacts/dev29-behavior-development-api-and-interface-design-refund-webhook-timeout/2.json": "6dea28e6e2f9ef3fd2afe13548ddc6f7cf1720f08c2b51f718267334c72a0479",
+      "artifacts/dev29-behavior-development-api-and-interface-design-refund-webhook-timeout/3.json": "ff7948516466a2e5425ec1477aa5bb7ffc7b6c66c466393537995419a67a785b",
+      "artifacts/dev29-behavior-development-api-and-interface-design-shipment-label-timeout/1.json": "e5f5aa46ecae936364332a8bfe4cbd92bacc2780dba94207bf36e6907bcdea17",
+      "artifacts/dev29-behavior-development-api-and-interface-design-shipment-label-timeout/2.json": "6258b7d64e8bd1dec6e7048c3b2722059db877538b6c52c2a0409db026f81aee",
+      "artifacts/dev29-behavior-development-api-and-interface-design-shipment-label-timeout/3.json": "24cd8df80893d053a84187592c9a0a730faca892b96326ab15fecd64c94b75b9",
+      "artifacts/dev29-behavior-development-api-and-interface-design-sms-send-timeout/1.json": "fa5abc32708101e5f03065918478967d053e0aef2ab288ebea0bc6b59315cbe4",
+      "artifacts/dev29-behavior-development-api-and-interface-design-sms-send-timeout/2.json": "3ee7dfa60f85b1bc565e5fa49da76f1f1deeeec3c673fe00c0565b5dcabb090e",
+      "artifacts/dev29-behavior-development-api-and-interface-design-sms-send-timeout/3.json": "1523811d260d3fa93d90252488c7c15576e873ddc38899a53f19baef2a19b310",
+      "artifacts/dev29-behavior-development-api-and-interface-design-vm-provision-timeout/1.json": "ab3fe71ac7fdef583d6d2fda12fd77843ff271134190ab2bd937ce5a6b3d4538",
+      "artifacts/dev29-behavior-development-api-and-interface-design-vm-provision-timeout/2.json": "fb17889708acfc254526d1028d49b9f8b2a6dfd827c4bf1221b0b2d4aa6cac31",
+      "artifacts/dev29-behavior-development-api-and-interface-design-vm-provision-timeout/3.json": "52676ffaee0efe55236d3e39bed8f0ec6ac830d296dd893e0ca417144186e4f9"
+    },
+    "case_snapshot_sha256": "c40ea91969a6d305d220bac499e9157abbaffca2d7c14f208c75f3b797e6b677",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "5369f24b596886ba230def84dfac0c494547cd4e3a0e1f2cc86435ab4d7df315"
+  },
+  "passed": 18,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-s55-prune1",
+  "schema_version": 5
+}

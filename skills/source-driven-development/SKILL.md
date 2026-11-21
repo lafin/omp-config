@@ -25,7 +25,7 @@ Route adjacent units elsewhere:
 - Prompt-context budgets, retrieval scope, masking, and token cost: `context-optimization`.
 - Ordinary implementation whose correctness does not depend on external version semantics: use the repository's normal implementation workflow.
 
-Do not skip evidence because the user prefers speed. Do not ask the user for a version or source until repository evidence and available primary sources have been exhausted.
+Do not skip evidence because the user prefers speed. Do not ask the user for a version or source while repository evidence or primary sources are still reachable; once they are exhausted, follow the unreachable-evidence rule in step 6 instead of asking.
 
 ## Workflow
 
@@ -91,6 +91,8 @@ Use an explicit label when primary evidence is unavailable:
 `UNVERIFIED: <behavior> — <sources checked and evidence missing>`
 
 Do not convert memory, consensus, an unofficial tutorial, or a newer version's docs into verified fact. Distinguish unverified behavior from code behavior actually observed in a local smoke check.
+
+When every evidence channel is unreachable (no lockfile, no installed package, no network, no docs snapshot), do not stop to ask the user for the version. Deliver the version-tolerant implementation, label each version-dependent behavior `UNVERIFIED`, and list the unreachable channels. A confirmation question ("which version do you run?", "is the tolerant branch acceptable?") is still asking; leave it out and report that no question is needed.
 
 ## Failure Modes
 

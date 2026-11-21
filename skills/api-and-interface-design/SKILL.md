@@ -20,44 +20,24 @@ no consumer needs.
 
 ## Scope
 
-Use this skill when the unit of work is a public application interface:
-
-- REST resources, methods, status codes, pagination, and request or response
-  bodies;
-- GraphQL fields, arguments, nullability, unions, and error behavior;
-- module and library exports, function signatures, and type contracts;
-- serialized schemas and compatibility policy;
-- validation at an external boundary;
-- stable error envelopes and machine-readable error codes;
-- idempotency and retry semantics for state-changing operations;
-- changes whose safety depends on what current consumers can observe.
-
-Route adjacent work elsewhere:
-
-- Agent or MCP tool descriptions, routing, parameter schemas, tool results, and
-  actionable tool errors belong to `tool-design`.
-- Whether to use an LLM, how to shape a whole project or multi-stage pipeline,
-  and project-level cost or output decisions belong to `project-development`.
-- Rollout, usage measurement, compatibility windows, staged removal, backfill,
-  and cutover after a contract is deprecated belong to
-  `deprecation-and-migration`.
-
-This skill may define a replacement interface and its compatibility boundary.
-It does not own the operational migration to that replacement.
+Use this skill when the unit of work is a public application interface: REST,
+GraphQL, module or library exports, serialized schemas, boundary validation,
+error envelopes, idempotency, and changes whose safety depends on what current
+consumers can observe. Route agent or MCP tool schemas to `tool-design`,
+whole-project or pipeline shape to `project-development`, and rollout or removal
+of a deprecated contract to `deprecation-and-migration`. This skill may define a
+replacement interface and its compatibility boundary; it does not own the
+operational migration.
 
 ## Start With Consumer-Observable Behavior
 
 Before naming fields or choosing syntax, write the contract a consumer can
-observe:
-
-1. Identify the consumers and the boundary they call.
-2. State valid requests and successful results.
-3. State invalid requests and exact error categories.
-4. State retry, concurrency, ordering, pagination, and partial-update behavior
-   where they matter.
-5. Inventory existing observable behavior before changing a published surface.
-6. Choose the smallest interface that satisfies those scenarios.
-7. Verify through a real consumer path, not by inspecting declarations alone.
+observe: the consumers and boundary, valid requests and results, invalid
+requests and exact error categories, and retry, concurrency, ordering,
+pagination, and partial-update behavior where they matter. Inventory existing
+observable behavior before changing a published surface, choose the smallest
+interface that satisfies the scenarios, and verify through a real consumer
+path, not by inspecting declarations.
 
 A well-named schema is not enough. Status codes, nullability, omitted versus
 null fields, ordering, duplicate handling, exception types, and serialized
@@ -71,21 +51,7 @@ the intended specification.
 ## Contract First
 
 Define inputs, outputs, invariants, and failures before implementation. Keep
-input and output types separate when the producer adds fields:
-
-```typescript
-interface CreateTaskInput {
-  title: string;
-  description?: string;
-}
-
-interface Task {
-  id: string;
-  title: string;
-  description: string | null;
-  createdAt: string;
-}
-```
+input and output types separate when the producer adds fields.
 
 Use types to prevent category mistakes when the distinction matters. When two
 identifiers share a runtime shape (both UUIDs, both strings), no runtime format
@@ -175,17 +141,7 @@ drives rendering, authorization, money movement, or execution.
 ## REST Contracts
 
 Model resources rather than commands unless the operation is genuinely not a
-resource transition:
-
-```text
-GET    /tasks             list tasks
-POST   /tasks             create a task
-GET    /tasks/{taskId}    read one task
-PATCH  /tasks/{taskId}    update supplied fields
-DELETE /tasks/{taskId}    delete a task
-```
-
-Specify details consumers otherwise have to guess:
+resource transition. Specify details consumers otherwise have to guess:
 
 - whether `PATCH` distinguishes omitted, null, and empty values;
 - whether `DELETE` is idempotent and what repeated deletion returns;
@@ -313,22 +269,9 @@ possible instead of duplicating business logic per version. Hand the operational
 compatibility window, rollout, measurement, and removal sequence to
 `deprecation-and-migration`.
 
-## Naming and Consistency
-
-Use repository conventions before inventing new ones. Within one interface,
-keep names and semantics predictable:
-
-- REST resource paths use consistent nouns and identifier placement;
-- query and response fields use one casing convention;
-- booleans describe a state or capability (`isReady`, `hasItems`, `canRetry`);
-- identifiers reveal their domain when confusion is plausible;
-- timestamps state format and timezone;
-- units appear in names when ambiguity would be costly (`timeoutMs`,
-  `amountCents`);
-- error codes are stable and machine-readable.
-
-Consistency is valuable because it reduces consumer guesswork, not because a
-style table is intrinsically correct.
+Use repository conventions, one casing convention, units in names when
+ambiguity is costly (`timeoutMs`, `amountCents`), timestamps with format and
+timezone, and stable machine-readable error codes.
 
 ## Resist Speculative Abstraction
 
@@ -350,34 +293,12 @@ and consumer tests—not from unused extension points.
 
 ## Verification
 
-Verify the contract through observable scenarios:
-
-- a valid request returns the documented shape and status or typed result;
-- each public failure category returns its stable code without internal leakage;
-- invalid input is rejected before side effects;
-- omitted, null, empty, boundary, and unknown values follow explicit semantics;
-- retries perform one effect, concurrent duplicates follow the chosen policy,
-  and a reused key with a changed payload fails;
-- old consumers or readers still work for every promised compatible change;
-- new consumers receive the new behavior;
-- ordering, pagination, and partial updates are deterministic;
-- no speculative configuration or wrapper became required for the current use.
-
-Contract tests should call the public surface as a consumer would. Declaration
-snapshots and source-text checks cannot establish runtime semantics.
-
-## Completion Checklist
-
-- [ ] The consumer and public boundary are named.
-- [ ] Inputs, outputs, invariants, errors, and side effects are explicit.
-- [ ] Validation occurs before effects at the trust boundary.
-- [ ] Error categories and machine-readable codes are consistent.
-- [ ] Retry and idempotency behavior is explicit for state changes.
-- [ ] Existing observable behavior was inventoried before evolution.
-- [ ] Compatibility is evaluated for actual consumers and serialization media.
-- [ ] The contract contains no hypothetical extension machinery.
-- [ ] Consumer-observable scenarios verify success, failure, and evolution.
-- [ ] Rollout mechanics are handed to `deprecation-and-migration` when needed.
+Verify through the public surface as a consumer would: success shape, each
+failure code without internal leakage, invalid input rejected before side
+effects, omitted/null/empty semantics, one effect per retried intent with
+concurrent duplicates and changed-payload key reuse covered, and old consumers
+still working for every promised compatible change. Declaration snapshots and
+source-text checks cannot establish runtime semantics.
 
 ## Output
 

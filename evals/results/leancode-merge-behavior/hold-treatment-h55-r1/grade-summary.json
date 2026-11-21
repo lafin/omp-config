@@ -1,0 +1,22 @@
+{
+  "all_passed": false,
+  "artifacts": 3,
+  "condition": "treatment",
+  "critical_passed": 0,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/merge-catalog-behavior-holdout-leancode-review/1.json": "1e7a4808618dda37dc994a10f5a84b19835d0ab00fc0025e435944b2ddfdad92",
+      "artifacts/merge-catalog-behavior-holdout-leancode-review/2.json": "de852e4ae935368e4497ee4d363e8349019f0c91f7507b8a91fad01e48598e12",
+      "artifacts/merge-catalog-behavior-holdout-leancode-review/3.json": "7e94aebe3241976ece19df3c39fecee866661ea0bf782061892108b82cd59561"
+    },
+    "case_snapshot_sha256": "bca1e6d56e483092a1cc1eacf2267eff9c8392b5f5dfdfe1f432632638e7fa5f",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "4f64e027ccc6f77092cf3fb6e1c4b1800b7504560ba85ed0d7915098cd90cf76"
+  },
+  "passed": 0,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-treatment-h55-r1",
+  "schema_version": 5
+}

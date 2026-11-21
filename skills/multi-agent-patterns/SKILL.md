@@ -224,7 +224,7 @@ def handle_customer_request(request):
 5. Monitor for supervisor bottlenecks and implement checkpointing
 6. Validate outputs before passing between agents
 7. Set time-to-live limits to prevent infinite loops
-8. Test failure scenarios explicitly
+8. Test failure scenarios explicitly: inject a named fault (a worker timeout, malformed JSON, a dropped or misrouted handoff, a known-wrong output) and state the signal that must detect it
 
 ## Gotchas
 

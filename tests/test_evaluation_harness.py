@@ -277,6 +277,12 @@ class EvaluationHarnessTest(unittest.TestCase):
         args.attempts = 1
         with self.assertRaisesRegex(ValueError, "execution_config.attempt_count"):
             RUN.verify_locked_contract(contract, args, [routing_case()], [])
+        args.attempts = 3
+        contract["execution_config"]["model"] = ["other/model", "provider/model"]
+        RUN.verify_locked_contract(contract, args, [routing_case()], [])
+        args.model = "unlisted/model"
+        with self.assertRaisesRegex(ValueError, "execution_config.model"):
+            RUN.verify_locked_contract(contract, args, [routing_case()], [])
 
     def test_catalog_revision_is_materialized_without_working_tree_fallback(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

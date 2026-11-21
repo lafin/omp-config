@@ -1,0 +1,28 @@
+{
+  "all_passed": false,
+  "artifacts": 9,
+  "condition": "baseline",
+  "critical_passed": 0,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/depth9-behavior-holdout-leancode-debt-owner-from-codeowners-python/1.json": "54306423995e1789710c53f3277b87e75de017cfea86c6a0d1bbce969b2e4f8b",
+      "artifacts/depth9-behavior-holdout-leancode-debt-owner-from-codeowners-python/2.json": "8a70f88595a30013e7c333f044e93024f05a42b160671ebb818369510672c590",
+      "artifacts/depth9-behavior-holdout-leancode-debt-owner-from-codeowners-python/3.json": "d7e1894a0f73115b995828bec421c91b89b71d2668df9280a634f15614b5ae44",
+      "artifacts/depth9-behavior-holdout-leancode-debt-owner-from-folder-team-mobile/1.json": "f45eda38d0ab0fc46046242daee2969fba81d6a789599870c686ab304576fe26",
+      "artifacts/depth9-behavior-holdout-leancode-debt-owner-from-folder-team-mobile/2.json": "733608224148add8f074b8b13b031e32ec3b851e64bf3b048353271f6e52a391",
+      "artifacts/depth9-behavior-holdout-leancode-debt-owner-from-folder-team-mobile/3.json": "6bffb737871e6b27ae52fd8bfb8f31e8f7a04764d634053f0a1269adeb7b26b4",
+      "artifacts/depth9-behavior-holdout-leancode-debt-owner-from-readme-table-rails/1.json": "eb8f13c8fff5ff3944752bf88d3732f9be2a7f3cc34e52a2ee539efc722087ee",
+      "artifacts/depth9-behavior-holdout-leancode-debt-owner-from-readme-table-rails/2.json": "c620322a6fc3388f9da1389becd4a37b3977fa5365e08776fb55262863a860bb",
+      "artifacts/depth9-behavior-holdout-leancode-debt-owner-from-readme-table-rails/3.json": "b0f2d0726b609bbe69eef5c4ecb08c33066c2cdac7b4282b1ee07195e50761fd"
+    },
+    "case_snapshot_sha256": "622198fd37470cad4dd48a0a5d3545f5bcde03a0f4a5c2657b45a8dba495944e",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "24ca1c36ed10ee79236fb3a640f6ee3f189a8d35fc2ec07178267fa67676ee2b"
+  },
+  "passed": 0,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-baseline-h55-r1",
+  "schema_version": 5
+}

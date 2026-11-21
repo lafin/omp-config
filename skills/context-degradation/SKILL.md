@@ -78,6 +78,8 @@ Establish source priority rules before conflicts arise. Context clash differs fr
 
 Implement version filtering to exclude outdated information before it enters context. When contradictions are unavoidable, mark them explicitly with structured conflict annotations: state what conflicts, which source each claim comes from, and which source takes precedence. Without explicit priority rules, models resolve contradictions unpredictably.
 
+When a newer fact replaces an older one (status changed, value corrected), delete or overwrite the old entry at its source. A superseded tag or an appended correction leaves the stale fact retrievable, and the model can still follow it.
+
 ### Empirical Benchmarks and Thresholds
 
 Treat advertised context-window length as a capacity limit, not a quality guarantee. Benchmark the target workload at progressively larger context sizes, including retrieval and reasoning tasks rather than only simple needle retrieval.

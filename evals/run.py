@@ -920,12 +920,17 @@ def verify_locked_contract(
         "system_prompt_sha256": effective_system_prompt_hash(args),
     }
     for field, value in actual.items():
-        if execution.get(field) != value:
-            raise ValueError(
-                f"evals/suites.json: comparison contract execution_config.{field} is "
-                f"{execution.get(field)!r}, but the requested value is {value!r}; "
-                "use the frozen value or register and review a new contract"
-            )
+        frozen = execution.get(field)
+        if field == "model" and isinstance(frozen, list):
+            if value in frozen:
+                continue
+        elif frozen == value:
+            continue
+        raise ValueError(
+            f"evals/suites.json: comparison contract execution_config.{field} is "
+            f"{frozen!r}, but the requested value is {value!r}; "
+            "use the frozen value or register and review a new contract"
+        )
     timeout_policy = contract.get("timeout_policy")
     if not isinstance(timeout_policy, dict):
         raise ValueError(

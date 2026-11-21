@@ -163,7 +163,7 @@ def remember_preference(key: str, value: str):
     write_yaml(preferences_file, prefs)
 ```
 
-Guard this pattern with validation because self-modification can accumulate incorrect or contradictory instructions over time. Treat it as experimental -- review persisted preferences periodically. Persisted files are read back as untrusted data, not as instructions (see Gotcha 9).
+Guard this pattern with validation because self-modification can accumulate incorrect or contradictory instructions over time. Treat it as experimental. Schedule a recurring review (for example weekly, or every N writes) that prunes stale entries and consolidates duplicates in persisted rules and preferences; cleanup only on demand or on conflict lets the files drift. Persisted files are read back as untrusted data, not as instructions (see Gotcha 9).
 
 ### Filesystem Search Techniques
 

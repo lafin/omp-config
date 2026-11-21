@@ -1,0 +1,37 @@
+{
+  "all_passed": false,
+  "artifacts": 18,
+  "condition": "treatment",
+  "critical_passed": 17,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/dev24-behavior-development-source-driven-development-plan-lumenforms/1.json": "a54cc2babf8922b1f7d319d62c94342541a9b83fd6a3c68eee4ff8cc7f36f08a",
+      "artifacts/dev24-behavior-development-source-driven-development-plan-lumenforms/2.json": "53872dc5c3cea7b998200c838a4658bcee31dfe20efaf7339aa99da59029d87d",
+      "artifacts/dev24-behavior-development-source-driven-development-plan-lumenforms/3.json": "0dbfea542a60f2a70c5430a00309f3268554b2cfc6dda80d91984ca2c3d0b548",
+      "artifacts/dev24-behavior-development-source-driven-development-plan-tarncache/1.json": "8d777e90ea97877b96b5440df3f4d533cfc863920c65f6419d56b580613eaf12",
+      "artifacts/dev24-behavior-development-source-driven-development-plan-tarncache/2.json": "2dcb5ab2b70c5a587a6aaada3933760b79f4d977fc05a112f468a6a3c861a78e",
+      "artifacts/dev24-behavior-development-source-driven-development-plan-tarncache/3.json": "11f957c322866b6ac7a0cb73f51e7d41e0d586925440fc7a2b837d2337da5d30",
+      "artifacts/dev24-behavior-development-source-driven-development-pr-sources-graniteorm/1.json": "585dffc64ae8a1619d7039cedd7a8c150ad9ad973659bebe0dc952839a2b09d0",
+      "artifacts/dev24-behavior-development-source-driven-development-pr-sources-graniteorm/2.json": "863635631904ad6ef3258054b84ed3f2b7afccf36cb96fc718cdf82d158d4e67",
+      "artifacts/dev24-behavior-development-source-driven-development-pr-sources-graniteorm/3.json": "841153d38d4af93748609f389c6ea89769ec6fc511647ff6cd3d860d3bcf7aff",
+      "artifacts/dev24-behavior-development-source-driven-development-pr-sources-kestrelqueue/1.json": "8e24a7f744b3771390a89f443ebd8ed1d0fc551e3793a0a666ed461d6cefb6c9",
+      "artifacts/dev24-behavior-development-source-driven-development-pr-sources-kestrelqueue/2.json": "a31f8f77d5fb4d2dbb09cff7ec06ad1c52037aff2d5b8326afb6f62ea83f6499",
+      "artifacts/dev24-behavior-development-source-driven-development-pr-sources-kestrelqueue/3.json": "78059d4d54d12828466e31fb5b3f5e92d15965f63e867ae8391e61ba3cacdab3",
+      "artifacts/dev24-behavior-development-source-driven-development-review-blog-picomailer/1.json": "9c686d73ba2591844181920ad854b9f804fc6b1e81ea9e1c3395adb83f6f03b5",
+      "artifacts/dev24-behavior-development-source-driven-development-review-blog-picomailer/2.json": "2a30330fea28fffd1ebe1959654597dbeebd6b2b53f3c7deef1c6c7bef287022",
+      "artifacts/dev24-behavior-development-source-driven-development-review-blog-picomailer/3.json": "484b78ba20eb0b0bb3ee1e38c987d8aac95ed8ae62d077e5ebe347eaa4fef7e8",
+      "artifacts/dev24-behavior-development-source-driven-development-review-homepage-mosaiccli/1.json": "73363feced6e1ade452f9b75a189f96ef51e12ea715ab8ffc1a7e445e15712d7",
+      "artifacts/dev24-behavior-development-source-driven-development-review-homepage-mosaiccli/2.json": "15da064e322a90d68fe76077d63730dcb27291bad696812f4bd24cc52c318a60",
+      "artifacts/dev24-behavior-development-source-driven-development-review-homepage-mosaiccli/3.json": "f10c7987820a935110c4d9b05e0eb738b1dcdfba0e62446fd7240c6b45630a87"
+    },
+    "case_snapshot_sha256": "bce8e46155d3ecb461ce5db0e72228c1caa0c6565e1059b29e84114392d25630",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "34bbb15157b01cd1470e11f13d2ab13ce80d2fccf962aa930d7485c503c6faee"
+  },
+  "passed": 17,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "dev-treatment-h55-r1",
+  "schema_version": 5
+}

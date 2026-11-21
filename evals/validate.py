@@ -268,7 +268,9 @@ def validate_contracts(root: Path, manifest: dict[str, Any], manifest_path: Path
         _require(isinstance(timeout["overall"], str) and bool(timeout["overall"]), location, "timeout_policy.overall", "must be a non-empty rule", "record the overall timeout calculation")
         config = contract["execution_config"]
         _require(isinstance(config, dict) and set(config) == {"model", "profile", "tools", "thinking", "attempt_count", "system_prompt_sha256"}, location, "execution_config", "must freeze model, profile, tools, thinking, attempt_count, and system_prompt_sha256", "record the complete execution configuration")
-        _require(all(isinstance(config[field], str) and config[field] for field in ("model", "profile", "thinking")), location, "execution_config", "model, profile, and thinking must be non-empty strings", "freeze exact runtime values")
+        _require(all(isinstance(config[field], str) and config[field] for field in ("profile", "thinking")), location, "execution_config", "profile and thinking must be non-empty strings", "freeze exact runtime values")
+        model = config["model"]
+        _require(isinstance(model, str) and bool(model) or isinstance(model, list) and bool(model) and all(isinstance(item, str) and item for item in model) and len(set(model)) == len(model), location, "execution_config.model", "must be a non-empty string or a list of unique model ids", "freeze the exact model or reviewed model allowlist")
         _require(isinstance(config["tools"], list) and all(isinstance(item, str) and item for item in config["tools"]), location, "execution_config.tools", "must be a string array", "freeze the exact tool allowlist")
         _require(isinstance(config["attempt_count"], int) and config["attempt_count"] > 0, location, "execution_config.attempt_count", "must be positive", "record the attempt count")
         _require(config["system_prompt_sha256"] is None or isinstance(config["system_prompt_sha256"], str) and bool(HEX64.fullmatch(config["system_prompt_sha256"])), location, "execution_config.system_prompt_sha256", "must be null or a SHA-256 hash", "pin the prompt hash when a custom prompt is used")

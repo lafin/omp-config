@@ -1,0 +1,31 @@
+{
+  "all_passed": false,
+  "artifacts": 12,
+  "condition": "baseline",
+  "critical_passed": 0,
+  "deterministic_grades": "grades.jsonl",
+  "efficacy_claim": null,
+  "input_binding": {
+    "artifacts": {
+      "artifacts/see-boundary-descriptive-25-noop/1.json": "db1fe022e6e76f569559e80bdc373b4c616a065cadd3ce0772c5b75bc6329981",
+      "artifacts/see-boundary-descriptive-25-noop/2.json": "649d512e52dffc17db553918e388aded63d8f5478dffc83c178e631eca6e9aa5",
+      "artifacts/see-boundary-descriptive-25-noop/3.json": "04cab279f603fa479d92ae1faf90e3e54b0fe4f8b2c4eacb30da1e69fa2db0bd",
+      "artifacts/see-boundary-descriptive-26-split/1.json": "08d925839b541cf81afe0796c4295674b68c58f9f93fa1aeae0e500756ac9960",
+      "artifacts/see-boundary-descriptive-26-split/2.json": "221b7558b825f564659897b9bbf10380b4eb286b87e2176109b343d2b4a975f8",
+      "artifacts/see-boundary-descriptive-26-split/3.json": "34d033877fee2b455af8f974b5b64c4328bb95cc20fe3d4599b9263dd8346038",
+      "artifacts/see-boundary-procedural-20-noop/1.json": "c8d2b5d7b4e533b64ec1354c917346195424473f99a48dc311f4a1ce4fb979e1",
+      "artifacts/see-boundary-procedural-20-noop/2.json": "1bb7b135e7595e3eeb04836fbf3bd75587be3da81d1fc79fc6aabf12a85ec6d6",
+      "artifacts/see-boundary-procedural-20-noop/3.json": "37cd8a660278bf3a5f3cd9e6fb23f2099b8998adff2259ee5e81acb2ba1195bf",
+      "artifacts/see-boundary-procedural-21-split/1.json": "09393bf3ed7bc0252a7c58220527351de75066a793dd08f7f1be7c2f032755c8",
+      "artifacts/see-boundary-procedural-21-split/2.json": "541e44b2591641ed351e7ba92371ed17ee3e394d3a1d976535c36322e8f3fcc2",
+      "artifacts/see-boundary-procedural-21-split/3.json": "00e19ae289f703972c1be687e0d4afe61f0d21ed0d7667fdc8ae059bc244ff4a"
+    },
+    "case_snapshot_sha256": "edf75b4543ecd470aa070f36a1e0b66e512ee24ad8a944306b135ea69fcae975",
+    "grader_sha256": "2182af327ea0f1d171cd574bbddcb10b24fe0123c9ace292fa2057d083357aaf",
+    "manifest_sha256": "8e2deb6a3c9a8659ec8392048e2e8a887660b41557d6e11c639f426cf0a2e8e2"
+  },
+  "passed": 0,
+  "reason": "A single condition cannot support an efficacy claim; pair it with the other condition.",
+  "run_id": "hold-baseline-h55-r2",
+  "schema_version": 5
+}
