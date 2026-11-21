@@ -9,6 +9,7 @@ __pycache__
 
 # Raw evaluation captures are retained locally or in external artifact storage.
 evals/results/**/artifacts/
+evals/results/**/artifacts.tar.zst
 # Raw judge payloads and large captures stay local; hashes in evals/results/external-artifacts.json.
 # Deterministic grades are tracked: autoresearch.sh and grade gates read them.
 evals/results/**/*.jsonl

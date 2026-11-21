@@ -1452,7 +1452,12 @@ def main() -> int:
                     temporary.cleanup()
     for temporary_catalog in reversed(catalog_temporaries):
         temporary_catalog.cleanup()
-    print(f"captured {len(cases) * args.attempts} artifacts in {args.output}; capture failures={failures}")
+    # Streamed message_update events repeat the whole partial message, so raw captures grow
+    # quadratically; zstd shrinks them ~1000x. Unpack before grading (evals/README.md).
+    with tarfile.open(args.output / "artifacts.tar.zst", "w:zst", level=10) as tar:
+        tar.add(artifact_dir, arcname="artifacts")
+    shutil.rmtree(artifact_dir)
+    print(f"captured {len(cases) * args.attempts} artifacts in {args.output / 'artifacts.tar.zst'}; capture failures={failures}")
     return 1 if failures else 0
 
 

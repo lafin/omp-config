@@ -155,11 +155,16 @@ resolved catalog revision and root. `cases.jsonl` is the exact case snapshot.
 Each `artifacts/<case>/<attempt>.json` retains the prompt, sanitized command,
 raw output, parsed response, tool trace, model/provider, usage, timing, and
 errors. Repository artifacts also retain initial and final trees, their diff,
-and verifier evidence.
+and verifier evidence. After capture, `run.py` packs them into
+`artifacts.tar.zst` (Python 3.14+ `tarfile`). `grade.py` reads the unpacked
+tree, so unpack before grading or judging and remove the tree afterwards:
+`python3 -m tarfile -e <run>/artifacts.tar.zst <run>` … `rm -r <run>/artifacts`.
 
 Use a new output directory for every run and retain failed attempts. Raw
-artifacts are excluded from Git; upload complete condition directories to
-durable external storage. A published claim requires immutable artifact URI
+artifacts are excluded from Git. Keep `artifacts.tar.zst` only while the active
+`grade.py` can re-grade the run ([retention](../docs/decisions/0020-raw-artifact-retention.md));
+for a published claim, upload complete condition directories to durable
+external storage. A published claim requires immutable artifact URI
 and hash, retention period, access policy, responsible owner, both condition
 directories, deterministic grades, judge evidence when used, and the gate
 report. Missing storage, human review, qualified technical attestation, or

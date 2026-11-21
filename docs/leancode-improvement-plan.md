@@ -25,7 +25,7 @@ Do not change the production skill until a valid baseline exists. The first eval
 | Routing cases | `evals/cases/routing-development.jsonl` and `evals/cases/routing-holdout.jsonl` | Distinguish `leancode` from neighboring specialist skills. |
 | Evaluation runner | `evals/run.py` | Runs behavior, repository, and routing cases through OMP RPC. |
 | Evaluation grader | `evals/grade.py` | Applies deterministic grading, paired release gates, and blinded pairwise judge scoring. |
-| Retained results | `evals/results/leancode-improvement/` | Keeps compact manifests, grades, judge outputs, and release evidence in Git. Raw `artifacts/` remain local or in external artifact storage. |
+| Retained results | `evals/results/leancode-improvement/` | Keeps compact manifests, grades, judge outputs, and release evidence in Git. Raw `artifacts/` were deleted under [0020](decisions/0020-raw-artifact-retention.md) (stale grader). |
 
 The skill now lives at `skills/leancode/SKILL.md`; plan text keeps the decision-time path `leancode/SKILL.md`.
 

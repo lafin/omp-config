@@ -46,7 +46,7 @@ This plan keeps every invariant in `docs/skill-set-improvement-plan.md` §3.3. I
 
 - Invariant 2 (references stay inside the owning skill). The two `multi-agent-research-evidence.md` files in `skills/evaluation/references/` and `skills/multi-agent-patterns/references/` are intentional skill-local copies. They differ in 10 lines. No deduplication.
 - Invariant 9 (evaluator changes freeze before treatment). Every new behavior case in this plan is a separate pre-treatment change.
-- Invariant 10 (historical evidence is preserved). Workstream G moves raw captures; it does not delete them.
+- Invariant 10 (historical evidence is preserved). Workstream G moves raw captures; it does not delete them. Tracked manifests and grades are the preserved evidence; raw captures of runs the active grader cannot re-grade were later deleted ([0020](decisions/0020-raw-artifact-retention.md)).
 
 Non-goals, from `docs/skill-set-improvement-plan.md` §3.2 and ECC's weaknesses:
 
