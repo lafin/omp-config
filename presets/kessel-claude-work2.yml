@@ -31,13 +31,11 @@ task:
   agentModelOverrides:
     scout: kessel/kessel-claude-work/claude-haiku-5-5:high
     sonic: kessel/kessel-claude-work/claude-haiku-5-5:low
-    librarian: kessel/kessel-claude-work/claude-haiku-5-5:high
     reviewer: kessel/kessel-claude-work/claude-opus-5-5:high
     security-reviewer: kessel/kessel-claude-work/claude-sonnet-5-5:high
     designer: kessel/kessel-claude-work/claude-fable-5-2:high
     deep-verifier: kessel/kessel-claude-work/claude-opus-5-5:high
     fixer: kessel/kessel-claude-work/claude-sonnet-5-5:medium
-    regression-reviewer: kessel/kessel-claude-work/claude-opus-5-5:high
 compaction:
   modelThresholds:
     kessel/kessel-claude-work/claude-haiku-5-5: "f90000" # compact before Haiku's 100K long-context price step

@@ -122,10 +122,9 @@ describe("dir-context extension", () => {
     expect(loadedPaths(await call("edit", { path: "a.ts" }))).toHaveLength(1);
   });
 
-  test("xd://ast_edit targets are read from the JSON content", async () => {
+  test("ast_edit targets are read from paths", async () => {
     const root = workspace({ "pkg/AGENTS.md": "rules" });
-    const content = JSON.stringify({ ops: [], paths: ["pkg/a.ts"] });
-    const result = await loadExtension(root)("write", { path: "xd://ast_edit", content });
+    const result = await loadExtension(root)("ast_edit", { ops: [], paths: ["pkg/a.ts"] });
     expect(loadedPaths(result)).toEqual([join(root, "pkg/AGENTS.md")]);
   });
 

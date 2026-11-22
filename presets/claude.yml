@@ -23,13 +23,11 @@ task:
   agentModelOverrides:
     scout: anthropic/claude-haiku-5-5:high
     sonic: anthropic/claude-haiku-5-5:low
-    librarian: anthropic/claude-haiku-5-5:high
     reviewer: anthropic/claude-opus-5-5:high
     security-reviewer: anthropic/claude-sonnet-5-5:high
     designer: anthropic/claude-opus-5-5:high
     deep-verifier: anthropic/claude-opus-5-5:high
     fixer: anthropic/claude-sonnet-5-5:medium
-    regression-reviewer: anthropic/claude-opus-5-5:high
 compaction:
   modelThresholds:
     anthropic/claude-haiku-5-5: "f90000" # compact before Haiku's 100K long-context price step

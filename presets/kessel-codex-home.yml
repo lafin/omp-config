@@ -27,13 +27,11 @@ task:
   agentModelOverrides:
     scout: kessel/kessel-codex-home/gpt-6-luna:high
     sonic: kessel/kessel-codex-home/gpt-6-luna:low
-    librarian: kessel/kessel-codex-home/gpt-6-luna:high
     reviewer: kessel/kessel-codex-home/gpt-6.1-sol:xhigh
     security-reviewer: kessel/kessel-codex-home/gpt-6.1-sol:high
     designer: kessel/kessel-codex-home/gpt-6.1-sol:high
     deep-verifier: kessel/kessel-codex-home/gpt-6.1-sol:xhigh
     fixer: kessel/kessel-codex-home/gpt-6.1-sol:medium
-    regression-reviewer: kessel/kessel-codex-home/gpt-6.1-sol:high
 compaction:
   modelThresholds:
     kessel/kessel-codex-home/gpt-6.1-sol: "f425000" # served window 500K minus omp's 15% reserve

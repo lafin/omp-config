@@ -42,15 +42,6 @@ function targetPaths(input: Record<string, unknown>): string[] {
   if (typeof input.input === "string") {
     for (const m of input.input.matchAll(HASHLINE)) out.push(m[1]);
   }
-  // `write xd://ast_edit` carries its targets inside the JSON content.
-  if (typeof input.path === "string" && input.path.startsWith("xd://ast_edit") && typeof input.content === "string") {
-    try {
-      const { paths } = JSON.parse(input.content) as { paths?: unknown };
-      if (Array.isArray(paths)) for (const v of paths) if (typeof v === "string") out.push(v);
-    } catch {
-      // Malformed device args fail in the device itself with a better message.
-    }
-  }
   // grep/glob take `;`-joined lists and globs; read takes `:range` and `?query` selectors.
   return out
     .filter((p) => !p.includes("://"))
